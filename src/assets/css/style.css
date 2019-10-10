@@ -1,0 +1,88 @@
+.el-table th>.cell{
+    background: #0095d5;
+    color: #fff;
+    border-right: 1px solid #fff;
+    text-align: center;
+}
+.cell{
+    text-align: center;
+}
+/* 弹窗 */
+.el-dialog__body{
+    padding: 0 20px 30px 20px;
+}
+.el-main{
+    padding: 5px 0;
+}
+.el-dialog__wrapper{
+    z-index: 9999;
+}
+/* 折叠菜单 */
+.el-collapse-item__wrap{
+    border-bottom: 0;
+}
+.el-collapse{
+    border-bottom: 0;
+}
+.el-collapse-item__content{
+    padding-bottom: 0;
+}
+.el-tabs--border-card>.el-tabs__content {
+    padding: 0px;
+}
+.el-menu--horizontal>.el-menu-item{
+    height: 40px;
+    line-height: 40px;
+}
+.el-tabs--border-card{
+    border: 0;
+}
+.el-radio{
+    line-height: 2;
+}
+/* 表格附件样式问题 */
+.el-table__header,.el-table__body{
+    width: 100% !important;
+}
+/* 投标邀请书 其他资格要求的input框样式问题 */
+.other_box>.el-textarea__inner{
+    min-height: 300px !important;
+}
+/* 注册样式问题 */
+.is-required >.el-form-item__label {
+    width: 180px !important;
+}
+.el-form-item>.el-form-item__label {
+    width: 180px !important;
+}
+.el-form-item__content{
+    margin-left: 0 !important;
+    flex: 1;
+}
+.el-form-item{
+    display: flex !important;
+}
+.el-form-item>.el-input {
+    width: 100% !important;
+}
+/* 表格滚动 */
+/* .el-table{
+    position: relative;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    color: #606266;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}  */
