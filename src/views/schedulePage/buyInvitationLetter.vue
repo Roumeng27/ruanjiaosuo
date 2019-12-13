@@ -312,13 +312,13 @@
                                 this.$router.push({ name:'NotHandled'})
                             this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -357,13 +357,13 @@
                             this.$router.push({ name:'NotHandled'})
                             this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -435,7 +435,7 @@
                         this.contactMode = res.data.data.contactMode;//联系方式
                         this.remarks = res.data.data.remarks;//备注
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -458,7 +458,7 @@
                         this.sourceOfFunds = res.data.data.sourceOfFunds;// 资金来源
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -518,7 +518,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

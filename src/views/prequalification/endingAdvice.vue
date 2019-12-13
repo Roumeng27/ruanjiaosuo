@@ -32,13 +32,13 @@
                 <el-table :data="tableData" stripe style="width: 100%">
                     <el-table-column type="index" width="70" label="编号" :index="typeIndex">
                     </el-table-column>
-                    <el-table-column prop="totalProjectId" label="入场项目(分包)编号" width="150">
+                    <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="150">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称" width="120">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称" width="120">
                     </el-table-column>
-                    <el-table-column prop="biddingProjectNumber" label="分包名称">
+                    <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="nameOfPurchaser" label="回复情况">
+                    <el-table-column prop="nameOfPurchaser" :show-overflow-tooltip ="true" label="回复情况">
                         <template slot-scope="scope">
                             <i class="el-icon-search" style="cursor:pointer;" @click="replySituation"></i>
                         </template>
@@ -68,17 +68,17 @@
                     <el-table :data="inviteData" stripe style="width: 100%">
                         <el-table-column type="index" width="70" label="编号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="totalProjectId" label="单位名称">
+                        <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="单位名称">
                         </el-table-column>
-                        <el-table-column prop="nameOfTenderProject" label="联系人">
+                        <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="联系人">
                         </el-table-column>
-                        <el-table-column prop="biddingProjectNumber" label="是否通过审核">
+                        <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="是否通过审核">
                         </el-table-column>
-                        <el-table-column prop="biddingProjectNumber" label="通知书发出状态">
+                        <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="通知书发出状态">
                         </el-table-column>
-                        <el-table-column prop="biddingProjectNumber" label="是否参加">
+                        <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="是否参加">
                         </el-table-column>
-                        <el-table-column prop="biddingProjectNumber" label="项目负责人">
+                        <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="项目负责人">
                         </el-table-column>
                     </el-table>
                 </div>
@@ -286,13 +286,13 @@
                                 </el-table-column>
                                 <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                 </el-table-column>
-                                <el-table-column  prop="unitName"  label="单位名称">
+                                <el-table-column  prop="unitName" :show-overflow-tooltip ="true"  label="单位名称">
                                 </el-table-column>
-                                <el-table-column  prop="noticeIssueUnitName"  label="项目负责人">
+                                <el-table-column  prop="noticeIssueUnitName"  :show-overflow-tooltip ="true" label="项目负责人">
                                 </el-table-column>
-                                <el-table-column  prop="issueTime"  label="发出时间">
+                                <el-table-column  prop="issueTime" :show-overflow-tooltip ="true" label="发出时间">
                                 </el-table-column>
-                                <el-table-column  prop="auditResults"  label="资审结果">
+                                <el-table-column  prop="auditResults" :show-overflow-tooltip ="true"  label="资审结果">
                                 </el-table-column>
                                 <el-table-column label="通知书状态">
                                     <template slot-scope="scope">
@@ -311,13 +311,13 @@
                                 </el-table-column>
                                 <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                 </el-table-column>
-                                <el-table-column  prop="unitName"  label="单位名称">
+                                <el-table-column  prop="unitName" :show-overflow-tooltip ="true"  label="单位名称">
                                 </el-table-column>
-                                <el-table-column  prop="noticeIssueUnitName"  label="项目负责人">
+                                <el-table-column  prop="noticeIssueUnitName" :show-overflow-tooltip ="true"  label="项目负责人">
                                 </el-table-column>
-                                <el-table-column  prop="issueTime"  label="发出时间">
+                                <el-table-column  prop="issueTime" :show-overflow-tooltip ="true"  label="发出时间">
                                 </el-table-column>
-                                <el-table-column  prop="auditResults"  label="资审结果">
+                                <el-table-column  prop="auditResults" :show-overflow-tooltip ="true"  label="资审结果">
                                 </el-table-column>
                                 <el-table-column label="通知书状态" >
                                     <template slot-scope="scope">

@@ -21,19 +21,19 @@
         <el-table :data="tableData" stripe style="width: 100%">
           <el-table-column type="index" width="70" label="编号" :index="typeIndex">
           </el-table-column>
-          <el-table-column prop="totalProjectId" label="入场(分包)编号" width="150">
+          <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场(分包)编号" width="150">
           </el-table-column>
-          <el-table-column prop="nameOfTenderProject" label="招标项目名称" width="120">
+          <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称" width="120">
           </el-table-column>
-          <el-table-column prop="biddingProjectNumber" label="分包名称">
+          <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包名称">
           </el-table-column>
-          <el-table-column prop="nameOfPurchaser" label="分包分类">
+          <el-table-column prop="nameOfPurchaser" :show-overflow-tooltip ="true" label="分包分类">
           </el-table-column>
-          <el-table-column prop="state" label="状态">
+          <el-table-column prop="state" :show-overflow-tooltip ="true" label="状态">
           </el-table-column>
-          <el-table-column prop="biddingProcurementMode" label="发布状态">
+          <el-table-column prop="biddingProcurementMode" :show-overflow-tooltip ="true" label="发布状态">
           </el-table-column>
-          <el-table-column prop="biddingProcurementMode" label="公告截止时间">
+          <el-table-column prop="biddingProcurementMode" :show-overflow-tooltip ="true" label="公告截止时间">
           </el-table-column>
           <el-table-column prop="operation" label="查看邀请函">
             <template slot-scope="scope">
@@ -77,19 +77,19 @@
             </el-table-column>
             <el-table-column type="index" width="70" label="编号" :index="typeIndex">
             </el-table-column>
-            <el-table-column prop="admissionNum" label="入场项目编号" width="120">
+            <el-table-column prop="admissionNum" :show-overflow-tooltip ="true" label="入场项目编号" width="120">
             </el-table-column>
-            <el-table-column prop="name" label="招标项目名称">
+            <el-table-column prop="name" :show-overflow-tooltip ="true" label="招标项目名称">
             </el-table-column>
-            <el-table-column prop="tendNum" label="分包名称">
+            <el-table-column prop="tendNum" :show-overflow-tooltip ="true" label="分包名称">
             </el-table-column>
-            <el-table-column prop="purchaser" label="分包分类">
+            <el-table-column prop="purchaser"  :show-overflow-tooltip ="true" label="分包分类">
             </el-table-column>
-            <el-table-column prop="mode" label="招标方式">
+            <el-table-column prop="mode" :show-overflow-tooltip ="true" label="招标方式">
             </el-table-column>
-            <el-table-column prop="mode" label="分包控制金额(万元)">
+            <el-table-column prop="mode" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
             </el-table-column>
-            <el-table-column prop="state" label="分包状态">
+            <el-table-column prop="state" :show-overflow-tooltip ="true" label="分包状态">
             </el-table-column>
         </el-table>
       </div>
@@ -108,19 +108,19 @@
           <el-table :data="tableData" stripe style="width: 100%">
             <el-table-column type="index" width="70" label="编号" :index="typeIndex">
             </el-table-column>
-            <el-table-column prop="admissionNum" label="单位名称" width="120">
+            <el-table-column prop="admissionNum" :show-overflow-tooltip ="true" label="单位名称" width="120">
             </el-table-column>
-            <el-table-column prop="name" label="项目负责人">
+            <el-table-column prop="name" :show-overflow-tooltip ="true" label="项目负责人">
             </el-table-column>
-            <el-table-column prop="tendNum" label="邀请函发出状态">
+            <el-table-column prop="tendNum" :show-overflow-tooltip ="true" label="邀请函发出状态">
             </el-table-column>
-            <el-table-column prop="purchaser" label="发出时间">
+            <el-table-column prop="purchaser" :show-overflow-tooltip ="true" label="发出时间">
             </el-table-column>
-            <el-table-column prop="mode" label="查看邀请函">
+            <el-table-column prop="mode" :show-overflow-tooltip ="true" label="查看邀请函">
             </el-table-column>
-            <el-table-column prop="mode" label="回执件">
+            <el-table-column prop="mode" :show-overflow-tooltip ="true" label="回执件">
             </el-table-column>
-            <el-table-column prop="state" label="备注">
+            <el-table-column prop="state" :show-overflow-tooltip ="true" label="备注">
             </el-table-column>
         </el-table>
       </div>
@@ -358,23 +358,23 @@
                                     </el-table-column>
                                     <el-table-column type="index" width="50" label="编号" :index="typeIndex">
                                     </el-table-column>
-                                    <el-table-column  prop="name"  label="单位名称">
+                                    <el-table-column  prop="name" :show-overflow-tooltip ="true" label="单位名称">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="项目负责人" width="100">
+                                    <el-table-column prop="list" :show-overflow-tooltip ="true" label="项目负责人" width="100">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="发出时间">
+                                    <el-table-column prop="list" :show-overflow-tooltip ="true" label="发出时间">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="支付标书费"  width="100">
+                                    <el-table-column prop="list" :show-overflow-tooltip ="true" label="支付标书费"  width="100">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="缴纳保证金"  width="100">
+                                    <el-table-column prop="list"  :show-overflow-tooltip ="true" label="缴纳保证金"  width="100">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="邀请函状态"  width="100">
+                                    <el-table-column prop="list" :show-overflow-tooltip ="true" label="邀请函状态"  width="100">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="回执件">
+                                    <el-table-column prop="list" :show-overflow-tooltip ="true" label="回执件">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="修改">
+                                    <el-table-column prop="list" :show-overflow-tooltip ="true" label="修改">
                                     </el-table-column>
-                                    <el-table-column prop="list" label="签章">
+                                    <el-table-column prop="list" :show-overflow-tooltip ="true" label="签章">
                                     </el-table-column>
                                     <el-table-column fixed="right" label="操作" width="100">
                                     <template slot-scope="scope">

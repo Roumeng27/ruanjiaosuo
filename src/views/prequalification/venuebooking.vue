@@ -36,17 +36,17 @@
                 <el-table :data="tableData" stripe style="width: 100%">
                     <el-table-column type="index" label="序号" :index="typeIndex" width="70">
                     </el-table-column>
-                    <el-table-column prop="entrySubcontractNumber" label="入场项目编号" width="180">
+                    <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目编号" width="180">
                     </el-table-column>
-                    <el-table-column prop="entrySubcontractNumber" label="入场项目分包编号" width="180">
+                    <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目分包编号" width="180">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="分包名称">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="资审评审开始时间">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="资审评审开始时间">
                     </el-table-column>
-                    <el-table-column prop="subcontractingState" label="状态">
+                    <el-table-column prop="subcontractingState" :show-overflow-tooltip ="true" label="状态">
                     </el-table-column>
                     <el-table-column prop="operation" label="操作">
                         <template slot-scope="scope">
@@ -90,15 +90,15 @@
                             <el-table-column  label="序号">
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
-                            <el-table-column prop="totalProjectId" label="入场项目编号" width="150">
+                            <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目编号" width="150">
                             </el-table-column>
-                            <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                            <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                             </el-table-column>
-                            <el-table-column prop="biddingProjectNumber" label="招标项目编号">
+                            <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="招标项目编号">
                             </el-table-column>
-                            <el-table-column prop="nameOfPurchaser" label="招标(采购)人">
+                            <el-table-column prop="nameOfPurchaser" :show-overflow-tooltip ="true" label="招标(采购)人">
                             </el-table-column>
-                            <el-table-column prop="biddingProcurementMode" label="招标采购方式">
+                            <el-table-column prop="biddingProcurementMode" :show-overflow-tooltip ="true" label="招标采购方式">
                             </el-table-column>
                             <el-table-column prop="state" label="状态">
                             </el-table-column>
@@ -691,7 +691,7 @@ export default {
 				if(res.data.status == 200){
                     this.options = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -712,7 +712,7 @@ export default {
                     this.nameOfPurchaser = res.data.data.nameOfPurchaser;// 招标(采购)人 
                     this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -733,7 +733,7 @@ export default {
                         this.creationTime = formatDate(item.creationTime)
                     });
                 }else{
-                    this.$layer.msg(res.data.msg,'办理记录');
+                    this.$message.warning(res.data.msg,'办理记录');
                 }
             }).catch(err=>{
                 console.log(err)

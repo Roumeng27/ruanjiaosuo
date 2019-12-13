@@ -52,11 +52,11 @@
                                     <el-table :data="subcontractData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -86,7 +86,7 @@
                                     <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>申请资格：</div>
                                     <div class="noteFlex">
-                                        <el-input type="textarea" v-model="applicationQualification"></el-input>
+                                        <el-input type="textarea" id="focus1" v-model="applicationQualification"></el-input>
                                     </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                     <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>文件递交截止时间：</div>
                                     <div class="noteFlex">
-                                        <el-date-picker value-format="timestamp" v-model="fileSubmissionEndTime" type="datetime" placeholder="选择日期时间">
+                                        <el-date-picker id="focus2"  value-format="timestamp" v-model="fileSubmissionEndTime" type="datetime" placeholder="选择日期时间">
                                         </el-date-picker>
                                     </div>
                                     <div style="display: inline-flex;margin-left:30px;width:50%;">
@@ -109,7 +109,7 @@
                                     <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>文件递交地址：</div>
                                     <div class="noteFlex">
-                                        <el-input type="textarea" v-model="documentSubmissionAddress"></el-input>
+                                        <el-input type="textarea" id="focus3"  v-model="documentSubmissionAddress"></el-input>
                                     </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                     <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>文件评审时间：</div>
                                     <div class="noteFlex">
-                                        <el-date-picker value-format="timestamp" v-model="documentReviewTime" type="datetime" placeholder="选择日期时间">
+                                        <el-date-picker id="focus4"  value-format="timestamp" v-model="documentReviewTime" type="datetime" placeholder="选择日期时间">
                                         </el-date-picker>
                                     </div>
                                     </div>
@@ -128,7 +128,7 @@
                                     <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>文件开启方式：</div>
                                     <div class="noteFlex">
-                                        <el-select v-model="fileOpeningMode" placeholder="请选择">
+                                        <el-select  id="focus5" v-model="fileOpeningMode" placeholder="请选择">
                                             <el-option v-for="item in fileOpeningModeList" :key="item.value" :label="item.label" :value="item.value">
                                             </el-option>
                                         </el-select>
@@ -140,7 +140,7 @@
                                     <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>评审办法：</div>
                                     <div class="noteFlex">
-                                        <el-input v-model="reviewMethod"></el-input>
+                                        <el-input id="focus6"  v-model="reviewMethod"></el-input>
                                     </div>
                                     </div>
                                 </div>
@@ -202,11 +202,11 @@
                                     <el-table :data="subcontractData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -468,7 +468,7 @@ export default {
                 this.tenderPurchaserName = res.data.data.tenderPurchaserName;// 招标(采购)人
                 this.tenderContents = res.data.data.tenderContents;// 招标内容
             }else{
-                this.$layer.msg(res.data.msg);
+                this.$message.warning(res.data.msg);
             }
         }).catch(err=>{
             console.log(err)
@@ -494,7 +494,7 @@ export default {
             if(res.data.status == 200){
                 this.subcontractData = res.data.data
             }else{
-                this.$layer.msg(res.data.msg);
+                this.$message.warning(res.data.msg);
             }
             
         }).catch(err=>{
@@ -593,22 +593,28 @@ export default {
     //下一步
     nextTo(){
         if(!this.applicationQualification){
-            this.$layer.msg('请输入申请资格');
+            $('#focus1').focus();
+            this.$message.warning('请输入申请资格');
             return false;
         }else if(!this.fileSubmissionEndTime){
-            this.$layer.msg('请选择文件递交截止时间');
+            $('#focus2').focus();
+            this.$message.warning('请选择文件递交截止时间');
             return false;
         }else if(!this.documentSubmissionAddress){
-            this.$layer.msg('请选择文件递交地址');
+            $('#focus3').focus();
+            this.$message.warning('请选择文件递交地址');
             return false;
         }else if(!this.documentReviewTime){
-            this.$layer.msg('请选择文件评审时间');
+            $('#focus4').focus();
+            this.$message.warning('请选择文件评审时间');
             return false;
         }else if(!this.fileOpeningMode){
-            this.$layer.msg('请选择文件开启方式');
+            $('#focus5').focus();
+            this.$message.warning('请选择文件开启方式');
             return false;
         }else if(!this.reviewMethod){
-            this.$layer.msg('请填写评审方法');
+            $('#focus6').focus();
+            this.$message.warning('请填写评审方法');
             return false;
         }
         let objData = {}
@@ -686,7 +692,7 @@ export default {
                 this.reviewMethod = res.data.data.reviewMethod;
                 this.prequalificaId = res.data.data.prequalificaId;
             }else{
-                this.$layer.msg(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
         }).catch(err=>{
             console.log(err)
@@ -695,22 +701,28 @@ export default {
     //保存
     saveFile(){
         if(!this.applicationQualification){
-            this.$layer.msg('请输入申请资格');
+            $('#focus1').focus();
+            this.$message.warning('请输入申请资格');
             return false;
         }else if(!this.fileSubmissionEndTime){
-            this.$layer.msg('请选择文件递交截止时间');
+            $('#focus2').focus();
+            this.$message.warning('请选择文件递交截止时间');
             return false;
         }else if(!this.documentSubmissionAddress){
-            this.$layer.msg('请选择文件递交地址');
+            $('#focus3').focus();
+            this.$message.warning('请选择文件递交地址');
             return false;
         }else if(!this.documentReviewTime){
-            this.$layer.msg('请选择文件评审时间');
+            $('#focus4').focus();
+            this.$message.warning('请选择文件评审时间');
             return false;
         }else if(!this.fileOpeningMode){
-            this.$layer.msg('请选择文件开启方式');
+            $('#focus5').focus();
+            this.$message.warning('请选择文件开启方式');
             return false;
         }else if(!this.reviewMethod){
-            this.$layer.msg('请填写评审方法');
+            $('#focus6').focus();
+            this.$message.warning('请填写评审方法');
             return false;
         }
         let objData = {}
@@ -771,7 +783,7 @@ export default {
                 })
                 this.show = true;
             }else{
-                this.$layer.msg(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
         }).catch(err=>{
             console.log(err)
@@ -806,7 +818,7 @@ export default {
                     item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                 })
             }else{
-                this.$layer.msg(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
         }).catch(err=>{
             console.log(err)
@@ -855,7 +867,7 @@ export default {
                 this.show = false;
                 $('.new_nav').hide();
             }else{
-                this.$layer.msg(res.data.msg);
+                this.$message.warning(res.data.msg);
                 this.submitBoxShow = false;
             }
         }).catch(err=>{
@@ -881,7 +893,7 @@ export default {
         var file = event.target.files[0];
         var fileSize = file.size; 
         if(fileSize > 102400000) {
-            this.$layer.msg('图片大小不能超过102400000KB');
+            this.$message.warning('图片大小不能超过102400000KB');
             return false;
         }
         this.$refs.file.value = null;
@@ -898,7 +910,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -923,7 +935,7 @@ export default {
                 })
                 this.enclosureData[0].attachlist = arr
             }else{
-                this.$layer.msg(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
         }).catch(err=>{
             console.log(err);
@@ -943,7 +955,7 @@ export default {
     //删除文件列表
     deleteFile(){
         if(this.attachmeId.length<=0){
-            this.$layer.msg('请选择要删除的文件!')
+            this.$message.warning('请选择要删除的文件!')
             return false;
         }else {
             this.$axios({
@@ -963,7 +975,7 @@ export default {
                         }
                     }
             }else{
-                this.$layer.msg(res.data.msg);
+                this.$message.warning(res.data.msg);
             }
             }).catch(err=>{
                 console.log(err);
@@ -1015,7 +1027,7 @@ export default {
             if(res.data.status == 200){
                 this.fileOpeningModeList = res.data.data.data;
             }else{
-                this.$layer.msg(res.data.msg);
+                this.$message.warning(res.data.msg);
             }
         }).catch(err=>{
             console.log(err)

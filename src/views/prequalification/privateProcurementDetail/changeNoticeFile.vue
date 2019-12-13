@@ -40,14 +40,17 @@
                                             <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="entrySubcontractNumber"
                                             label="入场项目(分包)编号">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="subcontractName"
                                             label="分包名称">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="subcontractingControlAmount"
                                             label="分包控制金额(万元)">
                                         </el-table-column>
@@ -1554,7 +1557,7 @@ export default {
                         this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1596,7 +1599,7 @@ export default {
                     });
                     
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1845,7 +1848,7 @@ export default {
                         this.peitao = false;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1889,48 +1892,48 @@ export default {
         //点击下一步、保存
         newly(num){
             if(!this.noticeName){
-                this.$layer.msg('请填写公告名称');
+                this.$message.warning('请填写公告名称');
                 return false;
             }else if(!this.changesDate){
-                this.$layer.msg('请选择变更日期');
+                this.$message.warning('请选择变更日期');
                 return false;
             }else if(!this.changeReason){
-                this.$layer.msg('请填写变更理由');
+                this.$message.warning('请填写变更理由');
                 return false;
             }else if(!this.changesAs){
-                this.$layer.msg('请输入变更事项');
+                this.$message.warning('请输入变更事项');
                 return false;
             }else if(!this.isChangeBidMatters){
-                this.$layer.msg('请选择是否变更投标事宜');
+                this.$message.warning('请选择是否变更投标事宜');
                 return false;
             }else if(!this.isChangeBidOpenMatters){
-                this.$layer.msg('请选择是否变更开标事宜');
+                this.$message.warning('请选择是否变更开标事宜');
                 return false;
             }else if(this.isChangeBidMatters == "是"){
                 if(!this.enrollStartTime){
-                    this.$layer.msg('请选择报名开始时间');
+                    this.$message.warning('请选择报名开始时间');
                     return false;
                 }else if(!this.enrollEndTime){
-                    this.$layer.msg('请选择报名结束时间');
+                    this.$message.warning('请选择报名结束时间');
                     return false;
                 }else if(!this.enrollEndTime){
-                    this.$layer.msg('请选择报名结束时间');
+                    this.$message.warning('请选择报名结束时间');
                     return false;
                 }else if(this.collectTime.length == 0){
-                    this.$layer.msg("请输入采购文件发售时间！");
+                    this.$message.warning("请输入采购文件发售时间！");
                     return false;
                 }else if(!this.morningbegin && !this.morningend && !this.afterbegin && !this.afterend){
-                    this.$layer.msg("请输入采购文件发售时间！");
+                    this.$message.warning("请输入采购文件发售时间！");
                     return false;
                 }else if(this.tenderDocumentsCost =='' || this.tenderDocumentsCost == null || !checkNumber(this.tenderDocumentsCost)){
-                    this.$layer.msg("请输入采购文件工本费！");
+                    this.$message.warning("请输入采购文件工本费！");
                     return false;
                 }
             }else if(this.tendereePhone != '' && this.tendereePhone != null && !isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
-                this.$layer.msg('请正确填写联系方式');
+                this.$message.warning('请正确填写联系方式');
                 return false;
             }else if(this.projectLeaderPhone != '' && this.projectLeaderPhone != null && !isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){ 
-                this.$layer.msg('请输入正确的联系方式！');
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }
             if(num == 1){
@@ -2174,7 +2177,7 @@ export default {
                     }
                      this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2286,7 +2289,7 @@ export default {
                         this.bidEvaluationTime = new Date(res.data.data[0].bidEvaluationTime).getTime();
                     };
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2317,7 +2320,7 @@ export default {
                     this.uploadList();
                     this.submitBox = true;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2432,7 +2435,7 @@ export default {
                         } 
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2486,7 +2489,7 @@ export default {
                             })
                             this.enclosureData[0].attachlist = arr
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err);
@@ -2502,7 +2505,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -2525,7 +2528,7 @@ export default {
                     this.uploadList();
                     $('.file_btn').val = "";
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2573,7 +2576,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -2593,7 +2596,7 @@ export default {
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -2627,7 +2630,7 @@ export default {
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

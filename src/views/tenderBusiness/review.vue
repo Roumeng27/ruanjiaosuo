@@ -31,13 +31,13 @@
                 <el-table :data="reviewData" stripe style="width: 100%">
                     <el-table-column type="index" label="序号" :index="typeIndex" width="70">
                     </el-table-column>
-                    <el-table-column prop="totalProjectId" label="入场项目分包编号" width="180">
+                    <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目分包编号" width="180">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="subcontractName" label="分包名称">
+                    <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="bidEvaluationState" label="评标状态">
+                    <el-table-column prop="bidEvaluationState" :show-overflow-tooltip ="true" label="评标状态">
                     </el-table-column>
                     <el-table-column prop="operation" label="操作">
                         <template slot-scope="scope">
@@ -114,14 +114,17 @@
                                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                                 </el-table-column>
                                                 <el-table-column
+                                                    :show-overflow-tooltip ="true"
                                                     prop="entrySubcontractNumber"
                                                     label="入场项目(分包)编号">
                                                 </el-table-column>
                                                 <el-table-column
+                                                    :show-overflow-tooltip ="true"
                                                     prop="subcontractName"
                                                     label="分包名称">
                                                 </el-table-column>
                                                 <el-table-column
+                                                    :show-overflow-tooltip ="true"
                                                     prop="subcontractingControlAmount"
                                                     label="分包控制金额(万元)">
                                                 </el-table-column>
@@ -208,38 +211,47 @@
                                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="companyName"
                                                 label="单位名称">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="offer"
                                                 label="投标报价(元/%)">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="quotationMethod"
                                                 label="报价方式">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="economic"
                                                 label="经济标">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="technology"
                                                 label="技术标">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="business"
                                                 label="商务标">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="otherPoints"
                                                 label="其他分">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="totalScore"
                                                 label="汇总分">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="ranking"
                                                 label="排名">
                                             </el-table-column>
@@ -794,7 +806,7 @@
                     if(res.data.status == 200){
                         this.saveBox = true;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -841,7 +853,7 @@
                     if(res.data.status == 200){
                         this.saveBox = true;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -909,7 +921,7 @@
                         this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -932,7 +944,7 @@
                             return item.entrySubcontractNumber,item.qualificationExaminationMethod
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -960,7 +972,7 @@
                     if(res.data.status == 200){
                         this.totalData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -990,7 +1002,7 @@
                     if(res.data.status == 200){
                         this.validData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1020,7 +1032,7 @@
                     if(res.data.status == 200){
                         this.invalidData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1029,22 +1041,22 @@
             // 修改评标保存
             editSave(){
                 if(this.economic != '' && this.economic != null && !checkNumber(this.economic)){
-                     this.$layer.msg('请输入数字');
+                     this.$message.warning('请输入数字');
                      return false;
                 }else if(this.technology != '' && this.technology != null && !checkNumber(this.technology)){
-                    this.$layer.msg('请输入数字');
+                    this.$message.warning('请输入数字');
                     return false;
                 }else if(this.business != ''&& this.business != null && !checkNumber(this.business)){
-                     this.$layer.msg('请输入数字');
+                     this.$message.warning('请输入数字');
                      return false;
                 }else if(this.otherPoints != '' && this.otherPoints != null && !checkNumber(this.otherPoints)){
-                     this.$layer.msg('请输入数字');
+                     this.$message.warning('请输入数字');
                      return false;
                 }else if(this.totalScore != '' && this.totalScore != null && !checkNumber(this.totalScore)){
-                     this.$layer.msg('请输入数字');
+                     this.$message.warning('请输入数字');
                      return false;
                 }else if(this.ranking != '' && this.ranking != null && !checkNumber(this.ranking)){
-                    this.$layer.msg('请输入数字');
+                    this.$message.warning('请输入数字');
                     return false;   
                 }else {
                     // 是否判定无效
@@ -1104,7 +1116,7 @@
                             this.getvalidInfo();// 有效标列表
                             this.getinvalidInfo();// 无效标列表
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -1164,7 +1176,7 @@
                         }
                        
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1199,7 +1211,7 @@
                         this.invalidFlag = false;
                         this.getinvalidInfo();// 无效标列表
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1231,7 +1243,7 @@
                         }
                         this.total = res.data.data.data[0].total;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)

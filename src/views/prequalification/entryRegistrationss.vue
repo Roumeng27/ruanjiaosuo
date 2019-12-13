@@ -35,15 +35,15 @@
 				<el-table :data="tableData" stripe style="width: 100%">
 					<el-table-column type="index" width="70" label="编号" :index="typeIndex">
 					</el-table-column>
-					<el-table-column prop="totalProjectId" label="入场项目编号" width="180">
+					<el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目编号" width="180">
 					</el-table-column>
-					<el-table-column prop="nameOfTenderProject" label="采购项目名称" width="180">
+					<el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="采购项目名称" width="180">
 					</el-table-column>
-					<el-table-column prop="biddingProjectNumber" label="采购项目编号">
+					<el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="采购项目编号">
 					</el-table-column>
-					<el-table-column prop="nameOfPurchaser" label="招标(采购)人">
+					<el-table-column prop="nameOfPurchaser" :show-overflow-tooltip ="true" label="招标(采购)人">
 					</el-table-column>
-					<el-table-column prop="biddingProcurementMode" label="招标采购方式">
+					<el-table-column prop="biddingProcurementMode" :show-overflow-tooltip ="true" label="招标采购方式">
 					</el-table-column>
 					<el-table-column prop="state" label="状态">
 					</el-table-column>
@@ -86,7 +86,7 @@
 									<div class="editTextarea">
 										<div class="editName"><p class="star">*</p>批复项目名称：</div>
 										<div class="editContent">
-											<el-input v-model="approvalProjectName" clearable></el-input>
+											<el-input id="focus1" v-model="approvalProjectName" clearable></el-input>
 										</div>
 									</div>
                             	</div>
@@ -104,13 +104,13 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>批复文号：</div>
                                         <div class="editContent">
-											<el-input v-model="approvalNumber" clearable></el-input>
+											<el-input id="focus2" v-model="approvalNumber" clearable></el-input>
 										</div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>批复核准部门：</div>
                                         <div class="editContent">
-											<el-input v-model="approvalAndApprovalDepartment" clearable></el-input>
+											<el-input id="focus3"  v-model="approvalAndApprovalDepartment" clearable></el-input>
 										</div>
                                     </div>
                                 </div>
@@ -118,13 +118,13 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>监督部门：</div>
                                         <div class="editContent">
-											<el-input v-model="supervisionDepartment" clearable></el-input>
+											<el-input id="focus4"  v-model="supervisionDepartment" clearable></el-input>
 										</div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>核准部门：</div>
                                         <div class="editContent">
-											<el-input v-model="auditDepartment" clearable></el-input>
+											<el-input id="focus5"  v-model="auditDepartment" clearable></el-input>
 										</div>
                                     </div>
                                 </div>
@@ -132,14 +132,14 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>项目所在地：</div>
                                         <div class="editContent">
-											<el-cascader :options="addressData" v-model="localName" @change="handleChange" :props="props">
+											<el-cascader id="focus6"  :options="addressData" v-model="localName" @change="handleChange" :props="props">
                                         	</el-cascader>
 										</div>
                                     </div>
 									<div class="editCenter">
                                         <div class="editName"><p class="star">*</p>是否为政府和社会资本合作PPP类项目：</div>
                                         <div class="editContent">
-											<el-radio-group v-model="projectType">
+											<el-radio-group id="focus7"  v-model="projectType">
 												<el-radio  label="是">是</el-radio>
 												<el-radio  label="否">否</el-radio>
 											</el-radio-group>
@@ -150,7 +150,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>是否涉密：</div>
                                         <div class="editContent">
-											<el-radio-group v-model="isItConfidential">
+											<el-radio-group id="focus8"  v-model="isItConfidential">
 												<el-radio label="是">是</el-radio>
 												<el-radio label="否">否</el-radio>
 											</el-radio-group>
@@ -161,7 +161,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>资金来源：</div>
                                         <div class="editContent">
-											<el-select  v-model="sourceOfFunds" clearable>
+											<el-select  id="focus9"  v-model="sourceOfFunds" clearable>
 												<el-option v-for="item in SourcefundsData" :key="item.value" :label="item.label" :value="item.value">
 												</el-option>
 											</el-select>
@@ -170,7 +170,7 @@
 									<div class="editCenter">
                                         <div class="editName"><p class="star">*</p>项目资金总额(万元)：</div>
                                         <div class="editContent">
-											<el-input v-model="totalProjectFunds" clearable @blur="checkMoney"></el-input>
+											<el-input id="focus10"  v-model="totalProjectFunds" clearable @blur="checkMoney"></el-input>
 										</div>
                                     </div>
                                 </div>
@@ -222,13 +222,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>项目审批文件名称：</div>
 											<div class="editContent">
-												<el-input v-model="projectApprovalDocumentsName"></el-input>
+												<el-input id="focus11"  v-model="projectApprovalDocumentsName"></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>北京投资项目统一代码：</div>
 											<div class="editContent">
-												<el-input v-model="investmentProjectsUnifiedCode"></el-input>
+												<el-input  id="focus12" v-model="investmentProjectsUnifiedCode"></el-input>
 											</div>
 										</div>
 									</div>
@@ -236,13 +236,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>项目法人：</div>
 											<div class="editContent">
-												<el-input v-model="projectLegalPerson"></el-input>
+												<el-input  id="focus13" v-model="projectLegalPerson"></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>项目法人代码：</div>
 											<div class="editContent">
-												<el-input v-model="projectLegalPersonCode"></el-input>
+												<el-input id="focus14"  v-model="projectLegalPersonCode"></el-input>
 											</div>
 										</div>
 									</div>
@@ -250,7 +250,7 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>项目行业分类：</div>
 											<div class="editContent">
-												<el-select v-model="projectIndustryClassification" filterable placeholder="请选择">
+												<el-select id="focus15"  v-model="projectIndustryClassification" filterable placeholder="请选择">
 													<el-option
 													v-for="item in industryData"
 													:key="item.value"
@@ -269,13 +269,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>项目规模：</div>
 											<div class="editContent">
-												<el-input v-model="projectScale"></el-input>
+												<el-input id="focus16"  v-model="projectScale"></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>项目建立时间：</div>
 											<div class="editContent">
-												<el-date-picker value-format="timestamp" :picker-options="pickerOptions0" v-model="projectEstablishmentTime" type="datetime" placeholder="选择日期时间">
+												<el-date-picker id="focus17"  value-format="timestamp" :picker-options="pickerOptions0" v-model="projectEstablishmentTime" type="datetime" placeholder="选择日期时间">
 												</el-date-picker>
 											</div>
 										</div>
@@ -284,13 +284,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>联系人：</div>
 											<div class="editContent">
-												<el-input v-model="contacts"></el-input>
+												<el-input id="focus18"  v-model="contacts"></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>联系方式：</div>
 											<div class="editContent">
-												<el-input v-model="contactInformation" @blur="blurPhone"></el-input>
+												<el-input id="focus19"  v-model="contactInformation" @blur="blurPhone"></el-input>
 											</div>
 										</div>
 									</div>
@@ -303,7 +303,7 @@
 										<div class="editTextarea">
 											<div class="editName"><p class="star">*</p>项目名称：</div>
 											<div class="editContent">
-												<el-input v-model="entryName" clearable></el-input>
+												<el-input id="focus20"  v-model="entryName" clearable></el-input>
 											</div>
 										</div>
 									</div>
@@ -311,13 +311,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>预算项目批准备案文号：</div>
 											<div class="editContent">
-												<el-input v-model="budgetProjectApprovalRecordNumber" clearable></el-input>
+												<el-input  id="focus21" v-model="budgetProjectApprovalRecordNumber" clearable></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>预算受文单位：</div>
 											<div class="editContent">
-												<el-input v-model="budgetRecipientUnit" clearable></el-input>
+												<el-input id="focus22"  v-model="budgetRecipientUnit" clearable></el-input>
 											</div>
 										</div>
 									</div>
@@ -325,13 +325,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>预算受文单位代码：</div>
 											<div class="editContent">
-												<el-input v-model="budgetRecipientUnitCode" clearable></el-input>
+												<el-input  id="focus23" v-model="budgetRecipientUnitCode" clearable></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>预算金额(万元)：</div>
 											<div class="editContent">
-												<el-input v-model="budgetAmount" clearable @blur="checkBudget"></el-input>
+												<el-input id="focus24"  v-model="budgetAmount" clearable @blur="checkBudget"></el-input>
 											</div>
 										</div>
 									</div>
@@ -339,13 +339,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>采购人名称：</div>
 											<div class="editContent">
-												<el-input v-model="nameOfPurchaser" clearable></el-input>
+												<el-input id="focus25"  v-model="nameOfPurchaser" clearable></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>采购人代码：</div>
 											<div class="editContent">
-												<el-input v-model="purchaserCode" clearable></el-input>
+												<el-input id="focus26"  v-model="purchaserCode" clearable></el-input>
 											</div>
 										</div>
 									</div>
@@ -358,7 +358,7 @@
 										<div class="editTextarea">
 											<div class="editName"><p class="star">*</p>采购项目名称：</div>
 											<div class="editContent">
-												<el-input v-model="nameOfTenderProject" clearable></el-input>
+												<el-input id="focus27"  v-model="nameOfTenderProject" clearable></el-input>
 											</div>
 										</div>
 									</div>
@@ -376,13 +376,13 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>采购项目编号：</div>
 											<div class="editContent">
-												<el-input v-model="biddingProjectNumber" clearable></el-input>
+												<el-input id="focus28"  v-model="biddingProjectNumber" clearable></el-input>
 											</div>
 										</div>
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>采购项目金额(万元)：</div>
 											<div class="editContent">
-												<el-input v-model="amountOfBiddingProject" clearable @blur="checkAmount()"></el-input>
+												<el-input id="focus29"  v-model="amountOfBiddingProject" clearable @blur="checkAmount()"></el-input>
 											</div>
 										</div>
 									</div>
@@ -390,7 +390,7 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>招标采购方式：</div>
 											<div class="editContent">
-												<el-select  v-model="biddingProcurementMode" clearable  @change="getJudgeList()">
+												<el-select  id="focus30"  v-model="biddingProcurementMode" clearable  @change="getJudgeList()">
 													<el-option v-for="item in openTenderData" :key="item.value" :label="item.label" :value="item.value">
 													</el-option>
 												</el-select>
@@ -399,7 +399,7 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>招标(采购)组织方式：</div>
 											<div class="editContent" >
-												<el-select  v-model="biddingOrganization" clearable placeholder="请选择" disabled="disabled">
+												<el-select   v-model="biddingOrganization" clearable placeholder="请选择" disabled="disabled">
 													<el-option v-for="item in organizaData" :key="item.value" :label="item.label" :value="item.value">
 													</el-option>
 												</el-select>
@@ -410,7 +410,7 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>采购项目类型：</div>
 											<div class="editContent">
-												<el-select  v-model="typesOfBiddingProjects" clearable placeholder="请选择" >
+												<el-select  id="focus31"  v-model="typesOfBiddingProjects" clearable placeholder="请选择" >
 													<el-option v-for="item in bidProjectData" :key="item.value" :label="item.label" :value="item.value">
 													</el-option>
 												</el-select>
@@ -419,7 +419,7 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>专业类别：</div>
 											<div class="editContent">
-												<el-select  v-model="professionalCategory" clearable placeholder="请选择">
+												<el-select  id="focus32"  v-model="professionalCategory" clearable placeholder="请选择">
 													<el-option v-for="item in academicDirectionData" :key="item.value" :label="item.label" :value="item.value">
 													</el-option>
 												</el-select>
@@ -430,7 +430,7 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>是否公布预算：</div>
 											<div class="editContent">
-												<el-radio-group v-model="whetherAnnounceBudget">
+												<el-radio-group id="focus33"  v-model="whetherAnnounceBudget">
 													<el-radio label="是">是</el-radio>
 													<el-radio label="否">否</el-radio>
 												</el-radio-group>
@@ -439,7 +439,7 @@
 										<div class="editCenter">
 											<div class="editName"><p class="star">*</p>是否分包：</div>
 											<div class="editContent">
-												<el-radio-group v-model="isSubcontracting" @change="isCheckradio">
+												<el-radio-group  id="focus34" v-model="isSubcontracting" @change="isCheckradio">
 													<el-radio label="是">是</el-radio>
 													<el-radio label="否">否</el-radio>
 												</el-radio-group>
@@ -451,7 +451,7 @@
 											<div class="editCenter">
 												<div class="editName"><p class="star">*</p>资格审查方式：</div>
 												<div class="editContent">
-													<el-select class="examination" :disabled="this.biddingProcurementMode === '邀请招标'?true:false"  v-model="qualificationExaminationMethod" clearable placeholder="请选择" >
+													<el-select  id="focus35" class="examination" :disabled="this.biddingProcurementMode === '邀请招标'?true:false"  v-model="qualificationExaminationMethod" clearable placeholder="请选择" >
 														<el-option v-for="item in  titleExaminationData" :key="item.value" :label="item.label" :value="item.value">
 														</el-option>
 													</el-select>
@@ -460,7 +460,7 @@
 											<div class="editCenter">
 												<div class="editName"><p class="star">*</p>电子化开评标：</div>
 												<div class="editContent">
-													<el-radio-group v-model="electronicBidEvaluation">
+													<el-radio-group id="focus36"  v-model="electronicBidEvaluation">
 														<el-radio label="是">是</el-radio>
 														<el-radio label="否">否</el-radio>
 													</el-radio-group>
@@ -471,7 +471,7 @@
 											<div class="editTextarea">
 												<div class="editName"><p class="star">*</p>采购内容：</div>
 												<div class="editContent">
-													<el-input v-model="tenderContents" readonly type="textarea" :rows="3"></el-input>
+													<el-input  id="focus37" v-model="tenderContents" readonly type="textarea" :rows="3"></el-input>
 												</div>
 											</div>
 											<el-button plain @click="pickInfo">挑选</el-button>
@@ -486,7 +486,7 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>委托代理协议名称：</div>
 										<div class="editContent">
-											<el-input v-model="agencyAgreementName" clearable></el-input>
+											<el-input id="focus38"  v-model="agencyAgreementName" clearable></el-input>
 										</div>
 									</div>
 								</div>
@@ -494,7 +494,8 @@
 									<div class="editTextarea">
 										<div class="editName"><p class="star">*</p>招标(采购)人：</div>
 										<div class="editContent">
-											<el-input v-model="tenderPurchaserName" disabled="disabled"></el-input>
+											<!-- <el-input v-model="tenderPurchaserName" disabled="disabled"></el-input> -->
+											<el-input id="focus39"  v-model="tenderPurchaserName"></el-input>
 										</div>
 									</div>
 									<el-button plain @click="pickWork()">挑选</el-button>
@@ -503,13 +504,13 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>项目负责人：</div>
 										<div class="editContent">
-											<el-input v-model="projectLeader" clearable></el-input>
+											<el-input id="focus40"  v-model="projectLeader" clearable></el-input>
 										</div>
 									</div>
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>联系方式：</div>
 										<div class="editContent">
-											<el-input v-model="contactWay" clearable @click="phone_blur()"></el-input>
+											<el-input id="focus41"  v-model="contactWay" clearable @click="phone_blur()"></el-input>
 										</div>
 									</div>
 								</div>
@@ -517,7 +518,7 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>招标(采购)代理机构：</div>
 										<div class="editContent">
-											<el-input v-model="biddingPurchasingAgencyName" disabled="disabled" clearable></el-input>
+											<el-input id="focus42"  v-model="biddingPurchasingAgencyName" disabled="disabled" clearable></el-input>
 										</div>
 									</div>
 								</div>
@@ -525,13 +526,13 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>项目负责人：</div>
 										<div class="editContent">
-											<el-input v-model="projectManager" clearable></el-input>
+											<el-input id="focus43"  v-model="projectManager" clearable></el-input>
 										</div>
 									</div>
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>联系方式：</div>
 										<div class="editContent">
-											<el-input v-model="relationWay" clearable @click="phone_blur()"></el-input>
+											<el-input id="focus44"  v-model="relationWay" clearable @click="phone_blur()"></el-input>
 										</div>
 									</div>
 								</div>
@@ -540,6 +541,7 @@
 										<div class="editName"><p class="star">*</p>委托代理服务期限：</div>
 										<div class="editContent">
 											<el-date-picker
+											 id="focus45" 
 												v-model="serviceTime"
 												:picker-options="pickerOptions0"
 												type="daterange"
@@ -556,13 +558,13 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>委托代理金额(万元)：</div>
 										<div class="editContent">
-											<el-input v-model="authorizedAmount" clearable></el-input>
+											<el-input id="focus46"  v-model="authorizedAmount" clearable></el-input>
 										</div>
 									</div>
 									<div class="editCenter">
 										<div class="editName" style="width:220px;"><p class="star">*</p>委托代理服务收费金额(万元)：</div>
 										<div class="editContent">
-											<el-input v-model="agencyAuthorizedAmount" clearable></el-input>
+											<el-input id="focus47"  v-model="agencyAuthorizedAmount" clearable></el-input>
 										</div>
 									</div>
 								</div>
@@ -570,7 +572,7 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>委托代理协议权限：</div>
 										<div class="editContent">
-											<el-checkbox-group v-model="agencyAgreementAuthority" @change="handleCheckedCitiesChange">
+											<el-checkbox-group id="focus48"  v-model="agencyAgreementAuthority" @change="handleCheckedCitiesChange">
 												<el-checkbox v-for="(item,index) in jurisdictionData" :label="item" :key="index">{{item}}</el-checkbox>
 											</el-checkbox-group>
 										</div>
@@ -854,7 +856,8 @@
 										</div>
 										<div class="editCenter">
 											<div class="editName">采购项目金额：</div>
-											<div class="editContent">{{amountOfBiddingProject}}万元</div>
+											<div class="editContent" v-if="whetherAnnounceBudget == '是'">{{amountOfBiddingProject}}</div>
+                                			<div class="editContent" v-else></div>
 										</div>
 									</div>
 									<div class="editItem">
@@ -1007,11 +1010,11 @@
 							<el-table :data="manageDate" stripe style="width: 100%">
 									<el-table-column  prop="step"  label="步骤">
 									</el-table-column>
-									<el-table-column  prop="userName"  label="办理人员">
+									<el-table-column  prop="userName"  :show-overflow-tooltip ="true" label="办理人员">
 									</el-table-column>
-									<el-table-column  prop="creationTime"  label="时间">
+									<el-table-column  prop="creationTime" :show-overflow-tooltip ="true"  label="时间">
 									</el-table-column>
-									<el-table-column  prop="state"  label="状态">
+									<el-table-column  prop="state" :show-overflow-tooltip ="true" label="状态">
 									</el-table-column>
 									<el-table-column  prop="remarks"  label="备注">
 									</el-table-column>
@@ -1040,13 +1043,13 @@
 						<el-table-column width="70" label="序号">
 							<template slot-scope="scope">{{ scope.$index+1 }}</template>
 						</el-table-column>
-						<el-table-column prop="fileName" label="文件名称"  width="180">
+						<el-table-column prop="fileName" label="文件名称" :show-overflow-tooltip ="true"  width="180">
 						</el-table-column>
-						<el-table-column  prop="fileSize" label="文件大小">
+						<el-table-column  prop="fileSize" :show-overflow-tooltip ="true" label="文件大小">
 						</el-table-column>
-						<el-table-column  prop="uploadingPeople" label="上传人">
+						<el-table-column  prop="uploadingPeople" :show-overflow-tooltip ="true" label="上传人">
 						</el-table-column>
-						<el-table-column  prop="formatTime" label="上传时间"  width="170">
+						<el-table-column  prop="formatTime" label="上传时间" :show-overflow-tooltip ="true"  width="170">
 						</el-table-column>
 						<el-table-column prop="operation" label="下载">
 							<template slot-scope="scope">
@@ -1130,10 +1133,12 @@
 							<template slot-scope="scope">{{ scope.$index+1 }}</template>
 						</el-table-column>
 						<el-table-column
+						:show-overflow-tooltip ="true"
 							prop="companyName"
 							label="单位名称">
 						</el-table-column>
 						<el-table-column
+						:show-overflow-tooltip ="true"
 							prop="isStartUsing"
 							label="单位状态">
 						</el-table-column>
@@ -1340,12 +1345,12 @@ export default {
 				},
 				{
 					id:2,
-					appendixName: "项目负责人授权书",
+					appendixName: "*委托代理协议",
 					attachlist: []
 				},
 				{
 					id:3,
-					appendixName: "*委托代理协议",
+					appendixName: "项目负责人授权书",
 					attachlist: []
 				},
 			],
@@ -1421,7 +1426,7 @@ export default {
 					this.total = res.data.data.total;// 总条数
 					this.pages = res.data.data.pages;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1467,7 +1472,7 @@ export default {
 					this.totalSize = res.data.data.total;
 					this.pages = res.data.data.pages;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1503,7 +1508,7 @@ export default {
 					this.totalSize = res.data.data.total;
 					this.pages = res.data.data.pages;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1722,7 +1727,7 @@ export default {
                     if(res.data.status == 200){
                         this.workData = res.data.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1757,124 +1762,173 @@ export default {
 			//保存
 			if(this.role_types == "招标(采购)人"){
 				if(!this.approvalProjectName) {
-					this.$layer.msg("请输入批复项目名称");
+					$('#focus1').focus();
+					this.$message.warning("请输入批复项目名称");
 					return false;
 				}else if(!this.approvalNumber){
-					this.$layer.msg("请输入批复文号");
+					$('#focus2').focus();
+					this.$message.warning("请输入批复文号");
 					return false;
 				}else if(!this.approvalAndApprovalDepartment){
-					this.$layer.msg("请输入核准部门");
+					$('#focus3').focus();
+					this.$message.warning("请输入批复核准部门");
 					return false;
 				}else if(!this.supervisionDepartment){
-					this.$layer.msg("请输入监督部门");
+					$('#focus4').focus();
+					this.$message.warning("请输入监督部门");
 					return false;
 				}else if(!this.auditDepartment){
-					this.$layer.msg("请输入核准部门");
+					$('#focus5').focus();
+					this.$message.warning("请输入核准部门");
 					return false;
 				}else if(this.localName.length <= 0){
-					this.$layer.msg("请选择项目所在地");
-					return false;
-				}else if(!this.isItConfidential){
-					this.$layer.msg("请选择是否涉密");
+					$('#focus6').focus();
+					this.$message.warning("请选择项目所在地");
 					return false;
 				}else if(!this.projectType){
-					this.$layer.msg("请选择项目类型");
+					$('#focus7').focus();
+					this.$message.warning("请选择项目类型");
+					return false;
+				}else if(!this.isItConfidential){
+					$('#focus8').focus();
+					this.$message.warning("请选择是否涉密");
 					return false;
 				}else if(!this.sourceOfFunds){
-					this.$layer.msg("请填写资金来源");
+					$('#focus9').focus();
+					this.$message.warning("请填写资金来源");
 					return false;
-				}else if(this.totalProjectFunds !='' && this.totalProjectFunds !=null  && !checkNumber(this.totalProjectFunds)){
-					this.$layer.msg("请填写正确的项目资金总额");
+				}else if(!this.totalProjectFunds){
+					$('#focus10').focus();
+					this.$message.warning("请填写项目资金总额");
+					return false;
+				}else if(this.totalProjectFunds != "" && this.totalProjectFunds ==null  && !checkNumber(this.totalProjectFunds)){
+					this.$message.warning("请填写正确的项目资金总额");
 					return false;
 				}else if(!this.projectApprovalDocumentsName){
-					this.$layer.msg("请填写项目审批名称");
+					$('#focus11').focus();
+					this.$message.warning("请填写项目审批名称");
 					return false;
 				}else if(!this.investmentProjectsUnifiedCode){
-					this.$layer.msg("请填写北京投资项目统一代码");
+					$('#focus12').focus();
+					this.$message.warning("请填写北京投资项目统一代码");
 					return false;
 				}else if(!this.projectLegalPerson){
-					this.$layer.msg("请填写项目法人");
+					$('#focus13').focus();
+					this.$message.warning("请填写项目法人");
 					return false;
 				}else if(!this.projectLegalPersonCode){
-					this.$layer.msg("请填写项目法人代码");
+					$('#focus14').focus();
+					this.$message.warning("请填写项目法人代码");
 					return false;
 				}else if(!this.projectIndustryClassification){
-					this.$layer.msg("请选择项目行业分类");
+					$('#focus15').focus();
+					this.$message.warning("请选择项目行业分类");
 					return false;
 				}else if(!this.projectScale){
-					this.$layer.msg("请填写项目规模");
+					$('#focus16').focus();
+					this.$message.warning("请填写项目规模");
 					return false;
 				}else if(!this.projectEstablishmentTime){
-					this.$layer.msg("请填写项目建立时间");
+					$('#focus17').focus();
+					this.$message.warning("请填写项目建立时间");
 					return false;
 				}else if(!this.contacts){
-					this.$layer.msg("请填写联系人");
+					$('#focus18').focus();
+					this.$message.warning("请填写联系人");
 					return false;
-				}else if(this.contactInformation != '' && this.contactInformation != null && !isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-					this.$layer.msg("请填写联系方式");
+				}else if(!this.contactInformation){
+					$('#focus19').focus();
+					this.$message.warning("请填写联系方式");
+					return false;
+				}else if(this.contactInformation != "" && !isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
+					this.$message.warning("请填写正确的联系方式");
 					return false;
 				}else if(!this.entryName){
-					this.$layer.msg("请填写项目名称");
+					$('#focus20').focus();
+					this.$message.warning("请填写项目名称");
 					return false;
 				}else if(!this.budgetProjectApprovalRecordNumber){
-					this.$layer.msg("请填写项目批准备案文号");
+					$('#focus21').focus();
+					this.$message.warning("请填写项目批准备案文号");
 					return false;
 				}else if(!this.budgetRecipientUnit){
-					this.$layer.msg("请填写预算受文单位");
+					$('#focus22').focus();
+					this.$message.warning("请填写预算受文单位");
 					return false;
 				}else if(!this.budgetRecipientUnitCode){
-					this.$layer.msg("请填写预算受文单位代码");
+					$('#focus23').focus();
+					this.$message.warning("请填写预算受文单位代码");
 					return false;
-				}else if(this.budgetAmount!='' && this.budgetAmount!=null && !checkNumber(this.budgetAmount)){
-					this.$layer.msg("请填写正确的预算金额");
+				}else if(!this.budgetAmount){
+					$('#focus24').focus();
+					this.$message.warning("请填写正确的预算金额");
+					return false;
+				}else if(this.budgetAmount != "" && this.budgetAmount==null && !checkNumber(this.budgetAmount)){
+					this.$message.warning("请填写正确的预算金额");
 					return false;
 				}else if(!this.nameOfPurchaser){
-					this.$layer.msg("请填写采购人名称");
+					$('#focus25').focus();
+					this.$message.warning("请填写采购人名称");
 					return false;
 				}else if(!this.purchaserCode){
-					this.$layer.msg("请填写采购人代码");
+					$('#focus26').focus();
+					this.$message.warning("请填写采购人代码");
 					return false;
 				}else if(!this.nameOfTenderProject){
-					this.$layer.msg("请填写采购项目名称");
+					$('#focus27').focus();
+					this.$message.warning("请填写采购项目名称");
 					return false;
 				}else if(!this.biddingProjectNumber){
-					this.$layer.msg("请填写采购项目编号");
+					$('#focus28').focus();
+					this.$message.warning("请填写采购项目编号");
+					return false;
+				}else if(!this.amountOfBiddingProject){
+					$('#focus29').focus();
+					this.$message.warning("请填写招标项目金额");
 					return false;
 				}else if(this.amountOfBiddingProject !='' && this.amountOfBiddingProject!=null && !checkNumber(this.amountOfBiddingProject)){
-					this.$layer.msg("请填写正确的采购项目金额");
+					this.$message.warning("请填写正确的招标项目金额");
 					return false;
 				}else if(!this.biddingProcurementMode){
-					this.$layer.msg("请填写招标采购方式");
+					$('#focus30').focus();
+					this.$message.warning("请填写招标采购方式");
 					return false;
 				}else if(!this.typesOfBiddingProjects){
-					this.$layer.msg("请填写招标(采购)项目类型");
+					$('#focus31').focus();
+					this.$message.warning("请填写招标(采购)项目类型");
 					return false;
 				}else if(!this.professionalCategory){
-					this.$layer.msg("请选择专业类别");
+					$('#focus32').focus();
+					this.$message.warning("请选择专业类别");
 					return false;
 				}else if(!this.whetherAnnounceBudget){
-					this.$layer.msg("请选择是否公布预算");
+					$('#focus33').focus();
+					this.$message.warning("请选择是否公布预算");
 					return false;
 				}else if(!this.isSubcontracting){
-					this.$layer.msg("请选择是否分包");
+					$('#focus34').focus();
+					this.$message.warning("请选择是否分包");
 					return false;
 				}else if(Number(this.stateOwnedFunds) + Number(this.ownFunds) + Number(this.foreignGovernmentsAndOrganizationalFunds) + Number(this.overseasPrivateInvestment) != this.totalProjectFunds){
-					this.$layer.msg("请查看资金构成是否等于项目资金总额");
+					this.$message.warning("请查看资金构成是否等于项目资金总额");
 					return false;
-				}else if(this.amountOfBiddingProject > this.totalProjectFunds){
-					this.$layer.msg("采购项目金额不能大项目资金总额");
+				}else if((Number(this.amountOfBiddingProject) > Number(this.totalProjectFunds)) || (Number(this.amountOfBiddingProject) > Number(this.budgetAmount)) || (Number(this.budgetAmount) > Number(this.totalProjectFunds))){
+					this.$message.warning("采购项目金额不能大于预算金额，预算金额不能大于项目资金总额");
 					return false;
 				}else{
 					// 判断是否分包
 					if(this.isShowFlag == true){
 						if(!this.qualificationExaminationMethod){
-							this.$layer.msg("请输入资格审查方式!");
+							$('#focus35').focus();
+							this.$message.warning("请输入资格审查方式!");
 							return false;
 						}else if(!this.electronicBidEvaluation){
-							this.$layer.msg("请输入电子化开评标!");
+							$('#focus36').focus();
+							this.$message.warning("请输入电子化开评标!");
 							return false;
 						}else if(!this.tenderContents){
-							this.$layer.msg('请输入采购内容！');
+							$('#focus37').focus();
+							this.$message.warning('请输入采购内容！');
 							return false;
 						}
 						if(num == 1){
@@ -1898,169 +1952,229 @@ export default {
 				}
 			}else{
 				if(!this.approvalProjectName) {
-					this.$layer.msg("请输入批复项目名称");
+					$('#focus1').focus();
+					this.$message.warning("请输入批复项目名称");
 					return false;
 				}else if(!this.approvalNumber){
-					this.$layer.msg("请输入批复文号");
+					$('#focus2').focus();
+					this.$message.warning("请输入批复文号");
 					return false;
 				}else if(!this.approvalAndApprovalDepartment){
-					this.$layer.msg("请输入核准部门");
+					$('#focus3').focus();
+					this.$message.warning("请输入批复核准部门");
 					return false;
 				}else if(!this.supervisionDepartment){
-					this.$layer.msg("请输入监督部门");
+					$('#focus4').focus();
+					this.$message.warning("请输入监督部门");
 					return false;
 				}else if(!this.auditDepartment){
-					this.$layer.msg("请输入核准部门");
+					$('#focus5').focus();
+					this.$message.warning("请输入核准部门");
 					return false;
 				}else if(this.localName.length <= 0){
-					this.$layer.msg("请选择项目所在地");
-					return false;
-				}else if(!this.isItConfidential){
-					this.$layer.msg("请选择是否涉密");
+					$('#focus6').focus();
+					this.$message.warning("请选择项目所在地");
 					return false;
 				}else if(!this.projectType){
-					this.$layer.msg("请选择项目类型");
+					$('#focus7').focus();
+					this.$message.warning("请选择项目类型");
+					return false;
+				}else if(!this.isItConfidential){
+					$('#focus8').focus();
+					this.$message.warning("请选择是否涉密");
 					return false;
 				}else if(!this.sourceOfFunds){
-					this.$layer.msg("请填写资金来源");
+					$('#focus9').focus();
+					this.$message.warning("请填写资金来源");
 					return false;
-				}else if(this.totalProjectFunds !='' && this.totalProjectFunds !=null  && !checkNumber(this.totalProjectFunds)){
-					this.$layer.msg("请填写正确的项目资金总额");
+				}else if(!this.totalProjectFunds){
+					$('#focus10').focus();
+					this.$message.warning("请填写项目资金总额");
+					return false;
+				}else if(this.totalProjectFunds != "" && this.totalProjectFunds ==null  && !checkNumber(this.totalProjectFunds)){
+					this.$message.warning("请填写正确的项目资金总额");
 					return false;
 				}else if(!this.projectApprovalDocumentsName){
-					this.$layer.msg("请填写项目审批名称");
+					$('#focus11').focus();
+					this.$message.warning("请填写项目审批名称");
 					return false;
 				}else if(!this.investmentProjectsUnifiedCode){
-					this.$layer.msg("请填写北京投资项目统一代码");
+					$('#focus12').focus();
+					this.$message.warning("请填写北京投资项目统一代码");
 					return false;
 				}else if(!this.projectLegalPerson){
-					this.$layer.msg("请填写项目法人");
+					$('#focus13').focus();
+					this.$message.warning("请填写项目法人");
 					return false;
 				}else if(!this.projectLegalPersonCode){
-					this.$layer.msg("请填写项目法人代码");
+					$('#focus14').focus();
+					this.$message.warning("请填写项目法人代码");
 					return false;
 				}else if(!this.projectIndustryClassification){
-					this.$layer.msg("请选择项目行业分类");
+					$('#focus15').focus();
+					this.$message.warning("请选择项目行业分类");
 					return false;
 				}else if(!this.projectScale){
-					this.$layer.msg("请填写项目规模");
+					$('#focus16').focus();
+					this.$message.warning("请填写项目规模");
 					return false;
 				}else if(!this.projectEstablishmentTime){
-					this.$layer.msg("请填写项目建立时间");
+					$('#focus17').focus();
+					this.$message.warning("请填写项目建立时间");
 					return false;
 				}else if(!this.contacts){
-					this.$layer.msg("请填写联系人");
+					$('#focus18').focus();
+					this.$message.warning("请填写联系人");
 					return false;
-				}else if(this.contactInformation != '' && this.contactInformation != null && !isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-					this.$layer.msg("请填写联系方式");
+				}else if(!this.contactInformation){
+					$('#focus19').focus();
+					this.$message.warning("请填写联系方式");
+					return false;
+				}else if(this.contactInformation != "" && !isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
+					this.$message.warning("请填写正确的联系方式");
 					return false;
 				}else if(!this.entryName){
-					this.$layer.msg("请填写项目名称");
+					$('#focus20').focus();
+					this.$message.warning("请填写项目名称");
 					return false;
 				}else if(!this.budgetProjectApprovalRecordNumber){
-					this.$layer.msg("请填写项目批准备案文号");
+					$('#focus21').focus();
+					this.$message.warning("请填写项目批准备案文号");
 					return false;
 				}else if(!this.budgetRecipientUnit){
-					this.$layer.msg("请填写预算受文单位");
+					$('#focus22').focus();
+					this.$message.warning("请填写预算受文单位");
 					return false;
 				}else if(!this.budgetRecipientUnitCode){
-					this.$layer.msg("请填写预算受文单位代码");
+					$('#focus23').focus();
+					this.$message.warning("请填写预算受文单位代码");
 					return false;
-				}else if(this.budgetAmount!='' && this.budgetAmount!=null && !checkNumber(this.budgetAmount)){
-					this.$layer.msg("请填写正确的预算金额");
+				}else if(!this.budgetAmount){
+					$('#focus24').focus();
+					this.$message.warning("请填写预算金额");
+					return false;
+				}else if(this.budgetAmount != "" && this.budgetAmount==null && !checkNumber(this.budgetAmount)){
+					this.$message.warning("请填写正确的预算金额");
 					return false;
 				}else if(!this.nameOfPurchaser){
-					this.$layer.msg("请填写采购人名称");
+					$('#focus25').focus();
+					this.$message.warning("请填写采购人名称");
 					return false;
 				}else if(!this.purchaserCode){
-					this.$layer.msg("请填写采购人代码");
+					$('#focus26').focus();
+					this.$message.warning("请填写采购人代码");
 					return false;
 				}else if(!this.nameOfTenderProject){
-					this.$layer.msg("请填写采购项目名称");
+					$('#focus27').focus();
+					this.$message.warning("请填写采购项目名称");
 					return false;
 				}else if(!this.biddingProjectNumber){
-					this.$layer.msg("请填写采购项目编号");
+					$('#focus28').focus();
+					this.$message.warning("请填写采购项目编号");
+					return false;
+				}else if(!this.amountOfBiddingProject){
+					$('#focus29').focus();
+					this.$message.warning("请填写招标项目金额");
 					return false;
 				}else if(this.amountOfBiddingProject !='' && this.amountOfBiddingProject!=null && !checkNumber(this.amountOfBiddingProject)){
-					this.$layer.msg("请填写正确的采购项目金额");
+					this.$message.warning("请填写正确的招标项目金额");
 					return false;
 				}else if(!this.biddingProcurementMode){
-					this.$layer.msg("请填写招标采购方式");
+					$('#focus30').focus();
+					this.$message.warning("请填写招标采购方式");
 					return false;
 				}else if(!this.typesOfBiddingProjects){
-					this.$layer.msg("请填写招标(采购)项目类型");
+					$('#focus31').focus();
+					this.$message.warning("请填写招标(采购)项目类型");
 					return false;
 				}else if(!this.professionalCategory){
-					this.$layer.msg("请选择专业类别");
+					$('#focus32').focus();
+					this.$message.warning("请选择专业类别");
 					return false;
 				}else if(!this.whetherAnnounceBudget){
-					this.$layer.msg("请选择是否公布预算");
+					$('#focus33').focus();
+					this.$message.warning("请选择是否公布预算");
 					return false;
 				}else if(!this.isSubcontracting){
-					this.$layer.msg("请选择是否分包");
+					$('#focus34').focus();
+					this.$message.warning("请选择是否分包");
 					return false;
 				}else if(!this.agencyAgreementName){
-					this.$layer.msg("请填写委托代理协议名称");
+					$('#focus38').focus();
+					this.$message.warning("请填写委托代理协议名称");
 					return false;
 				}else if(!this.tenderPurchaserName){
-					this.$layer.msg("请填写招标采购人");
+					$('#focus39').focus();
+					this.$message.warning("请填写招标采购人");
 					return false;
 				}else if(!this.projectLeader){
-					this.$layer.msg("请填写项目负责人");
+					$('#focus40').focus();
+					this.$message.warning("请填写项目负责人");
 					return false;
 				}else if(!this.contactWay){
-					this.$layer.msg("请填写联系方式");
+					$('#focus41').focus();
+					this.$message.warning("请填写联系方式");
 					return false;
 				}else if(this.contactWay != '' && this.contactWay != null && !isPoneAvailable(this.contactWay) && !checkPhone(this.contactWay)){
-					this.$layer.msg("请填写正确的联系方式");
-					return false;
-				}else if(!this.relationWay){
-					this.$layer.msg("请填写联系方式");
-					return false;
-				}else if(this.relationWay != '' && this.relationWay != null && !isPoneAvailable(this.relationWay) && !checkPhone(this.relationWay)){
-					this.$layer.msg("请填写正确的联系方式");
+					this.$message.warning("请填写正确的联系方式");
 					return false;
 				}else if(!this.biddingPurchasingAgencyName){
-					this.$layer.msg("请填写招标(采购)代理机构");
+					$('#focus42').focus();
+					this.$message.warning("请填写招标(采购)代理机构");
 					return false;
 				}else if(!this.projectManager){
-					this.$layer.msg("请填写项目负责人");
+					$('#focus43').focus();
+					this.$message.warning("请填写项目负责人");
+					return false;
+				}else if(!this.relationWay){
+					$('#focus44').focus();
+					this.$message.warning("请填写联系方式");
+					return false;
+				}else if(this.relationWay != '' && this.relationWay != null && !isPoneAvailable(this.relationWay) && !checkPhone(this.relationWay)){
+					this.$message.warning("请填写正确的联系方式");
 					return false;
 				}else if(this.serviceTime.length == 0){
-					this.$layer.msg("请填写委托代理服务期限");
+					$('#focus45').focus();
+					this.$message.warning("请填写委托代理服务期限");
 					return false;
 				}else if(!this.authorizedAmount){
-					this.$layer.msg("请填写委托代理金额");
+					$('#focus46').focus();
+					this.$message.warning("请填写委托代理金额");
 					return false;
 				}else if(this.authorizedAmount != '' && this.authorizedAmount != null && !checkNumber(this.authorizedAmount)){
-					this.$layer.msg("请填写正确的委托代理金额");
+					this.$message.warning("请填写正确的委托代理金额");
 					return false;
 				}else if(!this.agencyAuthorizedAmount){
-					this.$layer.msg("请填写委托代理服务收费金额");
+					$('#focus47').focus();
+					this.$message.warning("请填写委托代理服务收费金额");
 					return false;
 				}else if(this.agencyAuthorizedAmount != '' && this.agencyAuthorizedAmount != null && !checkNumber(this.agencyAuthorizedAmount)){
-					this.$layer.msg("请填写委托代理金额");
+					this.$message.warning("请填写委托代理金额");
 					return false;
 				}else if(this.agencyAgreementAuthority.length == 0){
-					this.$layer.msg("请选择委托代理协议权限");
+					$('#focus48').focus();
+					this.$message.warning("请选择委托代理协议权限");
 					return false;
 				}else if(Number(this.stateOwnedFunds) + Number(this.ownFunds) + Number(this.foreignGovernmentsAndOrganizationalFunds) + Number(this.overseasPrivateInvestment) != this.totalProjectFunds){
-					this.$layer.msg("请查看资金构成是否等于项目资金总额");
+					this.$message.warning("请查看资金构成是否等于项目资金总额");
 					return false;
 				}else if(this.amountOfBiddingProject > this.totalProjectFunds){
-					this.$layer.msg("采购项目金额不能大项目资金总额");
+					this.$message.warning("采购项目金额不能大项目资金总额");
 					return false;
 				}else{
 					// 判断是否分包
 					if(this.isShowFlag == true){
 						if(!this.qualificationExaminationMethod){
-							this.$layer.msg("请输入资格审查方式!");
+							$('#focus35').focus();
+							this.$message.warning("请输入资格审查方式!");
 							return false;
 						}else if(!this.electronicBidEvaluation){
-							this.$layer.msg("请输入电子化开评标!");
+							$('#focus36').focus();
+							this.$message.warning("请输入电子化开评标!");
 							return false;
 						}else if(!this.tenderContents){
-							this.$layer.msg('请输入采购内容！');
+							$('#focus37').focus();
+							this.$message.warning('请输入采购内容！');
 							return false;
 						}
 						if(num == 1){
@@ -2248,7 +2362,7 @@ export default {
 					this.stragencyAgreementAuthority = res.data.data.agencyAgreementAuthority;//权限
 					this.rest = res.data.data.rest;//其他
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2279,15 +2393,15 @@ export default {
 		submitInfo(){
 			if(this.role_types == '招标(采购)人'){
 				if(this.enclosureData[0].attachlist == ""){
-					this.$layer.msg('请选择立项批复文件');
+					this.$message.warning('请选择立项批复文件');
 					return false;
 				}
 			}else{
 				if(this.AnnexData[0].attachlist == ""){
-					this.$layer.msg('请选择立项批复文件');
+					this.$message.warning('请选择立项批复文件');
 					return false;
-				}else if(this.AnnexData[2].attachlist == ""){
-					this.$layer.msg('请选择委托代理协议');
+				}else if(this.AnnexData[1].attachlist == ""){
+					this.$message.warning('请选择委托代理协议');
 					return false;
 				}
 			}
@@ -2306,7 +2420,7 @@ export default {
 					this.writeFlag =false;// 有保存和下一步按钮
 					this.getList();// 入场项目登记
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2398,7 +2512,7 @@ export default {
 					this.serviceTime = [];
 					this.serviceTime.push(res.data.data.servicePeriodOfAgencyStart,res.data.data.servicePeriodOfAgencyEnd)
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2428,7 +2542,7 @@ export default {
 					this.enclosureData[0].attachlist = arr
 					this.AnnexData[0].attachlist = arr;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2453,9 +2567,9 @@ export default {
 						arr.push(item)
 					})
 					this.enclosureData[1].attachlist = arr
-					this.AnnexData[1].attachlist = arr
+					this.AnnexData[2].attachlist = arr
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2479,9 +2593,9 @@ export default {
 						item.formatTime = dayjs(item.uploadTime).format('YYYY-MM-DD HH:mm:ss')
 						arr.push(item)
 					})
-					this.AnnexData[2].attachlist = arr
+					this.AnnexData[1].attachlist = arr
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2523,12 +2637,12 @@ export default {
 						this.AnnexData[0].attachlist = arr
 					}else if(this.num == 2){
 						this.enclosureData[1].attachlist = arr
-						this.AnnexData[1].attachlist = arr
-					}else{
 						this.AnnexData[2].attachlist = arr
+					}else{
+						this.AnnexData[1].attachlist = arr
 					}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2544,7 +2658,7 @@ export default {
 		//删除文件列表
 		deleteFile(){
 			if(this.attachmeId.length<=0){
-				this.$layer.msg('请选择要删除的文件!')
+				this.$message.warning('请选择要删除的文件!')
 				return false;
 			}else {
 				this.$axios({
@@ -2564,7 +2678,7 @@ export default {
 							}
 						}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 				}).catch(err=>{
 					console.log(err);
@@ -2576,7 +2690,7 @@ export default {
 			var file = event.target.files[0];
 			var fileSize = file.size; 
 			if(fileSize > 102400000) {
-				this.$layer.msg('图片大小不能超过102400000KB');
+				this.$message.warning('图片大小不能超过102400000KB');
 				return false;
 			}
 			this.$refs.file.value = null;
@@ -2599,7 +2713,7 @@ export default {
 				if(res.data.status == 200){
 					this.uploadList();
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2667,7 +2781,7 @@ export default {
 						item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
 					})
 				}else{
-					this.$layer.msg(res.data.msg)
+					this.$message.warning(res.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2696,23 +2810,23 @@ export default {
 		},
 		checkMoney(){
 			if(!checkNumber(this.totalProjectFunds)){
-				this.$layer.msg('请输入数字类型');
+				this.$message.warning('请输入数字类型');
 			}
 		},
 		checkBudget(){
 			if(!checkNumber(this.budgetAmount)){
-				this.$layer.msg('请输入数字类型');
+				this.$message.warning('请输入数字类型');
 			}
 		},
 		checkAmount(){
 			if(!checkNumber(this.amountOfBiddingProject)){
-				this.$layer.msg('请输入数字类型');
+				this.$message.warning('请输入数字类型');
 			}
 		},
 		//校验手机号联系方式
 		blurPhone(){
 			if(!isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-				this.$layer.msg('请输入正确的联系方式');
+				this.$message.warning('请输入正确的联系方式');
 			}
 		},
 		// 下拉框
@@ -2725,7 +2839,7 @@ export default {
 				if(res.data.status == 200){
 					this.addressData = res.data.data
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2743,7 +2857,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.dropData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2761,7 +2875,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.approvalData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2779,7 +2893,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.SourcefundsData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2797,7 +2911,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.industryData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2815,7 +2929,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.openTenderData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2839,7 +2953,7 @@ export default {
 					}
 					
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2857,7 +2971,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.bidProjectData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2875,7 +2989,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.academicDirectionData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2897,7 +3011,7 @@ export default {
 					})
 					this.jurisdictionData = entrusted;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2915,7 +3029,7 @@ export default {
 				if(res.data.data.status == 200){
 					this.titleExaminationData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.data.msg)
+					this.$message.warning(res.data.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2938,7 +3052,7 @@ export default {
                 if(res.data.status == 200){
                     this.groupTreeData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2956,7 +3070,7 @@ export default {
                 if(res.data.status == 200){
                     this.groupTreeData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2981,7 +3095,7 @@ export default {
 				this.tenderContents = this.newString;
 				this.pickFlag = false;
 			}else{
-				this.$layer.msg('请选择具体信息！');
+				this.$message.warning('请选择具体信息！');
 			}
 			
         },

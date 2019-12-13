@@ -47,14 +47,17 @@
                                             <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="entrySubcontractNumber"
                                             label="入场项目(分包)编号">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="subcontractName"
                                             label="分包名称">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="subcontractingControlAmount"
                                             label="分包控制金额(万元)">
                                         </el-table-column>
@@ -116,39 +119,48 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="companyName"
                                         label="单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="offer"
                                         label="投标报价(元/%)">
                                     </el-table-column>
                                     <el-table-column
                                         prop="quotationMethod"
+                                        :show-overflow-tooltip ="true"
                                         label="报价方式">
                                     </el-table-column>
                                     <el-table-column
                                         prop="economic"
+                                        :show-overflow-tooltip ="true"
                                         label="经济标">
                                     </el-table-column>
                                     <el-table-column
                                         prop="technology"
+                                        :show-overflow-tooltip ="true"
                                         label="技术标">
                                     </el-table-column>
                                     <el-table-column
                                         prop="business"
+                                        :show-overflow-tooltip ="true"
                                         label="商务标">
                                     </el-table-column>
                                     <el-table-column
                                         prop="otherPoints"
+                                        :show-overflow-tooltip ="true"
                                         label="其他分">
                                     </el-table-column>
                                     <el-table-column
                                         prop="totalScore"
+                                        :show-overflow-tooltip ="true"
                                         label="汇总分">
                                     </el-table-column>
                                     <el-table-column
                                         prop="ranking"
+                                        :show-overflow-tooltip ="true"
                                         label="排名">
                                     </el-table-column>
                                     <el-table-column
@@ -593,7 +605,7 @@
                         this.totalData = res.data.data;
                         this.getselectInfo();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -670,7 +682,7 @@
                         this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -695,7 +707,7 @@
                             })
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -725,7 +737,7 @@
                     if(res.data.status == 200){
                         this.invalidData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -784,7 +796,7 @@
                         this.editFlag = false;
                         this.getvalidInfo();// 有效标列表
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -814,7 +826,7 @@
                     if(res.data.status == 200){
                         this.validData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -866,7 +878,7 @@
                         this.method = res.data.data.method;// 评标方式
                         
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -916,7 +928,7 @@
                         this.method= res.data.data.method;// 评标方式
                         this.situation= res.data.data.situation;// 评标情况
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)

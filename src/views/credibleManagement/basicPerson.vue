@@ -45,19 +45,19 @@
 					</el-table-column>
 					<el-table-column type="index" label="序号" :index="typeIndex" width="70">
                     </el-table-column>
-					<el-table-column prop="name" label="姓名">
+					<el-table-column prop="name" :show-overflow-tooltip ="true" label="姓名">
 					</el-table-column>
-					<el-table-column prop="sex" label="性别">
+					<el-table-column prop="sex" :show-overflow-tooltip ="true" label="性别">
 					</el-table-column>
-					<el-table-column prop="idNumber" label="身份证号码" width="180">
+					<el-table-column prop="idNumber" :show-overflow-tooltip ="true" label="身份证号码" width="180">
 					</el-table-column>
-					<el-table-column prop="professionalCertificateNumber" label="证号">
+					<el-table-column prop="professionalCertificateNumber" :show-overflow-tooltip ="true" label="证号">
 					</el-table-column>
-					<el-table-column prop="professionalLevel" label="专业等级">
+					<el-table-column prop="professionalLevel" :show-overflow-tooltip ="true" label="专业等级">
 					</el-table-column>
-					<el-table-column prop="projectNum" label="在施项目个数">
+					<el-table-column prop="projectNum" :show-overflow-tooltip ="true" label="在施项目个数">
 					</el-table-column>
-					<el-table-column prop="state" label="验证情况">
+					<el-table-column prop="state" :show-overflow-tooltip ="true" label="验证情况">
 					</el-table-column>
 					<el-table-column label="操作" >
 						<template slot-scope="scope">
@@ -216,13 +216,13 @@
 										label="序号">
 										<template slot-scope="scope">{{ scope.$index+1 }}</template>
 									</el-table-column>
-									<el-table-column prop="qualificationCertificateNum" label="证书编号">
+									<el-table-column prop="qualificationCertificateNum" :show-overflow-tooltip ="true" label="证书编号">
 									</el-table-column>
-									<el-table-column prop="professionalLevel" label="专业等级">
+									<el-table-column prop="professionalLevel" :show-overflow-tooltip ="true" label="专业等级">
 									</el-table-column>
-									<el-table-column prop="certificationDate" label="发证日期" width="180">
+									<el-table-column prop="certificationDate" :show-overflow-tooltip ="true" label="发证日期" width="180">
 									</el-table-column>
-									<el-table-column prop="periodValidity" label="有效期">
+									<el-table-column prop="periodValidity" :show-overflow-tooltip ="true" label="有效期">
 									</el-table-column>
 									<el-table-column label="修改">
 										<template slot-scope="scope">
@@ -252,13 +252,13 @@
 										label="序号">
 										<template slot-scope="scope">{{ scope.$index+1 }}</template>
 									</el-table-column>
-									<el-table-column prop="certificateNum" label="证书编号">
+									<el-table-column prop="certificateNum" :show-overflow-tooltip ="true" label="证书编号">
 									</el-table-column>
-									<el-table-column prop="professionalLevel" label="专业等级">
+									<el-table-column prop="professionalLevel" :show-overflow-tooltip ="true" label="专业等级">
 									</el-table-column>
-									<el-table-column prop="certificationDate" label="发证日期" width="180">
+									<el-table-column prop="certificationDate" :show-overflow-tooltip ="true" label="发证日期" width="180">
 									</el-table-column>
-									<el-table-column prop="periodValidity" label="有效期">
+									<el-table-column prop="periodValidity" :show-overflow-tooltip ="true" label="有效期">
 									</el-table-column>
 									<el-table-column label="修改">
 										<template slot-scope="scope">
@@ -374,13 +374,13 @@
 										label="序号">
 										<template slot-scope="scope">{{ scope.$index+1 }}</template>
 									</el-table-column>
-									<el-table-column prop="qualificationCertificateNum" label="证书编号">
+									<el-table-column prop="qualificationCertificateNum" :show-overflow-tooltip ="true" label="证书编号">
 									</el-table-column>
-									<el-table-column prop="professionalLevel" label="专业等级">
+									<el-table-column prop="professionalLevel" :show-overflow-tooltip ="true" label="专业等级">
 									</el-table-column>
-									<el-table-column prop="certificationDate" label="发证日期" width="180">
+									<el-table-column prop="certificationDate" :show-overflow-tooltip ="true" label="发证日期" width="180">
 									</el-table-column>
-									<el-table-column prop="periodValidity" label="有效期">
+									<el-table-column prop="periodValidity" :show-overflow-tooltip ="true" label="有效期">
 									</el-table-column>
 									<el-table-column label="查看">
 										<template slot-scope="scope">
@@ -398,13 +398,13 @@
 										label="序号">
 										<template slot-scope="scope">{{ scope.$index+1 }}</template>
 									</el-table-column>
-									<el-table-column prop="qualificationCertificateNum" label="证书编号">
+									<el-table-column prop="qualificationCertificateNum" :show-overflow-tooltip ="true" label="证书编号">
 									</el-table-column>
-									<el-table-column prop="professionalLevel" label="专业等级">
+									<el-table-column prop="professionalLevel" :show-overflow-tooltip ="true" label="专业等级">
 									</el-table-column>
-									<el-table-column prop="certificationDate" label="发证日期" width="180">
+									<el-table-column prop="certificationDate" :show-overflow-tooltip ="true" label="发证日期" width="180">
 									</el-table-column>
-									<el-table-column prop="periodValidity" label="有效期">
+									<el-table-column prop="periodValidity" :show-overflow-tooltip ="true" label="有效期">
 									</el-table-column>
 									<el-table-column label="查看">
 										<template slot-scope="scope">
@@ -650,15 +650,15 @@
 							label="序号">
 							<template slot-scope="scope">{{ scope.$index+1 }}</template>
 						</el-table-column>
-						<el-table-column prop="totalProjectId" label="文件名称">
+						<el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="文件名称">
 						</el-table-column>
-						<el-table-column prop="nameOfTenderProject" label="验证状态">
+						<el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="验证状态">
 						</el-table-column>
-						<el-table-column prop="nameOfTenderProject" label="作废原因">
+						<el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="作废原因">
 						</el-table-column>
-						<el-table-column prop="nameOfTenderProject" label="文件大小">
+						<el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="文件大小">
 						</el-table-column>
-						<el-table-column prop="nameOfTenderProject" label="上传人">
+						<el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="上传人">
 						</el-table-column>
 						<el-table-column label="上传时间">
 						</el-table-column>
@@ -852,22 +852,22 @@ export default {
 		// 校验
         blurIdNumber(){
             if(!getIdcard(this.idNumber)){
-                this.$layer.msg('请输入正确的身份证号码');
+                this.$message.warning('请输入正确的身份证号码');
             }
         },
         blurName(){
             if(!getName(this.name)){
-                this.$layer.msg('请输入正确的名字');
+                this.$message.warning('请输入正确的名字');
             }
         },
         blurPhone(){
             if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                this.$layer.msg('请输入正确的手机号码');
+                this.$message.warning('请输入正确的手机号码');
             }
 		},
 		bluecallPhone(){
 			if(!checkPhone(this.telephoneNumber)){
-                this.$layer.msg('请输入正确的电话号码');
+                this.$message.warning('请输入正确的电话号码');
             }
 		},
 		// 编号问题
@@ -930,11 +930,11 @@ export default {
 		// 修改从业人员的保存
 		savePeople(){
 			if(!this.name){
-				this.$layer.msg('请输入名字');
+				this.$message.warning('请输入名字');
 			}else if (!this.idNumber){
-				this.$layer.msg('请输入身份证号码');
+				this.$message.warning('请输入身份证号码');
 			}else if(!this.phone){
-				this.$layer.msg('请输入手机号码');
+				this.$message.warning('请输入手机号码');
 			}else{
 				let object = {
 					employeeId:this.employeeId,
@@ -963,7 +963,7 @@ export default {
 						this.saveBox = true;
 						this.getPeopleList();// 获得从业人员列表
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1010,11 +1010,11 @@ export default {
 		//下一步
 		nextStep(){
 			if(!this.name){
-				this.$layer.msg('请输入名字');
+				this.$message.warning('请输入名字');
 			}else if (!this.idNumber){
-				this.$layer.msg('请输入身份证号码');
+				this.$message.warning('请输入身份证号码');
 			}else if(!this.phone){
-				this.$layer.msg('请输入手机号码');
+				this.$message.warning('请输入手机号码');
 			}else{
 				this.editFlag = true;
 				this.diffFlag =false;
@@ -1040,7 +1040,7 @@ export default {
 					this.sureSubmitBox = true;
 					
 				}else{
-					this.$layer.msg(res.data.msg)
+					this.$message.warning(res.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1103,7 +1103,7 @@ export default {
                     if(res.data.status == 200){
                         this.getPersonalInfo();// 人员资质注册证书
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1199,7 +1199,7 @@ export default {
                     if(res.data.status == 200){
                         this.getOtherInfo();// 人员资质其他证书
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1209,9 +1209,9 @@ export default {
 		// 新增证书保存
 		saveBook(){
 			if(!this.certificateNum){
-				this.$layer.msg('请输入证书编号');
+				this.$message.warning('请输入证书编号');
 			}else if(!this.professionalLevel){
-				this.$layer.msg('请输入专业等级');
+				this.$message.warning('请输入专业等级');
 			}else{
 				let object = {};
 				if(this.isFlag == true){
@@ -1255,7 +1255,7 @@ export default {
 						this.getPersonalInfo();// 人员资质注册证书
 						this.getOtherInfo();// 人员资质其他证书
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1288,7 +1288,7 @@ export default {
 				if(res.data.status == 200){
 					this.userId = res.data.data.userId;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1316,7 +1316,7 @@ export default {
 						item.state = item.state;
 					})
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1339,7 +1339,7 @@ export default {
 						item.periodValidity = formatDate(item.periodValidity);// 有效期
 					})
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1362,7 +1362,7 @@ export default {
 						item.periodValidity = formatDate(item.periodValidity);// 有效期
 					})
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1380,7 +1380,7 @@ export default {
 				if(res.data.status == 200){
 					this.academicData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1398,7 +1398,7 @@ export default {
 				if(res.data.status == 200){
 					this.educationData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)

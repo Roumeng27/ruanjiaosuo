@@ -6,11 +6,11 @@
                 </el-table-column>
                 <el-table-column  prop="entrySubcontractNumber"  label="文件名称">
                 </el-table-column>
-                <el-table-column  prop="subcontractName"  label="配置投标所需扫描件">
+                <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="配置投标所需扫描件">
                 </el-table-column>
-                <el-table-column  prop="subcontractName"  label="是否必选">
+                <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="是否必选">
                 </el-table-column>
-                <el-table-column  prop="subcontractName"  label="是否选择">
+                <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="是否选择">
                 </el-table-column>
                 <el-table-column  prop="subcontractName"  label="查看/上传">
                     <template slot-scope="scope">
@@ -26,7 +26,7 @@
             <el-table :data="tableData" stripe style="width: 100%">
                 <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                 </el-table-column>
-                <el-table-column  prop="entrySubcontractNumber"  label="材料名称">
+                <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="材料名称">
                 </el-table-column>
                 <el-table-column  prop="subcontractName"  label="查看文件">
                     <template slot-scope="scope">

@@ -45,11 +45,11 @@
                                     <el-table :data="enclosureData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -255,11 +255,11 @@
                                         <el-table :data="enclosureData" stripe style="width: 100%">
                                             <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                             </el-table-column>
-                                            <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                            <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractName"  label="分包名称">
+                                            <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                            <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                             </el-table-column>
                                             <el-table-column prop="operation" label="查看">
                                                 <template slot-scope="scope">
@@ -526,25 +526,25 @@
                             </el-table-column>
                             <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                             </el-table-column>
-                            <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                            <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                             </el-table-column>
-                            <el-table-column  label="采购项目名称">
+                            <el-table-column  label="采购项目名称" :show-overflow-tooltip ="true">
                                 <template slot-scope="scope">
                                     <span>{{pulicBids}}</span>
                                 </template>
                             </el-table-column>
-                            <el-table-column  prop="subcontractName"  label="分包名称">
+                            <el-table-column  prop="subcontractName"  :show-overflow-tooltip ="true" label="分包名称">
                             </el-table-column>
-                            <el-table-column  prop="subcontractContents"  label="分包分类">
+                            <el-table-column  prop="subcontractContents" :show-overflow-tooltip ="true" label="分包分类">
                             </el-table-column>
-                            <el-table-column  label="采购方式">
+                            <el-table-column  label="采购方式" :show-overflow-tooltip ="true">
                                 <template slot-scope="scope">
                                     <span>{{biddingMethod}}</span>
                                 </template>
                             </el-table-column>
-                            <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                            <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                             </el-table-column>
-                            <el-table-column prop="subcontractingState" label="分包状态">
+                            <el-table-column prop="subcontractingState" :show-overflow-tooltip ="true" label="分包状态">
                             </el-table-column>
                         </el-table>
                     </div>
@@ -789,7 +789,7 @@
                         this.tenderPurchaserName = res.data.data.tenderPurchaserName;//新招标采购人
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;//招标采购代理机构
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -989,7 +989,7 @@
                     if(res.data.status == 200){
                         this.enclosureData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1019,7 +1019,7 @@
             //删除表格分包
             deleteFile(row){
                 if(row.entrySubcontractNumber == this.projectObj.totalProjectId){
-                    this.$layer.msg('不可删除当前项目分包编号')
+                    this.$message.warning('不可删除当前项目分包编号')
                     return;
                 }else{
                     for(var i=0; i<this.enclosureData.length;i++){
@@ -1065,7 +1065,7 @@
                             this.biddingMethod = item.projectInformationVo.biddingProcurementMode
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1108,11 +1108,11 @@
                         }
                         this.bidSectionData = arrData;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err);
-                    this.$layer.msg('没有可选择的分包了')
+                    this.$message.warning('没有可选择的分包了')
                 })
             },
             //添加分包---表格选择
@@ -1174,13 +1174,13 @@
             //下一步
             nextTo(){
                 if(!this.assessmentTime){
-                    this.$layer.msg('请选择开标时间');
+                    this.$message.warning('请选择开标时间');
                     return false;
                 }else if(!this.estimatedReviewDuration){
-                    this.$layer.msg('请选择开标时长');
+                    this.$message.warning('请选择开标时长');
                     return false;
                 }else if(!this.openingRoom){
-                    this.$layer.msg('请选择开标室');
+                    this.$message.warning('请选择开标室');
                     return false;
                 }
                 this.subArr = [];
@@ -1256,7 +1256,7 @@
                             this.peitao = false;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1265,13 +1265,13 @@
             //保存
             saveFile(){
                 if(!this.assessmentTime){
-                    this.$layer.msg('请选择开标时间');
+                    this.$message.warning('请选择开标时间');
                     return false;
                 }else if(!this.estimatedReviewDuration){
-                    this.$layer.msg('请选择开标时长');
+                    this.$message.warning('请选择开标时长');
                     return false;
                 }else if(!this.openingRoom){
-                    this.$layer.msg('请选择开标室');
+                    this.$message.warning('请选择开标室');
                     return false;
                 }
                 
@@ -1335,7 +1335,7 @@
                             this.peitao = false;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1367,7 +1367,7 @@
                         $('.box').hide();
                         $('#agin').hide();
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1413,7 +1413,7 @@
                         $('.box').show();
                         $('#agin').hide();
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1445,7 +1445,7 @@
                         this.writeFlag = true;
                         this.nextFlag = false;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1477,7 +1477,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1572,7 +1572,7 @@
                             
                         }
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

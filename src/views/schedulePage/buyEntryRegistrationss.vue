@@ -240,7 +240,8 @@
 										</div>
 										<div class="editCenter">
 											<div class="editName">采购项目金额：</div>
-											<div class="editContent">{{amountOfBiddingProject}}万元</div>
+											<div class="editContent" v-if="whetherAnnounceBudget == '是'">{{amountOfBiddingProject}}</div>
+                                            <div class="editContent" v-else></div>
 										</div>
 									</div>
 									<div class="editItem">
@@ -493,14 +494,14 @@
                     },
                     {
                         id:2,
-                        appendixName: "项目负责人授权书",
+                        appendixName: "*委托代理协议",
                         attachlist: []
                     },
                     {
                         id:3,
-                        appendixName: "*委托代理协议",
+                        appendixName: "项目负责人授权书",
                         attachlist: []
-                    }
+                    },
                 ],
                 // 路由传参
                 referenceId:'',// 关联ID
@@ -618,13 +619,13 @@
                                 this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -663,13 +664,13 @@
                             this.$router.push({ name:'NotHandled'})
                             this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -797,7 +798,7 @@
                         this.servicePeriodOfAgencyStart = dayjs(res.data.data.servicePeriodOfAgencyStart).format('YYYY-MM-DD');
                         this.servicePeriodOfAgencyEnd = dayjs(res.data.data.servicePeriodOfAgencyEnd).format('YYYY-MM-DD');
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -820,7 +821,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -879,7 +880,7 @@
                         this.enclosureData[0].attachlist = arr
                         this.AnnexData[0].attachlist = arr
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -904,9 +905,9 @@
                             arr.push(item)
                         })
                         this.enclosureData[1].attachlist = arr
-                        this.AnnexData[1].attachlist = arr
+                        this.AnnexData[2].attachlist = arr
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -930,9 +931,9 @@
                             item.formatTime = dayjs(item.uploadTime).format('YYYY-MM-DD HH:mm:ss')
                             arr.push(item)
                         })
-                        this.AnnexData[2].attachlist = arr
+                        this.AnnexData[1].attachlist = arr
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

@@ -14,7 +14,54 @@
             </div>
             <div class="mainBox">
                 <el-tabs v-model="currentName" @tab-click="handleClick">
-                    <el-tab-pane label="变更文件公告" name="1">
+                    <el-tab-pane label="招标公告" name="1">
+                        <div class="main_info">
+                            <div class="pageBox" >
+                                <el-table
+                                    :data="publicData"
+                                    border
+                                    style="width: 100%">
+                                    <el-table-column
+                                    prop="biddingProjectNumber"
+                                    :show-overflow-tooltip ="true"
+                                    label="项目编号"
+                                    width="180">
+                                    </el-table-column>
+                                    <el-table-column
+                                    :show-overflow-tooltip ="true"
+                                    prop="typesOfBiddingProjects"
+                                    label="服务分类"
+                                    width="180">
+                                    </el-table-column>
+                                    <el-table-column
+                                    :show-overflow-tooltip ="true"
+                                    label="项目名称">
+                                        <template slot-scope="scope">
+                                            <span class="code" v-if="scope.row.biddingProjectNumber && scope.row.biddingProjectNumber.indexOf('-') == -1" @click="publicDetail(scope.row)">{{scope.row.nameOfTenderProject}}</span>
+                                            <span class="code" v-else  @click="publicDetail(scope.row)">{{scope.row.subcontractName}}</span>
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column
+                                    :show-overflow-tooltip ="true"
+                                    prop="noticeSendTime"
+                                    label="发布日期">
+                                    </el-table-column>
+                                </el-table>
+                            </div>
+                            <!-- 分页器 -->
+                            <div class="pagination" >
+                                <el-pagination
+                                    @size-change="handleSizeChange"
+                                    @current-change="handleCurrentChange"
+                                    :current-page.sync="currentPage"
+                                    :page-size="pageSize"
+                                    layout="total, prev, pager, next, jumper"
+                                    :total="total">
+                                </el-pagination>
+                            </div>
+                        </div>
+                    </el-tab-pane>
+                    <!-- <el-tab-pane label="变更文件公告" name="2">
                         <div class="main_info">
                             <div class="pageBox" >
                                 <el-table
@@ -44,9 +91,9 @@
                                     label="发布日期">
                                     </el-table-column>
                                 </el-table>
-                            </div>
+                            </div> -->
                             <!-- 分页器 -->
-                            <div class="pagination" >
+                            <!-- <div class="pagination" >
                                 <el-pagination
                                     @size-change="handleSizeChange"
                                     @current-change="handleCurrentChange"
@@ -57,67 +104,27 @@
                                 </el-pagination>
                             </div>
                         </div>
-                    </el-tab-pane>
-                    <el-tab-pane label="项目公告" name="2">
-                        <div class="main_info">
-                            <div class="pageBox" >
-                                <el-table
-                                    :data="publicData"
-                                    border
-                                    style="width: 100%">
-                                    <el-table-column
-                                    prop="biddingProjectNumber"
-                                    label="项目编号"
-                                    width="180">
-                                    </el-table-column>
-                                    <el-table-column
-                                    prop="typesOfBiddingProjects"
-                                    label="服务分类"
-                                    width="180">
-                                    </el-table-column>
-                                    <el-table-column
-                                    label="项目名称">
-                                        <template slot-scope="scope">
-                                            <span class="code" v-if="scope.row.biddingProjectNumber && scope.row.biddingProjectNumber.indexOf('-') == -1" @click="publicDetail(scope.row)">{{scope.row.nameOfTenderProject}}</span>
-                                            <span class="code" v-else  @click="publicDetail(scope.row)">{{scope.row.subcontractName}}</span>
-                                        </template>
-                                    </el-table-column>
-                                    <el-table-column
-                                    prop="noticeSendTime"
-                                    label="发布日期">
-                                    </el-table-column>
-                                </el-table>
-                            </div>
-                            <!-- 分页器 -->
-                            <div class="pagination" >
-                                <el-pagination
-                                    @size-change="handleSizeChange"
-                                    @current-change="handleCurrentChange"
-                                    :current-page.sync="currentPage"
-                                    :page-size="pageSize"
-                                    layout="total, prev, pager, next, jumper"
-                                    :total="total">
-                                </el-pagination>
-                            </div>
-                        </div>
-                    </el-tab-pane>
-                    <el-tab-pane label="中选公告" name="3">
+                    </el-tab-pane> -->
+                    <el-tab-pane label="中标公告" name="2">
                         <div class="pageBox">
                             <el-table
                                 :data="tableData"
                                 border
                                 style="width: 100%">
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projcetNumber"
                                 label="项目编号"
                                 width="180">
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="bidProjectsType"
                                 label="服务分类"
                                 width="180">
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 label="项目名称"
                                 prop="projcetName">
                                     <template slot-scope="scope">
@@ -125,6 +132,7 @@
                                     </template>
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="releaseTime"
                                 label="发布日期">
                                 </el-table-column>
@@ -142,7 +150,7 @@
                             </el-pagination>
                         </div>
                     </el-tab-pane>
-                    <el-tab-pane label="场地预约公告" name="4">
+                    <!-- <el-tab-pane label="场地预约公告" name="4">
                         <div class="main_info">
                             <div class="pageBox" >
                                 <el-table
@@ -171,9 +179,9 @@
                                     label="发布日期">
                                     </el-table-column>
                                 </el-table>
-                            </div>
+                            </div> -->
                             <!-- 分页器 -->
-                            <div class="pagination" >
+                            <!-- <div class="pagination" >
                                 <el-pagination
                                     @size-change="handleSizeChange"
                                     @current-change="handleCurrentChange"
@@ -184,24 +192,27 @@
                                 </el-pagination>
                             </div>
                         </div>
-                    </el-tab-pane>
-                    <el-tab-pane label="变更公告" name="5">
+                    </el-tab-pane> -->
+                    <el-tab-pane label="更正公告" name="3">
                         <div class="pageBox">
                             <el-table
                                 :data="changeNoticeData"
                                 border
                                 style="width: 100%">
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="biddingProjectNumber"
                                 label="项目编号"
                                 width="180">
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="typesOfBiddingProjects"
                                 label="服务分类"
                                 width="180">
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 label="项目名称"
                                 prop="projcetName">
                                     <template slot-scope="scope">
@@ -210,6 +221,7 @@
                                     </template>
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="noticeUpdateTime"
                                 label="发布日期">
                                 </el-table-column>
@@ -227,23 +239,26 @@
                             </el-pagination>
                         </div>
                     </el-tab-pane>
-                    <el-tab-pane label="异常公告" name="6">
+                    <el-tab-pane label="废标公告" name="4">
                         <div class="pageBox">
                             <el-table
                                 :data="abnormalData"
                                 border
                                 style="width: 100%">
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projcetNumber"
                                 label="项目编号"
                                 width="180">
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="bidProjectsType"
                                 label="服务分类"
                                 width="180">
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 label="项目名称"
                                 prop="projcetName">
                                 <template slot-scope="scope">
@@ -251,6 +266,7 @@
                                 </template>
                                 </el-table-column>
                                 <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="releaseTime"
                                 label="发布日期">
                                 </el-table-column>
@@ -268,7 +284,7 @@
                             </el-pagination>
                         </div>
                     </el-tab-pane>
-                    <el-tab-pane label="答疑通知" name="7">
+                    <el-tab-pane label="答疑通知" name="5">
                         <div class="main_info">
                             <div class="pageBox" >
                                 <el-table
@@ -276,16 +292,19 @@
                                     border
                                     style="width: 100%">
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="projcetNumber"
                                     label="项目编号"
                                     width="180">
                                     </el-table-column>
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="bidProjectsType"
                                     label="服务分类"
                                     width="180">
                                     </el-table-column>
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     label="项目名称"
                                     prop="projcetName">
                                         <template slot-scope="scope">
@@ -293,6 +312,7 @@
                                         </template>
                                     </el-table-column>
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="releaseTime"
                                     label="发布日期">
                                     </el-table-column>
@@ -311,7 +331,7 @@
                             </div>
                         </div>
                     </el-tab-pane>
-                    <el-tab-pane label="合同公告" name="8">
+                    <el-tab-pane label="合同公告" name="6">
                         <div class="main_info">
                             <div class="pageBox" >
                                 <el-table
@@ -319,16 +339,19 @@
                                     border
                                     style="width: 100%">
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="projcetNumber"
                                     label="项目编号"
                                     width="180">
                                     </el-table-column>
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="bidProjectsType"
                                     label="服务分类"
                                     width="180">
                                     </el-table-column>
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     label="项目名称"
                                     prop="projcetName">
                                         <template slot-scope="scope">
@@ -336,6 +359,7 @@
                                         </template>
                                     </el-table-column>
                                     <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="releaseTime"
                                     label="发布日期">
                                     </el-table-column>
@@ -1326,7 +1350,7 @@
                 </div>
             </div>
         </div>
-        <!-- 变更公告详情 -->
+        <!-- 更正公告详情 -->
         <div class="lookWrapper" v-show="noticeFlag">
             <div class="lookBox">
                 <div class="lookTitle">
@@ -1338,7 +1362,7 @@
                         <div class="edit_list">
                                 <div class="fail_box">
                                     <div>{{noticeName}}</div>
-                                    <div>变更公告</div>
+                                    <div>更正公告</div>
                                     <div style="font-size:14px;font-weight:normal;color:#333;">{{saveTime}}</div>
                                 </div>
                                 <div class="editItem">
@@ -2251,7 +2275,7 @@
                 </div>
             </div>
         </div>
-        <!-- 中选公告详情 -->
+        <!-- 中标公告详情 -->
         <div class="lookWrapper" v-show="selectionFlag">
             <div class="lookBox">
                 <div class="lookTitle">
@@ -2436,7 +2460,7 @@
                 </div>
             </div>
         </div>
-        <!-- 采购中选公告详情 -->
+        <!-- 采购中标公告详情 -->
         <div class="lookWrapper" v-show="purchaSelectionFlag">
             <div class="lookBox">
                 <div class="lookTitle">
@@ -3507,9 +3531,9 @@
                 contractAnnounceFlag:false,//合同公告详情
                 purchaseAnswerFlag:false,//采购答疑通知详情
                 purchaseorderFlag:false,//采购场地预约详情
-                purchaSelectionFlag:false,//采购中选公告详情
+                purchaSelectionFlag:false,//采购中标公告详情
                 purchasefileFlag:false,//采购变更文件详情
-                purchaseAbnormalFlag:false,//采购异常公告详情
+                purchaseAbnormalFlag:false,//采购废标公告详情
                 changenoticeFlag:false,//变更采购公告详情
                 changeAnnounceFlag:false,//变更采购公示详情
                 announcelookFlag:false,//采购公示详情
@@ -3591,7 +3615,7 @@
                 morningend:'',//上午
                 afterbegin:'',//下午
                 afterend:'',//下午
-                // 变更公告
+                // 更正公告
                 peitao:false,
                 Pbaddress:false,
                 bidEvaluationTime:'',//评标时间
@@ -3679,11 +3703,11 @@
                 enterNum:'',
                 currentName:'1',
                 activeName1: ["1",'2','3','4'],
-                tableData: [],//中选公告
+                tableData: [],//中标公告
                 fileNoticeData:[],//文件公告
-                publicData:[],//项目公告
-                changeNoticeData:[],//变更公告
-                abnormalData:[],//异常公告
+                publicData:[],//招标公告
+                changeNoticeData:[],//更正公告
+                abnormalData:[],//废标公告
                 orderData:[],//场地预约公告
                 address:'',
                 currentPage:1,// 当前页
@@ -3694,9 +3718,9 @@
                 tabIndex:0,// 所点击的下标
                 fileFlag:false,//招标文件详情
                 lookFlag:false,// 招标公告详情弹窗
-                noticeFlag:false,//变更公告详情
-                selectionFlag:false,//中选公告详情
-                abnormalFlag:false,//异常公告详情弹框
+                noticeFlag:false,//更正公告详情
+                selectionFlag:false,//中标公告详情
+                abnormalFlag:false,//废标公告详情弹框
                 orderFlag:false,//场地预约详情弹框
                 projcetName:'',//项目名称
                 bidDocumentChangeId:'',//changeID
@@ -3737,33 +3761,34 @@
         methods: {
             handleClick(tab) {
                 this.tabIndex = tab.index;
+                // if(this.tabIndex == 1){
+                //     this.$axios({
+                //         method: "POST",
+                //         url: baseUrl+"/bidDocumentChangeController/selectList",
+                //         data:{
+                //             pageSize:this.pageSize,
+                //             pageNo:this.currentPage,
+                //         }
+                //     }).then(res=>{
+                //         if(res.data.status == 200){
+                //             this.fileNoticeData = res.data.data.list;
+                //             res.data.data.list.map((item,index)=>{
+                //                 if(item.releaseTime == null){
+                //                     item.releaseTime = ""
+                //                 }else{
+                //                     item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
+                //                 }
+                //             })
+                //             this.total = res.data.data.total;// 总条数
+                //             this.pages = res.data.data.pages;
+                //         }else{
+                //             this.$message.warning(res.data.msg);
+                //         }
+                //     }).catch(err=>{
+                //         console.log(err)
+                //     })
+                // }else 
                 if(this.tabIndex == 0){
-                    this.$axios({
-                        method: "POST",
-                        url: baseUrl+"/bidDocumentChangeController/selectList",
-                        data:{
-                            pageSize:this.pageSize,
-                            pageNo:this.currentPage,
-                        }
-                    }).then(res=>{
-                        if(res.data.status == 200){
-                            this.fileNoticeData = res.data.data.list;
-                            res.data.data.list.map((item,index)=>{
-                                if(item.releaseTime == null){
-                                    item.releaseTime = ""
-                                }else{
-                                    item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
-                                }
-                            })
-                            this.total = res.data.data.total;// 总条数
-                            this.pages = res.data.data.pages;
-                        }else{
-                            this.$layer.msg(res.data.msg);
-                        }
-                    }).catch(err=>{
-                        console.log(err)
-                    })
-                }else if(this.tabIndex == 1){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/tenderNoticeController/selectHome",
@@ -3784,12 +3809,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 2){
+                }else if(this.tabIndex == 1){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/winnResultController/selectList",
@@ -3810,38 +3835,40 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 3){
-                    this.$axios({
-                        method: "POST",
-                        url: baseUrl+"/siteReservationController/selectList",
-                        data:{
-                            pageSize:this.pageSize,
-                            pageNo:this.currentPage,
-                        }
-                    }).then(res=>{
-                        if(res.data.status == 200){
-                            this.orderData = res.data.data.list;
-                            res.data.data.list.map((item,index)=>{
-                                if(item.releaseTime == null){
-                                    item.releaseTime = ""
-                                }else{
-                                    item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
-                                }
-                            })
-                            this.total = res.data.data.total;// 总条数
-                            this.pages = res.data.data.pages;
-                        }else{
-                            this.$layer.msg(res.data.msg);
-                        }
-                    }).catch(err=>{
-                        console.log(err)
-                    })
-                }else if(this.tabIndex == 4){
+                }
+                // else if(this.tabIndex == 3){
+                //     this.$axios({
+                //         method: "POST",
+                //         url: baseUrl+"/siteReservationController/selectList",
+                //         data:{
+                //             pageSize:this.pageSize,
+                //             pageNo:this.currentPage,
+                //         }
+                //     }).then(res=>{
+                //         if(res.data.status == 200){
+                //             this.orderData = res.data.data.list;
+                //             res.data.data.list.map((item,index)=>{
+                //                 if(item.releaseTime == null){
+                //                     item.releaseTime = ""
+                //                 }else{
+                //                     item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
+                //                 }
+                //             })
+                //             this.total = res.data.data.total;// 总条数
+                //             this.pages = res.data.data.pages;
+                //         }else{
+                //             this.$message.warning(res.data.msg);
+                //         }
+                //     }).catch(err=>{
+                //         console.log(err)
+                //     })
+                // }
+                else if(this.tabIndex == 2){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/tenderNoticeController/selectChangeHome",
@@ -3862,12 +3889,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 5){
+                }else if(this.tabIndex == 3){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/tenderExceptionController/selectExceptionList",
@@ -3889,12 +3916,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 6){
+                }else if(this.tabIndex == 4){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/answerNoticeController/selectList",
@@ -3916,12 +3943,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 7){
+                }else if(this.tabIndex == 5){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/contractController/selectList",
@@ -3944,7 +3971,7 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -3965,33 +3992,34 @@
                 this.getList();// 列表数据
             },
             getList(){
+                // if(this.tabIndex == 1){
+                //     this.$axios({
+                //         method: "POST",
+                //         url: baseUrl+"/bidDocumentChangeController/selectList",
+                //         data:{
+                //             pageSize:this.pageSize,
+                //             pageNo:this.currentPage,
+                //         }
+                //     }).then(res=>{
+                //         if(res.data.status == 200){
+                //             this.fileNoticeData = res.data.data.list;
+                //             res.data.data.list.map((item,index)=>{
+                //                 if(item.releaseTime == null){
+                //                     item.releaseTime = ""
+                //                 }else{
+                //                     item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
+                //                 }
+                //             })
+                //             this.total = res.data.data.total;// 总条数
+                //             this.pages = res.data.data.pages;
+                //         }else{
+                //             this.$message.warning(res.data.msg);
+                //         }
+                //     }).catch(err=>{
+                //         console.log(err)
+                //     })
+                // }else 
                 if(this.tabIndex == 0){
-                    this.$axios({
-                        method: "POST",
-                        url: baseUrl+"/bidDocumentChangeController/selectList",
-                        data:{
-                            pageSize:this.pageSize,
-                            pageNo:this.currentPage,
-                        }
-                    }).then(res=>{
-                        if(res.data.status == 200){
-                            this.fileNoticeData = res.data.data.list;
-                            res.data.data.list.map((item,index)=>{
-                                if(item.releaseTime == null){
-                                    item.releaseTime = ""
-                                }else{
-                                    item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
-                                }
-                            })
-                            this.total = res.data.data.total;// 总条数
-                            this.pages = res.data.data.pages;
-                        }else{
-                            this.$layer.msg(res.data.msg);
-                        }
-                    }).catch(err=>{
-                        console.log(err)
-                    })
-                }else if(this.tabIndex == 1){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/tenderNoticeController/selectHome",
@@ -4012,12 +4040,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 2){
+                }else if(this.tabIndex == 1){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/winnResultController/selectList",
@@ -4038,38 +4066,40 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 3){
-                    this.$axios({
-                        method: "POST",
-                        url: baseUrl+"/siteReservationController/selectList",
-                        data:{
-                            pageSize:this.pageSize,
-                            pageNo:this.currentPage,
-                        }
-                    }).then(res=>{
-                        if(res.data.status == 200){
-                            this.orderData = res.data.data.list;
-                            res.data.data.list.map((item,index)=>{
-                                if(item.releaseTime == null){
-                                    item.releaseTime = ""
-                                }else{
-                                    item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
-                                }
-                            })
-                            this.total = res.data.data.total;// 总条数
-                            this.pages = res.data.data.pages;
-                        }else{
-                            this.$layer.msg(res.data.msg);
-                        }
-                    }).catch(err=>{
-                        console.log(err)
-                    })
-                }else if(this.tabIndex == 4){
+                }
+                // else if(this.tabIndex == 3){
+                //     this.$axios({
+                //         method: "POST",
+                //         url: baseUrl+"/siteReservationController/selectList",
+                //         data:{
+                //             pageSize:this.pageSize,
+                //             pageNo:this.currentPage,
+                //         }
+                //     }).then(res=>{
+                //         if(res.data.status == 200){
+                //             this.orderData = res.data.data.list;
+                //             res.data.data.list.map((item,index)=>{
+                //                 if(item.releaseTime == null){
+                //                     item.releaseTime = ""
+                //                 }else{
+                //                     item.releaseTime = dayjs(item.releaseTime).format('YYYY-MM-DD HH:mm:ss');
+                //                 }
+                //             })
+                //             this.total = res.data.data.total;// 总条数
+                //             this.pages = res.data.data.pages;
+                //         }else{
+                //             this.$message.warning(res.data.msg);
+                //         }
+                //     }).catch(err=>{
+                //         console.log(err)
+                //     })
+                // }
+                else if(this.tabIndex == 2){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/tenderNoticeController/selectChangeHome",
@@ -4090,12 +4120,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 5){
+                }else if(this.tabIndex == 3){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/tenderExceptionController/selectExceptionList",
@@ -4117,12 +4147,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 6){
+                }else if(this.tabIndex == 4){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/answerNoticeController/selectList",
@@ -4144,12 +4174,12 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
-                }else if(this.tabIndex == 7){
+                }else if(this.tabIndex == 5){
                     this.$axios({
                         method: "POST",
                         url: baseUrl+"/contractController/selectList",
@@ -4172,7 +4202,7 @@
                             this.total = res.data.data.total;// 总条数
                             this.pages = res.data.data.pages;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -4203,7 +4233,7 @@
                 }
                 this.getDetailList();
             },
-            //变更公告
+            //更正公告
             noticeDetail(row){
                 this.projectCode = row.biddingProjectNumber;
                 this.tenderNoticeId = row.tenderNoticeId;
@@ -4222,7 +4252,7 @@
                 }
                 this.getInitInfo();
             },
-            //项目公告
+            //招标公告
             publicDetail(row){
                 this.projectCode = row.biddingProjectNumber;
                 this.biddingProcurementMode = row.biddingProcurementMode;
@@ -4245,7 +4275,7 @@
                 this.nameOfTenderProject = row.nameOfTenderProject;
                 this.subcontractName = row.subcontractName;
             },
-            //中选公告
+            //中标公告
             selectionDetail(row){
                 this.projectCode = row.projcetNumber;
                 this.biddingProcurementMode = row.biddingProcurementMode;
@@ -4282,7 +4312,7 @@
                 this.getOrderList();
                 
             },
-            //异常公告
+            //废标公告
             abnormalDetail(row){
                 this.projectCode = row.projcetNumber;
                 this.biddingProcurementMode = row.biddingProcurementMode;
@@ -4353,7 +4383,7 @@
                         this.contacts = res.data.data.projectInformationVo.contacts//联系方式
                         this.biddingPurchasingAgencyName = res.data.data.projectInformationVo.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -4381,7 +4411,7 @@
                             this.saveTime = dayjs(res.data.data.saveTime).format('YYYY-MM-DD HH:mm:ss');//时间
                         } 
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -4434,13 +4464,13 @@
                         this.depositType= res.data.data.depositType;//保证金类型
                         this.depositMethod =  res.data.data.depositMethod;//保证金递交方式
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
                 })
             },
-            // 变更公告详情
+            // 更正公告详情
             getInitInfo(){
                 this.$axios({
                     method: "GET",
@@ -4545,7 +4575,7 @@
                             this.peitao = false;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -4700,13 +4730,13 @@
                         })
                        
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
                 })
             },
-            //中选公告
+            //中标公告
             getselectionList(){
                 let object={}
                 if(this.projectCode.indexOf("-") != -1 && this.projectCode != null){
@@ -4837,7 +4867,7 @@
                     console.log(err)
                 })
             },
-            //异常公告
+            //废标公告
             getAbnormalList(){
                 let object={}
                 if(this.projectCode.indexOf("-") != -1 && this.projectCode != null){
@@ -4945,7 +4975,7 @@
                             }
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -4998,7 +5028,7 @@
                         }
                         
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -5039,7 +5069,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

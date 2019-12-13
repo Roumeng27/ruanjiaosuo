@@ -72,18 +72,18 @@
                             <el-table :data="subpackgeData" stripe style="width: 100%">
                                 <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                                 </el-table-column>
-                                <el-table-column prop="subcontractName" label="分包名称">
+                                <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                 </el-table-column>
-                                <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)" width="100">
+                                <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)" width="100">
                                 </el-table-column>
-                                <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                                <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                                 </el-table-column>
                                 <el-table-column prop="operation" label="查看">
                                     <template slot-scope="scope">
                                         <i class="el-icon-search" style="cursor:pointer;" @click="lookFile(scope.row)"></i>
                                     </template>
                                 </el-table-column>
-                                <el-table-column prop="operation" label="招标内容">
+                                <el-table-column prop="operation"  :show-overflow-tooltip ="true" label="招标内容">
                                     <template slot-scope="scope">
                                         <i class="el-icon-edit" style="cursor:pointer;" @click="auditEditFile(scope.row)"></i>
                                     </template>
@@ -227,7 +227,7 @@
                                 <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>报名时间：</div>
                                     <div class="noteFlex">
-                                        <el-date-picker v-model="applicationTime" value-format="timestamp" type="datetimerange"  range-separator="至"  start-placeholder="报名开始日期"  end-placeholder="报名结束日期">
+                                        <el-date-picker id="focus0"  v-model="applicationTime" value-format="timestamp" type="datetimerange"  range-separator="至"  start-placeholder="报名开始日期"  end-placeholder="报名结束日期">
                                         </el-date-picker>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@
                                     <div class="noteLeft" style="width:308px;"><span style="color:#f00;">*</span>资格预审文件领取时间：</div>
                                     <div class="noteTime">
                                         <div class="timeBox">
-                                            <el-date-picker v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+                                            <el-date-picker id="focus1" v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
                                             </el-date-picker>
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@
                                 <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>文件工本费：</div>
                                     <div class="noteFlex">
-                                    <el-input v-model="tenderDocumentsCost"></el-input>
+                                    <el-input id="focus2"  v-model="tenderDocumentsCost"></el-input>
                                     </div>
                                 </div>
                             </div>
@@ -315,7 +315,7 @@
                                 <div class="noteContent">
                                     <div class="noteLeft"><span style="color:#f00;">*</span>投标人需提交资料：</div>
                                     <div class="noteFlex">
-                                    <el-input v-model="bidderData"></el-input>
+                                    <el-input id="focus3"  v-model="bidderData"></el-input>
                                     </div>
                                 </div>
                             </div>
@@ -347,7 +347,7 @@
                                     </div>
                                     <div style="display: inline-flex;margin-left:30px;width:50%;">
                                         <span style="width:130px;">联系方式:</span>
-                                        <el-input v-model="projectLeaderPhone" @blur="blurPhone()"></el-input>
+                                        <el-input v-model="projectLeaderPhone" id="focus4" @blur="blurPhone()"></el-input>
                                     </div>
                                 </div>
                             </div>
@@ -459,18 +459,18 @@
                         <el-table :data="subpackgeData" stripe style="width: 100%">
                             <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                             </el-table-column>
-                            <el-table-column prop="subcontractName" label="分包名称">
+                            <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                             </el-table-column>
-                            <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)" width="100">
+                            <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)" width="100">
                             </el-table-column>
-                            <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                            <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column prop="operation" label="查看">
                                 <template slot-scope="scope">
                                     <i class="el-icon-search" style="cursor:pointer;" @click="lookFile(scope.row)"></i>
                                 </template>
                             </el-table-column>
-                            <el-table-column prop="operation" label="招标内容">
+                            <el-table-column prop="operation" label="招标内容" :show-overflow-tooltip ="true">
                                 <template slot-scope="scope">
                                     <i class="el-icon-search" style="cursor:pointer;" @click="lookEditFile(scope.row)"></i>
                                 </template>
@@ -1044,25 +1044,25 @@
                 </el-table-column>
                 <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                 </el-table-column>
-                <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                 </el-table-column>
                 <el-table-column  label="招标项目名称">
                     <template slot-scope="scope">
                         <span>{{pulicBids}}</span>
                     </template>
                 </el-table-column>
-                <el-table-column  prop="subcontractName"  label="分包名称">
+                <el-table-column  prop="subcontractName"  label="分包名称" :show-overflow-tooltip ="true">
                 </el-table-column>
-                <el-table-column  prop="subcontractContents"  label="分包分类">
+                <el-table-column  prop="subcontractContents"  label="分包分类" :show-overflow-tooltip ="true">
                 </el-table-column>
-                <el-table-column  label="招标方式">
+                <el-table-column  label="招标方式" :show-overflow-tooltip ="true">
                     <template slot-scope="scope">
                         <span>{{biddingMethod}}</span>
                     </template>
                 </el-table-column>
-                <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                 </el-table-column>
-                <el-table-column prop="subcontractingState" label="分包状态">
+                <el-table-column prop="subcontractingState" :show-overflow-tooltip ="true" label="分包状态">
                 </el-table-column>
             </el-table>
         </div>
@@ -1752,7 +1752,7 @@ export default {
                         })
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1804,7 +1804,7 @@ export default {
                         $('.jingwai').hide();
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1837,7 +1837,7 @@ export default {
                     this.subpackgeData = res.data.data;
                     console.log(this.subpackgeData)
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1880,7 +1880,7 @@ export default {
                         this.biddingMethod = item.projectInformationVo.biddingProcurementMode
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1923,17 +1923,17 @@ export default {
                         this.bidSectionData = arrData;
                         this.addInforShow = true;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err);
-                    this.$layer.msg('没有可选择的分包了')
+                    this.$message.warning('没有可选择的分包了')
                 })
         },
         //删除表格分包
         deleteTable(row){
             if(row.entrySubcontractNumber == this.projectObj.totalProjectId){
-                    this.$layer.msg('不可删除当前项目分包编号')
+                    this.$message.warning('不可删除当前项目分包编号')
                     return;
             }else{
                 for(var i=0; i<this.subpackgeData.length;i++){
@@ -2050,7 +2050,7 @@ export default {
                     if(res.data.status == 200){
                         this.certificateData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2094,7 +2094,7 @@ export default {
                     if(res.data.status == 200){
                         this.leaderData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2142,20 +2142,25 @@ export default {
         //下一步弹框
         nextTo(){
             if(!this.applicationTime){
-                this.$layer.msg('请选择报名时间');
+                $('#focus0').focus();
+                this.$message.warning('请选择报名时间');
                 return false;
             }else if(!this.collectTime || !this.morningbegin || !this.morningend || !this.afterbegin || !this.afterend){
-                this.$layer.msg('请选择资格预审文件领取时间');
+                $('#focus1').focus();
+                this.$message.warning('请选择资格预审文件领取时间');
                 return false;
             }else if(!this.tenderDocumentsCost){
-                this.$layer.msg('请填写文件工本费');
+                $('#focus2').focus();
+                this.$message.warning('请填写文件工本费');
                 return false;
             }else if(!this.bidderData){
-                this.$layer.msg('请填写投标人需提交的资料');
+                $('#focus3').focus();
+                this.$message.warning('请填写投标人需提交的资料');
                 return false;
             }
             if(!isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){
-                this.$layer.msg('请输入正确的联系方式！');
+                $('#focus4').focus();
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }
             // 企业资质要求的label
@@ -2363,7 +2368,7 @@ export default {
                     this.userId = res.data.data.tenderNoticeId;
                     this.updateTime = res.data.data.updateTime;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2372,20 +2377,25 @@ export default {
         //保存
         saveFile(){
              if(!this.applicationTime){
-                this.$layer.msg('请选择报名时间');
+                $('#focus0').focus();
+                this.$message.warning('请选择报名时间');
                 return false;
             }else if(!this.collectTime || !this.morningbegin || !this.morningend || !this.afterbegin || !this.afterend){
-                this.$layer.msg('请选择资格预审文件领取时间');
+                $('#focus1').focus();
+                this.$message.warning('请选择资格预审文件领取时间');
                 return false;
             }else if(!this.tenderDocumentsCost){
-                this.$layer.msg('请填写文件工本费');
+                $('#focus2').focus();
+                this.$message.warning('请填写文件工本费');
                 return false;
             }else if(!this.bidderData){
-                this.$layer.msg('请填写投标人需提交的资料');
+                $('#focus3').focus();
+                this.$message.warning('请填写投标人需提交的资料');
                 return false;
             }
             if(!isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){
-                this.$layer.msg('请输入正确的联系方式！');
+                $('#focus4').focus();
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }
             
@@ -2493,7 +2503,7 @@ export default {
                     this.show = true;
                     this.saveBox = true;
                 }else{
-                    this.$layer.msg(res.data)
+                    this.$message.warning(res.data)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2543,7 +2553,7 @@ export default {
                     this.nextShow = false;
                     this.show = true;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2565,7 +2575,7 @@ export default {
                     this.submitBox = true;
                     $('.new_nav').hide();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                     this.submitBox = false;
                 }
             }).catch(err=>{
@@ -2588,7 +2598,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -2610,7 +2620,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2648,7 +2658,7 @@ export default {
                     this.subpackgeData[1].attachlist = arr
                 }
             }else{
-                this.$layer.msg(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
             }).catch(err=>{
             console.log(err);
@@ -2684,7 +2694,7 @@ export default {
                 }
                 }
             }else{
-                this.$layer.msg(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
             }).catch(err=>{
             console.log(err);
@@ -2720,7 +2730,7 @@ export default {
         }, 
         blurPhone(){
             if(!isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){
-                this.$layer.msg('请输入正确的联系方式！');
+                this.$message.warning('请输入正确的联系方式！');
             }
         },
         //办理记录列表
@@ -2749,7 +2759,7 @@ export default {
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

@@ -1,5 +1,5 @@
 // let baseUrl = 'http://192.168.66.247:2000' //测试
-// let baseUrl = 'http://192.168.65.188:2000' //测试
+// let baseUrl = 'http://10.128.4.215:2000' //测试
 let baseUrl = 'http://fujian.zhaobiaocaigou.com.cn:5001'
 import axios from 'axios'
 import router from '../router'
@@ -16,7 +16,7 @@ axios.interceptors.response.use(response => {
 		router.push({
 		 	name:'login'
         })
-        this.$layer.msg(response.data.msg);
+        this.$message.warning(response.data.msg);
         window.localStorage.removeItem('login');
 	}
     return response

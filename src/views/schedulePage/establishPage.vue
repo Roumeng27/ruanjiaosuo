@@ -50,14 +50,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column  
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -93,17 +96,17 @@
                                     <el-table-column label="序号">
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
-                                    <el-table-column  prop="expertName"  label="姓名" >
+                                    <el-table-column  prop="expertName" :show-overflow-tooltip ="true" label="姓名" >
                                     </el-table-column>
-                                    <el-table-column  prop="company"  label="工作单位">
+                                    <el-table-column  prop="company" :show-overflow-tooltip ="true" label="工作单位">
                                     </el-table-column>
-                                    <el-table-column  prop="certified"  label="职称/执业资格">
+                                    <el-table-column  prop="certified" :show-overflow-tooltip ="true" label="职称/执业资格">
                                     </el-table-column>
-                                    <el-table-column  prop="specialty"  label="从事专业">
+                                    <el-table-column  prop="specialty" :show-overflow-tooltip ="true" label="从事专业">
                                     </el-table-column>
-                                    <el-table-column  prop="committeeJob"  label="评标委员会担任工作" width="150">
+                                    <el-table-column  prop="committeeJob" :show-overflow-tooltip ="true" label="评标委员会担任工作" width="150">
                                     </el-table-column>
-                                    <el-table-column  prop="expertType"  label="专家类型" >
+                                    <el-table-column  prop="expertType" :show-overflow-tooltip ="true" label="专家类型" >
                                     </el-table-column>
                                     <el-table-column prop="operation" label="查看" width="70">
                                         <template slot-scope="scope">
@@ -127,14 +130,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="avoidCompanyName"
                                         label="回避单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="avoidCompanyInstitutionCode"
                                         label="回避单位机构代码">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="avoidReason"
                                         label="回避原因">
                                     </el-table-column>
@@ -487,13 +493,13 @@
                                 this.$router.push({ name:'NotHandled'})
                             this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
                 
@@ -534,13 +540,13 @@
                             this.$router.push({ name:'NotHandled'})
                             this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -558,7 +564,7 @@
                         this.avoidData = res.data.data.listAvoids;// 回避单位信息
                         this.ownerList = res.data.data.listExperts;// 专家信息
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -580,7 +586,7 @@
                         this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -600,7 +606,7 @@
                     if(res.data.status == 200){
                         this.subpackageData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -647,7 +653,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -732,7 +738,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

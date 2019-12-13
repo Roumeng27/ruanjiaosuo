@@ -120,20 +120,24 @@
                                 <template slot-scope="scope">{{scope.$index+1}}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="entrySubcontractNumber"
                                 label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractName"
                                 label="分包名称"
                                 show-overflow-tooltip>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractingControlAmount"
                                 label="分包控制金额(万元)"
                                 show-overflow-tooltip>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projectSubcontractCreationTime"
                                 label="创建时间"
                                 show-overflow-tooltip>
@@ -150,11 +154,11 @@
                         <el-table :data="manageDate" stripe style="width: 100%">
                             <el-table-column  prop="step"  label="步骤">
                             </el-table-column>
-                            <el-table-column  prop="userName"  label="办理人员">
+                            <el-table-column  prop="userName" :show-overflow-tooltip ="true"  label="办理人员">
                             </el-table-column>
-                            <el-table-column  prop="creationTime"  label="时间">
+                            <el-table-column  prop="creationTime" :show-overflow-tooltip ="true"  label="时间">
                             </el-table-column>
-                            <el-table-column  prop="state"  label="状态">
+                            <el-table-column  prop="state" :show-overflow-tooltip ="true"  label="状态">
                             </el-table-column>
                             <el-table-column  prop="remarks"  label="备注">
                             </el-table-column>
@@ -451,7 +455,7 @@ export default {
                     this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                     this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;//招标采购代理机构
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -479,7 +483,7 @@ export default {
                         });
                     }
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -509,7 +513,7 @@ export default {
                     }
                     
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -532,7 +536,7 @@ export default {
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -573,7 +577,7 @@ export default {
                     })
                     this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -589,7 +593,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -609,7 +613,7 @@ export default {
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -621,7 +625,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -647,7 +651,7 @@ export default {
                     // debugger;
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -750,7 +754,7 @@ export default {
                         }
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

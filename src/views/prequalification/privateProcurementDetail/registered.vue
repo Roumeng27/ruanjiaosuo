@@ -39,13 +39,13 @@
                         </el-table-column>
                         <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="organizationCode" label="组织机构代码" width="180">
+                        <el-table-column prop="organizationCode" label="组织机构代码" :show-overflow-tooltip ="true" width="180">
                         </el-table-column>
-                        <el-table-column prop="companyName" label="单位名称" width="180">
+                        <el-table-column prop="companyName" label="单位名称" :show-overflow-tooltip ="true" width="180">
                         </el-table-column>
-                        <el-table-column prop="registeredArea" label="注册所在地">
+                        <el-table-column prop="registeredArea" :show-overflow-tooltip ="true" label="注册所在地">
                         </el-table-column>
-                        <el-table-column prop="companyType" label="单位类型">
+                        <el-table-column prop="companyType" :show-overflow-tooltip ="true" label="单位类型">
                         </el-table-column>
                         <el-table-column fixed="right" label="修改" width="100" >
                             <template slot-scope="scope">
@@ -60,13 +60,13 @@
                         </el-table-column>
                         <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="organizationCode" label="组织机构代码" width="180">
+                        <el-table-column prop="organizationCode" label="组织机构代码" :show-overflow-tooltip ="true" width="180">
                         </el-table-column>
-                        <el-table-column prop="companyName" label="单位名称" width="180">
+                        <el-table-column prop="companyName" label="单位名称" :show-overflow-tooltip ="true" width="180">
                         </el-table-column>
-                        <el-table-column prop="registeredArea" label="注册所在地">
+                        <el-table-column prop="registeredArea" :show-overflow-tooltip ="true" label="注册所在地">
                         </el-table-column>
-                        <el-table-column prop="companyType" label="单位类型">
+                        <el-table-column prop="companyType" :show-overflow-tooltip ="true" label="单位类型">
                         </el-table-column>
                     </el-table>
                 </div>
@@ -337,7 +337,7 @@ export default {
                 if(res.data.data.status == 200){
                     this.tableData = res.data.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -369,7 +369,7 @@ export default {
                     this.organizaData = res.data.data.data;
                     this.biddingOrganization = res.data.data.data[1].value;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -389,7 +389,7 @@ export default {
                 if(res.data.data.status == 200){
                     this.tableData = res.data.data.data
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -420,7 +420,7 @@ export default {
                 if(res.data.status == 200){
                     this.addressData = res.data.data
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -429,22 +429,22 @@ export default {
         //新增中的保存数据
         saveData(){
             if(!this.companyName){
-                this.$layer.msg('请输入单位名称');
+                this.$message.warning('请输入单位名称');
                 return false;
             }else if(!this.organizationCode){
-                this.$layer.msg('请输入组织机构代码');
+                this.$message.warning('请输入组织机构代码');
                 return false;
             }else if(!this.localName){
-                this.$layer.msg('请选择单位注册地区');
+                this.$message.warning('请选择单位注册地区');
                 return false;
             }else if(!this.roleTypeB){
-                this.$layer.msg('请选择单位类型');
+                this.$message.warning('请选择单位类型');
                 return false;
             }else if(this.contactsPhone != "" && !isPoneAvailable(this.contactsPhone) && !checkPhone(this.contactsPhone)){
-                this.$layer.msg('请输入正确的联系方式');
+                this.$message.warning('请输入正确的联系方式');
                 return false;
             }else if(this.applicationLock != "" && this.applicationLock != null && !checkNumber(this.applicationLock)){
-                this.$layer.msg('副锁请输入数字类型');
+                this.$message.warning('副锁请输入数字类型');
                 return false;
             }else{
                 this.$axios({
@@ -465,7 +465,7 @@ export default {
                         this.show = false;
                         this.getDataList();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -475,7 +475,7 @@ export default {
         //校验手机号联系方式
         blurPhone(){
             if(!isPoneAvailable(this.contactsPhone) && !checkPhone(this.contactsPhone)){
-                this.$layer.msg('请输入正确的联系方式');
+                this.$message.warning('请输入正确的联系方式');
             }
         },
        
@@ -492,7 +492,7 @@ export default {
         //点击删除出现确定弹框
         deletePro(){
             if(this.userId.length <= 0){
-                this.$layer.msg('请选择您要删除的项目')
+                this.$message.warning('请选择您要删除的项目')
             }else{
                 this.flag = true;
             }
@@ -517,7 +517,7 @@ export default {
                     }  
                     this.getDataList();
                 }else{
-                   this.$layer.msg(res.data.msg);
+                   this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -557,7 +557,7 @@ export default {
                     this.showFlag = false;
                     this.getDataList();
                 }else{
-                   this.$layer.msg(res.data.msg);
+                   this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -629,7 +629,7 @@ export default {
                         }
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

@@ -54,11 +54,11 @@
                                         <el-table :data="subpackgeData" stripe style="width: 100%">
                                             <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                                             </el-table-column>
-                                            <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                                            <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                                             </el-table-column>
-                                            <el-table-column prop="subcontractName" label="分包名称"  width="190">
+                                            <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称"  width="190">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)" width="150">
+                                            <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)" width="150">
                                             </el-table-column>
                                             <el-table-column prop="operation" label="查看">
                                                 <template slot-scope="scope">
@@ -89,17 +89,17 @@
                                             </el-table-column>
                                             <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                             </el-table-column>
-                                            <el-table-column  prop="expertName"  label="姓名" >
+                                            <el-table-column  prop="expertName" :show-overflow-tooltip ="true" label="姓名" >
                                             </el-table-column>
-                                            <el-table-column  prop="company"  label="工作单位">
+                                            <el-table-column  prop="company" :show-overflow-tooltip ="true" label="工作单位">
                                             </el-table-column>
-                                            <el-table-column  prop="certified"  label="职称/执业资格">
+                                            <el-table-column  prop="certified" :show-overflow-tooltip ="true" label="职称/执业资格">
                                             </el-table-column>
-                                            <el-table-column  prop="specialty"  label="从事专业">
+                                            <el-table-column  prop="specialty" :show-overflow-tooltip ="true"  label="从事专业">
                                             </el-table-column>
-                                            <el-table-column  prop="committeeJob"  label="评标委员会担任工作" width="150">
+                                            <el-table-column  prop="committeeJob" :show-overflow-tooltip ="true" label="评标委员会担任工作" width="150">
                                             </el-table-column>
-                                            <el-table-column  prop="expertType"  label="专家类型" >
+                                            <el-table-column  prop="expertType" :show-overflow-tooltip ="true" label="专家类型" >
                                             </el-table-column>
                                             <el-table-column prop="operation" label="查看" width="70">
                                                 <template slot-scope="scope">
@@ -186,11 +186,11 @@
                                         <el-table :data="subpackgeData" stripe style="width: 100%">
                                             <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                                             </el-table-column>
-                                            <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                                            <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                                             </el-table-column>
-                                            <el-table-column prop="subcontractName" label="分包名称"  width="190">
+                                            <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称"  width="190">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)" width="150">
+                                            <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)" width="150">
                                             </el-table-column>
                                             <el-table-column prop="operation" label="查看">
                                                 <template slot-scope="scope">
@@ -233,17 +233,17 @@
                                         <el-table :data="ownerData" stripe style="width: 100%">
                                             <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                             </el-table-column>
-                                            <el-table-column  prop="expertName"  label="姓名" >
+                                            <el-table-column  prop="expertName" :show-overflow-tooltip ="true" label="姓名" >
                                             </el-table-column>
-                                            <el-table-column  prop="company"  label="工作单位">
+                                            <el-table-column  prop="company" :show-overflow-tooltip ="true" label="工作单位">
                                             </el-table-column>
-                                            <el-table-column  prop="certified"  label="职称/执业资格">
+                                            <el-table-column  prop="certified" :show-overflow-tooltip ="true" label="职称/执业资格">
                                             </el-table-column>
-                                            <el-table-column  prop="specialty"  label="从事专业">
+                                            <el-table-column  prop="specialty" :show-overflow-tooltip ="true" label="从事专业">
                                             </el-table-column>
-                                            <el-table-column  prop="committeeJob"  label="评标委员会担任工作" width="150">
+                                            <el-table-column  prop="committeeJob" :show-overflow-tooltip ="true" label="评标委员会担任工作" width="150">
                                             </el-table-column>
-                                            <el-table-column  prop="expertType"  label="专家类型" >
+                                            <el-table-column  prop="expertType" :show-overflow-tooltip ="true" label="专家类型" >
                                             </el-table-column>
                                             <el-table-column prop="operation" label="查看" width="70">
                                                 <template slot-scope="scope">
@@ -311,7 +311,7 @@
                                         <div class="noteContent">
                                             <div class="noteLeft"><span style="color:#f00;">*</span>专家姓名：</div>
                                             <div style="display:flex;width:35%;">
-                                                <el-input v-model="expertName"></el-input>
+                                                <el-input v-model="expertName" id="focus1" ></el-input>
                                                 <el-button style="margin-left:10px;" @click="selectOwner()">挑选</el-button>
                                             </div>
                                             <div style="display: inline-flex;margin-left:80px;">
@@ -344,7 +344,7 @@
                                         <div class="noteContent">
                                             <div class="noteLeft"><span style="color:#f00;">*</span>身份证号：</div>
                                             <div class="noteFlex">
-                                                <el-input v-model="idNumber" ></el-input>
+                                                <el-input v-model="idNumber" id="focus2"  ></el-input>
                                             </div>
                                             <div style="display: inline-flex;margin-left:30px;width:50%;">
                                                 <span style="width:70px;">职务：</span>
@@ -373,7 +373,7 @@
                                         <div class="noteContent">
                                             <div class="noteLeft"><span style="color:#f00;">*</span> 专家手机：</div>
                                             <div class="noteFlex">
-                                                <el-input v-model="phone" ></el-input>
+                                                <el-input v-model="phone"  id="focus3" ></el-input>
                                             </div>
                                             <div style="display: inline-flex;margin-left:30px;width:50%;">
                                                 <span style="width:130px;">职称/执业资格：</span>
@@ -535,23 +535,23 @@
                         </el-table-column>
                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                         </el-table-column>
-                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                         </el-table-column>
-                        <el-table-column  label="招标项目名称">
+                        <el-table-column  label="招标项目名称" :show-overflow-tooltip ="true">
                             <template slot-scope="scope">
                                 <span>{{pulicBids}}</span>
                             </template>
                         </el-table-column>
-                        <el-table-column  prop="subcontractName"  label="分包名称">
+                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                         </el-table-column>
-                        <el-table-column  prop="subcontractContents"  label="分包分类">
+                        <el-table-column  prop="subcontractContents" :show-overflow-tooltip ="true" label="分包分类">
                         </el-table-column>
                         <el-table-column  label="招标方式">
                             <template slot-scope="scope">
                                 <span>{{biddingMethod}}</span>
                             </template>
                         </el-table-column>
-                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                         </el-table-column>
                         <el-table-column prop="subcontractingState" label="分包状态">
                         </el-table-column>
@@ -958,7 +958,7 @@ export default {
                         $('.jingwai').hide();
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -989,7 +989,7 @@ export default {
                 if(res.data.status == 200){
                     this.subpackgeData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1035,7 +1035,7 @@ export default {
                         $('.new_nav').hide()
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1055,7 +1055,7 @@ export default {
                 if(res.data.status == 200){
                     this.ownerData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1101,7 +1101,7 @@ export default {
                         }
                     this.bidSectionData = arrList;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1133,7 +1133,7 @@ export default {
         //删除表格分包
         deleteTable(row){
             if(row.entrySubcontractNumber == this.projectObj.totalProjectId){
-                    this.$layer.msg('不可删除当前项目分包编号')
+                    this.$message.warning('不可删除当前项目分包编号')
                     return;
             }else{
                 for(var i=0; i<this.subpackgeData.length;i++){
@@ -1185,7 +1185,7 @@ export default {
                     this.chooseData = res.data.data;
                     this.chooseShow = true;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1211,20 +1211,25 @@ export default {
         //点击新增专家--保存按钮
         saveNotice(){
             if(!getIdcard(this.idNumber)){
-                this.$layer.msg('请输入正确的身份证号');
+                $('#focus1').focus();
+                this.$message.warning('请输入正确的身份证号');
                 return false;
             }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                this.$layer.msg('请输入正确的联系方式');
+                $('#focus2').focus();
+                this.$message.warning('请输入正确的联系方式');
                 return false;
             }
             if(!this.expertName){
-                this.$layer.msg('请输入姓名');
+                 $('#focus1').focus();
+                this.$message.warning('请输入姓名');
                 return false;
             }else if(!this.idNumber){
-                this.$layer.msg('请输入身份证号');
+                 $('#focus2').focus();
+                this.$message.warning('请输入身份证号');
                 return false;
             }else if(!this.phone){
-                this.$layer.msg('请输入联系方式');
+                 $('#focus3').focus();
+                this.$message.warning('请输入联系方式');
                 return false;
             }
             let object={};
@@ -1315,7 +1320,7 @@ export default {
                                 if(res.data.status == 200){
                                     this.ownerData = res.data.data;
                                 }else{
-                                    this.$layer.msg(res.data.msg);
+                                    this.$message.warning(res.data.msg);
                                 }
                             }).catch(err=>{
                                 console.log(err)
@@ -1323,7 +1328,7 @@ export default {
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1380,7 +1385,7 @@ export default {
                                 if(res.data.status == 200){
                                     this.ownerData = res.data.data;
                                 }else{
-                                    this.$layer.msg(res.data.msg);
+                                    this.$message.warning(res.data.msg);
                                 }
                             }).catch(err=>{
                                 console.log(err)
@@ -1388,7 +1393,7 @@ export default {
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(er)
@@ -1434,20 +1439,25 @@ export default {
         //修改业主专家---保存
         editNotice(){
             if(!getIdcard(this.idNumber)){
-                this.$layer.msg('请输入正确的身份证号');
+                $('#focus2').focus();
+                this.$message.warning('请输入正确的身份证号');
                 return false;
             }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                this.$layer.msg('请输入正确的联系方式');
+                $('#focus3').focus();
+                this.$message.warning('请输入正确的联系方式');
                 return false;
             }
             if(!this.expertName){
-                this.$layer.msg('请输入姓名');
+                 $('#focus1').focus();
+                this.$message.warning('请输入姓名');
                 return false;
             }else if(!this.idNumber){
-                this.$layer.msg('请输入身份证号');
+                 $('#focus2').focus();
+                this.$message.warning('请输入身份证号');
                 return false;
             }else if(!this.phone){
-                this.$layer.msg('请输入联系方式');
+                 $('#focus3').focus();
+                this.$message.warning('请输入联系方式');
                 return false;
             }
             this.$axios({
@@ -1506,7 +1516,7 @@ export default {
                                 if(res.data.status == 200){
                                     this.ownerData = res.data.data;
                                 }else{
-                                    this.$layer.msg(res.data.msg);
+                                    this.$message.warning(res.data.msg);
                                 }
                             }).catch(err=>{
                                 console.log(err)
@@ -1514,7 +1524,7 @@ export default {
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1567,7 +1577,7 @@ export default {
                     this.showFlag = false;
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1620,7 +1630,7 @@ export default {
                     this.showFlag = true;
                     this.saveBox = true;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1674,7 +1684,7 @@ export default {
                     $('.new_nav').hide();
                     this.remark = res.data.data.remark;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1693,7 +1703,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -1719,7 +1729,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1756,7 +1766,7 @@ export default {
                     })
                     this.enclosureData[0].attachlist = arr
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1775,7 +1785,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -1795,7 +1805,7 @@ export default {
                             }
                     }
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1856,7 +1866,7 @@ export default {
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1960,7 +1970,7 @@ export default {
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1979,7 +1989,7 @@ export default {
                     this.educationData = res.data.data.data;
                     this.education = this.educationData[0].value;
                 }else{
-                    this.$layer.msg(res.data.data.msg);
+                    this.$message.warning(res.data.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1998,7 +2008,7 @@ export default {
                     this.certifiedList = res.data.data.data;
                     this.certified = this.certifiedList[0].value;
                 }else{
-                    this.$layer.msg(res.data.data.msg)
+                    this.$message.warning(res.data.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2017,7 +2027,7 @@ export default {
                    this.committeeJobList = res.data.data.data;
                    this.committeeJob =  this.committeeJobList[0].value;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2036,7 +2046,7 @@ export default {
                    this.expertSourceList = res.data.data.data;
                    this.expertSource =  this.expertSourceList[0].value;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2055,7 +2065,7 @@ export default {
                    this.expertTypeList = res.data.data.data;
                    this.expertType =  this.expertTypeList[0].value;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2064,14 +2074,14 @@ export default {
         //校验手机号联系方式
         blurPhone(){
             if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                this.$layer.msg('请输入正确的联系方式');
+                this.$message.warning('请输入正确的联系方式');
                 return false;
             }
         },
         //检验身份证
         idNumberList(){
             if(!getIdcard(this.idNumber)){
-                this.$layer.msg('请输入正确的身份证号');
+                this.$message.warning('请输入正确的身份证号');
                 return false;
             }
         }

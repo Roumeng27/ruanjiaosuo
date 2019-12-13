@@ -221,10 +221,12 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -826,13 +828,13 @@
                                 this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -871,13 +873,13 @@
                                 this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -935,7 +937,7 @@
                         })  
                         this.lookArr = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -966,7 +968,7 @@
                             });
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -986,7 +988,7 @@
                     if(res.data.status == 200){
                         this.subpackageData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1046,7 +1048,7 @@
                         this.winningAmountCapitalization=res.data.data.winningAmountCapitalization;// 成交金额大写
                         this.idOfSuccessfulSupplier = res.data.data.idOfSuccessfulSupplier;//成交供应商ID;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1082,7 +1084,7 @@
                             }
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1107,7 +1109,7 @@
                         this.sourceOfFunds = res.data.data.sourceOfFunds;// 资金来源
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -1141,7 +1143,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1177,7 +1179,7 @@
                         })
                         this.enclosureData[1].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1239,7 +1241,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

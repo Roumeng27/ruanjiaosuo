@@ -31,13 +31,13 @@
                 <el-table :data="openData" stripe style="width: 100%">
                     <el-table-column type="index" label="序号" :index="typeIndex" width="70">
                     </el-table-column>
-                    <el-table-column prop="totalProjectId" label="入场项目分包编号" width="180">
+                    <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目分包编号" width="180">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="subcontractName" label="分包名称">
+                    <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="bidOpenState" label="评标状态">
+                    <el-table-column prop="bidOpenState" :show-overflow-tooltip ="true" label="评标状态">
                     </el-table-column>
                     <el-table-column prop="operation" label="操作">
                         <template slot-scope="scope">
@@ -109,14 +109,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -134,15 +137,15 @@
                             <el-table :data="tenderData" stripe style="width: 100%">
                                 <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                 </el-table-column>
-                                <el-table-column  prop="companyName"  label="单位名称">
+                                <el-table-column  prop="companyName" :show-overflow-tooltip ="true"  label="单位名称">
                                 </el-table-column>
-                                <el-table-column prop="offer" label="投标报价(元/%)">
+                                <el-table-column prop="offer" :show-overflow-tooltip ="true" label="投标报价(元/%)">
                                 </el-table-column>
-                                <el-table-column prop="quotationMethod" label="报价方式">
+                                <el-table-column prop="quotationMethod" :show-overflow-tooltip ="true" label="报价方式">
                                 </el-table-column>
-                                <el-table-column prop="projectLeader" label="项目负责人">
+                                <el-table-column prop="projectLeader" :show-overflow-tooltip ="true" label="项目负责人">
                                 </el-table-column>
-                                <el-table-column prop="constructionPeriod" label="交货期(日历天)">
+                                <el-table-column prop="constructionPeriod" :show-overflow-tooltip ="true" label="交货期(日历天)">
                                 </el-table-column>
                                 <el-table-column fixed="right" label="进入" width="100">
                                     <template slot-scope="scope">
@@ -172,18 +175,22 @@
                                     <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="staffName"
                                         label="姓名">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="staffCompany"
                                         label="单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="staffPhone"
                                         label="联系电话">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="staffType"
                                         label="人员类型">
                                     </el-table-column>
@@ -336,14 +343,17 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="expertName"
                                 label="姓名">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="idNumber"
                                 label="身份证号码">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="company"
                                 label="单位名称">
                             </el-table-column>
@@ -857,7 +867,7 @@
                     if(res.data.status == 200){
                         this.tenderData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -866,10 +876,10 @@
             //保存投标详细修改状态
             submitDetail(){
                 if(this.offer != '' && this.offer != null && !checkNumber(this.offer)){
-                    this.$layer.msg('请输入正确的报价!');
+                    this.$message.warning('请输入正确的报价!');
                     return false;
                 }else if(this.payDepositAmount !='' && this.payDepositAmount != null && !checkNumber(this.payDepositAmount)){
-                    this.$layer.msg('请输入正确的缴纳金额!');
+                    this.$message.warning('请输入正确的缴纳金额!');
                     return false;
                 }else{
                     this.$axios({
@@ -892,7 +902,7 @@
                             this.getSearchList();
                             this.detailsFlag = false;
                         }else{
-                            this.$layer.msg(res.data.msg);;
+                            this.$message.warning(res.data.msg);;
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -921,7 +931,7 @@
                     if(res.data.status == 200){
                         this.evaluationData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);;
+                        this.$message.warning(res.data.msg);;
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -930,10 +940,10 @@
             //评标室新增人员
             savePerson(){
                 if (this.idCardNumber !='' && !getIdcard(this.idCardNumber)){
-                    this.$layer.msg('请输入正确的身份证!');
+                    this.$message.warning('请输入正确的身份证!');
                     return false;
                 }else if(this.staffPhone !='' &&!isPoneAvailable(this.staffPhone) && !checkPhone(this.staffPhone)){
-                    this.$layer.msg('请输入正确的联系方式!');
+                    this.$message.warning('请输入正确的联系方式!');
                     return false;
                 }else{
                     let object={}
@@ -969,7 +979,7 @@
                             this.getRoomPersonList();
                             this.addFlag = false;
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -979,13 +989,13 @@
             //校验手机号联系方式
             blurPhone(){
                 if(!isPoneAvailable(this.staffPhone) && !checkPhone(this.staffPhone)){
-                    this.$layer.msg('请输入正确的联系方式');
+                    this.$message.warning('请输入正确的联系方式');
                 }
             },
             //校验身份证号
             blurIdNumber(){
                 if(!getIdcard(this.idCardNumber)){
-                    this.$layer.msg('请输入正确的身份证号码');
+                    this.$message.warning('请输入正确的身份证号码');
                 }
             },
             
@@ -1013,10 +1023,10 @@
             //修改中的保存按钮
             saveModifyPerson(){
                 if (this.idCardNumber !='' && !getIdcard(this.idCardNumber)){
-                    this.$layer.msg('请输入正确的身份证!');
+                    this.$message.warning('请输入正确的身份证!');
                     return false;
                 }else if(this.staffPhone !='' &&!isPoneAvailable(this.staffPhone) && !checkPhone(this.staffPhone)){
-                    this.$layer.msg('请输入正确的联系方式!');
+                    this.$message.warning('请输入正确的联系方式!');
                     return false;
                 }else{
                     this.$axios({
@@ -1036,7 +1046,7 @@
                             this.modifyFlag = false;
                             this.getRoomPersonList();
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -1102,7 +1112,7 @@
                     if(res.data.status == 200){
                         this.subpackageData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);;
+                        this.$message.warning(res.data.msg);;
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1126,7 +1136,7 @@
                         this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                     }else{
-                        this.$layer.msg(res.data.msg);;
+                        this.$message.warning(res.data.msg);;
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1182,7 +1192,7 @@
                         this.totalItem = res.data.data.total;// 总数
                         this.pages = res.data.data.pages;// 页数
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1198,7 +1208,7 @@
                     for(let i=0;i<this.evaluationData.length;i++){
                         for (let j = 0; j < this.multipleSelectionPeople.length; j++) {
                             if(this.evaluationData[i].idCardNumber == this.multipleSelectionPeople[j].idNumber){
-                                this.$layer.msg('该评标室人员已添加!');
+                                this.$message.warning('该评标室人员已添加!');
                                 return false;
                             }
                         }
@@ -1227,7 +1237,7 @@
                             this.findFlag = false; 
                             this.getRoomPersonList(); // 进入评标室人员
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     })
                 }else{
@@ -1255,7 +1265,7 @@
                             this.findFlag = false; 
                             this.getRoomPersonList(); // 进入评标室人员
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     })
                 }
@@ -1306,7 +1316,7 @@
                             }
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1332,7 +1342,7 @@
                         })
                         this.total = res.data.data.data[0].total;
                     }else{
-                        this.$layer.msg(res.data.msg);;
+                        this.$message.warning(res.data.msg);;
                     }
                 }).catch(err=>{
                     console.log(err)

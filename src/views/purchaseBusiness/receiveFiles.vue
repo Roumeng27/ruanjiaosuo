@@ -31,13 +31,13 @@
                 <el-table :data="resultData" stripe style="width: 100%">
                     <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                     </el-table-column>
-                    <el-table-column prop="totalProjectId" label="入场项目(分包)编号" width="170">
+                    <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="170">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="subcontractName" label="分包名称">
+                    <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="tenderDocumentsCost" label="金额">
+                    <el-table-column prop="tenderDocumentsCost" :show-overflow-tooltip ="true" label="金额">
                     </el-table-column>
                     <el-table-column prop="operation" label="领取" width="70"> 
                     <template slot-scope="scope">
@@ -104,10 +104,12 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
@@ -299,7 +301,7 @@ export default {
                     this.total = res.data.data.total;// 总数
                     this.pageNum = res.data.data.pageNum;// 页数
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -321,7 +323,7 @@ export default {
                     this.total = res.data.data.total;// 总数
                     this.pageNum = res.data.data.pageNum;// 页数
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -344,7 +346,7 @@ export default {
                     this.total = res.data.data.total;// 总数
                     this.pageNum = res.data.data.pageNum;// 页数
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -379,7 +381,7 @@ export default {
                 if(res.data.status == 200){
                     this.subpackageData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -403,7 +405,7 @@ export default {
                     this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                 }else{
-                    this.$layer.msg(res.data.msg);;
+                    this.$message.warning(res.data.msg);;
                 }
             }).catch(err=>{
                 console.log(err)
@@ -461,7 +463,7 @@ export default {
                 if(res.data.status == 200){
                     console.log(res.data.data)
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

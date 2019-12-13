@@ -110,7 +110,18 @@ function checkEmail(str) {
 // 非负数判断
 function checkNumber(number){
     var reg=/^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/;
+    // var rega=/^[\u4e00-\u9fa5]+$/;
+    // var regb = /^[\u4e00-\u9fa5]+[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/;
+    
     if (!reg.test(number)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+function checkWord(word){
+    var reg = /^[0-9\u4E00-\u9FA5]*$/g
+    if (!reg.test(word)) {
         return false;
     } else {
         return true;
@@ -202,5 +213,6 @@ export {
     checkEmail,
     checkNumber,
     dubRemove,
-    bigUppercase
+    bigUppercase,
+    checkWord
 }

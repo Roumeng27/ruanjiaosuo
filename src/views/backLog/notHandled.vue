@@ -10,9 +10,9 @@
                             <span class="corlor_un" @click="judgeDetail(scope.row)">{{scope.row.theme}}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column prop="submitter" label="提交人">
+                    <el-table-column prop="submitter"  :show-overflow-tooltip ="true" label="提交人">
                     </el-table-column>
-                    <el-table-column prop="sendingTime" label="发送时间">
+                    <el-table-column prop="sendingTime" :show-overflow-tooltip ="true" label="发送时间">
                     </el-table-column>
                 </el-table>
             </div>
@@ -105,7 +105,7 @@ export default {
                     })
                     this.totalSize = res.data.data.total;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

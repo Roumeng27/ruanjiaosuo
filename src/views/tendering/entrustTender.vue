@@ -28,23 +28,24 @@
                     </el-table-column>
 					<el-table-column
 						prop="totalProjectId"
+						:show-overflow-tooltip ="true"
 						label="入场项目(分包)编号"
 						width="180">
 					</el-table-column>
 					<el-table-column
 						prop="nameOfTenderProject"
 						label="招标项目名称"
-						show-overflow-tooltip>
+						:show-overflow-tooltip ="true">
 					</el-table-column>
 					<el-table-column
 						prop="biddingProjectNumber"
 						label="招标项目编号"
-						show-overflow-tooltip>
+						:show-overflow-tooltip ="true">
 					</el-table-column>
 					<el-table-column
 						prop="subcontractName"
 						label="分包名称"
-						show-overflow-tooltip>
+						:show-overflow-tooltip ="true">
 					</el-table-column>
 					<el-table-column fixed="right" label="查看" width="100">
 						<template slot-scope="scope">
@@ -285,7 +286,7 @@ export default {
 					this.pages = res.data.data.pages;
 					this.total = res.data.data.total;// 总条数
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -332,7 +333,7 @@ export default {
 					this.pages = res.data.data.pages;
 					this.total = res.data.data.total;// 总条数
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -360,7 +361,7 @@ export default {
 					this.subcontractName = res.data.data.nameOfTenderProject;// 名称
 					this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)

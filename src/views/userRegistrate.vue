@@ -165,7 +165,7 @@ export default {
                     this.keyData = res.data.data;
                     window.localStorage.setItem('login',this.keyData); 
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -173,40 +173,40 @@ export default {
         },
         submit_info(){
             if(!this.form.blrName){
-                this.$layer.msg('请输入账号');
+                this.$message.warning('请输入账号');
                 return false;
             }else if(!this.form.password){
-                this.$layer.msg('请输入密码');
+                this.$message.warning('请输入密码');
                 return false;
             }else if(!this.form.unionCode){
-                this.$layer.msg('请输入统一社会信用代码');
+                this.$message.warning('请输入统一社会信用代码');
                 return false;
             }else if(!this.form.legalPerson){
-                this.$layer.msg('请输入法定人代表姓名');
+                this.$message.warning('请输入法定人代表姓名');
                 return false;
             }else if(!this.form.cn){
-                this.$layer.msg('请输入单位名称');
+                this.$message.warning('请输入单位名称');
                 return false;
             }else if(!this.form.regMoney){
-                this.$layer.msg('请输入企业注册资本');
+                this.$message.warning('请输入企业注册资本');
                 return false;
             }else if(!this.form.officeAddress){
-                this.$layer.msg('请输入企业办公地址');
+                this.$message.warning('请输入企业办公地址');
                 return false;
             }else if(!this.form.linkPerson){
-                this.$layer.msg('请输入企业联系人');
+                this.$message.warning('请输入企业联系人');
                 return false;
             }else if(!this.form.mobilePhone){
-                this.$layer.msg('请输入联系人手机');
+                this.$message.warning('请输入联系人手机');
                 return false;
             }else if(this.form.mobilePhone != "" && !isPoneAvailable(this.form.mobilePhone)){
-                this.$layer.msg('请输入正确的联系人手机');
+                this.$message.warning('请输入正确的联系人手机');
                 return false;
             }else if(this.form.legalPersonId != "" && !getIdcard(this.form.legalPersonId)){
-                this.$layer.msg('请输入正确的法定代表身份证号');
+                this.$message.warning('请输入正确的法定代表身份证号');
                 return false;
             }else if(this.form.regMoney != "" && !checkNumber(this.form.regMoney)){
-                this.$layer.msg('请输入企业注册资本的数字类型');
+                this.$message.warning('请输入企业注册资本的数字类型');
                 return false;
             }else{
                 this.$axios({
@@ -235,9 +235,9 @@ export default {
                         //     console.log(err)
                         // })
                     }else if(res.data.status == 500){
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }else if(res.data.status == 101){
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

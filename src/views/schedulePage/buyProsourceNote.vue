@@ -53,14 +53,17 @@
                                             <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="entrySubcontractNumber"
                                             label="入场项目(分包)编号">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="subcontractName"
                                             label="分包名称">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="subcontractingControlAmount"
                                             label="分包控制金额(万元)">
                                         </el-table-column>
@@ -103,22 +106,27 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="nameOfWinningBidder"
                                         label="中标单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="projectLeader"
                                         label="项目负责人">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="winningAmount"
                                         label="中标价格">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="winningBidPeriod"
                                         label="中标工期(天)">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="qualityGradeOfWinningBid"
                                         label="中标质量等级">
                                     </el-table-column>
@@ -144,22 +152,27 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="companyName"
                                         label="单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="projectLeader"
                                         label="项目负责人">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="contacts"
                                         label="联系人">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="reason"
                                         label="通过原因">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="state"
                                         label="通知书状态">
                                     </el-table-column>
@@ -180,14 +193,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="companyName"
                                         label="单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="projectLeader"
                                         label="项目负责人">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="contacts"
                                         label="联系人">
                                     </el-table-column>
@@ -537,13 +553,13 @@
                                 this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -582,13 +598,13 @@
                             this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -610,7 +626,7 @@
                     if(res.data.status == 200){
                         this.subpackageData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -667,7 +683,7 @@
                         }
 
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -705,7 +721,7 @@
                         this.sourceOfFunds = res.data.data.sourceOfFunds;// 资金来源
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -739,7 +755,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -777,7 +793,7 @@
                         })
                         this.enclosureData[1].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -839,7 +855,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

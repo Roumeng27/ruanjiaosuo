@@ -61,18 +61,22 @@
                                             <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="projcetNumber"
                                             label="入场项目(分包)编号">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="nameOfTenderProject"
                                             label="招标项目名称">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="answerQuestionsTime"
                                             label="次数">
                                         </el-table-column>
                                         <el-table-column
+                                            :show-overflow-tooltip ="true"
                                             prop="state"
                                             label="状态">
                                         </el-table-column>
@@ -144,14 +148,17 @@
                                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="entrySubcontractNumber"
                                                 label="入场项目(分包)编号">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="subcontractName"
                                                 label="分包名称">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="subcontractingControlAmount"
                                                 label="分包控制金额(万元)">
                                             </el-table-column>
@@ -181,7 +188,7 @@
                                             <div class="editTextarea">
                                                 <div class="editName"><p class="star">*</p>答疑类型：</div>
                                                 <div class="editContent">
-                                                    <el-radio-group v-model="answerQuestionsType" size="small">
+                                                    <el-radio-group id="focus1" v-model="answerQuestionsType" size="small">
                                                         <el-radio label="答疑文件">答疑文件</el-radio>
                                                         <el-radio label="补遗文件">补遗文件</el-radio>
                                                         <el-radio label="澄清文件">澄清文件</el-radio>
@@ -195,6 +202,7 @@
                                                 <div class="editName"><p class="star">*</p>答疑内容：</div>
                                                 <div class="editContent">
                                                     <el-input
+                                                         id="focus2" 
                                                         type="textarea"
                                                         :rows="5"
                                                         v-model="answerQuestionsContent">
@@ -220,18 +228,22 @@
                                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="projcetNumber"
                                                 label="分包编号">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="nameOfTenderProject"
                                                 label="招标项目名称">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="subcontractName"
                                                 label="分包名称">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="answerQuestionsTime"
                                                 label="澄清次数">
                                             </el-table-column>
@@ -295,14 +307,17 @@
                                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="entrySubcontractNumber"
                                                 label="入场项目(分包)编号">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="subcontractName"
                                                 label="分包名称">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="subcontractingControlAmount"
                                                 label="分包控制金额(万元)">
                                             </el-table-column>
@@ -379,18 +394,22 @@
                                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="projcetNumber"
                                                 label="分包编号">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="nameOfTenderProject"
                                                 label="招标项目名称">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="subcontractName"
                                                 label="分包名称">
                                             </el-table-column>
                                             <el-table-column
+                                                :show-overflow-tooltip ="true"
                                                 prop="answerQuestionsTime"
                                                 label="澄清次数">
                                             </el-table-column>
@@ -756,7 +775,7 @@
                     if(res.data.status == 200){
                         this.answerData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -794,7 +813,7 @@
                             this.openingRoom = item.openingRoom;// 开标地点
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -833,10 +852,12 @@
             },
             newly(num){
                 if(!this.answerQuestionsType){
-                    this.$layer.msg('请选择答疑类型!');
+                    $('#focus1').focus();
+                    this.$message.warning('请选择答疑类型!');
                     return false;
                 }else if(!this.answerQuestionsContent){
-                    this.$layer.msg('请输入答疑内容!');
+                    $('#focus2').focus();
+                    this.$message.warning('请输入答疑内容!');
                     return false;
                 }else{
                     if(num == 1){
@@ -885,7 +906,7 @@
                         this.answerQuestionsContent = res.data.data.answerQuestionsContent;// 答疑内容
                         this.answerFileId = res.data.data.answerFileId;// 答疑文件ID
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -913,7 +934,7 @@
                         this.addFlag = false;
                         this.getAnswerList();// 答疑文件查询列表
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -942,7 +963,7 @@
                             this.successFlag = true;
                             this.getAnswerList();
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     })
                 }
@@ -990,7 +1011,7 @@
                         this.getOneList();// 招标（采购）人确认函
                         this.getTwoList();// 答疑/补遗文件
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1025,7 +1046,7 @@
                             this.editFlag =true;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1061,7 +1082,7 @@
                     if(res.data.status == 200){
                         this.subpackageData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1113,7 +1134,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1137,7 +1158,7 @@
                         this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1221,7 +1242,7 @@
                         }
                         
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1276,7 +1297,7 @@
                             this.enclosureData[1].attachlist = arr;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1292,7 +1313,7 @@
             //删除文件列表
             deleteFile(){
                 if(this.attachmeId.length<=0){
-                    this.$layer.msg('请选择要删除的文件!')
+                    this.$message.warning('请选择要删除的文件!')
                     return false;
                 }else {
                     this.$axios({
@@ -1312,7 +1333,7 @@
                                 }
                             }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     }).catch(err=>{
                         console.log(err);
@@ -1324,7 +1345,7 @@
                 var file = event.target.files[0];
                 var fileSize = file.size; 
                 if(fileSize > 102400000) {
-                    this.$layer.msg('图片大小不能超过102400KB');
+                    this.$message.warning('图片大小不能超过102400KB');
                     return false;
                 }
                 this.$refs.file.value = null;
@@ -1359,7 +1380,7 @@
                     if(res.data.status == 200){
                         this.uploadList();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1438,7 +1459,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1474,7 +1495,7 @@
                         })
                         this.enclosureData[1].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

@@ -90,7 +90,7 @@
                                     <div class="editCenter">
                                         <div class="editName">采购数量：</div>
                                         <div class="editContent">
-                                            <el-input v-model="purchaseAmount" clearable></el-input>
+                                            <el-input v-model="purchaseAmount" @blur="purposeNum()" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -183,14 +183,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
@@ -533,11 +536,11 @@
                                             <span>{{scope.$index+1}}</span>
                                         </template>
                                     </el-table-column>
-                                    <el-table-column  prop="subcontractName"  label="分包名称">
+                                    <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                                     </el-table-column>
-                                    <el-table-column prop="subcontractingControlAmount" label="分包控制金额(万元)">
+                                    <el-table-column prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                     </el-table-column>
-                                    <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                                    <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column label="查看">
                                         <template slot-scope="scope">
@@ -1091,7 +1094,7 @@
                                         <div class="editCenter">
                                             <div class="editName">采购数量：</div>
                                             <div class="editContent">
-                                                <el-input v-model="purchaseAmount" clearable></el-input>
+                                                <el-input v-model="purchaseAmount"  @blur="purposeNum()" clearable></el-input>
                                             </div>
                                         </div>
                                         <div class="editCenter">
@@ -1346,30 +1349,37 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="entrySubcontractNumber"
                                 label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 label="采购项目名称">
                                 <template slot-scope="scope">{{ nameOfTenderProject }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractName"
                                 label="分包名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractContents"
                                 label="分包分类">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 label="采购方式">
                                 <template slot-scope="scope">{{ biddingProcurementMode }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractingControlAmount"
                                 label="分包控制金额(万元)">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractingState"
                                 label="分包状态">
                             </el-table-column>
@@ -1520,7 +1530,7 @@
 <script>
     import '../../../assets/css/style.css'
     import baseUrl from '../../../api/api'
-    import {formatDate,formatTime,isEmpty,changeTime,isPoneAvailable,checkPhone,checkEmail,dubRemove,checkNumber} from '../../../api/base.js'
+    import {formatDate,formatTime,isEmpty,changeTime,isPoneAvailable,checkPhone,checkEmail,dubRemove,checkNumber,checkWord} from '../../../api/base.js'
     export default {
         data(){
             return {
@@ -1686,7 +1696,7 @@
                 // 文件上传所需字段
                 enclosureData:[{
                     id:1,
-                    appendixName: "招标（采购）人确认函",
+                    appendixName: "*招标（采购）人确认函",
                     attachlist: []
                 },
                 {
@@ -1747,8 +1757,8 @@
                 }
             },
             purposeNum(){
-                if(!checkNumber(this.purchaseAmount)){
-                    this.$layer.msg('采购数量请输入数字类型！');
+                if(!checkWord(this.purchaseAmount)){
+                    this.$message.warning('采购数量请输入文字或数字类型！');
                 }
             },
             //校验手机号联系方式
@@ -1756,12 +1766,12 @@
                 if(num == 1){
                     // 采购项目信息的联系方式
                     if(!isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
-                        this.$layer.msg('请输入正确的联系方式！');
+                        this.$message.warning('请输入正确的联系方式！');
                     }
                 }else{
                      // 公告信息的联系方式
                     if(!isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){
-                        this.$layer.msg('请输入正确的联系方式！');
+                        this.$message.warning('请输入正确的联系方式！');
                     }
                 }
             },
@@ -1789,37 +1799,37 @@
                 this.uploadList();
                 // 保存
                 if(!this.noticeName) {
-                    this.$layer.msg("请输入公告名称！");
+                    this.$message.warning("请输入公告名称！");
                     return false;
                 }else if(!this.enrollStartTime){
-                    this.$layer.msg("请输入报名开始时间！");
+                    this.$message.warning("请输入报名开始时间！");
                     return false;
                 }else if(!this.enrollEndTime){
-                    this.$layer.msg("请输入报名结束时间！");
+                    this.$message.warning("请输入报名结束时间！");
                     return false;
                 }else if(this.collectTime.length == 0){
-                    this.$layer.msg("请输入采购文件发售时间！");
+                    this.$message.warning("请输入采购文件发售时间！");
                     return false;
                 }else if(!this.morningbegin && !this.morningend && !this.afterbegin && !this.afterend){
-                    this.$layer.msg("请输入采购文件发售时间！");
+                    this.$message.warning("请输入采购文件发售时间！");
                     return false;
                 }else if(this.tenderDocumentsCost =='' || this.tenderDocumentsCost == null || !checkNumber(this.tenderDocumentsCost)){
-                    this.$layer.msg("请输入采购文件工本费！");
+                    this.$message.warning("请输入采购文件工本费！");
                     return false;
                 }else if (!this.bidderData){
-                    this.$layer.msg("请输入投标人需提交资料！");
+                    this.$message.warning("请输入投标人需提交资料！");
                     return false;
                 }else if(this.tendereePhone != '' && this.tendereePhone != null && !isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
-                    this.$layer.msg('请输入正确的联系方式！');
+                    this.$message.warning('请输入正确的联系方式！');
                     return false; 
                 }else if(this.projectLeaderPhone != '' && this.projectLeaderPhone != null && !isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){ 
-                    this.$layer.msg('请输入正确的联系方式！');
+                    this.$message.warning('请输入正确的联系方式！');
                     return false;
                 }else if(this.agentPhone != '' && this.agentPhone != null && !isPoneAvailable(this.agentPhone) && !checkPhone(this.agentPhone)){ 
-                    this.$layer.msg('请输入正确的联系方式！');
+                    this.$message.warning('请输入正确的联系方式！');
                     return false;
-                }else if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkNumber(this.purchaseAmount)){
-                    this.$layer.msg('采购数量请输入数字类型！');
+                }else if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkWord(this.purchaseAmount)){
+                    this.$message.warning('采购数量请输入数字类型！');
                     return false;
                 }else{
                     if(num == 1){
@@ -2054,7 +2064,7 @@
                             }
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2159,8 +2169,8 @@
             },
             // 采购内容 保存
             savePage(){
-                if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkNumber(this.purchaseAmount)){
-                    this.$layer.msg('请输入正确的采购数量!');
+                if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkWord(this.purchaseAmount)){
+                    this.$message.warning('请输入正确的采购数量格式，文字数字均可!');
                     return false;
                 }
                 // if(this.initList.length != 0){
@@ -2233,7 +2243,7 @@
             // 删除
             deleteItem(row){
                 if(row.entrySubcontractNumber == this.projectObj.totalProjectId){
-                    this.$layer.msg('不可删除当前项目分包编号')
+                    this.$message.warning('不可删除当前项目分包编号')
                     return;
                 }else{
                     for (let i = 0; i < this.subpackageData.length; i++) {
@@ -2264,7 +2274,7 @@
                     if(res.data.status == 200){
                         this.certificateData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2313,7 +2323,7 @@
                     if(res.data.status == 200){
                         this.leaderData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2373,7 +2383,7 @@
                         this.writeFlag = true;
                         this.getLastTemp();// 上一步查询
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2387,6 +2397,10 @@
             },
             // 提交按钮
             submitInfo(){
+                if(this.enclosureData[0].attachlist == ""){
+					this.$message.warning('请选择上传招标（采购）人确认函');
+					return false;
+				}
                 this.$axios({
                     method: "POST",
                     url: baseUrl+"/tenderNoticeController/submit",
@@ -2399,7 +2413,7 @@
                         this.sureSubmitBox = true;
                         this.getInitInfo();// 初始化查询
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2453,7 +2467,7 @@
                             })
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2482,7 +2496,7 @@
                         }
                         this.markData = arrList;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2577,7 +2591,7 @@
                             } 
                         }
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2625,7 +2639,7 @@
                         // this.biddingProjectNumbers = res.data.data.biddingProjectNumber;// 采购项目编号
                         // this.budgetAmounts = res.data.data.budgetAmount;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2657,7 +2671,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2811,7 +2825,7 @@
                             })
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2926,7 +2940,7 @@
                         })
                        
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2959,7 +2973,7 @@
                             this.assessmentTime = dayjs(item.assessmentTime).format('YYYY-MM-DD HH:mm:ss');
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     
                 }).catch(err=>{
@@ -2996,7 +3010,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -3032,7 +3046,7 @@
                         })
                         this.enclosureData[1].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -3089,7 +3103,7 @@
                             this.enclosureData[1].attachlist = arr;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -3106,7 +3120,7 @@
             //删除文件列表
             deleteFile(){
                 if(this.attachmeId.length<=0){
-                    this.$layer.msg('请选择要删除的文件!')
+                    this.$message.warning('请选择要删除的文件!')
                     return false;
                 }else{
                     this.$axios({
@@ -3126,7 +3140,7 @@
                                 }
                             }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     }).catch(err=>{
                         console.log(err);
@@ -3138,7 +3152,7 @@
                 var file = event.target.files[0];
                 var fileSize = file.size; 
                 if(fileSize > 102400000) {
-                    this.$layer.msg('图片大小不能超过102400KB');
+                    this.$message.warning('图片大小不能超过102400KB');
                     return false;
                 }
                 this.$refs.file.value = null;
@@ -3171,7 +3185,7 @@
                     if(res.data.status == 200){
                         this.uploadList();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

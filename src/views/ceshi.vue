@@ -16,7 +16,7 @@
         },
         methods: {
             proving() {
-                this.$layer.msg('请选择您要删除的项目')
+                this.$message.warning('请选择您要删除的项目')
             },
         },
     }

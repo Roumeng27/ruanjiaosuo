@@ -49,11 +49,11 @@
                                             width="70">
                                             <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -93,16 +93,16 @@
                                             <span>{{nameOfSuccessfulSupplier}}</span>
                                         </template>
                                     </el-table-column>
-                                    <el-table-column prop="projectLeader" label="项目负责人" >
+                                    <el-table-column prop="projectLeader" :show-overflow-tooltip ="true" label="项目负责人" >
                                     </el-table-column>
-                                    <el-table-column label="中标金额(万元)" >
+                                    <el-table-column label="中标金额(万元)" :show-overflow-tooltip ="true">
                                         <template slot-scope="scope">
                                             <span>{{winningAmountLowercase}}</span>
                                         </template>
                                     </el-table-column>
-                                    <el-table-column prop="winningBidPeriod" label="工期(日历天)" >
+                                    <el-table-column prop="winningBidPeriod" label="工期(日历天)" :show-overflow-tooltip ="true">
                                     </el-table-column>
-                                    <el-table-column prop="qualityGradeOfWinningBid" label="质量等级" >
+                                    <el-table-column prop="qualityGradeOfWinningBid" label="质量等级" :show-overflow-tooltip ="true" >
                                     </el-table-column>
                                 </el-table>
                             </div>
@@ -627,13 +627,13 @@
                                 this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -672,13 +672,13 @@
                                 this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
                 
@@ -707,7 +707,7 @@
                         this.createTime = dayjs(res.data.data.createTime).format('YYYY-MM-DD');// 创建时间
                         this.creatorCompanyName = res.data.data.creatorCompanyName;// 创建人名称
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -732,7 +732,7 @@
                         this.contacts = res.data.data.contacts//联系人
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -761,7 +761,7 @@
                             })
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -827,7 +827,7 @@
                             // }
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -864,7 +864,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -926,7 +926,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

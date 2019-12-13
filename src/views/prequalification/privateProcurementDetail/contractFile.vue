@@ -44,11 +44,11 @@
                                     <el-table :data="subpakegeData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber"  :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -210,11 +210,11 @@
                                     <el-table :data="subpakegeData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -249,19 +249,19 @@
                             <el-table :data="winningBidData" stripe style="width: 100%">
                                 <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                                 </el-table-column>
-                                <el-table-column label="中标单位名称" width="150">
+                                <el-table-column label="中标单位名称" :show-overflow-tooltip ="true" width="150">
                                     <template slot-scope="scope">
                                         <span>{{nameOfSuccessfulSupplier}}</span>
                                     </template>
                                 </el-table-column>
-                                <el-table-column prop="projectLeader" label="项目负责人" >
+                                <el-table-column prop="projectLeader" :show-overflow-tooltip ="true" label="项目负责人" >
                                 </el-table-column>
-                                <el-table-column label="中标金额(万元)" >
+                                <el-table-column label="中标金额(万元)"  :show-overflow-tooltip ="true">
                                      <template slot-scope="scope">
                                         <span>{{winningAmountLowercase}}</span>
                                     </template>
                                 </el-table-column>
-                                <el-table-column prop="winningBidPeriod" label="工期(日历天)" >
+                                <el-table-column prop="winningBidPeriod" :show-overflow-tooltip ="true" label="工期(日历天)" >
                                 </el-table-column>
                                 <el-table-column prop="qualityGradeOfWinningBid" label="质量等级" >
                                 </el-table-column>
@@ -943,7 +943,7 @@ import {checkNumber} from '../../../api/base'
                     this.contacts = res.data.data.contacts//联系人
                     this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -963,7 +963,7 @@ import {checkNumber} from '../../../api/base'
                 if(res.data.status == 200){
                     this.subpakegeData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1014,7 +1014,7 @@ import {checkNumber} from '../../../api/base'
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1073,7 +1073,7 @@ import {checkNumber} from '../../../api/base'
                     this.remark = res.data.data.remark;// 备注说明
                     this.contractSignTime = dayjs(res.data.data.contractSignTime).format('YYYY-MM-DD');// 合同签署时间
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1101,7 +1101,7 @@ import {checkNumber} from '../../../api/base'
                 if(res.data.status == 200){
                     this.contractId = res.data.data.contractId;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1110,28 +1110,28 @@ import {checkNumber} from '../../../api/base'
         //下一步
         nextTo(){
             if(!this.contractCode){
-                this.$layer.msg('请填写合同编号');
+                this.$message.warning('请填写合同编号');
                 return false;
             }else if(!this.contractName){
-                this.$layer.msg('请填写合同名称');
+                this.$message.warning('请填写合同名称');
                 return false;
             }else if(!this.contractAmount){
-                this.$layer.msg('请填写合同金额');
+                this.$message.warning('请填写合同金额');
                 return false;
             }else if(!this.contractDeadline){
-                this.$layer.msg('请填写合同期限');
+                this.$message.warning('请填写合同期限');
                 return false;
             }else if(!this.contractSignTime){
-                this.$layer.msg('请填写合同签署时间');
+                this.$message.warning('请填写合同签署时间');
                 return false;
             }else if(!this.discussLocation){
-                this.$layer.msg('请填写洽谈地点');
+                this.$message.warning('请填写洽谈地点');
                 return false;
             }
             if(!checkNumber(this.contractAmount)){
-                this.$layer.msg('合同金额请输入数字类型')
+                this.$message.warning('合同金额请输入数字类型')
             }else if(!checkNumber(this.contractDeadline)){
-                this.$layer.msg('合同期限请输入数字类型')
+                this.$message.warning('合同期限请输入数字类型')
             }
             
             let objectData = {};
@@ -1197,7 +1197,7 @@ import {checkNumber} from '../../../api/base'
                          this.createTime = dayjs(res.data.data.createTime).format('YYYY-MM-DD');
                     };
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1206,22 +1206,22 @@ import {checkNumber} from '../../../api/base'
         //保存
         saveFile(){
             if(!this.contractCode){
-                this.$layer.msg('请填写合同编号');
+                this.$message.warning('请填写合同编号');
                 return false;
             }else if(!this.contractName){
-                this.$layer.msg('请填写合同名称');
+                this.$message.warning('请填写合同名称');
                 return false;
             }else if(this.contractAmount =='' || this.contractAmount ==null || !checkNumber(this.contractAmount)){
-                this.$layer.msg('请填写正确的合同金额');
+                this.$message.warning('请填写正确的合同金额');
                 return false;
             }else if(this.contractDeadline ==''|| this.contractDeadline ==null || !checkNumber(this.contractDeadline)){
-                this.$layer.msg('请填写正确的合同期限');
+                this.$message.warning('请填写正确的合同期限');
                 return false;
             }else if(!this.contractSignTime){
-                this.$layer.msg('请填写合同签署时间');
+                this.$message.warning('请填写合同签署时间');
                 return false;
             }else if(!this.discussLocation){
-                this.$layer.msg('请填写洽谈地点');
+                this.$message.warning('请填写洽谈地点');
                 return false;
             }
             let objectData = {};
@@ -1276,7 +1276,7 @@ import {checkNumber} from '../../../api/base'
                     this.contractSignTime = dayjs(res.data.data.contractSignTime).format('YYYY-MM-DD');
                     this.gettreatList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1288,7 +1288,7 @@ import {checkNumber} from '../../../api/base'
         //提交
         submit(){
             if(this.enclosureData[0].attachlist == ""){
-				this.$layer.msg('请选择合同签署附件');
+				this.$message.warning('请选择合同签署附件');
 				return false;
 			}
             this.$axios({
@@ -1307,7 +1307,7 @@ import {checkNumber} from '../../../api/base'
                         this.nextFlag = true;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1355,7 +1355,7 @@ import {checkNumber} from '../../../api/base'
                     this.contractSignTime = dayjs(res.data.data.contractSignTime).format('YYYY-MM-DD');// 合同签署时间
                     this.contractId = res.data.data.contractId;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1470,7 +1470,7 @@ import {checkNumber} from '../../../api/base'
                         }
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1502,7 +1502,7 @@ import {checkNumber} from '../../../api/base'
                     item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                 })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1542,7 +1542,7 @@ import {checkNumber} from '../../../api/base'
                     })
                     this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1558,7 +1558,7 @@ import {checkNumber} from '../../../api/base'
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -1578,7 +1578,7 @@ import {checkNumber} from '../../../api/base'
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -1590,7 +1590,7 @@ import {checkNumber} from '../../../api/base'
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -1615,7 +1615,7 @@ import {checkNumber} from '../../../api/base'
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);

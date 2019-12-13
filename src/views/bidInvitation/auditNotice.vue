@@ -21,17 +21,17 @@
         <el-table :data="tableData" stripe style="width: 100%">
           <el-table-column type="index" width="70" label="编号" :index="typeIndex">
           </el-table-column>
-          <el-table-column prop="totalProjectId" label="入场(分包)编号" width="150">
+          <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场(分包)编号" width="150">
           </el-table-column>
-          <el-table-column prop="nameOfTenderProject" label="招标项目名称" width="120">
+          <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称" width="120">
           </el-table-column>
-          <el-table-column prop="biddingProjectNumber" label="分包名称">
+          <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包名称">
           </el-table-column>
-          <el-table-column prop="nameOfPurchaser" label="分包分类">
+          <el-table-column prop="nameOfPurchaser" :show-overflow-tooltip ="true" label="分包分类">
           </el-table-column>
-          <el-table-column prop="state" label="状态">
+          <el-table-column prop="state" :show-overflow-tooltip ="true" label="状态">
           </el-table-column>
-          <el-table-column prop="biddingProcurementMode" label="发布状态">
+          <el-table-column prop="biddingProcurementMode" :show-overflow-tooltip ="true" label="发布状态">
           </el-table-column>
           <el-table-column prop="biddingProcurementMode" label="公告截止时间">
           </el-table-column>
@@ -61,19 +61,19 @@
             </el-table-column>
             <el-table-column type="index" width="70" label="编号" :index="typeIndex">
             </el-table-column>
-            <el-table-column prop="admissionNum" label="入场项目编号" width="120">
+            <el-table-column prop="admissionNum" :show-overflow-tooltip ="true" label="入场项目编号" width="120">
             </el-table-column>
-            <el-table-column prop="name" label="招标项目名称">
+            <el-table-column prop="name" :show-overflow-tooltip ="true" label="招标项目名称">
             </el-table-column>
-            <el-table-column prop="tendNum" label="分包名称">
+            <el-table-column prop="tendNum" :show-overflow-tooltip ="true" label="分包名称">
             </el-table-column>
-            <el-table-column prop="purchaser" label="分包分类">
+            <el-table-column prop="purchaser" :show-overflow-tooltip ="true" label="分包分类">
             </el-table-column>
-            <el-table-column prop="mode" label="招标方式">
+            <el-table-column prop="mode" :show-overflow-tooltip ="true" label="招标方式">
             </el-table-column>
-            <el-table-column prop="mode" label="分包控制金额(万元)">
+            <el-table-column prop="mode" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
             </el-table-column>
-            <el-table-column prop="state" label="分包状态">
+            <el-table-column prop="state" :show-overflow-tooltip ="true" label="分包状态">
             </el-table-column>
         </el-table>
       </div>
@@ -158,11 +158,11 @@
                           <el-table :data="subpackgeData" stripe style="width: 100%">
                               <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                               </el-table-column>
-                              <el-table-column prop="subcontractName" label="分包名称">
+                              <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                               </el-table-column>
-                              <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)" width="100">
+                              <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)" width="100">
                               </el-table-column>
-                              <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                              <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                               </el-table-column>
                               <el-table-column prop="operation" label="查看">
                                   <template slot-scope="scope">
@@ -537,11 +537,11 @@
                     <el-table :data="subpackgeData" stripe style="width: 100%">
                         <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="subcontractName" label="分包名称">
+                        <el-table-column :show-overflow-tooltip ="true" prop="subcontractName" label="分包名称">
                         </el-table-column>
-                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)" width="100">
+                        <el-table-column  :show-overflow-tooltip ="true" prop="subcontractingControlAmount"  label="分包控制金额(万元)" width="100">
                         </el-table-column>
-                        <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                        <el-table-column :show-overflow-tooltip ="true" prop="entrySubcontractNumber" label="入场项目(分包)编号">
                         </el-table-column>
                         <el-table-column prop="operation" label="查看">
                             <template slot-scope="scope">
@@ -1075,25 +1075,25 @@
                 </el-table-column>
                 <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                 </el-table-column>
-                <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                <el-table-column  prop="entrySubcontractNumber"  :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                 </el-table-column>
                 <el-table-column  label="招标项目名称">
                     <template slot-scope="scope">
                         <span>{{pulicBids}}</span>
                     </template>
                 </el-table-column>
-                <el-table-column  prop="subcontractName"  label="分包名称">
+                <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                 </el-table-column>
-                <el-table-column  prop="subcontractContents"  label="分包分类">
+                <el-table-column  prop="subcontractContents" :show-overflow-tooltip ="true" label="分包分类">
                 </el-table-column>
                 <el-table-column  label="招标方式">
                     <template slot-scope="scope">
                         <span>{{biddingMethod}}</span>
                     </template>
                 </el-table-column>
-                <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                 </el-table-column>
-                <el-table-column prop="subcontractingState" label="分包状态">
+                <el-table-column prop="subcontractingState" :show-overflow-tooltip ="true" label="分包状态">
                 </el-table-column>
             </el-table>
         </div>
@@ -1618,7 +1618,7 @@ export default {
     //校验手机号
     blurPhone(){
         if(!isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){
-            this.$layer.msg('请输入正确的联系方式！');
+            this.$message.warning('请输入正确的联系方式！');
         }
     },
     

@@ -50,14 +50,17 @@
 										<template slot-scope="scope">{{ scope.$index+1 }}</template>
 									</el-table-column>
 									<el-table-column
+										:show-overflow-tooltip ="true"
 										prop="entrySubcontractNumber"
 										label="入场项目(分包)编号">
 									</el-table-column>
 									<el-table-column
+										:show-overflow-tooltip ="true"
 										prop="subcontractName"
 										label="分包名称">
 									</el-table-column>
 									<el-table-column
+										:show-overflow-tooltip ="true"
 										prop="subcontractingControlAmount"
 										label="分包控制金额(万元)">
 									</el-table-column>
@@ -82,14 +85,17 @@
 									<template slot-scope="scope">{{ scope.$index+1 }}</template>
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="nameOfWinningBidder"
 									label="成交单位名称">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="projectLeader"
 									label="项目负责人">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="winningAmount"
 									label="成交价格">
 								</el-table-column>
@@ -121,14 +127,17 @@
 									<template slot-scope="scope">{{ scope.$index+1 }}</template>
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="companyName"
 									label="单位名称">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="projectLeader"
 									label="项目负责人">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="contacts"
 									label="联系人">
 								</el-table-column>
@@ -163,14 +172,17 @@
 									<template slot-scope="scope">{{ scope.$index+1 }}</template>
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="companyName"
 									label="单位名称">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="projectLeader"
 									label="项目负责人">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="contacts"
 									label="联系人">
 								</el-table-column>
@@ -245,14 +257,17 @@
 											<template slot-scope="scope">{{ scope.$index+1 }}</template>
 										</el-table-column>
 										<el-table-column
+											:show-overflow-tooltip ="true"
 											prop="entrySubcontractNumber"
 											label="入场项目(分包)编号">
 										</el-table-column>
 										<el-table-column
+											:show-overflow-tooltip ="true"
 											prop="subcontractName"
 											label="分包名称">
 										</el-table-column>
 										<el-table-column
+											:show-overflow-tooltip ="true"
 											prop="subcontractingControlAmount"
 											label="分包控制金额(万元)">
 										</el-table-column>
@@ -297,14 +312,17 @@
 									<template slot-scope="scope">{{ scope.$index+1 }}</template>
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="nameOfWinningBidder"
 									label="成交单位名称">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="projectLeader"
 									label="项目负责人">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="winningAmount"
 									label="成交价格">
 								</el-table-column>
@@ -336,22 +354,27 @@
 									<template slot-scope="scope">{{ scope.$index+1 }}</template>
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="companyName"
 									label="单位名称">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="projectLeader"
 									label="项目负责人">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="contacts"
 									label="联系人">
 								</el-table-column>
 								<el-table-column
 									prop="reason"
+									:show-overflow-tooltip ="true"
 									label="通过原因">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="state"
 									label="通知书状态">
 								</el-table-column>
@@ -376,14 +399,17 @@
 									<template slot-scope="scope">{{ scope.$index+1 }}</template>
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="companyName"
 									label="单位名称">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="projectLeader"
 									label="项目负责人">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="contacts"
 									label="联系人">
 								</el-table-column>
@@ -879,7 +905,7 @@ import baseUrl from '../../../api/api'
 					this.sureSubmitBox = true;
 					this.getInitInfo();// 初始化查询
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1042,7 +1068,7 @@ import baseUrl from '../../../api/api'
 					}
 					this.winnNoticeId = res.data.data.winnNoticeId;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1066,7 +1092,7 @@ import baseUrl from '../../../api/api'
 					this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 					this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1086,7 +1112,7 @@ import baseUrl from '../../../api/api'
                 if(res.data.status == 200){
                     this.subpackageData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1122,7 +1148,7 @@ import baseUrl from '../../../api/api'
 						});
 					}
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1183,7 +1209,7 @@ import baseUrl from '../../../api/api'
 					}
 					
                 }else{
-                   this.$layer.msg(res.data.msg);
+                   this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1269,7 +1295,7 @@ import baseUrl from '../../../api/api'
 						}
 					}
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1305,7 +1331,7 @@ import baseUrl from '../../../api/api'
 					})
 					this.enclosureData[0].attachlist = arr;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1343,7 +1369,7 @@ import baseUrl from '../../../api/api'
 					})
 					this.enclosureData[1].attachlist = arr;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1402,7 +1428,7 @@ import baseUrl from '../../../api/api'
 						this.enclosureData[1].attachlist = arr;
 					}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1418,7 +1444,7 @@ import baseUrl from '../../../api/api'
 		//删除文件列表
 		deleteFile(){
 			if(this.attachmeId.length<=0){
-				this.$layer.msg('请选择要删除的文件!')
+				this.$message.warning('请选择要删除的文件!')
 				return false;
 			}else {
 				this.$axios({
@@ -1438,7 +1464,7 @@ import baseUrl from '../../../api/api'
 							}
 						}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 				}).catch(err=>{
 					console.log(err);
@@ -1450,7 +1476,7 @@ import baseUrl from '../../../api/api'
 			var file = event.target.files[0];
 			var fileSize = file.size; 
 			if(fileSize > 102400000) {
-				this.$layer.msg('图片大小不能超过102400000KB');
+				this.$message.warning('图片大小不能超过102400000KB');
 				return false;
 			}
 			this.$refs.file.value = null;
@@ -1484,7 +1510,7 @@ import baseUrl from '../../../api/api'
 					// debugger;
 					this.uploadList();
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);

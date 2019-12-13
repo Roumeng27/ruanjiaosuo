@@ -318,18 +318,21 @@
 								<el-table-column type="index" width="70" label="序号" :index="typeIndex">
             					</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="certificateNum"
 									label="证书编号">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="certificationAuthority"
 									label="发证机关">
 								</el-table-column>
 								<el-table-column
+									:show-overflow-tooltip ="true"
 									prop="professionalLevel"
 									label="资质等级">
 								</el-table-column>
-								<el-table-column	prop="formatTime"	label="有效期至">
+								<el-table-column	prop="formatTime" :show-overflow-tooltip ="true"	label="有效期至">
 								</el-table-column>
 								<el-table-column prop="operation" label="操作">
 									<template slot-scope="scope">
@@ -627,13 +630,13 @@
 							<el-table	ref="multipleTable"	:data="certificationData"	tooltip-effect="dark"	style="width: 100%">
 								<el-table-column type="index" width="70" label="序号" :index="typeIndex">
             					</el-table-column>
-								<el-table-column	prop="certificateNum"	label="证书编号">
+								<el-table-column	prop="certificateNum" :show-overflow-tooltip ="true"	label="证书编号">
 								</el-table-column>
-								<el-table-column	prop="certificationAuthority"	label="发证机关">
+								<el-table-column	prop="certificationAuthority" :show-overflow-tooltip ="true"	label="发证机关">
 								</el-table-column>
-								<el-table-column	prop="professionalLevel"	label="资质等级">
+								<el-table-column	prop="professionalLevel" :show-overflow-tooltip ="true"	label="资质等级">
 								</el-table-column>
-								<el-table-column	prop="formatTime"	label="有效期至">
+								<el-table-column	prop="formatTime" :show-overflow-tooltip ="true"	label="有效期至">
 								</el-table-column>
 								<el-table-column prop="operation" label="操作">
 									<template slot-scope="scope">
@@ -713,14 +716,14 @@
 					<div class="search_main">
 						<el-table :data="tableData" stripe style="width: 100%">
 							<el-table-column  label="序号"></el-table-column>
-							<el-table-column  prop="subcontractName"  label="变更内容">
+							<el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="变更内容">
 							</el-table-column>
-							<el-table-column prop="subcontractingControlAmount" label="变更前的信息">
+							<el-table-column prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="变更前的信息">
 							</el-table-column>
-							<el-table-column prop="entrySubcontractNumber" label="变更后的信息">
+							<el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="变更后的信息">
 							</el-table-column>
-							<el-table-column label="变更人"></el-table-column>
-							<el-table-column label="变更日期"></el-table-column>
+							<el-table-column :show-overflow-tooltip ="true" label="变更人"></el-table-column>
+							<el-table-column :show-overflow-tooltip ="true" label="变更日期"></el-table-column>
 						</el-table>
 					</div>
 				</div>
@@ -760,14 +763,17 @@
 								<template slot-scope="scope">{{ scope.row.date }}</template>
 							</el-table-column>
 							<el-table-column
+								:show-overflow-tooltip ="true"
 								prop="name"
 								label="文件名称">
 							</el-table-column>
 							<el-table-column
+								:show-overflow-tooltip ="true"
 								prop="address"
 								label="验证状态">
 							</el-table-column>
 							<el-table-column
+								:show-overflow-tooltip ="true"
 								prop="address"
 								label="作废原因">
 							</el-table-column>
@@ -1235,7 +1241,7 @@
 							this.businessTermEnd = dayjs(res.data.data.businessTermEnd).format('YYYY-MM-DD');
 						}
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1244,11 +1250,11 @@
 			//下一步弹框
 			nextTo(){
 				if(!isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-					this.$layer.msg('请输入正确的联系方式');
+					this.$message.warning('请输入正确的联系方式');
 					return false;
 				}
 				if(!getIdcard(this.legalIdNumber)){
-					this.$layer.msg('请输入正确的身份证号码');
+					this.$message.warning('请输入正确的身份证号码');
 					return false;
 				}
 				let startTime="";
@@ -1330,7 +1336,7 @@
 						};
 						this.userId = res.data.data.userId;
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1391,7 +1397,7 @@
 						this.basicInfoFlag = false;
 						this.editFlag = true;
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1422,7 +1428,7 @@
 						$('.title').show();
 						$('.edit_title').hide();
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1513,7 +1519,7 @@
 							}
 						}
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1543,7 +1549,7 @@
 							}
 						})
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1581,7 +1587,7 @@
 						this.modifyShow = false;
 						this.editFlag = true;
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1616,7 +1622,7 @@
 						this.newlyFlag = false;
 						this.editFlag = true;
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1663,7 +1669,7 @@
 					if(res.data.status == 200){
 						this.addressList = res.data.data
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1681,7 +1687,7 @@
                     if(res.data.status == 200){
                         this.propertyData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1699,7 +1705,7 @@
                     if(res.data.status == 200){
                         this.economicData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1717,7 +1723,7 @@
                     if(res.data.status == 200){
                         this.mechanismData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1735,7 +1741,7 @@
                     if(res.data.status == 200){
                         this.enterprisesData = res.data.data
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1756,7 +1762,7 @@
 							item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
 						})
 					}else{
-						this.$layer.msg(res.data.msg)
+						this.$message.warning(res.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1765,13 +1771,13 @@
 			//校验手机号联系方式
 			blurPhone(){
 				if(!isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-					this.$layer.msg('请输入正确的联系方式');
+					this.$message.warning('请输入正确的联系方式');
 				}
 			},
 			//校验身份证号码
 			getIdNumber(){
 				if(!getIdcard(this.legalIdNumber)){
-					this.$layer.msg('请输入正确的身份证号码');
+					this.$message.warning('请输入正确的身份证号码');
 					return false;
 				}
 			},

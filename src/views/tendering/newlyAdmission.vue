@@ -969,118 +969,118 @@
 				if(num == 1){
 					// 保存
 					if(!this.approvalProjectName) {
-						this.$layer.msg("请输入批复项目名称");
+						this.$message.warning("请输入批复项目名称");
 						return false;
 					}else if(!this.approvalNumber){
-						this.$layer.msg("请输入批复文号");
+						this.$message.warning("请输入批复文号");
 						return false;
 					}else if(!this.approvalAndApprovalDepartment){
-						this.$layer.msg("请输入核准部门");
+						this.$message.warning("请输入核准部门");
 						return false;
 					}else if(!this.supervisionDepartment){
-						this.$layer.msg("请输入监督部门");
+						this.$message.warning("请输入监督部门");
 						return false;
 					}else if(!this.auditDepartment){
-						this.$layer.msg("请输入核准部门");
+						this.$message.warning("请输入核准部门");
 						return false;
 					}else if(!this.localName){
-						this.$layer.msg("请选择项目所在地");
+						this.$message.warning("请选择项目所在地");
 						return false;
 					}else if(!this.approvalJurisdiction){
-						this.$layer.msg("请输入审批权限");
+						this.$message.warning("请输入审批权限");
 						return false;
 					}else if(!this.isItConfidential){
-						this.$layer.msg("请选择是否涉密");
+						this.$message.warning("请选择是否涉密");
 						return false;
 					}else if(!this.engineeringProperties){
-						this.$layer.msg("请选择工程性质");
+						this.$message.warning("请选择工程性质");
 						return false;
 					}else if(!this.projectType){
-						this.$layer.msg("请选择项目类型");
+						this.$message.warning("请选择项目类型");
 						return false;
 					}else if(!this.sourceOfFunds){
-						this.$layer.msg("请填写资金来源");
+						this.$message.warning("请填写资金来源");
 						return false;
 					}else if(!this.totalProjectFunds){
-						this.$layer.msg("请填写项目资金总额");
+						this.$message.warning("请填写项目资金总额");
 						return false;
 					}else if(!this.projectApprovalDocumentsName){
-						this.$layer.msg("请填写项目审批名称");
+						this.$message.warning("请填写项目审批名称");
 						return false;
 					}else if(!this.investmentProjectsUnifiedCode){
-						this.$layer.msg("请填写北京投资项目统一代码");
+						this.$message.warning("请填写北京投资项目统一代码");
 						return false;
 					}else if(!this.projectLegalPerson){
-						this.$layer.msg("请填写项目法人");
+						this.$message.warning("请填写项目法人");
 						return false;
 					}else if(!this.projectLegalPersonCode){
-						this.$layer.msg("请填写项目法人代码");
+						this.$message.warning("请填写项目法人代码");
 						return false;
 					}else if(!this.projectIndustryClassification){
-						this.$layer.msg("请选择项目行业分类");
+						this.$message.warning("请选择项目行业分类");
 						return false;
 					}else if(!this.projectScale){
-						this.$layer.msg("请填写项目规模");
+						this.$message.warning("请填写项目规模");
 						return false;
 					}else if(!this.projectEstablishmentTime){
-						this.$layer.msg("请填写项目建立时间");
+						this.$message.warning("请填写项目建立时间");
 						return false;
 					}else if(!this.contacts){
-						this.$layer.msg("请填写联系人");
+						this.$message.warning("请填写联系人");
 						return false;
 					}else if(!this.contactInformation){
-						this.$layer.msg("请填写联系方式");
+						this.$message.warning("请填写联系方式");
 						return false;
 					}else if(!this.entryName){
-						this.$layer.msg("请填写项目名称");
+						this.$message.warning("请填写项目名称");
 						return false;
 					}else if(!this.budgetProjectApprovalRecordNumber){
-						this.$layer.msg("请填写项目批准备案文号");
+						this.$message.warning("请填写项目批准备案文号");
 						return false;
 					}else if(!this.budgetRecipientUnit){
-						this.$layer.msg("请填写预算受文单位");
+						this.$message.warning("请填写预算受文单位");
 						return false;
 					}else if(!this.budgetRecipientUnitCode){
-						this.$layer.msg("请填写预算受文单位代码");
+						this.$message.warning("请填写预算受文单位代码");
 						return false;
 					}else if(!this.budgetAmount){
-						this.$layer.msg("请填写预算金额");
+						this.$message.warning("请填写预算金额");
 						return false;
 					}else if(!this.nameOfPurchaser){
-						this.$layer.msg("请填写采购人名称");
+						this.$message.warning("请填写采购人名称");
 						return false;
 					}else if(!this.purchaserCode){
-						this.$layer.msg("请填写采购人代码");
+						this.$message.warning("请填写采购人代码");
 						return false;
 					}else if(!this.nameOfTenderProject){
-						this.$layer.msg("请填写招标项目名称");
+						this.$message.warning("请填写招标项目名称");
 						return false;
 					}else if(!this.biddingProjectNumber){
-						this.$layer.msg("请填写招标项目编号");
+						this.$message.warning("请填写招标项目编号");
 						return false;
 					}else if(!this.amountOfBiddingProject){
-						this.$layer.msg("请填写招标项目金额");
+						this.$message.warning("请填写招标项目金额");
 						return false;
 					}else if(!this.biddingProcurementMode){
-						this.$layer.msg("请填写招标采购方式");
+						this.$message.warning("请填写招标采购方式");
 						return false;
 					}else if(!this.typesOfBiddingProjects){
-						this.$layer.msg("请填写招标项目类型");
+						this.$message.warning("请填写招标项目类型");
 						return false;
 					}else if(!this.professionalCategory){
-						this.$layer.msg("请选择专业类别");
+						this.$message.warning("请选择专业类别");
 						return false;
 					}else if(!this.whetherAnnounceBudget){
-						this.$layer.msg("请选择是否公布预算");
+						this.$message.warning("请选择是否公布预算");
 						return false;
 					}else if(!this.isSubcontracting){
-						this.$layer.msg("请选择是否分包");
+						this.$message.warning("请选择是否分包");
 						return false;
 					}else if(Number(this.stateOwnedFunds) + Number(this.ownFunds) + Number(this.foreignGovernmentsAndOrganizationalFunds) + Number(this.overseasPrivateInvestment) != this.totalProjectFunds){
-						this.$layer.msg("请查看资金构成是否等于项目资金总额");
+						this.$message.warning("请查看资金构成是否等于项目资金总额");
 						return false;
 					}else if(this.amountOfBiddingProject > this.totalProjectFunds){
-						this.$layer.msg("招标项目金额不能大项目资金总额");
+						this.$message.warning("招标项目金额不能大项目资金总额");
 						return false;
 					}else{
 						this.saveInfo(num);// 保存
@@ -1088,118 +1088,118 @@
 				}else{
 					// 下一步
 					if(!this.approvalProjectName) {
-						this.$layer.msg("请输入批复项目名称");
+						this.$message.warning("请输入批复项目名称");
 						return false;
 					}else if(!this.approvalNumber){
-						this.$layer.msg("请输入批复文号");
+						this.$message.warning("请输入批复文号");
 						return false;
 					}else if(!this.approvalAndApprovalDepartment){
-						this.$layer.msg("请输入核准部门");
+						this.$message.warning("请输入核准部门");
 						return false;
 					}else if(!this.supervisionDepartment){
-						this.$layer.msg("请输入监督部门");
+						this.$message.warning("请输入监督部门");
 						return false;
 					}else if(!this.auditDepartment){
-						this.$layer.msg("请输入核准部门");
+						this.$message.warning("请输入核准部门");
 						return false;
 					}else if(!this.localName){
-						this.$layer.msg("请选择项目所在地");
+						this.$message.warning("请选择项目所在地");
 						return false;
 					}else if(!this.approvalJurisdiction){
-						this.$layer.msg("请输入审批权限");
+						this.$message.warning("请输入审批权限");
 						return false;
 					}else if(!this.isItConfidential){
-						this.$layer.msg("请选择是否涉密");
+						this.$message.warning("请选择是否涉密");
 						return false;
 					}else if(!this.engineeringProperties){
-						this.$layer.msg("请选择工程性质");
+						this.$message.warning("请选择工程性质");
 						return false;
 					}else if(!this.projectType){
-						this.$layer.msg("请选择项目类型");
+						this.$message.warning("请选择项目类型");
 						return false;
 					}else if(!this.sourceOfFunds){
-						this.$layer.msg("请填写资金来源");
+						this.$message.warning("请填写资金来源");
 						return false;
 					}else if(!this.totalProjectFunds){
-						this.$layer.msg("请填写项目资金总额");
+						this.$message.warning("请填写项目资金总额");
 						return false;
 					}else if(!this.projectApprovalDocumentsName){
-						this.$layer.msg("请填写项目审批名称");
+						this.$message.warning("请填写项目审批名称");
 						return false;
 					}else if(!this.investmentProjectsUnifiedCode){
-						this.$layer.msg("请填写北京投资项目统一代码");
+						this.$message.warning("请填写北京投资项目统一代码");
 						return false;
 					}else if(!this.projectLegalPerson){
-						this.$layer.msg("请填写项目法人");
+						this.$message.warning("请填写项目法人");
 						return false;
 					}else if(!this.projectLegalPersonCode){
-						this.$layer.msg("请填写项目法人代码");
+						this.$message.warning("请填写项目法人代码");
 						return false;
 					}else if(!this.projectIndustryClassification){
-						this.$layer.msg("请选择项目行业分类");
+						this.$message.warning("请选择项目行业分类");
 						return false;
 					}else if(!this.projectScale){
-						this.$layer.msg("请填写项目规模");
+						this.$message.warning("请填写项目规模");
 						return false;
 					}else if(!this.projectEstablishmentTime){
-						this.$layer.msg("请填写项目建立时间");
+						this.$message.warning("请填写项目建立时间");
 						return false;
 					}else if(!this.contacts){
-						this.$layer.msg("请填写联系人");
+						this.$message.warning("请填写联系人");
 						return false;
 					}else if(!this.contactInformation){
-						this.$layer.msg("请填写联系方式");
+						this.$message.warning("请填写联系方式");
 						return false;
 					}else if(!this.entryName){
-						this.$layer.msg("请填写项目名称");
+						this.$message.warning("请填写项目名称");
 						return false;
 					}else if(!this.budgetProjectApprovalRecordNumber){
-						this.$layer.msg("请填写项目批准备案文号");
+						this.$message.warning("请填写项目批准备案文号");
 						return false;
 					}else if(!this.budgetRecipientUnit){
-						this.$layer.msg("请填写预算受文单位");
+						this.$message.warning("请填写预算受文单位");
 						return false;
 					}else if(!this.budgetRecipientUnitCode){
-						this.$layer.msg("请填写预算受文单位代码");
+						this.$message.warning("请填写预算受文单位代码");
 						return false;
 					}else if(!this.budgetAmount){
-						this.$layer.msg("请填写预算金额");
+						this.$message.warning("请填写预算金额");
 						return false;
 					}else if(!this.nameOfPurchaser){
-						this.$layer.msg("请填写采购人名称");
+						this.$message.warning("请填写采购人名称");
 						return false;
 					}else if(!this.purchaserCode){
-						this.$layer.msg("请填写采购人代码");
+						this.$message.warning("请填写采购人代码");
 						return false;
 					}else if(!this.nameOfTenderProject){
-						this.$layer.msg("请填写招标项目名称");
+						this.$message.warning("请填写招标项目名称");
 						return false;
 					}else if(!this.biddingProjectNumber){
-						this.$layer.msg("请填写招标项目编号");
+						this.$message.warning("请填写招标项目编号");
 						return false;
 					}else if(!this.amountOfBiddingProject){
-						this.$layer.msg("请填写招标项目金额");
+						this.$message.warning("请填写招标项目金额");
 						return false;
 					}else if(!this.biddingProcurementMode){
-						this.$layer.msg("请填写招标采购方式");
+						this.$message.warning("请填写招标采购方式");
 						return false;
 					}else if(!this.typesOfBiddingProjects){
-						this.$layer.msg("请填写招标项目类型");
+						this.$message.warning("请填写招标项目类型");
 						return false;
 					}else if(!this.professionalCategory){
-						this.$layer.msg("请选择专业类别");
+						this.$message.warning("请选择专业类别");
 						return false;
 					}else if(!this.whetherAnnounceBudget){
-						this.$layer.msg("请选择是否公布预算");
+						this.$message.warning("请选择是否公布预算");
 						return false;
 					}else if(!this.isSubcontracting){
-						this.$layer.msg("请选择是否分包");
+						this.$message.warning("请选择是否分包");
 						return false;
 					}else if(Number(this.stateOwnedFunds) + Number(this.ownFunds) + Number(this.foreignGovernmentsAndOrganizationalFunds) + Number(this.overseasPrivateInvestment) != this.totalProjectFunds){
-						this.$layer.msg("请查看资金构成是否等于项目资金总额");
+						this.$message.warning("请查看资金构成是否等于项目资金总额");
 						return false;
 					}else if(this.amountOfBiddingProject > this.totalProjectFunds){
-						this.$layer.msg("招标项目金额不能大项目资金总额");
+						this.$message.warning("招标项目金额不能大项目资金总额");
 						return false;
 					}else{
 						this.writeFlag = false;// 有保存和下一步按钮
@@ -1228,7 +1228,7 @@
 						this.successBox = true;
 						this.successTitle ='提交成功！';
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err);
@@ -1351,7 +1351,7 @@
 						this.totalProjectId = res.data.data.totalProjectId;// 入场项目编号
 						this.state = res.data.data.state;// 状态
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1425,7 +1425,7 @@
 						this.electronicBidEvaluation=res.data.data.electronicBidEvaluation;//电子化开评标
 						this.tenderContents=res.data.data.tenderContents;//招标内容
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1466,7 +1466,7 @@
 							this.enclosureData[1].attachlist = arr
 						}
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err);
@@ -1491,7 +1491,7 @@
 							}
 						}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 				}).catch(err=>{
 					console.log(err);
@@ -1502,7 +1502,7 @@
 				var file = event.target.files[0];
 				var fileSize = file.size; 
 				if(fileSize > 102400000) {
-					this.$layer.msg('图片大小不能超过102400000KB');
+					this.$message.warning('图片大小不能超过102400000KB');
 					return false;
 				}
 				this.files = file;
@@ -1523,7 +1523,7 @@
 					if(res.data.status == 200){
 						this.uploadList();
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err);
@@ -1592,7 +1592,7 @@
 							item.creationTime = formatDate(item.creationTime)
 						});
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1614,7 +1614,7 @@
 			//校验手机号联系方式
 			blurPhone(){
 				if(!isPoneAvailable(this.contactInformation)){
-					this.$layer.msg('请输入正确的联系方式');
+					this.$message.warning('请输入正确的联系方式');
 				}
 			},
 			// 下拉框
@@ -1627,7 +1627,7 @@
 					if(res.data.status == 200){
 						this.addressData = res.data.data
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err);
@@ -1645,7 +1645,7 @@
 					if(res.data.data.status == 200){
 						this.dropData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1663,7 +1663,7 @@
 					if(res.data.data.status == 200){
 						this.approvalData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1681,7 +1681,7 @@
 					if(res.data.data.status == 200){
 						this.SourcefundsData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1699,7 +1699,7 @@
 					if(res.data.data.status == 200){
 						this.industryData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1717,7 +1717,7 @@
 					if(res.data.data.status == 200){
 						this.openTenderData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1736,7 +1736,7 @@
 						this.organizaData = res.data.data.data;
 						this.biddingOrganization = res.data.data.data[0].value;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1754,7 +1754,7 @@
 					if(res.data.data.status == 200){
 						this.bidProjectData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1772,7 +1772,7 @@
 					if(res.data.data.status == 200){
 						this.academicDirectionData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1790,7 +1790,7 @@
 					if(res.data.data.status == 200){
 						this.titleExaminationData = res.data.data.data;
 					}else{
-						this.$layer.msg(res.data.data.msg)
+						this.$message.warning(res.data.data.msg)
 					}
 				}).catch(err=>{
 					console.log(err)

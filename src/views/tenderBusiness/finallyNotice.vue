@@ -24,11 +24,11 @@
 				<el-table :data="resultData" stripe style="width: 100%">
 					<el-table-column type="index" width="70" label="序号" :index="typeIndex">
 					</el-table-column>
-					<el-table-column prop="projectNumber" label="分包编号" width="170">
+					<el-table-column prop="projectNumber" :show-overflow-tooltip ="true" label="分包编号" width="170">
 					</el-table-column>
-					<el-table-column prop="projectName" label="分包名称">
+					<el-table-column prop="projectName" :show-overflow-tooltip ="true" label="分包名称">
 					</el-table-column>
-					<el-table-column prop="noticeCode" label="通知书编号">
+					<el-table-column prop="noticeCode" :show-overflow-tooltip ="true" label="通知书编号">
 					</el-table-column>
 					<el-table-column prop="operation" label="操作" width="70"> 
 					<template slot-scope="scope">
@@ -160,7 +160,7 @@ export default {
                         this.total = res.data.data.total;// 总数
                         this.pageNum = res.data.data.pageNum;// 页数
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -187,7 +187,7 @@ export default {
 						item.noticeCode = item.items[0].noticeCode;// 通知书编号
 					});
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -230,7 +230,7 @@ export default {
 					this.projectName = res.data.data.projectName;//总包名称
 					this.openDate =dayjs(res.data.data.openDate).format('YYYY年MM月DD日');//开标时间
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)

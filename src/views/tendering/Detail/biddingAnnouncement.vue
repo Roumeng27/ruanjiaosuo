@@ -46,7 +46,7 @@
                                     <div class="editTextarea">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="tendereePhone" clearable></el-input>
+                                            <el-input v-model="tendereePhone" id="focus11" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                         <div class="editTextarea">
                                             <div class="editName">联系方式：</div>
                                             <div class="editContent">
-                                                <el-input v-model="agentPhone" clearable></el-input>
+                                                <el-input v-model="agentPhone" id="focus13" clearable></el-input>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                     <div class="editCenter">
                                         <div class="editName">采购数量：</div>
                                         <div class="editContent">
-                                            <el-input v-model="purchaseAmount" clearable></el-input>
+                                            <el-input v-model="purchaseAmount" id="focus14" @blur="purposeNum()" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -125,7 +125,7 @@
                                                     <p>企业资质要求</p>
                                                     <el-button @click="newCertificate">新增资质</el-button>
                                                 </div>
-                                                <div class="itemBox" v-if="this.certificateBox.length>0">
+                                                <div class="itemBox" v-if="this.certificateBox != null">
                                                     <table width='100%' cellspacing="0" cellpadding="0" align="center" border="0" valign="center">
                                                         <tbody>
                                                             <tr style="height:30px;">
@@ -147,7 +147,7 @@
                                                     <p>项目负责人资质要求</p>
                                                     <el-button @click="newleader">新增资质</el-button>
                                                 </div>
-                                                <div class="itemBox" v-if="this.leaderBox.length>0">
+                                                <div class="itemBox" v-if="this.leaderBox != null">
                                                     <table width='100%' cellspacing="0" cellpadding="0" align="center" border="0" valign="center">
                                                         <tbody>
                                                             <tr style="height:30px;">
@@ -183,14 +183,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
@@ -201,6 +204,7 @@
                                         </template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         label="招标内容">
                                         <template slot-scope="scope">
                                             <i class="el-icon-edit"  style="cursor: pointer;" @click="winItem(scope.row,scope.$index)"></i>
@@ -222,7 +226,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>公告名称：</div>
                                         <div class="editContent">
-                                            <el-input v-model="noticeName" clearable></el-input>
+                                            <el-input v-model="noticeName" id="focus1" clearable></el-input>
                                         </div>
                                         <p>招标公告</p>
                                     </div>
@@ -232,6 +236,7 @@
                                         <div class="editName"><p class="star">*</p>报名开始时间：</div>
                                         <div class="editContent">
                                             <el-date-picker 
+                                                 id="focus2" 
                                                 v-model="enrollStartTime" 
                                                 type="datetime" 
                                                 placeholder="选择日期时间" 
@@ -245,6 +250,7 @@
                                         <div class="editName"><p class="star">*</p>报名结束时间：</div>
                                         <div class="editContent">
                                             <el-date-picker 
+                                                 id="focus3" 
                                                 v-model="enrollEndTime" 
                                                 type="datetime" 
                                                 placeholder="选择日期时间" 
@@ -259,7 +265,7 @@
                                     <div class="editCenter">
                                         <div class="editTit"><p class="star">*</p>招标文件发售时间：</div>
                                         <div class="editContent">
-                                            <el-date-picker :picker-options="pickerOptions0" clearable  v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @blur="blurDate()">
+                                            <el-date-picker  id="focus4"  :picker-options="pickerOptions0" clearable  v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @blur="blurDate()">
                                             </el-date-picker>
                                         </div>
                                     </div>
@@ -267,6 +273,7 @@
                                         <div class="editTit">上午：</div>
                                         <div class="editContent">
                                             <el-time-select
+                                                 id="focus5" 
                                                 placeholder="开始时间"
                                                 v-model="morningbegin"
                                                 :picker-options="{
@@ -277,6 +284,7 @@
                                             </el-time-select>
                                             <span>-</span>
                                             <el-time-select
+                                                 id="focus6" 
                                                 placeholder="结束时间"
                                                 v-model="morningend"
                                                 :picker-options="{
@@ -291,6 +299,7 @@
                                         <div class="editTit">下午：</div>
                                         <div class="editContent">
                                             <el-time-select
+                                                 id="focus7" 
                                                 placeholder="开始时间"
                                                 v-model="afterbegin"
                                                 :picker-options="{
@@ -301,6 +310,7 @@
                                             </el-time-select>
                                             <span>-</span>
                                             <el-time-select
+                                                 id="focus8" 
                                                 placeholder="结束时间"
                                                 v-model="afterend"
                                                 :picker-options="{
@@ -325,7 +335,7 @@
                                         <div class="editName"><p class="star">*</p>招标文件工本费：</div>
                                         <div class="editContent">
                                             <p>人民币</p>
-                                            <el-input v-model="tenderDocumentsCost" clearable ></el-input>
+                                            <el-input  id="focus9"  v-model="tenderDocumentsCost" clearable ></el-input>
                                             <p>元</p>
                                         </div>
                                     </div>
@@ -347,7 +357,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>投标人需提交资料：</div>
                                         <div class="editContent">
-                                            <el-input v-model="bidderData"  type="textarea"  clearable :rows="3" ></el-input>
+                                            <el-input id="focus10"  v-model="bidderData"  type="textarea"  clearable :rows="3" ></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -397,7 +407,7 @@
                                     <div class="editCenter">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="projectLeaderPhone" clearable></el-input>
+                                            <el-input v-model="projectLeaderPhone" id="focus12" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -533,11 +543,11 @@
                                             <span>{{scope.$index+1}}</span>
                                         </template>
                                     </el-table-column>
-                                    <el-table-column  prop="subcontractName"  label="分包名称">
+                                    <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                                     </el-table-column>
                                     <el-table-column prop="subcontractingControlAmount" label="分包控制金额(万元)">
                                     </el-table-column>
-                                    <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                                    <el-table-column prop="entrySubcontractNumber"  :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column label="查看">
                                         <template slot-scope="scope">
@@ -1091,7 +1101,7 @@
                                         <div class="editCenter">
                                             <div class="editName">采购数量：</div>
                                             <div class="editContent">
-                                                <el-input v-model="purchaseAmount" clearable></el-input>
+                                                <el-input v-model="purchaseAmount"  @blur="purposeNum()" clearable></el-input>
                                             </div>
                                         </div>
                                         <div class="editCenter">
@@ -1126,7 +1136,7 @@
                                                         <p>企业资质要求</p>
                                                         <el-button @click="newCertificate">新增资质</el-button>
                                                     </div>
-                                                    <div class="itemBox" v-if="this.certificateBox.length>0">
+                                                    <div class="itemBox" v-if="this.certificateBox != null">
                                                         <table width='100%' cellspacing="0" cellpadding="0" align="center" border="0" valign="center">
                                                             <tbody>
                                                                 <tr style="height:30px;">
@@ -1148,7 +1158,7 @@
                                                         <p>项目负责人资质要求</p>
                                                         <el-button @click="newleader">新增资质</el-button>
                                                     </div>
-                                                    <div class="itemBox" v-if="this.leaderBox.length>0">
+                                                    <div class="itemBox" v-if="this.leaderBox != null">
                                                         <table width='100%' cellspacing="0" cellpadding="0" align="center" border="0" valign="center">
                                                             <tbody>
                                                                 <tr style="height:30px;">
@@ -1346,14 +1356,17 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="entrySubcontractNumber"
                                 label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 label="招标项目名称">
                                 <template slot-scope="scope">{{ nameOfTenderProject }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractName"
                                 label="分包名称">
                             </el-table-column>
@@ -1520,7 +1533,8 @@
 <script>
     import '../../../assets/css/style.css'
     import baseUrl from '../../../api/api'
-    import {formatDate,formatTime,isEmpty,changeTime,isPoneAvailable,checkPhone,checkEmail,dubRemove,checkNumber} from '../../../api/base.js'
+    import {formatDate,formatTime,isEmpty,changeTime,isPoneAvailable,checkPhone,checkEmail,dubRemove,checkNumber,checkWord} from '../../../api/base.js'
+    // import { async } from 'q'
     export default {
         data(){
             return {
@@ -1686,7 +1700,7 @@
                 // 文件上传所需字段
                 enclosureData:[{
                     id:1,
-                    appendixName: "招标（采购）人确认函",
+                    appendixName: "*招标（采购）人确认函",
                     attachlist: []
                 },
                 {
@@ -1712,9 +1726,7 @@
         created(){
             this.getOneList();// 招标（采购）人确认函附件
             this.getTwoList();// 招标公告附件
-            this.getmanageInfo();// 办理记录
             this.getOpenTime();// 响应文件开启时间
-            this.getsubpackageInfo();// 分包信息
             this.getDecideList();
             if(this.projectObj.totalProjectId.indexOf("-") != -1 && this.projectObj.totalProjectId!=null){
                 // 分包
@@ -1725,11 +1737,17 @@
                 this.diffFlag = true;
             }
             this.uploadList();//上传列表
+            this.getAllData();
         },
         mounted(){
             this.getbiddingInfo();// 采购项目信息
         },
         methods:{
+            async getAllData(){
+                await this.getInitInfo();
+                this.getmanageInfo();// 办理记录
+                this.getsubpackageInfo();// 分包信息
+            },
             blurDate(){
                 let startTime = changeTime(this.collectTime[0]);
                 let endtTime = changeTime(this.collectTime[1]);
@@ -1747,8 +1765,8 @@
                 }
             },
             purposeNum(){
-                if(!checkNumber(this.purchaseAmount)){
-                    this.$layer.msg('采购数量请输入数字类型！');
+                if(!checkWord(this.purchaseAmount)){
+                    this.$message.warning('采购数量请输入文字或者数字类型！');
                 }
             },
             //校验手机号联系方式
@@ -1756,12 +1774,12 @@
                 if(num == 1){
                     // 采购项目信息的联系方式
                     if(!isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
-                        this.$layer.msg('请输入正确的联系方式！');
+                        this.$message.warning('请输入正确的联系方式！');
                     }
                 }else{
                      // 公告信息的联系方式
                     if(!isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){
-                        this.$layer.msg('请输入正确的联系方式！');
+                        this.$message.warning('请输入正确的联系方式！');
                     }
                 }
             },
@@ -1789,37 +1807,47 @@
                 this.uploadList();
                 // 保存
                 if(!this.noticeName) {
-                    this.$layer.msg("请输入公告名称！");
+                    $('#focus1').focus();
+                    this.$message.warning("请输入公告名称！");
                     return false;
                 }else if(!this.enrollStartTime){
-                    this.$layer.msg("请输入报名开始时间！");
+                    $('#focus2').focus();
+                    this.$message.warning("请输入报名开始时间！");
                     return false;
                 }else if(!this.enrollEndTime){
-                    this.$layer.msg("请输入报名结束时间！");
+                    $('#focus3').focus();
+                    this.$message.warning("请输入报名结束时间！");
                     return false;
                 }else if(this.collectTime.length == 0){
-                    this.$layer.msg("请输入招标文件发售时间！");
+                    $('#focus4').focus();
+                    this.$message.warning("请输入招标文件发售时间！");
                     return false;
                 }else if(!this.morningbegin && !this.morningend && !this.afterbegin && !this.afterend){
-                    this.$layer.msg("请输入招标文件发售时间！");
+                    this.$message.warning("请输入招标文件发售时间！");
                     return false;
                 }else if(this.tenderDocumentsCost =='' || this.tenderDocumentsCost == null || !checkNumber(this.tenderDocumentsCost)){
-                    this.$layer.msg("请输入招标文件工本费！");
+                    $('#focus9').focus();
+                    this.$message.warning("请输入招标文件工本费！");
                     return false;
                 }else if (!this.bidderData){
-                    this.$layer.msg("请输入投标人需提交资料！");
+                    $('#focus10').focus();
+                    this.$message.warning("请输入投标人需提交资料！");
                     return false;
                 }else if(this.tendereePhone != '' && this.tendereePhone != null && !isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
-                    this.$layer.msg('请输入正确的联系方式！');
+                   $('#focus11').focus();
+                   this.$message.warning('请输入正确的联系方式！');
                     return false; 
                 }else if(this.projectLeaderPhone != '' && this.projectLeaderPhone != null && !isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){ 
-                    this.$layer.msg('请输入正确的联系方式！');
+                   $('#focus12').focus();
+                   this.$message.warning('请输入正确的联系方式！');
                     return false;
                 }else if(this.agentPhone != '' && this.agentPhone != null && !isPoneAvailable(this.agentPhone) && !checkPhone(this.agentPhone)){ 
-                    this.$layer.msg('请输入正确的联系方式！');
+                   $('#focus13').focus();
+                   this.$message.warning('请输入正确的联系方式！');
                     return false;
-                }else if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkNumber(this.purchaseAmount)){
-                    this.$layer.msg('采购数量请输入数字类型！');
+                }else if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkWord(this.purchaseAmount)){
+                    $('#focus14').focus();
+                    this.$message.warning('采购数量请输入文字或者数字类型！');
                     return false;
                 }else{
                     if(num == 1){
@@ -2054,7 +2082,7 @@
                             }
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2159,8 +2187,8 @@
             },
             // 采购内容 保存
             savePage(){
-                if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkNumber(this.purchaseAmount)){
-                    this.$layer.msg('请输入正确的采购数量!');
+                if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkWord(this.purchaseAmount)){
+                    this.$message.warning('请输入正确的采购数量格式，文字数字均可!');
                     return false;
                 }
                 // if(this.initList.length != 0){
@@ -2233,7 +2261,7 @@
             // 删除
             deleteItem(row){
                 if(row.entrySubcontractNumber == this.projectObj.totalProjectId){
-                    this.$layer.msg('不可删除当前项目分包编号')
+                    this.$message.warning('不可删除当前项目分包编号')
                     return;
                 }else{
                     for (let i = 0; i < this.subpackageData.length; i++) {
@@ -2264,7 +2292,7 @@
                     if(res.data.status == 200){
                         this.certificateData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2276,6 +2304,9 @@
             },
             checkGroupNode(a, b) {
                 let flag = true;
+                if(this.certificateBox ==null){
+                    this.certificateBox = [];
+                }
                 this.certificateBox.forEach(item=>{
                     if(item.qualificationId == a.qualificationId){
                         flag =false;
@@ -2290,6 +2321,7 @@
                 if (b.checkedKeys.length > 0) {
                     this.$refs.DeviceGroupTree.setCheckedKeys([a.qualificationId]);
                 }
+                
             },
             // 删除企业资质要求Item
             deleteInfoItem(id){
@@ -2313,7 +2345,7 @@
                     if(res.data.status == 200){
                         this.leaderData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2324,6 +2356,9 @@
             },
             checkLeaderNode(a, b) {
                 let flag = true;
+                if(this.leaderBox ==null){
+                    this.leaderBox = [];
+                }
                 this.leaderBox.forEach(item=>{
                     if(item.qualificationId == a.qualificationId){
                         flag =false;
@@ -2373,7 +2408,7 @@
                         this.writeFlag = true;
                         this.getLastTemp();// 上一步查询
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2387,6 +2422,10 @@
             },
             // 提交按钮
             submitInfo(){
+                if(this.enclosureData[0].attachlist == ""){
+					this.$message.warning('请选择上传招标（采购）人确认函');
+					return false;
+				}
                 this.$axios({
                     method: "POST",
                     url: baseUrl+"/tenderNoticeController/submit",
@@ -2399,7 +2438,7 @@
                         this.sureSubmitBox = true;
                         this.getInitInfo();// 初始化查询
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2412,8 +2451,7 @@
             },
             
             // 初始化分包查询
-            async getsubpackageInfo(){
-                await this.getInitInfo();
+            getsubpackageInfo(){
                 let lookArr = [];
                 if(this.projectObj.totalProjectId.indexOf("-") != -1 && this.projectObj.totalProjectId!=null){
                     if(this.initList.length == 0){
@@ -2453,7 +2491,7 @@
                             })
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2482,7 +2520,7 @@
                         }
                         this.markData = arrList;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2577,7 +2615,7 @@
                             } 
                         }
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2625,15 +2663,14 @@
                         // this.biddingProjectNumbers = res.data.data.biddingProjectNumber;// 采购项目编号
                         // this.budgetAmounts = res.data.data.budgetAmount;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
                 })
             },
             // 办理记录
-            async getmanageInfo(){
-                await this.getInitInfo();
+            getmanageInfo(){
                 let object = {};
                 if(this.projectObj.totalProjectId.indexOf("-") != -1&& this.projectObj.totalProjectId!=null){
                     object={
@@ -2657,7 +2694,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2688,7 +2725,7 @@
                         this.initList = res.data.data;
                         this.tenderNoticeId = res.data.data[0].tenderNoticeId;
                         this.areaList = res.data.data[0].items;
-                        if(this.initList.length<=0 || res.data.data == null){
+                        if(res.data.data == null){
                             this.writeFlag = true;// 有保存和下一步的按钮
                             this.getOpenTime();// 如果有保存和下一步 响应文件开启时间为这个接口返回
                         }else {
@@ -2765,14 +2802,14 @@
                                         this.technologyQualifications=area.technologyQualifications;// 简要技术要求
                                         this.applicantQualifications=area.applicantQualifications;// 投标人资格条件
                                         this.certificateBox = JSON.parse(area.companyQualifications);// 企业资质要求
-                                        if(this.certificateBox.length>0){
+                                        if(this.certificateBox != null){
                                             this.certificateBox.forEach(item=>{
                                                 this.companyInfo.push(item.label);
                                             })
                                             this.companyQualifications = this.companyInfo.toString();
                                         }
                                         this.leaderBox = JSON.parse(area.managerQualifications);// 项目负责人资质要求
-                                        if(this.leaderBox.length>0){
+                                        if( this.leaderBox != null){
                                             this.leaderBox.forEach(item=>{
                                                 this.leaderInfo.push(item.label);
                                             })
@@ -2785,14 +2822,14 @@
                                         this.technologyQualifications=area.technologyQualifications;// 简要技术要求
                                         this.applicantQualifications=area.applicantQualifications;// 投标人资格条件
                                         this.certificateBox = JSON.parse(area.companyQualifications);// 企业资质要求
-                                        if(this.certificateBox.length>0){
+                                        if( this.certificateBox != null){
                                             this.certificateBox.forEach(item=>{
                                                 this.companyInfo.push(item.label);
                                             })
                                             this.companyQualifications = this.companyInfo.toString();
                                         }
                                         this.leaderBox = JSON.parse(area.managerQualifications);// 项目负责人资质要求
-                                        if(this.leaderBox.length>0){
+                                        if(this.leaderBox != null){
                                             this.leaderBox.forEach(item=>{
                                                 this.leaderInfo.push(item.label);
                                             })
@@ -2811,7 +2848,7 @@
                             })
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2926,7 +2963,7 @@
                         })
                        
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2959,7 +2996,7 @@
                             this.assessmentTime = dayjs(item.assessmentTime).format('YYYY-MM-DD HH:mm:ss');
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     
                 }).catch(err=>{
@@ -2996,7 +3033,7 @@
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -3032,7 +3069,7 @@
                         })
                         this.enclosureData[1].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -3089,7 +3126,7 @@
                             this.enclosureData[1].attachlist = arr;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -3106,7 +3143,7 @@
             //删除文件列表
             deleteFile(){
                 if(this.attachmeId.length<=0){
-                    this.$layer.msg('请选择要删除的文件!')
+                    this.$message.warning('请选择要删除的文件!')
                     return false;
                 }else{
                     this.$axios({
@@ -3126,7 +3163,7 @@
                                 }
                             }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     }).catch(err=>{
                         console.log(err);
@@ -3138,7 +3175,7 @@
                 var file = event.target.files[0];
                 var fileSize = file.size; 
                 if(fileSize > 102400000) {
-                    this.$layer.msg('图片大小不能超过102400KB');
+                    this.$message.warning('图片大小不能超过102400KB');
                     return false;
                 }
                 this.$refs.file.value = null;
@@ -3171,7 +3208,7 @@
                     if(res.data.status == 200){
                         this.uploadList();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

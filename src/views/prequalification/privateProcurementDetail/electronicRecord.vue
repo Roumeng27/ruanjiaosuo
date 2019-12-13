@@ -356,7 +356,7 @@
 								</el-table-column>
                                 <el-table-column prop="creationTime" label="管理"  v-if="eState != '待办理' &&  eState != '办理通过'">
                                     <template slot-scope="scope">
-                                        <span style="color:blue;cursor:pointer;"@click="openFile(scope.row.id)">电子件管理</span>
+                                        <span style="color:blue;cursor:pointer;" @click="openFile(scope.row.id)">电子件管理</span>
                                     </template>
                                 </el-table-column>
                                 <el-table-column prop="state" label="说明">
@@ -377,7 +377,7 @@
 								</el-table-column>
                                 <el-table-column prop="creationTime" label="管理">
                                     <template slot-scope="scope">
-                                        <span style="color:blue;cursor:pointer;"@click="openFile(scope.row.id)">电子件管理</span>
+                                        <span style="color:blue;cursor:pointer;" @click="openFile(scope.row.id)">电子件管理</span>
                                     </template>
                                 </el-table-column>
                                 <el-table-column prop="state" label="说明">
@@ -398,7 +398,7 @@
 								</el-table-column>
                                 <el-table-column prop="creationTime" label="管理"  v-if="eState != '待办理' &&  eState != '办理通过'">
                                     <template slot-scope="scope">
-                                        <span style="color:blue;cursor:pointer;"@click="openFile(scope.row.id)">电子件管理</span>
+                                        <span style="color:blue;cursor:pointer;" @click="openFile(scope.row.id)">电子件管理</span>
                                     </template>
                                 </el-table-column>
                                 <el-table-column prop="state" label="说明">
@@ -425,7 +425,7 @@
 								</el-table-column>
                                 <el-table-column prop="creationTime" label="管理"  v-if="eState != '待办理' &&  eState != '办理通过'">
                                     <template slot-scope="scope">
-                                        <span style="color:blue;cursor:pointer;"@click="openFile(scope.row.id)">电子件管理</span>
+                                        <span style="color:blue;cursor:pointer;" @click="openFile(scope.row.id)">电子件管理</span>
                                     </template>
                                 </el-table-column>
                                 <el-table-column prop="state" label="说明">
@@ -795,7 +795,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -833,7 +833,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -871,7 +871,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -909,7 +909,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -947,7 +947,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -985,7 +985,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1023,7 +1023,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1061,7 +1061,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1099,7 +1099,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1137,7 +1137,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1175,7 +1175,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1213,7 +1213,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1251,7 +1251,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1289,7 +1289,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1327,7 +1327,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1365,7 +1365,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1403,7 +1403,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1441,7 +1441,7 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
@@ -1479,13 +1479,13 @@ import dayjs from "dayjs"
 								}
 							})
 						}else{
-							this.$layer.msg(res.data.msg);
+							this.$message.warning(res.data.msg);
 						}
 					}).catch(err=>{
 						console.log(err);
                     })
                }else{
-                   this.$layer.msg(res.data.msg)
+                   this.$message.warning(res.data.msg)
                }
             }).catch(err=>{
                 console.log(err)
@@ -1537,13 +1537,13 @@ import dayjs from "dayjs"
                         if(res.data.status == 200){
                             this.eRecordId = res.data.data.eRecordId;
                         }else{
-                            this.$layer.msg(res.data.msg)
+                            this.$message.warning(res.data.msg)
                         }
                     }).catch(err=>{
                         console.log(err)
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1575,7 +1575,7 @@ import dayjs from "dayjs"
                     this.writeFlag = true;
                     this.saveBox = true;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1627,7 +1627,7 @@ import dayjs from "dayjs"
                     this.submitBox = true;
                     $('.new_nav').hide();
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2002,7 +2002,7 @@ import dayjs from "dayjs"
 						this.abnormalBidData[0].attachlist = arr
 					}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2012,12 +2012,12 @@ import dayjs from "dayjs"
 		loadFile(event){
             if(this.num == 8){
                 if(this.documentsData[0].attachlist.length > 0){
-                    this.$layer.msg('招标(采购)文件只能上传一个附件');
+                    this.$message.warning('招标(采购)文件只能上传一个附件');
                 }else{
                     var file = event.target.files[0];
                     var fileSize = file.size; 
                     if(fileSize > 102400000) {
-                        this.$layer.msg('图片大小不能超过102400000KB');
+                        this.$message.warning('图片大小不能超过102400000KB');
                         return false;
                     }
                     this.$refs.file.value = null;
@@ -2156,7 +2156,7 @@ import dayjs from "dayjs"
                         if(res.data.status == 200){
                             this.uploadList();
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err);
@@ -2166,7 +2166,7 @@ import dayjs from "dayjs"
                 var file = event.target.files[0];
                 var fileSize = file.size; 
                 if(fileSize > 102400000) {
-                    this.$layer.msg('图片大小不能超过102400000KB');
+                    this.$message.warning('图片大小不能超过102400000KB');
                     return false;
                 }
                 this.$refs.file.value = null;
@@ -2302,7 +2302,7 @@ import dayjs from "dayjs"
                     if(res.data.status == 200){
                         this.uploadList();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -2352,7 +2352,7 @@ import dayjs from "dayjs"
         //删除文件列表
 		deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -2372,7 +2372,7 @@ import dayjs from "dayjs"
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -2410,7 +2410,7 @@ import dayjs from "dayjs"
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2497,7 +2497,7 @@ import dayjs from "dayjs"
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

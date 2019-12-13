@@ -239,7 +239,8 @@
                             </div>
                             <div class="editCenter">
                                 <div class="editName">招标项目金额(万元)：</div>
-                                <div class="editContent">{{amountOfBiddingProject}}</div>
+                                <div class="editContent" v-if="whetherAnnounceBudget == '是'">{{amountOfBiddingProject}}</div>
+                                <div class="editContent" v-else></div>
                             </div>
                         </div>
                         <div class="editItem">
@@ -449,12 +450,12 @@
 				},
 				{
 					id:2,
-					appendixName: "项目负责人授权书",
-					attachlist: []
-				},
-				{
-					id:3,
 					appendixName: "*委托代理协议",
+					attachlist: []
+                },
+                {
+					id:3,
+					appendixName: "项目负责人授权书",
 					attachlist: []
 				},
 			],
@@ -614,7 +615,7 @@
                             $('.jingwai').hide();
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -658,7 +659,7 @@
                                     this.AnnexData[0].attachlist = arr;
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err);
@@ -681,10 +682,10 @@
                                 });
                                 this.fileData.map((item,index)=>{
                                     this.enclosureData[1].attachlist = arr
-                                    this.AnnexData[1].attachlist = arr;
+                                    this.AnnexData[2].attachlist = arr;
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err);
@@ -706,10 +707,10 @@
                                     arr.push(item)
                                 });
                                 this.fileData.map((item,index)=>{
-                                    this.AnnexData[2].attachlist = arr;
+                                    this.AnnexData[1].attachlist = arr;
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err);
@@ -736,7 +737,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

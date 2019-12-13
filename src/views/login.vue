@@ -93,13 +93,13 @@ export default {
 		// 登录
 		submit(){
 			if(!this.userName){
-				this.$layer.msg('请输入账号');
+				this.$message.warning('请输入账号');
 				return false;
 			}else if(!this.password){
-				this.$layer.msg('请输入密码');
+				this.$message.warning('请输入密码');
 				return false;
 			}else if(!this.verificationCode){
-				this.$layer.msg('请输入验证码');
+				this.$message.warning('请输入验证码');
 				return false;
 			}
 			this.$axios({
@@ -135,13 +135,13 @@ export default {
 								}
 							}
 						}else{
-							this.$layer.msg(res.data.msg)
+							this.$message.warning(res.data.msg)
 						}
 					}).catch(err=>{
 						console.log(err)
 					})
 				}else{
-					this.$layer.msg(res.data.msg)
+					this.$message.warning(res.data.msg)
 				}
 			}).catch(err=>{
 				console.log(err)

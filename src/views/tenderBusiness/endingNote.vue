@@ -11,16 +11,16 @@
                 <el-table :data="tableData" stripe style="width: 100%">
                     <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                     </el-table-column>
-                    <el-table-column label="入场项目(分包)编号" width="170">
+                    <el-table-column label="入场项目(分包)编号" :show-overflow-tooltip ="true" width="170">
                         <template slot-scope="scope">
                             <span>{{scope.row.entrySubcontractNumber}}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column  prop="nameOfTenderProject" label="招标项目名称">
+                    <el-table-column  prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="subcontractName" label="分包名称">
+                    <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="auditResults" label="资审结果" >
+                    <el-table-column prop="auditResults" :show-overflow-tooltip ="true" label="资审结果" >
                     </el-table-column>
                     <el-table-column prop="join" label="状态" width="100">
                     </el-table-column>
@@ -159,7 +159,7 @@ export default {
                     })
                 })
             }else{
-                this.$layer.msg(res.data.msg);
+                this.$message.warning(res.data.msg);
             }
         }).catch(err=>{
             console.log(err)
@@ -194,7 +194,7 @@ export default {
                 this.confirmShow = false;
                 this.searchList()();
             }else{
-                this.$layer.mag(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
         }).catch(err=>{
             console.log(err)
@@ -213,7 +213,7 @@ export default {
                 this.confirmShow = false;
                 this.searchList()();
             }else{
-                this.$layer.mag(res.data.msg)
+                this.$message.warning(res.data.msg)
             }
         }).catch(err=>{
             console.log(err)

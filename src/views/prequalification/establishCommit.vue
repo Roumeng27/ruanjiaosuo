@@ -18,11 +18,11 @@
             <el-table :data="tableData" stripe style="width: 100%">
                 <el-table-column type="index" width="70" label="编号" :index="typeIndex">
                 </el-table-column>
-                <el-table-column prop="totalProjectId" label="入场项目(分包)编号" width="180">
+                <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="180">
                 </el-table-column>
-                <el-table-column prop="nameOfTenderProject" label="招标项目名称" width="180">
+                <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称" width="180">
                 </el-table-column>
-                <el-table-column prop="biddingProjectNumber" label="分包名称">
+                <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包名称">
                 </el-table-column>
                 <el-table-column prop="state" label="状态">
                 </el-table-column>
@@ -92,14 +92,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="entrySubcontractNumber"
                                     label="入场项目(分包)编号">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractName"
                                     label="分包名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractingControlAmount"
                                     label="分包控制金额(万元)">
                                 </el-table-column>
@@ -125,17 +128,17 @@
                                 <el-table-column label="序号" width="50">
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
-                                <el-table-column  prop="expertName"  label="姓名" >
+                                <el-table-column  prop="expertName" :show-overflow-tooltip ="true"  label="姓名" >
                                 </el-table-column>
-                                <el-table-column  prop="company"  label="工作单位">
+                                <el-table-column  prop="company"  :show-overflow-tooltip ="true" label="工作单位">
                                 </el-table-column>
-                                <el-table-column  prop="certified"  label="职称/执业资格">
+                                <el-table-column  prop="certified"  :show-overflow-tooltip ="true" label="职称/执业资格">
                                 </el-table-column>
-                                <el-table-column  prop="specialty"  label="从事专业">
+                                <el-table-column  prop="specialty" :show-overflow-tooltip ="true" label="从事专业">
                                 </el-table-column>
-                                <el-table-column  prop="committeeJob"  label="评标委员会担任工作" width="150">
+                                <el-table-column  prop="committeeJob" :show-overflow-tooltip ="true" label="评标委员会担任工作" width="150">
                                 </el-table-column>
-                                <el-table-column  prop="expertType"  label="专家类型" >
+                                <el-table-column  prop="expertType" :show-overflow-tooltip ="true" label="专家类型" >
                                 </el-table-column>
                                 <el-table-column prop="operation" label="查看" width="60">
                                     <template slot-scope="scope">
@@ -174,14 +177,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="avoidCompanyName"
                                     label="回避单位名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="avoidCompanyInstitutionCode"
                                     label="回避单位机构代码">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="avoidReason"
                                     label="回避原因">
                                 </el-table-column>
@@ -242,14 +248,17 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column  
+                                :show-overflow-tooltip ="true"
                                 prop="entrySubcontractNumber"
                                 label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractName"
                                 label="分包名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractingControlAmount"
                                 label="分包控制金额(万元)">
                             </el-table-column>
@@ -282,17 +291,17 @@
                                 <el-table-column label="序号">
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
-                                <el-table-column  prop="expertName"  label="姓名" >
+                                <el-table-column  prop="expertName" :show-overflow-tooltip ="true"  label="姓名" >
                                 </el-table-column>
-                                <el-table-column  prop="company"  label="工作单位">
+                                <el-table-column  prop="company" :show-overflow-tooltip ="true"  label="工作单位">
                                 </el-table-column>
-                                <el-table-column  prop="certified"  label="职称/执业资格">
+                                <el-table-column  prop="certified"  :show-overflow-tooltip ="true" label="职称/执业资格">
                                 </el-table-column>
-                                <el-table-column  prop="specialty"  label="从事专业">
+                                <el-table-column  prop="specialty" :show-overflow-tooltip ="true"  label="从事专业">
                                 </el-table-column>
-                                <el-table-column  prop="committeeJob"  label="评标委员会担任工作" width="150">
+                                <el-table-column  prop="committeeJob" :show-overflow-tooltip ="true"  label="评标委员会担任工作" width="150">
                                 </el-table-column>
-                                <el-table-column  prop="expertType"  label="专家类型" >
+                                <el-table-column  prop="expertType" :show-overflow-tooltip ="true"  label="专家类型" >
                                 </el-table-column>
                                 <el-table-column prop="operation" label="查看" width="70">
                                     <template slot-scope="scope">
@@ -321,14 +330,17 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column
+                            :show-overflow-tooltip ="true"
                                 prop="avoidCompanyName"
                                 label="回避单位名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="avoidCompanyInstitutionCode"
                                 label="回避单位机构代码">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="avoidReason"
                                 label="回避原因">
                             </el-table-column>
@@ -339,11 +351,11 @@
                         <el-table :data="manageDate" stripe style="width: 100%">
                             <el-table-column  prop="step"  label="步骤">
                             </el-table-column>
-                            <el-table-column  prop="userName"  label="办理人员">
+                            <el-table-column  prop="userName" :show-overflow-tooltip ="true"  label="办理人员">
                             </el-table-column>
-                            <el-table-column  prop="creationTime"  label="时间">
+                            <el-table-column  prop="creationTime" :show-overflow-tooltip ="true"  label="时间">
                             </el-table-column>
-                            <el-table-column  prop="state"  label="状态">
+                            <el-table-column  prop="state" :show-overflow-tooltip ="true"  label="状态">
                             </el-table-column>
                             <el-table-column  prop="remarks"  label="备注">
                             </el-table-column>
@@ -502,14 +514,17 @@
                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                     </el-table-column>
                     <el-table-column
+                        :show-overflow-tooltip ="true"
                         prop="unitName"
                         label="单位名称">
                     </el-table-column>
                     <el-table-column
+                        :show-overflow-tooltip ="true"
                         prop="organizationCode"
                         label="机构代码">
                     </el-table-column>
                     <el-table-column
+                        :show-overflow-tooltip ="true"
                         prop="socialCreditCode"
                         label="社会信用编码">
                     </el-table-column>

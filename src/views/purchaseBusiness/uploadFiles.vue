@@ -31,15 +31,15 @@
                 <el-table :data="resultData" stripe style="width: 100%">
                     <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                     </el-table-column>
-                    <el-table-column prop="totalProjectId" label="入场项目(分包)编号" width="170">
+                    <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="170">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="subcontractName" label="分包名称">
+                    <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="startBidTime" label="上传截止日期">
+                    <el-table-column prop="startBidTime" :show-overflow-tooltip ="true" label="上传截止日期">
                     </el-table-column>
-                    <el-table-column prop="uploadTime" label="最新操作日期">
+                    <el-table-column prop="uploadTime" :show-overflow-tooltip ="true" label="最新操作日期">
                     </el-table-column>
                     <el-table-column prop="operation" label="上传" width="70"> 
                         <template slot-scope="scope">
@@ -162,18 +162,22 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="expertName"
                                     label="文件名">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="idNumber"
                                     label="操作人单位">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="company"
                                     label="操作人姓名">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="company"
                                     label="操作日期">
                                 </el-table-column>
@@ -322,7 +326,7 @@ export default {
                         this.totalPages = item.totalPages;// 后端返回页数
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -354,7 +358,7 @@ export default {
                         this.totalPages = item.totalPages;// 后端返回页数
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -384,7 +388,7 @@ export default {
                         this.totalPages = item.totalPages;// 后端返回页数
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -455,7 +459,7 @@ export default {
                     this.tenderPurchaserName = res.data.data.tenderPurchaserName;// 招标(采购)人
                     this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -503,7 +507,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400KB');
+                this.$message.warning('图片大小不能超过102400KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -524,9 +528,9 @@ export default {
                     this.backoutFlag = true;// 撤销本次投标文件按钮
                     this.UploadList();// 查询附件
                 }else if(res.data.status == 501){
-                    this.$layer.msg('文件不完整或文件破坏，请重新上传!');
+                    this.$message.warning('文件不完整或文件破坏，请重新上传!');
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -556,7 +560,7 @@ export default {
                         this.attachmeId = item.attachmeId;// 附件删除主键ID
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -576,7 +580,7 @@ export default {
                     this.successTitle = '撤销成功!';
                     this.UploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);

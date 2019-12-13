@@ -51,11 +51,11 @@
                                             label="序号">
                                             <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -520,10 +520,10 @@
                     }
                 }
                 if(this.assessmentTime == ''){
-                    this.$layer.msg('请选择开标时间');
+                    this.$message.warning('请选择开标时间');
                     return false;
                 }else if(this.openingRoom == ''){
-                    this.$layer.msg('请选择开标室');
+                    this.$message.warning('请选择开标室');
                     return false;
                 }else{
                     this.$axios({
@@ -546,13 +546,13 @@
                                     this.$router.push({ name:'NotHandled'})
                                     this.$parent.getHandleList();
                                 }else{
-                                    this.$layer.msg(res.data.msg);
+                                    this.$message.warning(res.data.msg);
                                 }
                             }).catch(err=>{
                                 console.log(err)
                             })
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     })
                 }
@@ -569,16 +569,16 @@
             successSubmit(){
                 let object = {};
                 if(!this.assessmentTime){
-                    this.$layer.msg('请选择开标时间');
+                    this.$message.warning('请选择开标时间');
                     return false;
                 }else if(!this.openingRoom){
-                    this.$layer.msg('请选择开标室');
+                    this.$message.warning('请选择开标室');
                     return false;
                 }else if(!this.bidEvaluationTime){
-                    this.$layer.msg('请选择评标时间');
+                    this.$message.warning('请选择评标时间');
                     return false;
                 }else if(!this.bidEvaluationRoom){
-                    this.$layer.msg('请选择评标室');
+                    this.$message.warning('请选择评标室');
                     return false;
                 }else{
                     if(this.titleTheme == "交易中心评审室办理资审场地预约"){
@@ -618,13 +618,13 @@
                                 this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -672,13 +672,13 @@
                             this.$router.push({ name:'NotHandled'})
                                 this.$parent.getHandleList();
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -722,7 +722,7 @@
                         this.getbiddingInfo();// 招标项目信息
                         this.getsubData(lookArr);// 分包列表
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -740,7 +740,7 @@
                         this.tenderPurchaserName = res.data.data.tenderPurchaserName;// 招标(采购)人
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 })
             },
@@ -769,7 +769,7 @@
                             })
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -847,7 +847,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

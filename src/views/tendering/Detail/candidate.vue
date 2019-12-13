@@ -61,7 +61,7 @@
                                         <div class="editCenter">
                                             <div class="editName">联系方式：</div>
                                             <div class="editContent">
-                                                <el-input v-model="contactInformation" clearable></el-input>
+                                                <el-input id="focus5" v-model="contactInformation" clearable></el-input>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                                         <div class="editCenter">
                                             <div class="editName">联系方式：</div>
                                             <div class="editContent">
-                                                <el-input v-model="agentPhone" clearable></el-input>
+                                                <el-input v-model="agentPhone" id="focus6" clearable></el-input>
                                             </div>
                                         </div>
                                     </div>
@@ -109,10 +109,12 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="分包编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
@@ -121,6 +123,7 @@
                                         <template slot-scope="scope">{{biddingProcurementMode}}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -193,7 +196,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>推荐排名第一单位：</div>
                                         <div class="editContent">
-                                            <el-input v-model="recommendedOneUnit" readonly></el-input>
+                                            <el-input id="focus1" v-model="recommendedOneUnit" readonly></el-input>
                                         </div>
                                         <el-button plain @click="pickInfo(1)">检索</el-button>
                                     </div>
@@ -203,7 +206,7 @@
                                     <div class="editCenter">
                                         <div class="editName">拟中标金额：</div>
                                         <div class="editContent">
-                                            <el-input v-model="winningAmountOne" clearable></el-input>
+                                            <el-input v-model="winningAmountOne" id="focus7" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -229,7 +232,7 @@
                                     <div class="editCenter">
                                         <div class="editName">拟中标金额：</div>
                                         <div class="editContent">
-                                            <el-input v-model="winningAmountTwo" clearable></el-input>
+                                            <el-input v-model="winningAmountTwo" id="focus8" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -255,7 +258,7 @@
                                     <div class="editCenter">
                                         <div class="editName">拟中标金额：</div>
                                         <div class="editContent">
-                                            <el-input v-model="winningAmountThree" clearable></el-input>
+                                            <el-input v-model="winningAmountThree" id="focus9" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -313,7 +316,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>公示名称：</div>
                                         <div class="editContent">
-                                            <el-input v-model="publicityName" clearable></el-input>
+                                            <el-input v-model="publicityName" id="focus2"  clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -326,6 +329,7 @@
                                         <div class="editName"><p class="star">*</p> 公示开始时间：</div>
                                         <div class="editContent">
                                             <el-date-picker
+                                                 id="focus3" 
                                                 placeholder="开始日期"
                                                 v-model="publicityStartTime"
                                                 :picker-options="pickerOptions0"
@@ -337,6 +341,7 @@
                                         <div class="editName"><p class="star">*</p>公示结束时间：</div>
                                         <div class="editContent">
                                             <el-date-picker
+                                                 id="focus4" 
                                                 placeholder="结束时间"
                                                 v-model="publicityEndTime"
                                                 :picker-options="pickerOptions1"
@@ -1179,7 +1184,7 @@ export default {
         blurPhone(){
             // 联系方式
             if(!isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-                this.$layer.msg('请输入正确的联系方式');
+                this.$message.warning('请输入正确的联系方式');
             }
         },
         // 保存和下一步公用方法
@@ -1187,39 +1192,48 @@ export default {
             this.uploadList();
             if(this.winningAmountOne != '' && this.winningAmountOne != null){
                 if(!checkNumber(this.winningAmountOne)){
-                    this.$layer.msg('请输入数字1!');
+                    $('#focus7').focus();
+                    this.$message.warning('请输入数字1!');
                     return false;
                 }
             }else if(this.winningAmountTwo != '' && this.winningAmountTwo != null){
                 if(!checkNumber(this.winningAmountTwo)){
-                    this.$layer.msg('请输入数字2!');
+                    $('#focus8').focus();
+                    this.$message.warning('请输入数字2!');
                     return false;
                 }
             }else if(this.winningAmountThree != '' && this.winningAmountThree != null){
                 if(!checkNumber(this.winningAmountThree)){
-                    this.$layer.msg('请输入数字3!');
+                    $('#focus9').focus();
+                    this.$message.warning('请输入数字3!');
                     return false;
                 }
             }
             if(!this.diffFlag ){
                  // 总包
                 if(!this.recommendedOneUnit){
-                    this.$layer.msg('请输入推荐排名第一单位');
+                    $('#focus1').focus();
+                    this.$message.warning('请输入推荐排名第一单位');
                     return false; 
                 }else if(!this.publicityName){
-                    this.$layer.msg('请输入公示名称');
+                    $('#focus2').focus();
+                    this.$message.warning('请输入公示名称');
                     return false;
                 }else if(!this.publicityStartTime){
-                    this.$layer.msg('请输入公示开始时间');
+                    $('#focus3').focus();
+                    this.$message.warning('请输入公示开始时间');
                     return false;
                 }else if(!this.publicityEndTime){
-                    this.$layer.msg('请输入公示结束时间');
+                    $('#focus4').focus();
+                    this.$message.warning('请输入公示结束时间');
                     return false;
                 }else if (this.contactInformation != '' && !isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-                    this.$layer.msg('请输入正确的联系方式');
+                    $('#focus5').focus();
+                    this.$message.warning('请输入正确的联系方式');
                     return false;
                 }else if (this.agentPhone != '' && !isPoneAvailable(this.agentPhone) && !checkPhone(this.agentPhone)){
-                    this.$layer.msg('请输入正确的联系方式');
+                    $('#focus6').focus();
+                    this.$message.warning('请输入正确的联系方式');
                     return false;
                 }else if(!this.recommendedOneUnit){
                     this.subInforShow = true;
@@ -1242,19 +1256,24 @@ export default {
             }else{
                // 分包
                 if(!this.publicityName){
-                    this.$layer.msg('请输入公示名称');
+                    $('#focus2').focus();
+                    this.$message.warning('请输入公示名称');
                     return false;
                 }else if(!this.publicityStartTime){
-                    this.$layer.msg('请输入公示开始时间');
+                    $('#focus3').focus();
+                    this.$message.warning('请输入公示开始时间');
                     return false;
                 }else if(!this.publicityEndTime){
-                    this.$layer.msg('请输入公示结束时间');
+                    $('#focus4').focus();
+                    this.$message.warning('请输入公示结束时间');
                     return false;
-                }else if (this.contactInformation != ''&& !isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
-                    this.$layer.msg('请输入正确的联系方式');
+                }else if (this.contactInformation != '' && !isPoneAvailable(this.contactInformation) && !checkPhone(this.contactInformation)){
+                    $('#focus5').focus();
+                    this.$message.warning('请输入正确的联系方式');
                     return false;
                 }else if (this.agentPhone != '' && !isPoneAvailable(this.agentPhone) && !checkPhone(this.agentPhone)){
-                    this.$layer.msg('请输入正确的联系方式');
+                    $('#focus6').focus();
+                    this.$message.warning('请输入正确的联系方式');
                     return false;
                 }else if(!this.recommendedOneUnit){
                     this.subInforShow = true;
@@ -1295,7 +1314,7 @@ export default {
                     this.sureSubmitBox = true;
                     this.getInitInfo();// 初始化查询
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1390,7 +1409,7 @@ export default {
                     this.agentAddress = res.data.data.agentAddress;
                     this.agentPhone = res.data.data.agentPhone;
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1414,7 +1433,7 @@ export default {
 					this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                     this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1471,7 +1490,7 @@ export default {
                     }
                     
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1538,7 +1557,7 @@ export default {
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1587,7 +1606,7 @@ export default {
                     });
                     
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1619,7 +1638,7 @@ export default {
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1642,7 +1661,7 @@ export default {
                         this.biddingProcurementMode = item.projectInformationVo.biddingProcurementMode;
                     })
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1684,13 +1703,13 @@ export default {
         },
         savePage(){
             if(this.winningAmountOne != '' &&this.winningAmountOne != null && !checkNumber(this.winningAmountOne)){
-                this.$layer.msg('请输入数字!');
+                this.$message.warning('请输入数字!');
                 return false;
             }else if(this.winningAmountTwo != '' &&this.winningAmountTwo != null&& !checkNumber(this.winningAmountTwo)){
-                this.$layer.msg('请输入数字!');
+                this.$message.warning('请输入数字!');
                 return false;
             }else if(this.winningAmountThree != '' &&this.winningAmountThree != null&&!checkNumber(this.winningAmountThree)){
-                this.$layer.msg('请输入数字!');
+                this.$message.warning('请输入数字!');
                 return false;
             }else{
                 this.editFlag = false;
@@ -1761,7 +1780,7 @@ export default {
                         this.pickData = arrList;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1826,7 +1845,7 @@ export default {
                     })
                     this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1842,7 +1861,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -1862,7 +1881,7 @@ export default {
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -1874,7 +1893,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -1900,7 +1919,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2026,7 +2045,7 @@ export default {
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

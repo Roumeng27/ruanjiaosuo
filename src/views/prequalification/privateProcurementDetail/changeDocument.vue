@@ -43,11 +43,11 @@
                                     <el-table :data="subpackageData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber"  :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -224,11 +224,11 @@
                                     <el-table :data="subpackageData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -362,11 +362,11 @@
                             <el-table :data="manageDate" stripe style="width: 100%">
                                 <el-table-column prop="step" label="步骤"  width="180">
                                 </el-table-column>
-                                <el-table-column  prop="userName" label="办理人员" width="180">
+                                <el-table-column  prop="userName" :show-overflow-tooltip ="true" label="办理人员" width="180">
                                 </el-table-column>
-                                <el-table-column prop="creationTime" label="时间">
+                                <el-table-column prop="creationTime" :show-overflow-tooltip ="true" label="时间">
                                 </el-table-column>
-                                <el-table-column prop="state" label="状态">
+                                <el-table-column prop="state" :show-overflow-tooltip ="true" label="状态">
                                 </el-table-column>
                                 <el-table-column prop="remarks" label="备注">
                                 </el-table-column>
@@ -690,7 +690,7 @@
                         this.tenderContents = res.data.data.tenderContents;// 招标内容
                         this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -828,7 +828,7 @@
                         }
                         
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -848,7 +848,7 @@
                     if(res.data.status == 200){
                         this.subpackageData = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -856,36 +856,36 @@
             },
             newly(num){
                 if(this.saleDate.length == 0){
-                    this.$layer.msg('请选择采购文件发售时间');
+                    this.$message.warning('请选择采购文件发售时间');
                     return false;
                 }else if(this.bidPeriod !='' && this.bidPeriod !=null && !checkNumber(this.bidPeriod)){
-                    this.$layer.msg('请输入正确的投标有效期');
+                    this.$message.warning('请输入正确的投标有效期');
                     return false;
                 }else if(!this.biddingDocumentsMethod){
-                    this.$layer.msg('请填入投标文件递交方式');
+                    this.$message.warning('请填入投标文件递交方式');
                     return false;
                 }else if(!this.bidOpeningMethod){
-                    this.$layer.msg('请选择开标方式');
+                    this.$message.warning('请选择开标方式');
                     return false;
                 }else if(!this.depositType){
-                    this.$layer.msg('请选择保证金类型');
+                    this.$message.warning('请选择保证金类型');
                     return false;
                 }else if(!this.depositAmount ){
                     if(!checkNumber(this.depositAmount)){
-                        this.$layer.msg('请填写正确的保证金金额');
+                        this.$message.warning('请填写正确的保证金金额');
                         return false;
                     }
                 }else if(!this.depositReceive){
-                    this.$layer.msg('请填写保证金接收账户');
+                    this.$message.warning('请填写保证金接收账户');
                     return false;
                 }else if(!this.changeMatters){
-                    this.$layer.msg('请填写变更事项');
+                    this.$message.warning('请填写变更事项');
                     return false;
                 }else if(!this.changeReasons){
-                    this.$layer.msg('请填写变更理由');
+                    this.$message.warning('请填写变更理由');
                     return false;
                 }else if(!this.changeDate){
-                    this.$layer.msg('请填写变更日期');
+                    this.$message.warning('请填写变更日期');
                     return false;
                 }else{	
                     if(num == 1){
@@ -998,7 +998,7 @@
                         this.bidDocumentId = res.data.data.bidDocumentId;// 主键ID
                         this.bidDocumentChangeId = res.data.data.bidDocumentChangeId;// 变更文件id
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1029,7 +1029,7 @@
                     if(res.data.data.status == 200){
                         this.openMethodData = res.data.data.data;
                     }else{
-                        this.$layer.msg(res.data.data.msg)
+                        this.$message.warning(res.data.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1102,7 +1102,7 @@
                             })
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1111,7 +1111,7 @@
             //提交
             submitFile(){
                 if(this.appendixData[0].attachlist == ""){
-                    this.$layer.msg('请选择招标(采购)文件附件');
+                    this.$message.warning('请选择招标(采购)文件附件');
                     return false;
                 }else {
                     this.$axios({
@@ -1127,7 +1127,7 @@
                             this.submitBox = true;
                             this.getInitInfo();// 初始化查询
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                             this.submitBox = false;
                         }
                     }).catch(err=>{
@@ -1211,7 +1211,7 @@
                             this.appendixData[1].attachlist = arr
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1221,12 +1221,12 @@
             loadFile(event){
                 if(this.num == 1){
                     if(this.appendixData[0].attachlist.length > 0){
-                        this.$layer.msg('招标(采购)文件只能上传一个附件');
+                        this.$message.warning('招标(采购)文件只能上传一个附件');
                     }else{
                         var file = event.target.files[0];
                         var fileSize = file.size; 
                         if(fileSize > 102400000) {
-                            this.$layer.msg('图片大小不能超过102400000KB');
+                            this.$message.warning('图片大小不能超过102400000KB');
                             return false;
                         }
                         this.$refs.file.value = null;
@@ -1259,7 +1259,7 @@
                                 this.uploadList();
                                 $('.file_btn').val = "";
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err);
@@ -1269,7 +1269,7 @@
                     var file = event.target.files[0];
                     var fileSize = file.size; 
                     if(fileSize > 102400000) {
-                        this.$layer.msg('图片大小不能超过102400000KB');
+                        this.$message.warning('图片大小不能超过102400000KB');
                         return false;
                     }
                     this.$refs.file.value = null;
@@ -1302,7 +1302,7 @@
                             this.uploadList();
                             $('.file_btn').val = "";
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err);
@@ -1352,7 +1352,7 @@
             //删除文件列表
             deleteFile(){
                 if(this.attachmeId.length<=0){
-                    this.$layer.msg('请选择要删除的文件!')
+                    this.$message.warning('请选择要删除的文件!')
                     return false;
                 }else {
                     this.$axios({
@@ -1372,7 +1372,7 @@
                                 }
                             }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     }).catch(err=>{
                         console.log(err);
@@ -1450,7 +1450,7 @@
                         }
                         
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
                 }).catch(err=>{
                     console.log(err)
@@ -1482,7 +1482,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1516,7 +1516,7 @@
                         })
                         this.appendixData[0].attachlist = arr
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1550,7 +1550,7 @@
                         })
                         this.appendixData[1].attachlist = arr
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

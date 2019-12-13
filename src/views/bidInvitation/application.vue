@@ -16,15 +16,15 @@
         <el-table :data="tableData" stripe style="width: 100%">
           <el-table-column type="index" width="70" label="编号" :index="typeIndex">
           </el-table-column>
-          <el-table-column prop="totalProjectId" label="入场(分包)编号" width="150">
+          <el-table-column prop="totalProjectId"  :show-overflow-tooltip ="true" label="入场(分包)编号" width="150">
           </el-table-column>
-          <el-table-column prop="nameOfTenderProject" label="招标项目名称" width="120">
+          <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称" width="120">
           </el-table-column>
-          <el-table-column prop="biddingProjectNumber" label="分包名称">
+          <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包名称">
           </el-table-column>
-          <el-table-column prop="nameOfPurchaser" label="分包类型">
+          <el-table-column prop="nameOfPurchaser" :show-overflow-tooltip ="true" label="分包类型">
           </el-table-column>
-          <el-table-column prop="biddingProcurementMode" label="公告截止时间">
+          <el-table-column prop="biddingProcurementMode" :show-overflow-tooltip ="true" label="公告截止时间">
           </el-table-column>
           <el-table-column prop="operation" label="操作">
             <template slot-scope="scope">
@@ -163,13 +163,13 @@
                         </el-table-column>
                         <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="admissionNum" label="单位名称" width="100">
+                        <el-table-column prop="admissionNum" :show-overflow-tooltip ="true" label="单位名称" width="100">
                         </el-table-column>
-                        <el-table-column prop="name" label="投标联系人">
+                        <el-table-column prop="name" :show-overflow-tooltip ="true" label="投标联系人">
                         </el-table-column>
-                        <el-table-column prop="tendNum" label="支付标书费">
+                        <el-table-column prop="tendNum"  :show-overflow-tooltip ="true" label="支付标书费">
                         </el-table-column>
-                        <el-table-column prop="purchaser" label="缴纳保证金">
+                        <el-table-column prop="purchaser" :show-overflow-tooltip ="true" label="缴纳保证金">
                         </el-table-column>
                         <el-table-column prop="operation" label="修改">
                           <template slot-scope="scope">

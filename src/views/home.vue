@@ -201,7 +201,7 @@ export default {
           window.localStorage.role_types = res.data.data.roleVo.roleType;
           window.localStorage.biddingPurchasingAgencyUserId = res.data.data.userId;
         }else{
-          this.$layer.msg(res.data.msg);
+          this.$message.warning(res.data.msg);
         }
       }).catch(err=>{
         console.log(err)
@@ -236,7 +236,7 @@ export default {
             path: "/login"
           });
         }else{
-          this.$layer.msg(res.data.msg);
+          this.$message.warning(res.data.msg);
         }
       }).catch(err=>{
         console.log(err)

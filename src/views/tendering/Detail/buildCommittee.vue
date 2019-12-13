@@ -49,14 +49,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="entrySubcontractNumber"
                                     label="入场项目(分包)编号">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractName"
                                     label="分包名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractingControlAmount"
                                     label="分包控制金额(万元)">
                                 </el-table-column>
@@ -92,26 +95,32 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="expertName"
                                         label="姓名">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="company"
                                         label="工作单位">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="certified"
                                         label="职称/执业资格">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="specialty"
                                         label="从事专业">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="committeeJob"
                                         label="评标委员会担任工作">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="expertType"
                                         label="专家类型">
                                     </el-table-column>
@@ -216,14 +225,17 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column  
+                                :show-overflow-tooltip ="true"
                                 prop="entrySubcontractNumber"
                                 label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractName"
                                 label="分包名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractingControlAmount"
                                 label="分包控制金额(万元)">
                             </el-table-column>
@@ -274,26 +286,32 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="expertName"
                                         label="姓名">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="company"
                                         label="工作单位">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="certified"
                                         label="职称/执业资格">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="specialty"
                                         label="从事专业">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="committeeJob"
                                         label="评标委员会担任工作">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="expertType"
                                         label="专家类型">
                                     </el-table-column>
@@ -611,7 +629,7 @@
 								<div class="noteItem">
 									<div class="noteLeft"><p class="star">*</p>专家姓名：</div>
 									<div class="write_input" style="width:190px;">
-										<el-input v-model="expertName" clearable ></el-input>
+										<el-input id="focus1" v-model="expertName" clearable ></el-input>
 									</div>
 									<el-button plain @click="pickInfo">挑选</el-button>
 								</div>
@@ -646,7 +664,7 @@
 								<div class="noteItem">
 									<div class="noteLeft"><p class="star">*</p>身份证号：</div>
 									<div class="write_input">
-										<el-input v-model="idNumber" clearable ></el-input>
+										<el-input  id="focus2"  v-model="idNumber" clearable ></el-input>
 									</div>
 								</div>
 								<div class="noteItem">
@@ -676,7 +694,7 @@
                                 <div class="noteItem">
 									<div class="noteLeft"><p class="star">*</p>专家手机：</div>
 									<div class="write_input">
-										<el-input v-model="phone" clearable></el-input>
+										<el-input id="focus3"  v-model="phone" clearable></el-input>
 									</div>
 								</div>
 								<div class="noteItem">
@@ -738,7 +756,7 @@
 								<div class="noteItem">
 									<div class="noteLeft"><p class="star">*</p>回避单位名称：</div>
 									<div class="write_input" style="width:190px;">
-										<el-input v-model="avoidCompanyName" clearable></el-input>
+										<el-input  id="focus4"  v-model="avoidCompanyName" clearable></el-input>
 									</div>
 									<el-button plain @click="choisePage">选择</el-button>
 								</div>
@@ -1080,17 +1098,17 @@ export default {
         // 校验
         blurIdNumber(){
             if(!getIdcard(this.idNumber)){
-                this.$layer.msg('请输入正确的身份证号码');
+                this.$message.warning('请输入正确的身份证号码');
             }
         },
         blurName(){
             if(!getName(this.expertName)){
-                this.$layer.msg('请输入正确的名字');
+                this.$message.warning('请输入正确的名字');
             }
         },
         blurPhone(){
             if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                this.$layer.msg('请输入正确的手机号码');
+                this.$message.warning('请输入正确的手机号码');
             }
         },
 		// 挑选
@@ -1106,7 +1124,7 @@ export default {
                 if(res.data.status == 200){
                    this.pickData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1174,7 +1192,7 @@ export default {
                     this.submitBox = true;
                     this.getInitInfo();// 初始化查询
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1213,7 +1231,7 @@ export default {
                         this.saveBox = false;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1237,7 +1255,7 @@ export default {
 					this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1257,7 +1275,7 @@ export default {
                 if(res.data.status == 200){
                     this.subpackageData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1278,7 +1296,7 @@ export default {
 				if(res.data.status == 200){
 					this.candidateMenu = res.data.data.list;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1352,7 +1370,7 @@ export default {
                 if(res.data.status == 200){
                    this.pickData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1384,7 +1402,7 @@ export default {
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1400,7 +1418,7 @@ export default {
                 if(res.data.status == 200){
                    this.avoidData = res.data.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1429,7 +1447,7 @@ export default {
             if(this.avoidData.length>0){
                 this.avoidData.forEach(item=>{
                     if(item.avoidCompanyName == this.avoidCompanyName){
-                        this.$layer.msg("该回避单位已添加！");
+                        this.$message.warning("该回避单位已添加！");
                         return false;
                     }
                 })
@@ -1444,7 +1462,7 @@ export default {
                             this.getAvoidinfo();// 回避信息 ---> 信息查询
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1461,7 +1479,7 @@ export default {
                             this.getAvoidinfo();// 回避信息 ---> 信息查询
                         }
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                 }).catch(err=>{
                     console.log(err)
@@ -1495,7 +1513,7 @@ export default {
                     if(res.data.status == 200){
                         this.getAvoidinfo();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1516,7 +1534,7 @@ export default {
 					this.choiseData = res.data.data.list;// 新增回避信息 ---> 回避单位列表
                     this.total = res.data.data.total;// 总条数
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1537,7 +1555,7 @@ export default {
 				if(res.data.status == 200){
                    this.choiseData = res.data.data.list;// 新增回避信息 ---> 回避单位列表
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1622,7 +1640,7 @@ export default {
                         this.addPeopleFlag = false;
                         this.getownerInfo();// 查询业主专家
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1656,7 +1674,7 @@ export default {
                         this.addPeopleFlag = false;
                         this.getownerInfo();// 查询业主专家
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1710,7 +1728,7 @@ export default {
                     if(res.data.status == 200){
                         this.getownerInfo();// 查询业主专家
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1754,7 +1772,7 @@ export default {
                     this.expertsMainId = res.data.data.expertsMainId;
                     console.log(this.expertsMainId,'初始化查询')
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1773,7 +1791,7 @@ export default {
                     if(res.data.status == 200){
                     this.ownerList = res.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1812,7 +1830,7 @@ export default {
                         })
                         this.enclosureData[0].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1848,7 +1866,7 @@ export default {
                         })
                         this.enclosureData[1].attachlist = arr;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1904,7 +1922,7 @@ export default {
                             this.enclosureData[1].attachlist = arr;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1920,7 +1938,7 @@ export default {
             //删除文件列表
             deleteFile(){
                 if(this.attachmeId.length<=0){
-                    this.$layer.msg('请选择要删除的文件!')
+                    this.$message.warning('请选择要删除的文件!')
                     return false;
                 }else {
                     this.$axios({
@@ -1940,7 +1958,7 @@ export default {
                                 }
                             }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     }).catch(err=>{
                         console.log(err);
@@ -1952,7 +1970,7 @@ export default {
                 var file = event.target.files[0];
                 var fileSize = file.size; 
                 if(fileSize > 102400000) {
-                    this.$layer.msg('图片大小不能超过102400000KB');
+                    this.$message.warning('图片大小不能超过102400000KB');
                     return false;
                 }
                 this.$refs.file.value = null;
@@ -1986,7 +2004,7 @@ export default {
                         // debugger;
                         this.uploadList();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -2045,7 +2063,7 @@ export default {
 				if(res.data.status == 200){
                    this.expertSourceList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2063,7 +2081,7 @@ export default {
 				if(res.data.status == 200){
                    this.educationList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2081,7 +2099,7 @@ export default {
 				if(res.data.status == 200){
                    this.expertTypeList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2099,7 +2117,7 @@ export default {
 				if(res.data.status == 200){
                    this.certifiedList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2117,7 +2135,7 @@ export default {
 				if(res.data.status == 200){
                    this.committeeJobList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)

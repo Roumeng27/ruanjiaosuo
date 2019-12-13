@@ -428,15 +428,15 @@
                                     </el-table-column>
                                     <el-table-column prop="companyName" label="单位名称" :show-overflow-tooltip = 'true'>
                                     </el-table-column>
-                                    <el-table-column  prop="projectLeader" label="项目负责人">
+                                    <el-table-column  prop="projectLeader" :show-overflow-tooltip ="true" label="项目负责人">
                                     </el-table-column>
-                                    <el-table-column prop="invitationTime" label="发出时间">
+                                    <el-table-column prop="invitationTime" :show-overflow-tooltip ="true" label="发出时间">
                                     </el-table-column>
-                                    <el-table-column prop="isPayTenderFee" label="支付标书费">
+                                    <el-table-column prop="isPayTenderFee" :show-overflow-tooltip ="true" label="支付标书费">
                                     </el-table-column>
-                                    <el-table-column prop="isPayDeposit" label="缴纳保证金">
+                                    <el-table-column prop="isPayDeposit" :show-overflow-tooltip ="true" label="缴纳保证金">
                                     </el-table-column>
-                                    <el-table-column prop="invitationStatus" label="邀请函状态">
+                                    <el-table-column prop="invitationStatus" :show-overflow-tooltip ="true" label="邀请函状态">
                                     </el-table-column>
                                     <el-table-column prop="state" label="回执件状态">
                                         <template slot-scope="scope">
@@ -470,15 +470,15 @@
                                     </el-table-column>
                                     <el-table-column prop="companyName" label="单位名称" :show-overflow-tooltip = 'true'>
                                     </el-table-column>
-                                    <el-table-column  prop="projectLeader" label="项目负责人">
+                                    <el-table-column  prop="projectLeader" :show-overflow-tooltip ="true" label="项目负责人">
                                     </el-table-column>
-                                    <el-table-column prop="invitationTime" label="发出时间">
+                                    <el-table-column prop="invitationTime" :show-overflow-tooltip ="true" label="发出时间">
                                     </el-table-column>
-                                    <el-table-column prop="isPayTenderFee" label="支付标书费">
+                                    <el-table-column prop="isPayTenderFee" :show-overflow-tooltip ="true" label="支付标书费">
                                     </el-table-column>
-                                    <el-table-column prop="isPayDeposit" label="缴纳保证金">
+                                    <el-table-column prop="isPayDeposit" :show-overflow-tooltip ="true" label="缴纳保证金">
                                     </el-table-column>
-                                    <el-table-column prop="invitationStatus" label="邀请函状态">
+                                    <el-table-column prop="invitationStatus" :show-overflow-tooltip ="true" label="邀请函状态">
                                     </el-table-column>
                                     <el-table-column prop="state" label="回执件状态">
                                         <template slot-scope="scope">
@@ -604,11 +604,11 @@
                                                 label="序号">
                                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                             </el-table-column>
-                                            <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                            <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractName"  label="分包名称">
+                                            <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                            <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                                             </el-table-column>
                                             <el-table-column prop="operation" label="查看">
                                                 <template slot-scope="scope">
@@ -832,11 +832,11 @@
                                         <el-table :data="enclosureData" stripe style="width: 100%"  v-if="projectObj.totalProjectId.indexOf('-') > -1">
                                             <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                             </el-table-column>
-                                            <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                            <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractName"  label="分包名称">
+                                            <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true"  label="分包名称">
                                             </el-table-column>
-                                            <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                            <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true"  label="分包控制金额(万元)">
                                             </el-table-column>
                                             <el-table-column prop="operation" label="查看">
                                                 <template slot-scope="scope">
@@ -1085,9 +1085,9 @@
                                     label="序号">
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
-                                <el-table-column prop="companyName" label="单位名称">
+                                <el-table-column prop="companyName" :show-overflow-tooltip ="true" label="单位名称">
                                 </el-table-column>
-                                <el-table-column  prop="isStartUsing" label="单位状态">
+                                <el-table-column  prop="isStartUsing" :show-overflow-tooltip ="true" label="单位状态">
                                 </el-table-column>
                                 <el-table-column prop="operation" label="选择">
                                     <template slot-scope="scope">
@@ -1332,7 +1332,7 @@ export default {
   methods:{
         checkMoney(){
             if(!checkNumber(this.costBiddingDocuments)){
-                this.$layer.msg('工本费请输入数字类型');
+                this.$message.warning('工本费请输入数字类型');
             }
         },
         getisPayTenderFee(){
@@ -1352,7 +1352,7 @@ export default {
                 if(res.data.status == 200){
                     this.enclosureData = res.data.data
                 }else{
-                    this.$layer.msg(res.data.msg);;
+                    this.$message.warning(res.data.msg);;
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1381,7 +1381,7 @@ export default {
                     this.sourceOfFunds =res.data.data.sourceOfFunds//资金来源
                     this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;//招标采购代理机构
                 }else{
-                    this.$layer.msg(res.data.msg);;
+                    this.$message.warning(res.data.msg);;
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1476,7 +1476,7 @@ export default {
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1520,7 +1520,7 @@ export default {
                         } 
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1543,7 +1543,7 @@ export default {
                 if(res.data.status == 200){
                     this.certificateData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1588,7 +1588,7 @@ export default {
                 if(res.data.status == 200){
                     this.leaderData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1626,28 +1626,28 @@ export default {
         },
         newly(num){
             if(this.collect_time.length == 0){
-                this.$layer.msg('请选择招标文件发售时间');
+                this.$message.warning('请选择招标文件发售时间');
                 return false;
             }else if(!this.morningbegin || !this.morningend || !this.afterbegin || !this.afterend){
-                this.$layer.msg('请选择招标文件发售时间');
+                this.$message.warning('请选择招标文件发售时间');
                 return false;
             }else if(!this.costBiddingDocuments){
-                this.$layer.msg('请填写招标文件工本费!');
+                this.$message.warning('请填写招标文件工本费!');
                 return false;
             }else if(this.costBiddingDocuments != "" && !checkNumber(this.costBiddingDocuments)){
-                this.$layer.msg('请填写正确的招标文件工本费!');
+                this.$message.warning('请填写正确的招标文件工本费!');
                 return false;
             }else if(!this.biddersRequiredSubmitInformation){
-                this.$layer.msg('请填写投标人需提交资料');
+                this.$message.warning('请填写投标人需提交资料');
                 return false;
             }else if(this.tendereePhone != "" && this.tendereePhone != null && !isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
-                this.$layer.msg('请输入正确的联系方式！');
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.contactMode != ""  && this.contactMode != null && !isPoneAvailable(this.contactMode) && !checkPhone(this.contactMode)){
-                this.$layer.msg('请输入正确的联系方式！');
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.agentPhone != ""  && this.agentPhone != null && !isPoneAvailable(this.agentPhone) && !checkPhone(this.agentPhone)){
-                this.$layer.msg('请输入正确的联系方式！');
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else{
                 if(num == 1){
@@ -1807,7 +1807,7 @@ export default {
                     };
                      
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1881,7 +1881,7 @@ export default {
                         this.deadlineBidReceipt = dayjs(res.data.data.deadlineBidReceipt).format('YYYY-MM-DD HH:mm:ss');
                     }; 
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1901,7 +1901,7 @@ export default {
                     this.submitBox = true;
                     this.getInitInfo();// 初始化查询
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1949,7 +1949,7 @@ export default {
                         } 
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1972,7 +1972,7 @@ export default {
                     if(res.data.status == 200){
                         this.chooseData = res.data.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2028,7 +2028,7 @@ export default {
                         this.qualificationProjectLeader = this.leaderInfo.toString();
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2057,16 +2057,16 @@ export default {
         addNewCompany(){
             this.getRequestList();//企业资质要求、项目负责人资质要求
             if(this.companyName == ""){
-                this.$layer.msg('请输入企业名称！');
+                this.$message.warning('请输入企业名称！');
                 return false;
             }else if(!this.deadlineBidReceipt){
-                this.$layer.msg('请输入投标回执截至时间！');
+                this.$message.warning('请输入投标回执截至时间！');
                 return false;
             }else if(this.telephone != "" && this.telephone != null && !isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
-                this.$layer.msg('请输入正确的联系方式！');
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.companyPhone != "" && this.companyPhone != null && !checkPhone(this.companyPhone)){
-                this.$layer.msg('请输入正确的座机号码！例如：0000-0000000');
+                this.$message.warning('请输入正确的座机号码！例如：0000-0000000');
                 return false;
             }else{
                 if(this.unitInformateData.length == 0){
@@ -2113,7 +2113,7 @@ export default {
                             this.addInforUnitShow = false;
                             this.getInviteList();//邀请单位信息列表
                         }else{
-                            this.$layer.msg(res.data.msg)
+                            this.$message.warning(res.data.msg)
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -2122,7 +2122,7 @@ export default {
                     let flag = true;
                     this.unitInformateData.forEach(item=>{
                         if(this.bidCompany == item.bidCompany){
-                            this.$layer.msg('不能添加相同id的单位名称');
+                            this.$message.warning('不能添加相同id的单位名称');
                             flag = false;
                         }
                     }) 
@@ -2170,7 +2170,7 @@ export default {
                                 this.addInforUnitShow = false;
                                 this.getInviteList();//邀请单位信息列表
                             }else{
-                                this.$layer.msg(res.data.msg)
+                                this.$message.warning(res.data.msg)
                             }
                         }).catch(err=>{
                             console.log(err)
@@ -2258,16 +2258,16 @@ export default {
         modifyCompany(){
             this.getRequestList();
             if(this.companyName == ""){
-                this.$layer.msg('请输入企业名称！');
+                this.$message.warning('请输入企业名称！');
                 return false;
             }else if(!this.deadlineBidReceipt){
-                this.$layer.msg('请输入投标回执截至时间！');
+                this.$message.warning('请输入投标回执截至时间！');
                 return false;
             }else if(this.telephone != "" && this.telephone != null && !isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
-                this.$layer.msg('请输入正确的联系方式！');
+                this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.companyPhone != "" && this.companyPhone != null && !checkPhone(this.companyPhone)){
-                this.$layer.msg('请输入正确的座机号码！例如：0000-0000000');
+                this.$message.warning('请输入正确的座机号码！例如：0000-0000000');
                 return false;
             }else{
                 let object={}
@@ -2315,7 +2315,7 @@ export default {
                         this.addInforUnitShow = false;
                         this.getInviteList();//邀请单位信息列表
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2334,11 +2334,11 @@ export default {
         //发出邀请函
         sendInvite(){
             if(this.bidInforId.length == 0){
-                this.$layer.msg('未选择可发出的数据');
+                this.$message.warning('未选择可发出的数据');
                 return false;
             }else {
                 if(this.invitaStr == '已发出'){
-                    this.$layer.msg('不能再次发出邀请函');
+                    this.$message.warning('不能再次发出邀请函');
                     return false;
                 }else{
                     this.inviteBox = true;
@@ -2372,7 +2372,7 @@ export default {
                     this.inviteBox = false;
                     this.getInviteList();//邀请单位信息列表
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                     this.inviteBox = false;
                 }
             }).catch(err=>{
@@ -2428,7 +2428,7 @@ export default {
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2481,7 +2481,7 @@ export default {
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2516,7 +2516,7 @@ export default {
                     })
                     this.appendixData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2533,7 +2533,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -2553,7 +2553,7 @@ export default {
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -2565,7 +2565,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -2590,7 +2590,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);

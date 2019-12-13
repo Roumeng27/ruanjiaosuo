@@ -24,15 +24,15 @@
                 <el-table :data="tableData" stripe style="width: 100%">
                     <el-table-column type="index" label="序号" :index="typeIndex" width="70">
                     </el-table-column>
-                    <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号">
+                    <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号">
                     </el-table-column>
-                    <el-table-column prop="entrySubcontractNumber" label="招标项目名称">
+                    <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="提问时间">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="提问时间">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="是否回复">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="是否回复">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="回复">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="回复">
                     </el-table-column>
                 </el-table>
                 <!-- 分页器 -->

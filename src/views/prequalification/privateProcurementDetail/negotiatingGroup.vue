@@ -50,14 +50,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -83,17 +86,17 @@
                                     <el-table-column label="序号" width="50">
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
-                                    <el-table-column  prop="expertName"  label="姓名" >
+                                    <el-table-column  prop="expertName" :show-overflow-tooltip ="true" label="姓名" >
                                     </el-table-column>
-                                    <el-table-column  prop="company"  label="工作单位">
+                                    <el-table-column  prop="company" :show-overflow-tooltip ="true" label="工作单位">
                                     </el-table-column>
-                                    <el-table-column  prop="certified"  label="职称/执业资格">
+                                    <el-table-column  prop="certified" :show-overflow-tooltip ="true" label="职称/执业资格">
                                     </el-table-column>
-                                    <el-table-column  prop="specialty"  label="从事专业">
+                                    <el-table-column  prop="specialty" :show-overflow-tooltip ="true" label="从事专业">
                                     </el-table-column>
-                                    <el-table-column  prop="committeeJob"  label="评标委员会担任工作" width="150">
+                                    <el-table-column  prop="committeeJob" :show-overflow-tooltip ="true" label="评标委员会担任工作" width="150">
                                     </el-table-column>
-                                    <el-table-column  prop="expertType"  label="专家类型" >
+                                    <el-table-column  prop="expertType" :show-overflow-tooltip ="true"  label="专家类型" >
                                     </el-table-column>
                                     <el-table-column prop="operation" label="查看" width="60">
                                         <template slot-scope="scope">
@@ -132,14 +135,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="avoidCompanyName"
                                         label="回避单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="avoidCompanyInstitutionCode"
                                         label="回避单位机构代码">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="avoidReason"
                                         label="回避原因">
                                     </el-table-column>
@@ -194,14 +200,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column  
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -242,17 +251,17 @@
                                     <el-table-column label="序号">
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
-                                    <el-table-column  prop="expertName"  label="姓名" >
+                                    <el-table-column  prop="expertName" :show-overflow-tooltip ="true" label="姓名" >
                                     </el-table-column>
-                                    <el-table-column  prop="company"  label="工作单位">
+                                    <el-table-column  prop="company" :show-overflow-tooltip ="true" label="工作单位">
                                     </el-table-column>
-                                    <el-table-column  prop="certified"  label="职称/执业资格">
+                                    <el-table-column  prop="certified" :show-overflow-tooltip ="true" label="职称/执业资格">
                                     </el-table-column>
-                                    <el-table-column  prop="specialty"  label="从事专业">
+                                    <el-table-column  prop="specialty" :show-overflow-tooltip ="true" label="从事专业">
                                     </el-table-column>
-                                    <el-table-column  prop="committeeJob"  label="评标委员会担任工作" width="150">
+                                    <el-table-column  prop="committeeJob" :show-overflow-tooltip ="true" label="评标委员会担任工作" width="150">
                                     </el-table-column>
-                                    <el-table-column  prop="expertType"  label="专家类型" >
+                                    <el-table-column  prop="expertType" :show-overflow-tooltip ="true"  label="专家类型" >
                                     </el-table-column>
                                     <el-table-column prop="operation" label="查看" width="70">
                                         <template slot-scope="scope">
@@ -281,14 +290,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="avoidCompanyName"
                                     label="回避单位名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="avoidCompanyInstitutionCode"
                                     label="回避单位机构代码">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="avoidReason"
                                     label="回避原因">
                                 </el-table-column>
@@ -348,10 +360,12 @@
                                 <template slot-scope="scope">{{ scope.$index+1  }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="expertName"
                                 label="专家名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="idNumber"
                                 label="身份证号">
                             </el-table-column>
@@ -738,14 +752,17 @@
                             <el-table-column type="index" width="70" label="编号" :index="typeIndex">
 					        </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="unitName"
                                 label="单位名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="organizationCode"
                                 label="机构代码">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="socialCreditCode"
                                 label="社会信用编码">
                             </el-table-column>
@@ -1056,13 +1073,13 @@ export default {
         // 校验
         blurIdNumber(){
             if(!getIdcard(this.idNumber)){
-                this.$layer.msg('请输入正确的身份证号码');
+                this.$message.warning('请输入正确的身份证号码');
                 return false;
             }
         },
         blurPhone(){
             if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                this.$layer.msg('请输入正确的联系方式');
+                this.$message.warning('请输入正确的联系方式');
                 return false;
             }
         },
@@ -1079,7 +1096,7 @@ export default {
                 if(res.data.status == 200){
                    this.pickData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1119,7 +1136,7 @@ export default {
             }else{
                 // 下一步
 				if(this.avoidData.length<=0){
-                    this.$layer.msg('回避单位信息不能为空!');
+                    this.$message.warning('回避单位信息不能为空!');
                     return false;
                 }else{
                     this.writeFlag = false;// 输入框的页面
@@ -1148,7 +1165,7 @@ export default {
                     this.sureSubmitBox = true;
                     this.getInitInfo();// 初始化查询
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1198,7 +1215,7 @@ export default {
                         this.saveBox = false;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1283,7 +1300,7 @@ export default {
                         }
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1307,7 +1324,7 @@ export default {
 					this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1327,7 +1344,7 @@ export default {
                 if(res.data.status == 200){
                     this.subpackageData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1348,7 +1365,7 @@ export default {
 				if(res.data.status == 200){
 					this.candidateMenu = res.data.data.list;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1422,7 +1439,7 @@ export default {
                 if(res.data.status == 200){
                    this.pickData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1453,7 +1470,7 @@ export default {
                         item.creationTime = formatDate(item.creationTime)
                     });
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1462,14 +1479,14 @@ export default {
         // 新增回避信息 ---> 修改保存
         saveAddwork(){
             if(!this.avoidCompanyName){
-                this.$layer.msg('请输入回避单位名称');
+                this.$message.warning('请输入回避单位名称');
                 return false;
             }else{
                 // 判断去重 如果外边数组有了 就不添加
                 let flag = true;
                 this.avoidData.forEach(item=>{
                     if(item.avoidCompanyName == this.avoidCompanyName){
-                        this.$layer.msg("该回避单位已添加！");
+                        this.$message.warning("该回避单位已添加！");
                         flag = false;
                     }
                 })
@@ -1532,19 +1549,19 @@ export default {
                                         if(res.data.status == 200){
                                             this.avoidData = res.data.data.data;
                                         }else{
-                                            this.$layer.msg(res.data.msg);
+                                            this.$message.warning(res.data.msg);
                                         }
                                     }).catch(err=>{
                                         console.log(err)
                                     })
                                 }else{
-                                    this.$layer.msg(res.data.msg);
+                                    this.$message.warning(res.data.msg);
                                 }
                             }).catch(err=>{
                                 console.log(err)
                             })
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -1608,19 +1625,19 @@ export default {
                                     if(res.data.status == 200){
                                         this.avoidData = res.data.data.data;
                                     }else{
-                                        this.$layer.msg(res.data.msg);
+                                        this.$message.warning(res.data.msg);
                                     }
                                 }).catch(err=>{
                                     console.log(err)
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
                         })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1641,7 +1658,7 @@ export default {
 					this.choiseData = res.data.data.list;// 新增回避信息 ---> 回避单位列表
                     this.total = res.data.data.total;// 总条数
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1663,7 +1680,7 @@ export default {
                    this.choiseData = res.data.data.list;// 新增回避信息 ---> 回避单位列表
                    this.total = res.data.data.total;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1721,34 +1738,34 @@ export default {
         // 校验
         blurIdNumber(){
             if(!getIdcard(this.idNumber)){
-                this.$layer.msg('请输入正确的身份证号码');
+                this.$message.warning('请输入正确的身份证号码');
             }
         },
         blurPhone(){
             if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                this.$layer.msg('请输入正确的联系方式');
+                this.$message.warning('请输入正确的联系方式');
             }
         },
         // 新增评标专家保存
         newSave(){
             if(this.ownerTitle == '新增评标专家'){
                 if(!this.expertName && !getName(this.expertName)){
-                    this.$layer.msg('请输入专家姓名');
+                    this.$message.warning('请输入专家姓名');
                     return false;
                 }else if(!this.idNumber){
-                    this.$layer.msg('请输入身份证号码!');
+                    this.$message.warning('请输入身份证号码!');
                     return false;
                 }else if(!getIdcard(this.idNumber)){
-                    this.$layer.msg('请输入正确的身份证号码!');
+                    this.$message.warning('请输入正确的身份证号码!');
                     return false;
                 }else if(!this.phone){
-                    this.$layer.msg('请输入专家手机!');
+                    this.$message.warning('请输入专家手机!');
                     return false;
                 }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                    this.$layer.msg('请输入正确的专家手机!');
+                    this.$message.warning('请输入正确的专家手机!');
                     return false;
                 }else if(this.age !=null && this.age !='' && !checkNumber(this.age)){
-                    this.$layer.msg('请输入正确的年龄');
+                    this.$message.warning('请输入正确的年龄');
                     return false;
                 }else{
                     if(this.ownerTitle == '新增评标专家'){
@@ -1837,19 +1854,19 @@ export default {
                                             if(res.data.status == 200){
                                                 this.ownerList = res.data.data;
                                             }else{
-                                                this.$layer.msg(res.data.msg);
+                                                this.$message.warning(res.data.msg);
                                             }
                                         }).catch(err=>{
                                             console.log(err)
                                         })
                                     }else{
-                                        this.$layer.msg(res.data.msg);
+                                        this.$message.warning(res.data.msg);
                                     }
                                 }).catch(err=>{
                                     console.log(err)
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err)
@@ -1858,22 +1875,22 @@ export default {
                 }
             }else if(this.ownerTitle == '修改评标专家'){
                 if(!this.expertName && !getName(this.expertName)){
-                    this.$layer.msg('请输入专家姓名');
+                    this.$message.warning('请输入专家姓名');
                     return false;
                 }else if(!this.idNumber){
-                    this.$layer.msg('请输入身份证号码!');
+                    this.$message.warning('请输入身份证号码!');
                     return false;
                 }else if(!getIdcard(this.idNumber)){
-                    this.$layer.msg('请输入正确的身份证号码!');
+                    this.$message.warning('请输入正确的身份证号码!');
                     return false;
                 }else if(!this.phone){
-                    this.$layer.msg('请输入专家手机!');
+                    this.$message.warning('请输入专家手机!');
                     return false;
                 }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
-                    this.$layer.msg('请输入正确的专家手机!');
+                    this.$message.warning('请输入正确的专家手机!');
                     return false;
                 }else if(this.age !=null && this.age !='' && !checkNumber(this.age)){
-                    this.$layer.msg('请输入正确的年龄');
+                    this.$message.warning('请输入正确的年龄');
                     return false;
                 }else{
                     // 修改评标专家
@@ -1934,19 +1951,19 @@ export default {
                                         if(res.data.status == 200){
                                             this.ownerList = res.data.data;
                                         }else{
-                                            this.$layer.msg(res.data.msg);
+                                            this.$message.warning(res.data.msg);
                                         }
                                     }).catch(err=>{
                                         console.log(err)
                                     })
                                 }else{
-                                    this.$layer.msg(res.data.msg);
+                                    this.$message.warning(res.data.msg);
                                 }
                             }).catch(err=>{
                                 console.log(err)
                             })
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -2030,19 +2047,19 @@ export default {
                                         if(res.data.status == 200){
                                         this.ownerList = res.data.data;
                                         }else{
-                                            this.$layer.msg(res.data.msg);
+                                            this.$message.warning(res.data.msg);
                                         }
                                     }).catch(err=>{
                                         console.log(err)
                                     })
                                 }else{
-                                    this.$layer.msg(res.data.msg);
+                                    this.$message.warning(res.data.msg);
                                 }
                             }).catch(err=>{
                                 console.log(err)
                             })
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2085,7 +2102,7 @@ export default {
                     this.stateItem = res.data.data.state;// 全局定义后端返回的状态
                     this.expertsMainId = res.data.data.expertsMainId;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2104,7 +2121,7 @@ export default {
 				if(res.data.status == 200){
                    this.ownerList = res.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2119,7 +2136,7 @@ export default {
                 if(res.data.status == 200){
                 this.avoidData = res.data.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2142,7 +2159,7 @@ export default {
         //         if(res.data.status == 200){
         //         this.avoidData = res.data.data.data;
         //         }else{
-        //             this.$layer.msg(res.data.msg);
+        //             this.$message.warning(res.data.msg);
         //         }
         //     }).catch(err=>{
         //         console.log(err)
@@ -2161,7 +2178,7 @@ export default {
 		// 		if(res.data.status == 200){
         //            this.expertSourceList = res.data.data.data;
 		// 		}else{
-		// 			this.$layer.msg(res.data.msg);
+		// 			this.$message.warning(res.data.msg);
 		// 		}
 		// 	}).catch(err=>{
 		// 		console.log(err)
@@ -2179,7 +2196,7 @@ export default {
 				if(res.data.status == 200){
                    this.educationList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2197,7 +2214,7 @@ export default {
 				if(res.data.status == 200){
                    this.expertTypeList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2215,7 +2232,7 @@ export default {
 				if(res.data.status == 200){
                    this.certifiedList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2233,7 +2250,7 @@ export default {
 				if(res.data.status == 200){
                    this.committeeJobList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2251,7 +2268,7 @@ export default {
 				if(res.data.status == 200){
                    this.avoidReasonList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2288,7 +2305,7 @@ export default {
                     })
                      this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2321,7 +2338,7 @@ export default {
                     })
                     this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2337,7 +2354,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -2357,7 +2374,7 @@ export default {
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -2369,7 +2386,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -2393,7 +2410,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);

@@ -82,7 +82,7 @@ export default {
                         // }
                     })   
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

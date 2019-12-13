@@ -20,21 +20,21 @@
                     </el-table-column>
                     <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                     </el-table-column>
-                    <el-table-column prop="projectCode" label="入场项目(分包)编号" width="180"  v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
+                    <el-table-column prop="projectCode" label="入场项目(分包)编号" :show-overflow-tooltip ="true" width="180"  v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
                     </el-table-column>
-                    <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号" width="180" v-else>
+                    <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="180" v-else>
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称" width="180">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称" width="180">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="分包名称" v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="分包名称" v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
                     </el-table-column>
-                    <el-table-column prop="subcontractName" label="分包名称" v-else>
+                    <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称" v-else>
                     </el-table-column>
-                    <el-table-column prop="tenderPurchaserName" label="招标(采购)人">
+                    <el-table-column prop="tenderPurchaserName" :show-overflow-tooltip ="true" label="招标(采购)人">
                     </el-table-column>
-                    <el-table-column prop="nameOfSuccessfulSupplier" label="中标人">
+                    <el-table-column prop="nameOfSuccessfulSupplier" :show-overflow-tooltip ="true" label="中标人">
                     </el-table-column>
-                    <el-table-column prop="performanceSubmitDate" label="履约信息递交时间">
+                    <el-table-column prop="performanceSubmitDate" :show-overflow-tooltip ="true" label="履约信息递交时间">
                     </el-table-column>
                     <el-table-column fixed="right" label="修改" width="100" v-if="role_types == '招标(采购)代理'  || str_entrust_type == '委托角色'">
                         <template slot-scope="scope">
@@ -60,17 +60,17 @@
                     <el-table :data="performanceData" stripe style="width: 100%">
                         <el-table-column type="index" width="70" label="编号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="projectCode" label="入场项目(分包)编号" width="180"  v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
+                        <el-table-column prop="projectCode" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="180"  v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
                         </el-table-column>
-                        <el-table-column prop="entrySubcontractNumber" label="入场项目(分包)编号" width="180" v-else>
+                        <el-table-column prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="180" v-else>
                         </el-table-column>
-                        <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                        <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                         </el-table-column>
-                        <el-table-column prop="nameOfTenderProject" label="入场项目(分包)名称" v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
+                        <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="入场项目(分包)名称" v-if="this.projectObj.totalProjectId.indexOf('-') == -1">
                         </el-table-column>
-                        <el-table-column prop="subcontractName" label="入场项目(分包)名称" v-else>
+                        <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="入场项目(分包)名称" v-else>
                         </el-table-column>
-                        <el-table-column prop="nameOfSuccessfulSupplier" label="中标单位">
+                        <el-table-column prop="nameOfSuccessfulSupplier" :show-overflow-tooltip ="true" label="中标单位">
                         </el-table-column>
                         <el-table-column prop="operation" label="选择">
                             <template slot-scope="scope">
@@ -690,15 +690,15 @@
                                     <el-table :data="winnerData" stripe style="width: 100%">
                                         <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                                         </el-table-column>
-                                        <el-table-column prop="nameOfWinningBidder" label="中标单位名称" width="180">
+                                        <el-table-column prop="nameOfWinningBidder" :show-overflow-tooltip ="true" label="中标单位名称" width="180">
                                         </el-table-column>
-                                        <el-table-column prop="projectLeader" label="项目负责人">
+                                        <el-table-column prop="projectLeader" :show-overflow-tooltip ="true" label="项目负责人">
                                         </el-table-column>
-                                        <el-table-column prop="winningAmount" label="中标金额(万元)">
+                                        <el-table-column prop="winningAmount" :show-overflow-tooltip ="true" label="中标金额(万元)">
                                         </el-table-column>
-                                        <el-table-column prop="winningBidPeriod" label="中标日期(日历天)">
+                                        <el-table-column prop="winningBidPeriod" :show-overflow-tooltip ="true" label="中标日期(日历天)">
                                         </el-table-column>
-                                        <el-table-column prop="qualityGradeOfWinningBid" label="质量等级">
+                                        <el-table-column prop="qualityGradeOfWinningBid" :show-overflow-tooltip ="true" label="质量等级">
                                         </el-table-column>
                                     </el-table>
                                 </div>
@@ -1283,7 +1283,7 @@
                     this.totalProjectId = res.data.data.totalProjectId;//总包编号
                     this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1317,7 +1317,7 @@
                         
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1406,7 +1406,7 @@
                 if(res.data.status == 200){
                     this.winnerData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1443,7 +1443,7 @@
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1490,7 +1490,7 @@
                     }
                     this.getDataList();//获取列表详情
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1555,7 +1555,7 @@
                     this.saveBox = true;
                     this.getDataList();//获取列表详情
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1583,7 +1583,7 @@
         //新增履约记录--》点击修改保存
         modifySaveFile(){
             if(this.realityPerformanceDeadline != "" && this.realityPerformanceDeadline != null && !checkNumber(this.realityPerformanceDeadline)){
-                this.$layer.msg('请输入数字类型');
+                this.$message.warning('请输入数字类型');
                 return false;
             }
             if(this.keyIDs == ""){
@@ -1614,7 +1614,7 @@
                         this.saveBox = true;
                         this.getDataList();//获取列表详情
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1649,7 +1649,7 @@
                         this.saveBox = true;
                         this.getDataList();//获取列表详情
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1716,7 +1716,7 @@
 					})
                     this.relevantData[0].attachlist = arr
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1765,7 +1765,7 @@
                 if(res.data.status == 200){
                     this.keyIDs = res.data.data.id;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1801,7 +1801,7 @@
                     this.appendixData[0].attachlist = arr
                     this.relevantData[0].attachlist = arr
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1813,7 +1813,7 @@
 			var file = event.target.files[0];
 			var fileSize = file.size; 
 			if(fileSize > 102400000) {
-				this.$layer.msg('图片大小不能超过102400000KB');
+				this.$message.warning('图片大小不能超过102400000KB');
 				return false;
             }
             this.$refs.file.value = null;
@@ -1837,7 +1837,7 @@
                     this.uploadList();
                     $('.file_btn').val = "";
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1885,7 +1885,7 @@
         //删除文件列表
 		deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -1905,7 +1905,7 @@
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -2030,7 +2030,7 @@
             //             }
             //         }
             //     }else{
-            //         this.$layer.msg(res.data.msg)
+            //         this.$message.warning(res.data.msg)
             //     }
             // }).catch(err=>{
             //     console.log(err)
@@ -2039,7 +2039,7 @@
         //校验数字
         checkNum(){
             if(!checkNumber(this.realityPerformanceDeadline)){
-                this.$layer.msg('请输入数字类型')
+                this.$message.warning('请输入数字类型')
             }
         },
         //办理记录列表
@@ -2067,7 +2067,7 @@
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

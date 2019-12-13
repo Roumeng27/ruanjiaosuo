@@ -229,7 +229,8 @@
                             </div>
                             <div class="editCenter">
                                 <div class="editName">采购项目金额(万元)：</div>
-                                <div class="editContent">{{amountOfBiddingProject}}</div>
+                                <div class="editContent" v-if="whetherAnnounceBudget == '是'">{{amountOfBiddingProject}}</div>
+                                <div class="editContent" v-else></div>
                             </div>
                         </div>
                         <div class="editItem">
@@ -364,11 +365,11 @@
                     <el-table :data="manageDate" style="width: 100%">
                         <el-table-column prop="step" label="步骤"  width="180">
                         </el-table-column>
-                        <el-table-column  prop="userName" label="办理人员" width="180">
+                        <el-table-column  prop="userName" :show-overflow-tooltip ="true" label="办理人员" width="180">
                         </el-table-column>
-                        <el-table-column prop="creationTime" label="时间">
+                        <el-table-column prop="creationTime" :show-overflow-tooltip ="true" label="时间">
                         </el-table-column>
-                        <el-table-column prop="state" label="状态">
+                        <el-table-column prop="state" :show-overflow-tooltip ="true"  label="状态">
                         </el-table-column>
                         <el-table-column prop="remarks" label="备注">
                         </el-table-column>
@@ -439,12 +440,12 @@
 				},
 				{
 					id:2,
-					appendixName: "项目负责人授权书",
+					appendixName: "*委托代理协议",
 					attachlist: []
 				},
 				{
 					id:3,
-					appendixName: "*委托代理协议",
+					appendixName: "项目负责人授权书",
 					attachlist: []
 				},
 			],
@@ -604,7 +605,7 @@
                             $('.jingwai').hide();
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -648,7 +649,7 @@
                                     this.AnnexData[0].attachlist = arr;
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err);
@@ -671,10 +672,10 @@
                                 });
                                 this.fileData.map((item,index)=>{
                                     this.enclosureData[1].attachlist = arr
-                                    this.AnnexData[1].attachlist = arr;
+                                    this.AnnexData[2].attachlist = arr;
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err);
@@ -696,10 +697,10 @@
                                     arr.push(item)
                                 });
                                 this.fileData.map((item,index)=>{
-                                    this.AnnexData[2].attachlist = arr;
+                                    this.AnnexData[1].attachlist = arr;
                                 })
                             }else{
-                                this.$layer.msg(res.data.msg);
+                                this.$message.warning(res.data.msg);
                             }
                         }).catch(err=>{
                             console.log(err);
@@ -726,7 +727,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

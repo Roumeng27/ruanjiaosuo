@@ -24,13 +24,13 @@
                 <el-table :data="tableData" stripe style="width: 100%">
                     <el-table-column type="index" width="70" label="编号" :index="typeIndex">
                     </el-table-column>
-                    <el-table-column prop="projcetNumber" label="入场项目(分包)编号" width="180">
+                    <el-table-column prop="projcetNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="180">
                     </el-table-column>
-                    <el-table-column prop="projcetName" label="招标项目名称" width="180">
+                    <el-table-column prop="projcetName" :show-overflow-tooltip ="true" label="招标项目名称" width="180">
                     </el-table-column>
-                    <el-table-column prop="subcontractName" label="分包名称">
+                    <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="bidProjectsType" label="服务分类">
+                    <el-table-column prop="bidProjectsType" :show-overflow-tooltip ="true" label="服务分类">
                     </el-table-column>
                     <el-table-column prop="operation" label="操作">
                         <template slot-scope="scope">
@@ -389,7 +389,7 @@ export default {
                     this.total = res.data.data.total;// 总条数
                     this.pages = res.data.data.pages;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -411,7 +411,7 @@ export default {
                     this.total = res.data.data.total;// 总条数
                     this.pages = res.data.data.pages;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -456,7 +456,7 @@ export default {
                     this.total = res.data.data.total;// 总条数
                     this.pages = res.data.data.pages;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -500,7 +500,7 @@ export default {
                     this.total = res.data.data.total;// 总条数
                     this.pages = res.data.data.pages;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -552,7 +552,7 @@ export default {
                         }
                     });
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -571,7 +571,7 @@ export default {
                 if(res.data.status == 200){
                     this.lookFlag = false;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -596,7 +596,7 @@ export default {
 				if(res.data.status == 200){
 					this.companyName = res.data.data.companyName;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -605,22 +605,22 @@ export default {
         // 新增投标询疑 确定发送
         sureSendInfo(){
             if(!this.problemDescription){
-               this.$layer.msg('请输入问题描述!');
+               this.$message.warning('请输入问题描述!');
                return false;
             }else if(!this.questionPersonName){
-                this.$layer.msg("请填写联系人姓名!");
+                this.$message.warning("请填写联系人姓名!");
 				return false;
             }else if(!this.questionPersonPhone != ''){
-                this.$layer.msg("请填写电话号码!");
+                this.$message.warning("请填写电话号码!");
 				return false;
             }else if(this.questionPersonPhone != '' && !checkPhone(this.questionPersonPhone)){
-                this.$layer.msg("请填写正确的电话号码!");
+                this.$message.warning("请填写正确的电话号码!");
 				return false;
             }else if(!this.questionPersonTelephone != ''){
-                this.$layer.msg("请填写手机号码!");
+                this.$message.warning("请填写手机号码!");
 				return false;
             }else if(this.questionPersonTelephone != '' && !isPoneAvailable(this.questionPersonTelephone)){
-                this.$layer.msg("请填写正确的手机号码!");
+                this.$message.warning("请填写正确的手机号码!");
 				return false;
             }else{
                 let object = {};
@@ -651,7 +651,7 @@ export default {
                         this.addFlag = false;
                         this.writeFlag = true;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -678,7 +678,7 @@ export default {
 					this.tenderPurchaserName = res.data.data.tenderPurchaserName;// 招标(采购)人
 					
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err) 

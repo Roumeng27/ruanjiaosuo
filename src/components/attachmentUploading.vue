@@ -131,7 +131,7 @@
                             this.enclosureData[1].attachlist = arr;
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -163,7 +163,7 @@
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -174,7 +174,7 @@
                 var file = event.target.files[0];
                 var fileSize = file.size; 
                 if(fileSize > 102400) {
-                    this.$layer.msg('图片大小不能超过102400KB');
+                    this.$message.warning('图片大小不能超过102400KB');
                     return false;
                 }
                 this.$refs.file.value = null;
@@ -193,7 +193,7 @@
                         // debugger;
                         this.uploadList();
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);

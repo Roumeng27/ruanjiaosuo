@@ -35,17 +35,17 @@
 						<el-table :data="tableData" stripe style="width: 100%">
 						<el-table-column type="index" width="70" label="序号" :index="typeIndex">
 						</el-table-column>
-						<el-table-column prop="totalProjectId" label="入场项目编号" width="170">
+						<el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目编号" width="170">
 						</el-table-column>
-						<el-table-column prop="nameOfTenderProject" label="招标项目名称">
+						<el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
 						</el-table-column>
-						<el-table-column prop="subcontractName" label="分包名称">
+						<el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
 						</el-table-column>
-						<el-table-column prop="endTime" label="报名截止时间" >
+						<el-table-column prop="endTime" :show-overflow-tooltip ="true" label="报名截止时间" >
 						</el-table-column>
-						<el-table-column prop="biddingProcurementMode" label="分包分类">
+						<el-table-column prop="biddingProcurementMode" :show-overflow-tooltip ="true" label="分包分类">
 						</el-table-column>
-						<el-table-column prop="bidState" label="状态" width="100">
+						<el-table-column prop="bidState" label="状态" :show-overflow-tooltip ="true" width="100">
 						</el-table-column>
 						<el-table-column prop="operation" label="操作" width="70"> 
 						<template slot-scope="scope">
@@ -651,17 +651,17 @@ export default {
   	methods:{
 		// checkZuo(){
 		// 	if(!checkPhone(this.companyPhone)){
-		// 		this.$layer.msg('请输入正确的公司电话，例如：0000-0000000');
+		// 		this.$message.warning('请输入正确的公司电话，例如：0000-0000000');
 		// 	}
 		// },
 		checkPhone(){
 			if(!isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
-				this.$layer.msg('请输入正确的联系方式!');
+				this.$message.warning('请输入正确的联系方式!');
 			}
 		},
 		checkEmail(){
 			if(!checkEmail(this.email)){
-				this.$layer.msg('请输入正确的邮箱格式!');
+				this.$message.warning('请输入正确的邮箱格式!');
 			}
 		},
 	    // 分页器
@@ -700,7 +700,7 @@ export default {
 					this.sourceOfFunds =res.data.data.sourceOfFunds//资金来源
 					
 				}else{
-					this.$layer.msg(res.data.msg);;
+					this.$message.warning(res.data.msg);;
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -729,7 +729,7 @@ export default {
 				})
 				
 				}else{
-					this.$layer.msg(res.data.msg);;
+					this.$message.warning(res.data.msg);;
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -783,7 +783,7 @@ export default {
 						// }
 					})
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -812,7 +812,7 @@ export default {
 					}
 				})
 				}else{
-				this.$layer.msg(res.data.msg);
+				this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -843,7 +843,7 @@ export default {
 					}
 				})
 				}else{
-				this.$layer.msg(res.data.msg);
+				this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -873,7 +873,7 @@ export default {
 					this.total = res.data.data.data[0].total;
 					this.totalPages = res.data.data.data[0].totalPages;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -893,7 +893,7 @@ export default {
 					this.companyQualificationCode = res.data.data.companyQualificationCode;
 					this.companyQualification = res.data.data.companyQualification;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -953,7 +953,7 @@ export default {
 					}
 					this.payDepositRemark = res.data.data.payDepositRemark;// 保证金缴纳备注信息
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -981,19 +981,19 @@ export default {
 		//点击提交按钮
 		submitInfor(){
 			if(!this.companyName){
-                this.$layer.msg("请输入企业名称！");
+                this.$message.warning("请输入企业名称！");
 				return false;
             }else if(!this.bidContacts){
-                this.$layer.msg("请输入投标联系人！");
+                this.$message.warning("请输入投标联系人！");
 				return false;
             }else if(this.companyPhone !='' && this.companyPhone !=null && !checkPhone(this.companyPhone)){
-                this.$layer.msg("请输入正确的公司电话！例如:0000-0000000");
+                this.$message.warning("请输入正确的公司电话！例如:0000-0000000");
 				return false;
             }else if (this.telephone!='' && this.telephone !=null && !isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
-                this.$layer.msg("请输入正确的联系人手机！");
+                this.$message.warning("请输入正确的联系人手机！");
 				return false;
             }else if(this.email !='' && this.email !=null && !checkEmail(this.email)){
-                this.$layer.msg('请输入正确的Email！');
+                this.$message.warning('请输入正确的Email！');
                 return false;
             }else{
 				let object={}
@@ -1044,7 +1044,7 @@ export default {
 						this.addShow = false;
 						this.getList();
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err)
@@ -1077,7 +1077,7 @@ export default {
 				if(res.data.status == 200){
 					this.chooseData = res.data.data.list;
 				}else{
-					this.$layer.msg(res.data.msg);;
+					this.$message.warning(res.data.msg);;
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1132,7 +1132,7 @@ export default {
 					})
 					this.enclosureData[0].attachlist = arr;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1168,7 +1168,7 @@ export default {
 					})
 					this.paymentData[0].attachlist = arr;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1193,7 +1193,7 @@ export default {
 				if(res.data.status == 200){
 					this.enclosureData[0].attachlist = ""
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1245,7 +1245,7 @@ export default {
 						this.paymentData[0].attachlist = arr;
 					}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -1262,7 +1262,7 @@ export default {
 		//删除文件列表
 		deleteFile(){
 			if(this.attachmeId.length<=0){
-				this.$layer.msg('请选择要删除的文件!')
+				this.$message.warning('请选择要删除的文件!')
 				return false;
 			}else {
 				this.$axios({
@@ -1282,7 +1282,7 @@ export default {
 							}
 						}
 					}else{
-						this.$layer.msg(res.data.msg);
+						this.$message.warning(res.data.msg);
 					}
 				}).catch(err=>{
 					console.log(err);
@@ -1294,7 +1294,7 @@ export default {
 			var file = event.target.files[0];
 			var fileSize = file.size; 
 			if(fileSize > 102400000) {
-				this.$layer.msg('图片大小不能超过102400KB');
+				this.$message.warning('图片大小不能超过102400KB');
 				return false;
 			}
 			this.$refs.file.value = null;
@@ -1334,7 +1334,7 @@ export default {
 				if(res.data.status == 200){
 					this.uploadList();
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);

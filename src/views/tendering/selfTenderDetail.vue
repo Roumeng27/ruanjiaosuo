@@ -105,7 +105,7 @@
                         window.localStorage.biddingType = res.data.data[0].dropDownBox;
                         window.localStorage.procurementMode_type = res.data.data[0].procurementMode
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)

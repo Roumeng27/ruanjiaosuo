@@ -49,14 +49,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="entrySubcontractNumber"
                                     label="入场项目(分包)编号">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractName"
                                     label="分包名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractingControlAmount"
                                     label="分包控制金额(万元)">
                                 </el-table-column>
@@ -84,7 +87,7 @@
                                 <div class="editTextarea">
                                     <div class="editName">审批或核准结果：</div>
                                     <div class="editContent">
-                                        <el-input v-model="approvedResult" type="textarea"></el-input>
+                                        <el-input   v-model="approvedResult" type="textarea"></el-input>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +108,7 @@
                                 <div class="editTextarea">
                                     <div class="editName">异常类型：</div>
                                     <div class="editContent">
-                                        <el-radio-group v-model="exceptionTypes" @change="getRadio">
+                                        <el-radio-group  v-model="exceptionTypes" @change="getRadio">
                                             <el-radio label="终止招标">终止招标</el-radio>
                                             <!-- <el-radio label="重新招标">重新招标</el-radio>
                                             <el-radio label="变更采购方式">变更采购方式</el-radio> -->
@@ -123,7 +126,7 @@
                                 <div class="editCenter">
                                     <div class="editName">现招标方式：</div>
                                     <div class="editContent">
-                                        <el-select v-model="newBiddingType" clearable>
+                                        <el-select  v-model="newBiddingType" clearable>
                                             <el-option v-for="item in newBiddingTypeList" :key="item.value" :label="item.label" :value="item.value">
                                             </el-option>
                                         </el-select>
@@ -143,7 +146,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>网站显示公告标题：</div>
                                         <div class="editContent">
-                                            <el-input v-model="noticeTitle"></el-input>
+                                            <el-input   id="focus1" v-model="noticeTitle"></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -192,22 +195,27 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projectCode"
                                 label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projectName"
                                 label="分包名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="publishState"
                                 label="发布状态">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="startTime"
                                 label="公告开始时间">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="endTime"
                                 label="公告截止时间">
                             </el-table-column>
@@ -225,18 +233,22 @@
                             <template slot-scope="scope">{{ scope.$index+1 }}</template>
                         </el-table-column>
                         <el-table-column
+                            :show-overflow-tooltip ="true"
                             prop="entrySubcontractNumber"
                             label="入场项目(分包)编号">
                         </el-table-column>
                         <el-table-column
+                            :show-overflow-tooltip ="true"
                             prop="nameOfTenderProject"
                             label="招标项目名称">
                         </el-table-column>
                         <el-table-column
+                            :show-overflow-tooltip ="true"
                             prop="subcontractName"
                             label="分包名称">
                         </el-table-column>
                         <el-table-column
+                            :show-overflow-tooltip ="true"
                             prop="exceptionTypes"
                             label="处理结果">
                         </el-table-column>
@@ -291,14 +303,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="entrySubcontractNumber"
                                     label="入场项目(分包)编号">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractName"
                                     label="分包名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractingControlAmount"
                                     label="分包控制金额(万元)">
                                 </el-table-column>
@@ -399,22 +414,27 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projectCode"
                                 label="入场项目(分包)编号">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projectName"
                                 label="分包名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="publishState"
                                 label="发布状态">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="startTime"
                                 label="公告开始时间">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="endTime"
                                 label="公告截止时间">
                             </el-table-column>
@@ -432,22 +452,27 @@
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="entrySubcontractNumber"
                                 label="入场项目(分包)编号" v-if="entrySubcontractNumber != null">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="projectCode"
                                 label="入场项目(分包)编号" v-else>
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="nameOfTenderProject"
                                 label="招标项目名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="subcontractName"
                                 label="分包名称">
                             </el-table-column>
                             <el-table-column
+                                :show-overflow-tooltip ="true"
                                 prop="exceptionTypes"
                                 label="处理结果">
                             </el-table-column>
@@ -839,7 +864,8 @@ export default {
             this.uploadList();
             if(this.isNotice){
                 if(!this.noticeTitle){
-                    this.$layer.msg('请输入网站显示公告标题');
+                    $('#focus1').focus();
+                    this.$message.warning('请输入网站显示公告标题');
                 }else {
                     if(num == 1 || num == 3){
                         // 保存
@@ -906,7 +932,7 @@ export default {
                     this.headerBtn = false;
                     this.nextFlag = true;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1041,7 +1067,7 @@ export default {
                     this.id= res.data.data.id;// 招标异常 ID
                     
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1065,7 +1091,7 @@ export default {
 					this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                     this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1088,7 +1114,7 @@ export default {
 						this.biddingProcurementMode = this.candidateMenu[i].projectInformationVo.biddingProcurementMode;
 					}
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1124,7 +1150,7 @@ export default {
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1154,7 +1180,7 @@ export default {
                 if(res.data.status == 200){
 					this.historyData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1175,7 +1201,7 @@ export default {
 				if(res.data.status == 200){
 					this.candidateMenu = res.data.data.list;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -1207,7 +1233,7 @@ export default {
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1237,7 +1263,7 @@ export default {
                     }
                     this.oldBiddingType = str;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1312,7 +1338,7 @@ export default {
                     }
                     this.id = res.data.data.id;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1368,7 +1394,7 @@ export default {
                         this.showEditFlag = false;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1412,7 +1438,7 @@ export default {
                     
                     this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1428,7 +1454,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-				this.$layer.msg('请选择要删除的文件!')
+				this.$message.warning('请选择要删除的文件!')
 				return false;
 			}else {
 				this.$axios({
@@ -1448,7 +1474,7 @@ export default {
 							}
 						}
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 				}).catch(err=>{
 					console.log(err);
@@ -1460,7 +1486,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -1485,7 +1511,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1577,7 +1603,7 @@ export default {
 				if(res.data.status == 200){
                    this.newBiddingTypeList = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)

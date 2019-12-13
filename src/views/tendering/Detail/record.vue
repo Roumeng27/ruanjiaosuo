@@ -44,11 +44,11 @@
                                     <el-table :data="subpakegeData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true"  label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -100,13 +100,13 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同编号：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractCode" clearable></el-input>
+                                            <el-input v-model="contractCode" id="focus1" clearable></el-input>
                                         </div>
 									</div>
                                     <div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同名称：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractName" clearable></el-input>
+                                            <el-input v-model="contractName" id="focus2"  clearable></el-input>
                                         </div>
 									</div>
 								</div>
@@ -114,13 +114,13 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同金额(元)：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractAmount" clearable></el-input>
+                                            <el-input v-model="contractAmount" id="focus3"  clearable></el-input>
                                         </div>
 									</div>
                                     <div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同期限(日历天)：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractDeadline" clearable></el-input>
+                                            <el-input v-model="contractDeadline" id="focus4"  clearable></el-input>
                                         </div>
 									</div>
 								</div>
@@ -128,14 +128,14 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同签署时间：</div>
 										<div class="editContent">
-                                            <el-date-picker v-model="contractSignTime"  type="date" :picker-options="pickerOptions0" placeholder="选择日期">
+                                            <el-date-picker v-model="contractSignTime"  id="focus5"  type="date" :picker-options="pickerOptions0" placeholder="选择日期">
                                             </el-date-picker>
                                         </div>
 									</div>
                                     <div class="editCenter">
 										<div class="editName"><p class="star">*</p>洽谈地点：</div>
 										<div class="editContent">
-                                            <el-input v-model="discussLocation" clearable></el-input>
+                                            <el-input v-model="discussLocation" id="focus6"  clearable></el-input>
                                         </div>
 									</div>
 								</div>
@@ -210,11 +210,11 @@
                                     <el-table :data="subpakegeData" stripe style="width: 100%">
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                        <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractName"  label="分包名称">
+                                        <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                         </el-table-column>
-                                        <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                        <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                         </el-table-column>
                                         <el-table-column prop="operation" label="查看">
                                             <template slot-scope="scope">
@@ -938,7 +938,7 @@ import {checkNumber} from '../../../api/base'
                     this.contacts = res.data.data.contacts//联系人
                     this.biddingPurchasingAgencyName = res.data.data.biddingPurchasingAgencyName;
                 }else{
-                    this.$layer.msg(res.data.msg);;
+                    this.$message.warning(res.data.msg);;
                 }
             }).catch(err=>{
                 console.log(err)
@@ -958,7 +958,7 @@ import {checkNumber} from '../../../api/base'
                 if(res.data.status == 200){
                     this.subpakegeData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);;
+                    this.$message.warning(res.data.msg);;
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1008,7 +1008,7 @@ import {checkNumber} from '../../../api/base'
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1068,7 +1068,7 @@ import {checkNumber} from '../../../api/base'
                     this.contractSignTime = dayjs(res.data.data.contractSignTime).format('YYYY-MM-DD');// 合同签署时间
                     this.contractId = res.data.data.contractId;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1096,7 +1096,7 @@ import {checkNumber} from '../../../api/base'
                 if(res.data.status == 200){
                     this.contractId = res.data.data.contractId;
                 }else{
-                    this.$layer.msg(res.data.msg);;
+                    this.$message.warning(res.data.msg);;
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1105,28 +1105,36 @@ import {checkNumber} from '../../../api/base'
         //下一步
         nextTo(){
             if(!this.contractCode){
-                this.$layer.msg('请填写合同编号');
+                $('#focus1').focus();
+                this.$message.warning('请填写合同编号');
                 return false;
             }else if(!this.contractName){
-                this.$layer.msg('请填写合同名称');
+                $('#focus2').focus();
+                this.$message.warning('请填写合同名称');
                 return false;
             }else if(!this.contractAmount){
-                this.$layer.msg('请填写合同金额');
+                $('#focus3').focus();
+                this.$message.warning('请填写合同金额');
                 return false;
             }else if(!this.contractDeadline){
-                this.$layer.msg('请填写合同期限');
+                $('#focus4').focus();
+                this.$message.warning('请填写合同期限');
                 return false;
             }else if(!this.contractSignTime){
-                this.$layer.msg('请填写合同签署时间');
+                $('#focus5').focus();
+                this.$message.warning('请填写合同签署时间');
                 return false;
             }else if(!this.discussLocation){
-                this.$layer.msg('请填写洽谈地点');
+                $('#focus6').focus();
+                this.$message.warning('请填写洽谈地点');
                 return false;
             }
             if(!checkNumber(this.contractAmount)){
-                this.$layer.msg('合同金额请输入数字类型')
+                $('#focus3').focus();
+                this.$message.warning('合同金额请输入数字类型')
             }else if(!checkNumber(this.contractDeadline)){
-                this.$layer.msg('合同期限请输入数字类型')
+                $('#focus4').focus();
+                this.$message.warning('合同期限请输入数字类型')
             }
             
             let objectData = {};
@@ -1192,7 +1200,7 @@ import {checkNumber} from '../../../api/base'
                          this.createTime = dayjs(res.data.data.createTime).format('YYYY-MM-DD');
                     };
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1201,23 +1209,36 @@ import {checkNumber} from '../../../api/base'
         //保存
         saveFile(){
             if(!this.contractCode){
-                this.$layer.msg('请填写合同编号');
+                $('#focus1').focus();
+                this.$message.warning('请填写合同编号');
                 return false;
             }else if(!this.contractName){
-                this.$layer.msg('请填写合同名称');
+                $('#focus2').focus();
+                this.$message.warning('请填写合同名称');
                 return false;
-            }else if(this.contractAmount =='' || this.contractAmount ==null || !checkNumber(this.contractAmount)){
-                this.$layer.msg('请填写正确的合同金额');
+            }else if(!this.contractAmount){
+                $('#focus3').focus();
+                this.$message.warning('请填写合同金额');
                 return false;
-            }else if(this.contractDeadline ==''|| this.contractDeadline ==null || !checkNumber(this.contractDeadline)){
-                this.$layer.msg('请填写正确的合同期限');
+            }else if(!this.contractDeadline){
+                $('#focus4').focus();
+                this.$message.warning('请填写合同期限');
                 return false;
             }else if(!this.contractSignTime){
-                this.$layer.msg('请填写合同签署时间');
+                $('#focus5').focus();
+                this.$message.warning('请填写合同签署时间');
                 return false;
             }else if(!this.discussLocation){
-                this.$layer.msg('请填写洽谈地点');
+                $('#focus6').focus();
+                this.$message.warning('请填写洽谈地点');
                 return false;
+            }
+            if(!checkNumber(this.contractAmount)){
+                $('#focus3').focus();
+                this.$message.warning('合同金额请输入数字类型')
+            }else if(!checkNumber(this.contractDeadline)){
+                $('#focus4').focus();
+                this.$message.warning('合同期限请输入数字类型')
             }
             let objectData = {};
             if(this.projectObj.totalProjectId.indexOf("-") != -1){
@@ -1271,7 +1292,7 @@ import {checkNumber} from '../../../api/base'
                     this.contractSignTime = dayjs(res.data.data.contractSignTime).format('YYYY-MM-DD');
                     this.gettreatList();
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1283,7 +1304,7 @@ import {checkNumber} from '../../../api/base'
         //提交
         submit(){
             if(this.enclosureData[0].attachlist == ""){
-				this.$layer.msg('请选择合同签署附件');
+				this.$message.warning('请选择合同签署附件');
 				return false;
 			}
             this.$axios({
@@ -1302,7 +1323,7 @@ import {checkNumber} from '../../../api/base'
                         this.nextFlag = true;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1350,7 +1371,7 @@ import {checkNumber} from '../../../api/base'
                     this.contractSignTime = dayjs(res.data.data.contractSignTime).format('YYYY-MM-DD');// 合同签署时间
                     this.contractId = res.data.data.contractId;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1465,7 +1486,7 @@ import {checkNumber} from '../../../api/base'
                         }
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1497,7 +1518,7 @@ import {checkNumber} from '../../../api/base'
                         item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1537,7 +1558,7 @@ import {checkNumber} from '../../../api/base'
                     })
                     this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -1553,7 +1574,7 @@ import {checkNumber} from '../../../api/base'
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -1573,7 +1594,7 @@ import {checkNumber} from '../../../api/base'
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -1585,7 +1606,7 @@ import {checkNumber} from '../../../api/base'
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -1610,7 +1631,7 @@ import {checkNumber} from '../../../api/base'
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);

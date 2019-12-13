@@ -23,13 +23,13 @@
                     <el-table :data="enclosureData" stripe style="width: 100%">
                         <el-table-column  prop="index"  label="序号">
                         </el-table-column>
-                        <el-table-column  prop="number"  label="入场项目(分包)编号">
+                        <el-table-column  prop="number" :show-overflow-tooltip ="true"  label="入场项目(分包)编号">
                         </el-table-column>
-                        <el-table-column  prop="number"  label="分包名称">
+                        <el-table-column  prop="number" :show-overflow-tooltip ="true" label="分包名称">
                         </el-table-column>
-                        <el-table-column  prop="number"  label="分包控制金额(万元)">
+                        <el-table-column  prop="number" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                         </el-table-column>
-                        <el-table-column  prop="number"  label="参看">
+                        <el-table-column  prop="number" :show-overflow-tooltip ="true" label="参看">
                         </el-table-column>
                     </el-table>
                 </el-collapse-item>
@@ -135,7 +135,7 @@
                             }
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)

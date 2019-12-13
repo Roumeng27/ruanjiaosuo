@@ -53,11 +53,11 @@
                                             <el-table :data="enclosureData" stripe style="width: 100%">
                                                 <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                                 </el-table-column>
-                                                <el-table-column  prop="entrySubcontractNumber"  label="入场项目(分包)编号" width="200">
+                                                <el-table-column  prop="entrySubcontractNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="200">
                                                 </el-table-column>
-                                                <el-table-column  prop="subcontractName"  label="分包名称">
+                                                <el-table-column  prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                                                 </el-table-column>
-                                                <el-table-column  prop="subcontractingControlAmount"  label="分包控制金额(万元)">
+                                                <el-table-column  prop="subcontractingControlAmount" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                                                 </el-table-column>
                                                 <el-table-column prop="operation" label="查看">
                                                     <template slot-scope="scope">
@@ -77,7 +77,7 @@
                                         <div class="noteLeft" style="width:130px;"><span style="color:#f00;">*</span>招标文件发售时间：</div>
                                         <div class="noteTime">
                                             <div class="timeBox">
-                                                <el-date-picker v-model="tenderTime" type="daterange"  range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+                                                <el-date-picker id="focus1" v-model="tenderTime" type="daterange"  range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
                                                 </el-date-picker>
                                             </div>
                                         </div>
@@ -125,7 +125,7 @@
                                         <div class="noteline">
                                             <p>人民币</p>
                                             <div class="moneyBox">
-                                                <el-input v-model="costBiddingDocuments" clearable></el-input>
+                                                <el-input  id="focus2" v-model="costBiddingDocuments" clearable></el-input>
                                             </div>
                                             <p>元</p>
                                         </div>
@@ -148,7 +148,7 @@
                                     <div class="noteContent">
                                         <div class="noteLeft"><span style="color:#f00;">*</span>递交投标文件截止时间：</div>
                                         <div class="noteFlex">
-                                        <el-date-picker v-model="submissionDocumentsEndTime" type="datetime"  placeholder="选择日期时间">
+                                        <el-date-picker id="focus3"  v-model="submissionDocumentsEndTime" type="datetime"  placeholder="选择日期时间">
                                         </el-date-picker>
                                         </div>
                                     </div>
@@ -195,13 +195,13 @@
                                         </el-table-column>
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="unitName"  label="单位名称">
+                                        <el-table-column  prop="unitName" :show-overflow-tooltip ="true" label="单位名称">
                                         </el-table-column>
-                                        <el-table-column  prop="noticeIssueUnitName"  label="项目负责人">
+                                        <el-table-column  prop="noticeIssueUnitName" :show-overflow-tooltip ="true" label="项目负责人">
                                         </el-table-column>
-                                        <el-table-column  prop="issueTime"  label="发出时间">
+                                        <el-table-column  prop="issueTime" :show-overflow-tooltip ="true" label="发出时间">
                                         </el-table-column>
-                                        <el-table-column  prop="auditResults"  label="资审结果">
+                                        <el-table-column  prop="auditResults" :show-overflow-tooltip ="true"  label="资审结果">
                                         </el-table-column>
                                         <el-table-column label="通知书状态">
                                             <template slot-scope="scope">
@@ -220,13 +220,13 @@
                                         </el-table-column>
                                         <el-table-column  type="index"  label="序号" :index="typeIndex" width="70">
                                         </el-table-column>
-                                        <el-table-column  prop="unitName"  label="单位名称">
+                                        <el-table-column  prop="unitName" :show-overflow-tooltip ="true" label="单位名称">
                                         </el-table-column>
-                                        <el-table-column  prop="noticeIssueUnitName"  label="项目负责人">
+                                        <el-table-column  prop="noticeIssueUnitName" :show-overflow-tooltip ="true"  label="项目负责人">
                                         </el-table-column>
-                                        <el-table-column  prop="issueTime"  label="发出时间">
+                                        <el-table-column  prop="issueTime" :show-overflow-tooltip ="true" label="发出时间">
                                         </el-table-column>
-                                        <el-table-column  prop="auditResults"  label="资审结果">
+                                        <el-table-column  prop="auditResults" :show-overflow-tooltip ="true" label="资审结果">
                                         </el-table-column>
                                         <el-table-column label="通知书状态" >
                                             <template slot-scope="scope">
@@ -419,17 +419,17 @@
                     <el-table :data="tableData" stripe style="width: 100%">
                         <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="unitName" label="单位名称" width="210">
+                        <el-table-column prop="unitName" :show-overflow-tooltip ="true" label="单位名称" width="210">
                         </el-table-column>
-                        <el-table-column prop="contacts" label="联系人" >
+                        <el-table-column prop="contacts" :show-overflow-tooltip ="true" label="联系人" >
                         </el-table-column>
-                        <el-table-column prop="auditResults" label="是否通过资审">
+                        <el-table-column prop="auditResults" :show-overflow-tooltip ="true" label="是否通过资审">
                         </el-table-column>
-                        <el-table-column prop="noticeStatus" label="通知书发送状态">
+                        <el-table-column prop="noticeStatus" :show-overflow-tooltip ="true" label="通知书发送状态">
                         </el-table-column>
-                        <el-table-column prop="join" label="是否参加">
+                        <el-table-column prop="join" :show-overflow-tooltip ="true" label="是否参加">
                         </el-table-column>
-                        <el-table-column prop="noticeIssueUnitName" label="项目负责人">
+                        <el-table-column prop="noticeIssueUnitName" :show-overflow-tooltip ="true" label="项目负责人">
                         </el-table-column>
                     </el-table>
                 </div>
@@ -530,7 +530,7 @@ export default {
                     this.tenderPurchaserName = res.data.data.tenderPurchaserName;// 招标(采购)人
                     this.tenderContents = res.data.data.tenderContents;// 招标内容
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -557,7 +557,7 @@ export default {
                 if(res.data.status == 200){
                     this.enclosureData = res.data.data;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -646,7 +646,7 @@ export default {
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -675,13 +675,16 @@ export default {
         //保存信息
         saveInfo(){
             if(!this.tenderTime || !this.morningbegin || !this.morningend || !this.afterbegin || !this.afterend){
-                this.$layer.msg('请选择招标文件发售时间');
+                $('#focus1').focus();
+                this.$message.warning('请选择招标文件发售时间');
                 return false;
             }else if(!this.costBiddingDocuments){
-                this.$layer.msg('请填写招标文件工本费');
+                $('#focus2').focus();
+                this.$message.warning('请填写招标文件工本费');
                 return false;
             }else if(!this.submissionDocumentsEndTime){
-                this.$layer.msg('请填写递交投标文件截止时间');
+                $('#focus3').focus();
+                this.$message.warning('请填写递交投标文件截止时间');
                 return false;
             }
             // 上午发售时间
@@ -740,7 +743,7 @@ export default {
                     this.saveBox = true;
                     this.prequalificaId = res.data.data.prequalificaId;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -839,7 +842,7 @@ export default {
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

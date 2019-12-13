@@ -49,14 +49,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="entrySubcontractNumber"
                                     label="入场项目(分包)编号">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractName"
                                     label="分包名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractingControlAmount"
                                     label="分包控制金额(万元)">
                                 </el-table-column>
@@ -149,10 +152,12 @@
                                         label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -669,7 +674,7 @@
                         this.nextFlag = false;// 下一步页面
                         this.getList();// 资格预审结果列表
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -708,7 +713,7 @@
                             this.submitBox = true;
                         }
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -740,7 +745,7 @@
                     if(res.data.status == 200){
                         this.subpackageData = res.data.data;
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -764,7 +769,7 @@
                         this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -795,7 +800,7 @@
                             item.creationTime = dayjs(item.creationTime).format('YYYY-MM-DD')
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -835,7 +840,7 @@
                         }
                         this.applyAssociatedProjectId = res.data.data.applyAssociatedProjectId;
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -865,7 +870,7 @@
                     if(res.data.status == 200){
                         this.reasultData = res.data.data;
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -905,7 +910,7 @@
                         }
                         
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -936,7 +941,7 @@
                             }
                         }
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -976,7 +981,7 @@
                             }
                         })
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1009,7 +1014,7 @@
                             })
                         }
                     }else{
-                         this.$layer.msg(res.data.msg);
+                         this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1032,7 +1037,7 @@
                 var file = event.target.files[0];
                 var fileSize = file.size; 
                 if(fileSize > 102400000) {
-                    this.$layer.msg('图片大小不能超过102400000KB');
+                    this.$message.warning('图片大小不能超过102400000KB');
                     return false;
                 }
                 this.$refs.file.value = null;
@@ -1056,7 +1061,7 @@
                     if(res.data.status == 200){
                         this.uploadList();
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1101,7 +1106,7 @@
                             this.enclosureData[2].attachlist = arr
                         }
                     }else{
-                        this.$layer.msg(res.data.msg)
+                        this.$message.warning(res.data.msg)
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -1148,7 +1153,7 @@
             //删除文件列表
             deleteFile(){
                 if(this.attachmeId.length<=0){
-                    this.$layer.msg('请选择要删除的文件!')
+                    this.$message.warning('请选择要删除的文件!')
                     return false;
                 }else {
                     this.$axios({
@@ -1168,7 +1173,7 @@
                                 }
                             }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                     }).catch(err=>{
                         console.log(err);

@@ -115,18 +115,22 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="companyName"
                                         label="单位名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="bidContacts"
                                         label="投标联系人">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="isPayTenderFee"
                                         label="支付标书费">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="isPayDeposit"
                                         label="缴纳保证金">
                                     </el-table-column>
@@ -138,6 +142,7 @@
                                         </template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="receiptState"
                                         label="回执单">
                                     </el-table-column>
@@ -1441,25 +1446,25 @@ export default {
         },
         checkMoney(){
             if(!checkNumber(this.payDepositAmount)){
-                this.$layer.msg('请输入数字类型');
+                this.$message.warning('请输入数字类型');
             }
         },
         // 校验电话号
         blurPhone(){
             if(!checkPhone(this.companyPhone)){
-                this.$layer.msg('请输入正确的电话号码');
+                this.$message.warning('请输入正确的电话号码');
             }
         },
         // 校验手机号联系方式
         blurTelPhone(){
             if(!isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
-                this.$layer.msg('请输入正确的联系方式');
+                this.$message.warning('请输入正确的联系方式');
             }
         },
         // 校验邮箱
         blurEmail(){
             if(!checkEmail(this.email)){
-                this.$layer.msg('请输入正确的邮箱');
+                this.$message.warning('请输入正确的邮箱');
             }
         },
         getDecideList(){
@@ -1529,7 +1534,7 @@ export default {
                     }
                     
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1618,7 +1623,7 @@ export default {
                 this.payDepositAmount = 0
             }
             if(this.payDepositAmount !='' &&this.payDepositAmount !=null && this.checkMoney(this.payDepositAmount)){
-                this.$layer.msg('请输入正确的缴纳金额');
+                this.$message.warning('请输入正确的缴纳金额');
                 return false;
             }else {
                 this.$axios({
@@ -1640,7 +1645,7 @@ export default {
                             this.getBidsignInfo();// 投标单位列表
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1665,7 +1670,7 @@ export default {
                             this.getBidsignInfo();// 投标单位列表
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1687,7 +1692,7 @@ export default {
                             this.getBidsignInfo();// 投标单位列表
                         }
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -1814,7 +1819,7 @@ export default {
 					this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
 
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1840,7 +1845,7 @@ export default {
                         item.saveTime = dayjs(item.saveTime).format('YYYY-MM-DD');
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1892,7 +1897,7 @@ export default {
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -1916,22 +1921,22 @@ export default {
         // 新增投标单位---> 新增
         saveAddwork(){
             if(!this.companyName){
-                this.$layer.msg("请输入企业名称！");
+                this.$message.warning("请输入企业名称！");
 				return false;
             }else if(!this.bidContacts){
-                this.$layer.msg("请输入投标联系人！");
+                this.$message.warning("请输入投标联系人！");
 				return false;
             }else if(!this.telephone){
-                this.$layer.msg("请输入联系人手机！");
+                this.$message.warning("请输入联系人手机！");
 				return false;
             }else if(this.companyPhone !='' && this.companyPhone !=null&& !checkPhone(this.companyPhone)){
-                this.$layer.msg("请输入正确的公司电话！例如:0000-0000000");
+                this.$message.warning("请输入正确的公司电话！例如:0000-0000000");
 				return false;
             }else if (this.telephone !='' && this.telephone!=null && !isPoneAvailable(this.telephone) &&!checkPhone(this.telephone)){
-                this.$layer.msg("请输入正确的联系人手机！");
+                this.$message.warning("请输入正确的联系人手机！");
 				return false;
             }else if(this.email !='' && this.email !=null && !checkEmail(this.email)){
-                this.$layer.msg('请输入正确的Email！');
+                this.$message.warning('请输入正确的Email！');
                 return false;
             }else{
                 let object = {};
@@ -1980,7 +1985,7 @@ export default {
                 let flag = true;
                 this.bidsignData.forEach(item=>{
                     if(item.companyName == this.companyName){
-                        this.$layer.msg("该企业已报名！");
+                        this.$message.warning("该企业已报名！");
                         flag = false;
                     }
                 })
@@ -1997,7 +2002,7 @@ export default {
                                 this.getBidsignInfo();// 投标单位列表
                             }
                         }else{
-                            this.$layer.msg(res.data.msg);
+                            this.$message.warning(res.data.msg);
                         }
                     }).catch(err=>{
                         console.log(err)
@@ -2032,7 +2037,7 @@ export default {
                     if(res.data.status == 200){
                         this.getBidsignInfo();// 投标单位列表
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2068,7 +2073,7 @@ export default {
                         }
                     })
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2097,7 +2102,7 @@ export default {
                     if(res.data.status == 200){
                         this.workData = res.data.data.data;
                     }else{
-                        this.$layer.msg(res.data.msg);
+                        this.$message.warning(res.data.msg);
                     }
                 }).catch(err=>{
                     console.log(err)
@@ -2151,7 +2156,7 @@ export default {
                     this.professionalLevel = arr.join(',');
                     this.certificateNum = newArr.join(',');
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -2184,7 +2189,7 @@ export default {
                     this.payDepositRemark = res.data.data.payDepositRemark;// 保证金缴纳备注信息
                     this.userKeyId = res.data.data.bidCompany;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2201,7 +2206,7 @@ export default {
 		// 			this.companyQualificationCode = res.data.data.companyQualificationCode;
 		// 			this.companyQualification = res.data.data.companyQualification;
 		// 		}else{
-		// 			this.$layer.msg(res.data.msg);
+		// 			this.$message.warning(res.data.msg);
 		// 		}
 		// 	}).catch(err=>{
 		// 		console.log(err)
@@ -2231,7 +2236,7 @@ export default {
                 if(res.data.status == 200){
                     this.peopleData = res.data.data.list;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -2285,7 +2290,7 @@ export default {
                     })
                     this.enclosureData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2321,7 +2326,7 @@ export default {
                     })
                     this.otherData[0].attachlist = arr;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2357,7 +2362,7 @@ export default {
 				if(res.data.status == 200){
 					this.enclosureData[0].attachlist = ""
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err);
@@ -2409,7 +2414,7 @@ export default {
                         this.otherData[0].attachlist = arr;
                     }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);
@@ -2426,7 +2431,7 @@ export default {
         //删除文件列表
         deleteFile(){
             if(this.attachmeId.length<=0){
-                this.$layer.msg('请选择要删除的文件!')
+                this.$message.warning('请选择要删除的文件!')
                 return false;
             }else {
                 this.$axios({
@@ -2446,7 +2451,7 @@ export default {
                             }
                         }
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
                 }).catch(err=>{
                     console.log(err);
@@ -2458,7 +2463,7 @@ export default {
             var file = event.target.files[0];
             var fileSize = file.size; 
             if(fileSize > 102400000) {
-                this.$layer.msg('图片大小不能超过102400000KB');
+                this.$message.warning('图片大小不能超过102400000KB');
                 return false;
             }
             this.$refs.file.value = null;
@@ -2491,7 +2496,7 @@ export default {
                 if(res.data.status == 200){
                     this.uploadList();
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err);

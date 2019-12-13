@@ -25,13 +25,13 @@
                     <el-table :data="tableData" stripe style="width: 100%">
                         <el-table-column type="index" width="70" label="编号" :index="typeIndex">
                         </el-table-column>
-                        <el-table-column prop="projcetNumber" label="入场项目(分包)编号" width="180">
+                        <el-table-column prop="projcetNumber" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="180">
                         </el-table-column>
-                        <el-table-column prop="projcetName" label="招标项目名称" width="180">
+                        <el-table-column prop="projcetName" :show-overflow-tooltip ="true" label="招标项目名称" width="180">
                         </el-table-column>
-                        <el-table-column prop="subcontractName" label="分包名称">
+                        <el-table-column prop="subcontractName" :show-overflow-tooltip ="true" label="分包名称">
                         </el-table-column>
-                        <el-table-column prop="bidProjectsType" label="服务分类">
+                        <el-table-column prop="bidProjectsType" :show-overflow-tooltip ="true" label="服务分类">
                         </el-table-column>
                         <el-table-column prop="operation" label="操作">
                             <template slot-scope="scope">
@@ -207,7 +207,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><span style="color:#f00;">*</span>回复：</div>
                                             <div class="editContent" v-show="look_edit_show">
-                                                <el-input type="textarea"  v-model="replyContent" :rows="3"></el-input>
+                                                <el-input type="textarea" id="focus1"  v-model="replyContent" :rows="3"></el-input>
                                             </div>
                                             <div class="editContent" v-show="!look_edit_show">
                                                 <span>{{replyContent}}</span>
@@ -310,7 +310,7 @@ export default {
 					this.budgetAmount = res.data.data.budgetAmount;// 招标项目预算金额 
 					this.amountId = res.data.data.totalProjectId;// 总包 入场项目编号
                 }else{  
-                    this.$layer.msg(res.data.msg);;
+                    this.$message.warning(res.data.msg);;
                 }
             }).catch(err=>{
                 console.log(err)
@@ -331,7 +331,7 @@ export default {
                     this.subcontractName = res.data.data[0].subcontractName;
                     this.entrySubcontractNumber = res.data.data[0].entrySubcontractNumber;
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -388,7 +388,7 @@ export default {
 					this.total = res.data.data.total;// 总条数
 					this.pages = res.data.data.pages;
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -430,7 +430,7 @@ export default {
 					this.total = res.data.data.total;// 总条数
 					this.pages = res.data.data.pages;
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -474,7 +474,7 @@ export default {
 					this.total = res.data.data.total;// 总条数
 					this.pages = res.data.data.pages;
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -521,7 +521,7 @@ export default {
                         }
                     })
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -530,7 +530,8 @@ export default {
         //点击确认回复
         sure_question(){
             if(!this.replyContent){
-                this.$layer.msg('请输入回复字段!');
+                $('#focus1').focus();
+                this.$message.warning('请输入回复字段!');
                 return false;
             }
             this.$axios({
@@ -546,7 +547,7 @@ export default {
                     this.getDetailList();
                     this.lookFlag = false;
                 }else{
-                     this.$layer.msg(res.data.msg);
+                     this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)
@@ -613,7 +614,7 @@ export default {
                         } 
                     }
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)

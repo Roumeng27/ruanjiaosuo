@@ -24,11 +24,11 @@
 				<el-table :data="winData" stripe style="width: 100%">
 					<el-table-column type="index" width="70" label="序号" :index="typeIndex">
 					</el-table-column>
-					<el-table-column prop="projectNumber" label="分包编号">
+					<el-table-column prop="projectNumber" :show-overflow-tooltip ="true" label="分包编号">
 					</el-table-column>
-					<el-table-column prop="projectName" label="分包名称">
+					<el-table-column prop="projectName" :show-overflow-tooltip ="true" label="分包名称">
 					</el-table-column>
-					<el-table-column prop="noticeCode" label="通知书编号">
+					<el-table-column prop="noticeCode" :show-overflow-tooltip ="true" label="通知书编号">
 					</el-table-column>
 					<el-table-column prop="operation" label="操作" width="70"> 
 					<template slot-scope="scope">
@@ -166,7 +166,7 @@ export default {
 						item.noticeCode = item.items[0].noticeCode;// 通知书编号
 					});
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -187,7 +187,7 @@ export default {
                 if(res.data.status=200){
                     this.winData = res.data.data.list;
                 }else{
-                    this.$layer.msg(res.data.msg)
+                    this.$message.warning(res.data.msg)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -232,7 +232,7 @@ export default {
                     this.bigAmount = bigUppercase(res.data.data.winnerPrice);
                     this.biddingProjectNumber = res.data.data.biddingProjectNumber;// 招标项目编号
                 }else{
-                    this.$layer.msg(res.data.msg);
+                    this.$message.warning(res.data.msg);
                 }
             }).catch(err=>{
                 console.log(err)

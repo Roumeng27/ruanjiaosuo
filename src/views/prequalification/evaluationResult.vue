@@ -23,11 +23,11 @@
             <el-table :data="tableData" stripe style="width: 100%">
                 <el-table-column type="index" width="70" label="编号" :index="typeIndex">
                 </el-table-column>
-                <el-table-column prop="totalProjectId" label="入场项目(分包)编号" width="180">
+                <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目(分包)编号" width="180">
                 </el-table-column>
-                <el-table-column prop="nameOfTenderProject" label="招标项目名称" width="180">
+                <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称" width="180">
                 </el-table-column>
-                <el-table-column prop="biddingProjectNumber" label="分包名称">
+                <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包名称">
                 </el-table-column>
                 <el-table-column prop="state" label="状态">
                 </el-table-column>
@@ -59,19 +59,19 @@
                  <el-table :data="chooseSubData" stripe style="width: 100%">
                     <el-table-column type="index" width="70" label="序号" :index="typeIndex">
                     </el-table-column>
-                    <el-table-column prop="totalProjectId" label="入场项目分包编号">
+                    <el-table-column prop="totalProjectId" :show-overflow-tooltip ="true" label="入场项目分包编号">
                     </el-table-column>
-                    <el-table-column prop="nameOfTenderProject" label="招标项目名称">
+                    <el-table-column prop="nameOfTenderProject" :show-overflow-tooltip ="true" label="招标项目名称">
                     </el-table-column>
-                    <el-table-column prop="biddingProjectNumber" label="分包名称">
+                    <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包名称">
                     </el-table-column>
-                    <el-table-column prop="biddingProjectNumber" label="分包分类">
+                    <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包分类">
                     </el-table-column>
-                    <el-table-column prop="biddingProjectNumber" label="招标方式">
+                    <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="招标方式">
                     </el-table-column>
-                    <el-table-column prop="biddingProjectNumber" label="分包控制金额(万元)">
+                    <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="分包控制金额(万元)">
                     </el-table-column>
-                    <el-table-column prop="biddingProjectNumber" label="状态">
+                    <el-table-column prop="biddingProjectNumber" :show-overflow-tooltip ="true" label="状态">
                     </el-table-column>
                     <el-table-column prop="operation" label="选择">
                         <template slot-scope="scope">
@@ -135,14 +135,17 @@
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="entrySubcontractNumber"
                                     label="入场项目(分包)编号">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractName"
                                     label="分包名称">
                                 </el-table-column>
                                 <el-table-column
+                                    :show-overflow-tooltip ="true"
                                     prop="subcontractingControlAmount"
                                     label="分包控制金额(万元)">
                                 </el-table-column>
@@ -168,9 +171,9 @@
                             <el-table-column  prop="index"  label="序号">
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
-                            <el-table-column  prop="companyName"  label="单位名称">
+                            <el-table-column :show-overflow-tooltip ="true" prop="companyName"  label="单位名称">
                             </el-table-column>
-                            <el-table-column prop="projectLeader" label="项目负责人">
+                            <el-table-column :show-overflow-tooltip ="true" prop="projectLeader" label="项目负责人">
                             </el-table-column>
                             <el-table-column prop="examinationResult" label="审查结果"></el-table-column>
                             <el-table-column prop="reason" label="原因"></el-table-column>
@@ -238,14 +241,17 @@
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="entrySubcontractNumber"
                                         label="入场项目(分包)编号">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractName"
                                         label="分包名称">
                                     </el-table-column>
                                     <el-table-column
+                                        :show-overflow-tooltip ="true"
                                         prop="subcontractingControlAmount"
                                         label="分包控制金额(万元)">
                                     </el-table-column>
@@ -271,11 +277,11 @@
                             <el-table-column label="序号">
                                 <template slot-scope="scope">{{ scope.$index+1 }}</template>
                             </el-table-column>
-                            <el-table-column  prop="companyName"  label="单位名称">
+                            <el-table-column  prop="companyName" :show-overflow-tooltip ="true"  label="单位名称">
                             </el-table-column>
-                            <el-table-column prop="projectLeader" label="项目负责人">
+                            <el-table-column prop="projectLeader" :show-overflow-tooltip ="true" label="项目负责人">
                             </el-table-column>
-                            <el-table-column prop="examinationResult" label="审查结果">
+                            <el-table-column prop="examinationResult" :show-overflow-tooltip ="true" label="审查结果">
                             </el-table-column>
                             <el-table-column prop="reason" label="原因">
                             </el-table-column>
@@ -299,11 +305,11 @@
                             <el-table :data="handleRecordData" stripe style="width: 100%">
                                 <el-table-column prop="step" label="步骤"  width="180">
                                 </el-table-column>
-                                <el-table-column  prop="userName" label="办理人员" width="180">
+                                <el-table-column  prop="userName" :show-overflow-tooltip ="true" label="办理人员" width="180">
                                 </el-table-column>
-                                <el-table-column prop="creationTime" label="时间">
+                                <el-table-column prop="creationTime" :show-overflow-tooltip ="true" label="时间">
                                 </el-table-column>
-                                <el-table-column prop="state" label="状态">
+                                <el-table-column prop="state" :show-overflow-tooltip ="true" label="状态">
                                 </el-table-column>
                                 <el-table-column prop="remarks" label="备注">
                                 </el-table-column>

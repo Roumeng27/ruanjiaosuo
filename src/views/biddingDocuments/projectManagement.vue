@@ -25,21 +25,25 @@
 					<el-table-column type="index" label="序号" :index="typeIndex" width="70">
                     </el-table-column>
 					<el-table-column
+						:show-overflow-tooltip ="true"
 						prop="totalProjectId"
 						label="入场项目(分包)编号"
 						width="180">
 					</el-table-column>
 					<el-table-column
+						:show-overflow-tooltip ="true"
 						prop="nameOfTenderProject"
 						label="招标项目名称"
 						show-overflow-tooltip>
 					</el-table-column>
 					<el-table-column
+						:show-overflow-tooltip ="true"
 						prop="biddingProjectNumber"
 						label="招标项目编号"
 						show-overflow-tooltip>
 					</el-table-column>
 					<el-table-column
+						:show-overflow-tooltip ="true"
 						prop="subcontractName"
 						label="分包名称"
 						show-overflow-tooltip>
@@ -292,7 +296,7 @@ export default {
 				if(res.data.status == 200){
 					this.biddingData = res.data.data.data;
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -328,7 +332,7 @@ export default {
 					this.biddingData = res.data.data.list;// 自行招标列表
 					this.total = res.data.data.total;// 总条数
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)
@@ -355,7 +359,7 @@ export default {
 					this.subcontractName = res.data.data.nameOfTenderProject;// 名称
 					this.qualificationExaminationMethod =  res.data.data.qualificationExaminationMethod;// 资格审查方式
 				}else{
-					this.$layer.msg(res.data.msg);
+					this.$message.warning(res.data.msg);
 				}
 			}).catch(err=>{
 				console.log(err)

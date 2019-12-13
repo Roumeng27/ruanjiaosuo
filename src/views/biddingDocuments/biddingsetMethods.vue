@@ -63,9 +63,9 @@
                                     label="序号">
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
-                                <el-table-column  prop="handlingPersonnel"  label="评分点名称">
+                                <el-table-column :show-overflow-tooltip ="true" prop="handlingPersonnel"  label="评分点名称">
                                 </el-table-column>
-                                <el-table-column  prop="creationTime"  label="评审标准">
+                                <el-table-column :show-overflow-tooltip ="true" prop="creationTime"  label="评审标准">
                                 </el-table-column>
                                 <el-table-column
                                     width="70px"
@@ -129,15 +129,15 @@
                                     </el-table-column>
                                     <el-table-column  prop="handlingPersonnel"  label="评分点名称">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="评审标准">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="评审标准">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="最低分">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="最低分">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="最高分">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="最高分">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="打分方式">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="打分方式">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="评审标准">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="评审标准">
                                     </el-table-column>
                                     <el-table-column
                                         width="70px"
@@ -199,17 +199,17 @@
                                         label="序号">
                                         <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                     </el-table-column>
-                                    <el-table-column  prop="handlingPersonnel"  label="评分点名称">
+                                    <el-table-column  prop="handlingPersonnel" :show-overflow-tooltip ="true"  label="评分点名称">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="评审标准">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="评审标准">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="最低分">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="最低分">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="最高分">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="最高分">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="打分方式">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="打分方式">
                                     </el-table-column>
-                                    <el-table-column  prop="creationTime"  label="评审标准">
+                                    <el-table-column  prop="creationTime" :show-overflow-tooltip ="true" label="评审标准">
                                     </el-table-column>
                                     <el-table-column
                                         width="70px"
@@ -302,7 +302,7 @@
                                     label="序号">
                                     <template slot-scope="scope">{{ scope.$index+1 }}</template>
                                 </el-table-column>
-                                <el-table-column  prop="handlingPersonnel"  label="无效文件条款">
+                                <el-table-column  prop="handlingPersonnel" :show-overflow-tooltip ="true" label="无效文件条款">
                                 </el-table-column>
                                 <el-table-column
                                     width="70px"
