@@ -191,6 +191,7 @@
                                         <div class="editName"><p class="star">*</p>资审评审时间：</div>
                                         <div class="editContent">
                                             <el-date-picker
+                                                id="focus1"
                                                 v-model="subcontractContents"
                                                 type="datetime"
                                                 placeholder="选择日期时间">

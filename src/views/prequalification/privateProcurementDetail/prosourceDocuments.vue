@@ -66,13 +66,13 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>采购文件发售时间：</div>
                                         <div class="editContent">
-                                            <el-date-picker :picker-options="pickerOptions0" value-format="timestamp" v-model="saleDate" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @blur="blurDate()">
+                                            <el-date-picker id="focus1" :picker-options="pickerOptions0" value-format="timestamp" v-model="saleDate" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @blur="blurDate()">
                                             </el-date-picker>
                                         </div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>投标有效期(天)：</div>
-                                        <div class="editContent"><el-input v-model="bidPeriod"></el-input></div>
+                                        <div class="editContent"><el-input id="focus2"  v-model="bidPeriod"></el-input></div>
                                     </div>
                                 </div>
                                 <div class="editItem">
@@ -89,7 +89,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>投标文件递交方式：</div>
                                         <div class="editContent">
-                                            <el-input type="textarea" v-model="biddingDocumentsMethod" :rows="3"></el-input>
+                                            <el-input type="textarea" id="focus3"  v-model="biddingDocumentsMethod" :rows="3"></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>开标方式：</div>
                                         <div class="editContent">
-                                            <el-select v-model="bidOpeningMethod" clearable>
+                                            <el-select id="focus4"  v-model="bidOpeningMethod" clearable>
                                                 <el-option v-for="item in openMethodData" :key="item.value" :label="item.label" :value="item.value">
                                                 </el-option>
                                             </el-select>
@@ -123,7 +123,7 @@
                                     <div class="editCenter">
                                         <div class="editContent">
                                             <div class="editName"></div>
-                                            <el-input v-model="depositAmount"></el-input>
+                                            <el-input id="focus5"  v-model="depositAmount"></el-input>
                                             <p class="yuan" style="padding:0 10px;"></p>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>保证金接收账户：</div>
                                         <div class="editContent">
-                                            <el-input v-model="depositReceive" type="textarea"></el-input>
+                                            <el-input id="focus6"  v-model="depositReceive" type="textarea"></el-input>
                                             <!-- <el-button>设置账户</el-button> -->
                                         </div>
                                     </div>
@@ -779,24 +779,30 @@
                 this.getFileList();
                 this.getPhotoList();
                 if(this.saleDate.length == 0){
+                    $('#focus1').focus();
                     this.$message.warning('请选择采购文件发售时间');
                     return false;
                 }else if(!this.bidPeriod){
+                    $('#focus2').focus();
                     this.$message.warning('请输入投标有效期');
                     return false;
                 }else if(!this.biddingDocumentsMethod){
+                    $('#focus3').focus();
                     this.$message.warning('请填入投标文件递交方式');
                     return false;
                 }else if(!this.bidOpeningMethod){
+                    $('#focus4').focus();
                     this.$message.warning('请选择开标方式');
                     return false;
                 }else if(!this.depositType){
                     this.$message.warning('请选择保证金类型');
                     return false;
                 }else if(!this.depositAmount){
+                    $('#focus5').focus();
                     this.$message.warning('请填写保证金数量');
                     return false;
                 }else if(!this.depositReceive){
+                    $('#focus6').focus();
                     this.$message.warning('请填写保证金接收账户');
                     return false;
                 }
@@ -887,24 +893,30 @@
             //保存
             saveFile(){
                 if(this.saleDate.length == 0){
+                    $('#focus1').focus();
                     this.$message.warning('请选择采购文件发售时间');
                     return false;
                 }else if(!this.bidPeriod){
+                    $('#focus2').focus();
                     this.$message.warning('请输入投标有效期');
                     return false;
                 }else if(!this.biddingDocumentsMethod){
+                    $('#focus3').focus();
                     this.$message.warning('请填入投标文件递交方式');
                     return false;
                 }else if(!this.bidOpeningMethod){
+                    $('#focus4').focus();
                     this.$message.warning('请选择开标方式');
                     return false;
                 }else if(!this.depositType){
                     this.$message.warning('请选择保证金类型');
                     return false;
                 }else if(!this.depositAmount){
+                    $('#focus5').focus();
                     this.$message.warning('请填写保证金数量');
                     return false;
                 }else if(!this.depositReceive){
+                    $('#focus6').focus();
                     this.$message.warning('请填写保证金接收账户');
                     return false;
                 }

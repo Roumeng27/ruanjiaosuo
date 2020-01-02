@@ -159,7 +159,7 @@
                                 <div class="editCenter">
                                     <div class="editName"><p class="star">*</p>问题描述:</div>
                                     <div class="editContent">
-                                        <el-input type="textarea" v-model="problemDescription"></el-input>
+                                        <el-input type="textarea" id="focus1" v-model="problemDescription"></el-input>
                                     </div>
                                 </div>
                                 <div class="editItem">
@@ -172,7 +172,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>联系人姓名：</div>
                                         <div class="editContent">
-                                            <el-input v-model="questionPersonName" clearable></el-input>
+                                            <el-input v-model="questionPersonName"  id="focus2" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -180,13 +180,13 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>联系电话：</div>
                                         <div class="editContent">
-                                            <el-input v-model="questionPersonPhone" clearable></el-input>
+                                            <el-input v-model="questionPersonPhone" id="focus3"  clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>手机：</div>
                                         <div class="editContent">
-                                            <el-input v-model="questionPersonTelephone" clearable></el-input>
+                                            <el-input v-model="questionPersonTelephone" id="focus4"  clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -605,21 +605,27 @@ export default {
         // 新增投标询疑 确定发送
         sureSendInfo(){
             if(!this.problemDescription){
+                $('#focus1').focus();
                this.$message.warning('请输入问题描述!');
                return false;
             }else if(!this.questionPersonName){
+                $('#focus2').focus();
                 this.$message.warning("请填写联系人姓名!");
 				return false;
-            }else if(!this.questionPersonPhone != ''){
+            }else if(!this.questionPersonPhone){
+                $('#focus3').focus();
                 this.$message.warning("请填写电话号码!");
 				return false;
             }else if(this.questionPersonPhone != '' && !checkPhone(this.questionPersonPhone)){
+                $('#focus3').focus();
                 this.$message.warning("请填写正确的电话号码!");
 				return false;
-            }else if(!this.questionPersonTelephone != ''){
+            }else if(!this.questionPersonTelephone){
+                $('#focus4').focus();
                 this.$message.warning("请填写手机号码!");
 				return false;
             }else if(this.questionPersonTelephone != '' && !isPoneAvailable(this.questionPersonTelephone)){
+                $('#focus4').focus();
                 this.$message.warning("请填写正确的手机号码!");
 				return false;
             }else{

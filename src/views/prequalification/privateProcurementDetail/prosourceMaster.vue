@@ -311,7 +311,7 @@
                                         <div class="noteContent">
                                             <div class="noteLeft"><span style="color:#f00;">*</span>专家姓名：</div>
                                             <div style="display:flex;width:35%;">
-                                                <el-input v-model="expertName"></el-input>
+                                                <el-input v-model="expertName" id="focus1"></el-input>
                                                 <el-button style="margin-left:10px;" @click="selectOwner()">挑选</el-button>
                                             </div>
                                             <div style="display: inline-flex;margin-left:80px;">
@@ -344,7 +344,7 @@
                                         <div class="noteContent">
                                             <div class="noteLeft"><span style="color:#f00;">*</span>身份证号：</div>
                                             <div class="noteFlex">
-                                                <el-input v-model="idNumber" ></el-input>
+                                                <el-input v-model="idNumber" id="focus3" ></el-input>
                                             </div>
                                             <div style="display: inline-flex;margin-left:30px;width:50%;">
                                                 <span style="width:70px;">职务：</span>
@@ -373,7 +373,7 @@
                                         <div class="noteContent">
                                             <div class="noteLeft"><span style="color:#f00;">*</span> 专家手机：</div>
                                             <div class="noteFlex">
-                                                <el-input v-model="phone" ></el-input>
+                                                <el-input v-model="phone"  id="focus4"></el-input>
                                             </div>
                                             <div style="display: inline-flex;margin-left:30px;width:50%;">
                                                 <span style="width:130px;">职称/执业资格：</span>
@@ -1225,19 +1225,24 @@ export default {
         //点击新增专家--保存按钮
         saveNotice(){
             if(!getIdcard(this.idNumber)){
+                $('#focus3').focus();
                 this.$message.warning('请输入正确的身份证号');
                 return false;
             }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
+                $('#focus4').focus();
                 this.$message.warning('请输入正确的联系方式');
                 return false;
             }
             if(!this.expertName){
+                $('#focus1').focus();
                 this.$message.warning('请输入姓名');
                 return false;
             }else if(!this.idNumber){
+                $('#focus3').focus();
                 this.$message.warning('请输入身份证号');
                 return false;
             }else if(!this.phone){
+                $('#focus4').focus();
                 this.$message.warning('请输入联系方式');
                 return false;
             }
@@ -1449,19 +1454,24 @@ export default {
         //修改业主专家---保存
         editNotice(){
             if(!getIdcard(this.idNumber)){
+                $('#focus3').focus();
                 this.$message.warning('请输入正确的身份证号');
                 return false;
             }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
+                $('#focus4').focus();
                 this.$message.warning('请输入正确的联系方式');
                 return false;
             }
             if(!this.expertName){
+                $('#focus1').focus();
                 this.$message.warning('请输入姓名');
                 return false;
             }else if(!this.idNumber){
+                $('#focus3').focus();
                 this.$message.warning('请输入身份证号');
                 return false;
             }else if(!this.phone){
+                $('#focus4').focus();
                 this.$message.warning('请输入联系方式');
                 return false;
             }

@@ -551,7 +551,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><p class="star">*</p>专家姓名：</div>
                                             <div class="editContent">
-                                                <el-input v-model="expertName" clearable></el-input>
+                                                <el-input v-model="expertName" id="focus1" clearable></el-input>
                                             </div>
                                             <el-button plain @click="pickInfo">挑选</el-button>
                                         </div>
@@ -569,7 +569,7 @@
                                         <div class="editCenter">
                                             <div class="editName">年龄：</div>
                                             <div class="editContent">
-                                                <el-input v-model="age" clearable></el-input>
+                                                <el-input v-model="age" id="focus5" clearable></el-input>
                                             </div>
                                         </div>
                                         <div class="editCenter">
@@ -586,7 +586,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><p class="star">*</p>身份证号：</div>
                                             <div class="editContent">
-                                                <el-input v-model="idNumber" clearable @blur="blurIdNumber"></el-input>
+                                                <el-input v-model="idNumber" id="focus2"  clearable @blur="blurIdNumber"></el-input>
                                             </div>
                                         </div>
                                         <div class="editCenter">
@@ -616,7 +616,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><p class="star">*</p>专家手机：</div>
                                             <div class="editContent">
-                                                <el-input v-model="phone" clearable @blur="blurPhone"></el-input>
+                                                <el-input v-model="phone" id="focus3"  clearable @blur="blurPhone"></el-input>
                                             </div>
                                         </div>
                                         <div class="editCenter">
@@ -679,7 +679,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><p class="star">*</p>回避单位名称：</div>
                                             <div class="editContent">
-                                                <el-input v-model="avoidCompanyName" clearable></el-input>
+                                                <el-input  id="focus4" v-model="avoidCompanyName" clearable></el-input>
                                             </div>
                                             <el-button plain @click="choisePage">选择</el-button>
                                         </div>
@@ -1750,21 +1750,27 @@ export default {
         newSave(){
             if(this.ownerTitle == '新增评标专家'){
                 if(!this.expertName && !getName(this.expertName)){
+                    $('#focus1').focus();
                     this.$message.warning('请输入专家姓名');
                     return false;
                 }else if(!this.idNumber){
+                    $('#focus2').focus();
                     this.$message.warning('请输入身份证号码!');
                     return false;
                 }else if(!getIdcard(this.idNumber)){
+                    $('#focus2').focus();
                     this.$message.warning('请输入正确的身份证号码!');
                     return false;
                 }else if(!this.phone){
+                    $('#focus3').focus();
                     this.$message.warning('请输入专家手机!');
                     return false;
                 }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
+                    $('#focus3').focus();
                     this.$message.warning('请输入正确的专家手机!');
                     return false;
                 }else if(this.age !=null && this.age !='' && !checkNumber(this.age)){
+                     $('#focus5').focus();
                     this.$message.warning('请输入正确的年龄');
                     return false;
                 }else{
@@ -1875,21 +1881,27 @@ export default {
                 }
             }else if(this.ownerTitle == '修改评标专家'){
                 if(!this.expertName && !getName(this.expertName)){
+                    $('#focus1').focus();
                     this.$message.warning('请输入专家姓名');
                     return false;
                 }else if(!this.idNumber){
+                    $('#focus2').focus();
                     this.$message.warning('请输入身份证号码!');
                     return false;
                 }else if(!getIdcard(this.idNumber)){
+                    $('#focus2').focus();
                     this.$message.warning('请输入正确的身份证号码!');
                     return false;
                 }else if(!this.phone){
+                    $('#focus3').focus();
                     this.$message.warning('请输入专家手机!');
                     return false;
                 }else if(!isPoneAvailable(this.phone) && !checkPhone(this.phone)){
+                    $('#focus3').focus();
                     this.$message.warning('请输入正确的专家手机!');
                     return false;
                 }else if(this.age !=null && this.age !='' && !checkNumber(this.age)){
+                     $('#focus5').focus();
                     this.$message.warning('请输入正确的年龄');
                     return false;
                 }else{

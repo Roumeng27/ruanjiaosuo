@@ -46,7 +46,7 @@
                                     <div class="editTextarea">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="tendereePhone" clearable></el-input>
+                                            <el-input v-model="tendereePhone" id="focus4" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                         <div class="editTextarea">
                                             <div class="editName">联系方式：</div>
                                             <div class="editContent">
-                                                <el-input v-model="agentPhone" clearable></el-input>
+                                                <el-input v-model="agentPhone" id="focus6" clearable></el-input>
                                             </div>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                                     <div class="editCenter">
                                         <div class="editTit" style="width:140px;"><p class="star">*</p>采购文件发售时间：</div>
                                         <div class="editContent">
-                                            <el-date-picker v-model="collect_time" :picker-options="pickerOptions0" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+                                            <el-date-picker id="focus1" v-model="collect_time" :picker-options="pickerOptions0" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
                                             </el-date-picker>
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>采购文件工本费(元)：</div>
                                         <div class="editContent">
-                                            <el-input v-model="costBiddingDocuments" clearable></el-input>
+                                            <el-input id="focus2"  v-model="costBiddingDocuments" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +226,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>投标人需提交资料：</div>
                                         <div class="editContent">
-                                            <el-input v-model="biddersRequiredSubmitInformation" clearable></el-input>
+                                            <el-input id="focus3"  v-model="biddersRequiredSubmitInformation" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +240,7 @@
                                     <div class="editCenter">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="contactMode" clearable></el-input>
+                                            <el-input v-model="contactMode" id="focus5" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -1626,27 +1626,34 @@ export default {
         },
         newly(num){
             if(this.collect_time.length == 0){
+                $('#focus1').focus();
                 this.$message.warning('请选择招标文件发售时间');
                 return false;
             }else if(!this.morningbegin || !this.morningend || !this.afterbegin || !this.afterend){
                 this.$message.warning('请选择招标文件发售时间');
                 return false;
             }else if(!this.costBiddingDocuments){
+                $('#focus2').focus();
                 this.$message.warning('请填写招标文件工本费!');
                 return false;
             }else if(this.costBiddingDocuments != "" && !checkNumber(this.costBiddingDocuments)){
+                $('#focus2').focus();
                 this.$message.warning('请填写正确的招标文件工本费!');
                 return false;
             }else if(!this.biddersRequiredSubmitInformation){
+                $('#focus3').focus();
                 this.$message.warning('请填写投标人需提交资料');
                 return false;
             }else if(this.tendereePhone != "" && this.tendereePhone != null && !isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
-                this.$message.warning('请输入正确的联系方式！');
+               $('#focus4').focus();
+               this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.contactMode != ""  && this.contactMode != null && !isPoneAvailable(this.contactMode) && !checkPhone(this.contactMode)){
-                this.$message.warning('请输入正确的联系方式！');
+               $('#focus5').focus();
+               this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.agentPhone != ""  && this.agentPhone != null && !isPoneAvailable(this.agentPhone) && !checkPhone(this.agentPhone)){
+                $('#focus6').focus();
                 this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else{

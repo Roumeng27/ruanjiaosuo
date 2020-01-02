@@ -100,13 +100,13 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同编号：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractCode" clearable></el-input>
+                                            <el-input v-model="contractCode" id="focus1" clearable></el-input>
                                         </div>
 									</div>
                                     <div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同名称：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractName" clearable></el-input>
+                                            <el-input v-model="contractName" id="focus2"  clearable></el-input>
                                         </div>
 									</div>
 								</div>
@@ -114,13 +114,13 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同金额(元)：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractAmount" clearable></el-input>
+                                            <el-input v-model="contractAmount" id="focus3"  clearable></el-input>
                                         </div>
 									</div>
                                     <div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同期限(日历天)：</div>
 										<div class="editContent">
-                                            <el-input v-model="contractDeadline" clearable></el-input>
+                                            <el-input v-model="contractDeadline" id="focus4"  clearable></el-input>
                                         </div>
 									</div>
 								</div>
@@ -128,14 +128,14 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>合同签署时间：</div>
 										<div class="editContent">
-                                            <el-date-picker v-model="contractSignTime"  type="date" :picker-options="pickerOptions0" placeholder="选择日期">
+                                            <el-date-picker v-model="contractSignTime" id="focus5"   type="date" :picker-options="pickerOptions0" placeholder="选择日期">
                                             </el-date-picker>
                                         </div>
 									</div>
                                     <div class="editCenter">
 										<div class="editName"><p class="star">*</p>洽谈地点：</div>
 										<div class="editContent">
-                                            <el-input v-model="discussLocation" clearable></el-input>
+                                            <el-input v-model="discussLocation" id="focus6"  clearable></el-input>
                                         </div>
 									</div>
 								</div>
@@ -1110,28 +1110,38 @@ import {checkNumber} from '../../../api/base'
         //下一步
         nextTo(){
             if(!this.contractCode){
+                $('#focus1').focus();
                 this.$message.warning('请填写合同编号');
                 return false;
             }else if(!this.contractName){
+                $('#focus2').focus();
                 this.$message.warning('请填写合同名称');
                 return false;
             }else if(!this.contractAmount){
+                $('#focus3').focus();
                 this.$message.warning('请填写合同金额');
                 return false;
             }else if(!this.contractDeadline){
+                $('#focus4').focus();
                 this.$message.warning('请填写合同期限');
                 return false;
             }else if(!this.contractSignTime){
+                $('#focus5').focus();
                 this.$message.warning('请填写合同签署时间');
                 return false;
             }else if(!this.discussLocation){
+                $('#focus6').focus();
                 this.$message.warning('请填写洽谈地点');
                 return false;
             }
             if(!checkNumber(this.contractAmount)){
+                $('#focus3').focus();
                 this.$message.warning('合同金额请输入数字类型')
+                return false;
             }else if(!checkNumber(this.contractDeadline)){
+                $('#focus4').focus();
                 this.$message.warning('合同期限请输入数字类型')
+                return false;
             }
             
             let objectData = {};
@@ -1206,22 +1216,37 @@ import {checkNumber} from '../../../api/base'
         //保存
         saveFile(){
             if(!this.contractCode){
+                $('#focus1').focus();
                 this.$message.warning('请填写合同编号');
                 return false;
             }else if(!this.contractName){
+                $('#focus2').focus();
                 this.$message.warning('请填写合同名称');
                 return false;
-            }else if(this.contractAmount =='' || this.contractAmount ==null || !checkNumber(this.contractAmount)){
-                this.$message.warning('请填写正确的合同金额');
+            }else if(!this.contractAmount){
+                $('#focus3').focus();
+                this.$message.warning('请填写合同金额');
                 return false;
-            }else if(this.contractDeadline ==''|| this.contractDeadline ==null || !checkNumber(this.contractDeadline)){
-                this.$message.warning('请填写正确的合同期限');
+            }else if(!this.contractDeadline){
+                $('#focus4').focus();
+                this.$message.warning('请填写合同期限');
                 return false;
             }else if(!this.contractSignTime){
+                $('#focus5').focus();
                 this.$message.warning('请填写合同签署时间');
                 return false;
             }else if(!this.discussLocation){
+                $('#focus6').focus();
                 this.$message.warning('请填写洽谈地点');
+                return false;
+            }
+            if(!checkNumber(this.contractAmount)){
+                $('#focus3').focus();
+                this.$message.warning('合同金额请输入数字类型')
+                return false;
+            }else if(!checkNumber(this.contractDeadline)){
+                $('#focus4').focus();
+                this.$message.warning('合同期限请输入数字类型')
                 return false;
             }
             let objectData = {};

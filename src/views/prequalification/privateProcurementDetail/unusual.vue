@@ -146,7 +146,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>网站显示公告标题：</div>
                                         <div class="editContent">
-                                            <el-input v-model="noticeTitle"></el-input>
+                                            <el-input id="focus1" v-model="noticeTitle"></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -864,6 +864,7 @@ export default {
             this.uploadList();
             if(this.isNotice){
                 if(!this.noticeTitle){
+                    $('#focus1').focus();
                     this.$message.warning('请输入网站显示公告标题');
                 }else {
                     if(num == 1 || num == 3){

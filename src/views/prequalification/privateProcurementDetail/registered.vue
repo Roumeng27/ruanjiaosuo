@@ -90,7 +90,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><span class="star">*</span>单位名称：</div>
                                             <div class="editContent"> 
-                                                <el-input v-model="companyName" clearable></el-input>
+                                                <el-input v-model="companyName" id="focus1" clearable></el-input>
                                             </div>
                                         </div>
                                     </div>
@@ -98,13 +98,13 @@
                                         <div class="editCenter">
                                             <div class="editName"><span class="star">*</span>组织机构代码：</div>
                                             <div class="editContent">
-                                                <el-input v-model="organizationCode" clearable></el-input>
+                                                <el-input v-model="organizationCode" id="focus2"  clearable></el-input>
                                             </div>
                                         </div>
                                         <div class="editCenter">
                                             <div class="editName"><span class="star">*</span>单位注册地区：</div>
                                             <div class="editContent">
-                                                <el-cascader :options="addressData" v-model="localName" @change="handleChange"  :props="props">
+                                                <el-cascader :options="addressData" id="focus3"  v-model="localName" @change="handleChange"  :props="props">
                                                 </el-cascader>
                                             </div>
                                         </div>
@@ -113,7 +113,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><span class="star">*</span>单位类型：</div>
                                             <div class="editContent">
-                                                <el-checkbox-group v-model="roleTypeB" >
+                                                <el-checkbox-group v-model="roleTypeB"  id="focus4" >
                                                     <el-checkbox label="招标(采购)代理"></el-checkbox>
                                                     <el-checkbox label="投标(供应商)人"></el-checkbox>
                                                 </el-checkbox-group>
@@ -125,7 +125,7 @@
                                             <div class="editName"><span class="star">*</span>申请锁：</div>
                                             <div class="editContent">
                                                 <span style="width:30%;">主锁1个，副锁</span>
-                                                <el-input v-model="applicationLock" clearable></el-input>
+                                                <el-input  id="focus5" v-model="applicationLock" clearable></el-input>
                                                 <p>个</p>
                                             </div>
                                         </div>
@@ -140,7 +140,7 @@
                                         <div class="editCenter">
                                             <div class="editName">联系电话：</div>
                                             <div class="editContent">
-                                                <el-input v-model="contactsPhone" clearable></el-input>
+                                                <el-input v-model="contactsPhone" id="focus6" clearable></el-input>
                                             </div>
                                         </div>
                                     </div>
@@ -429,21 +429,27 @@ export default {
         //新增中的保存数据
         saveData(){
             if(!this.companyName){
+                $('#focus1').focus();
                 this.$message.warning('请输入单位名称');
                 return false;
             }else if(!this.organizationCode){
+                $('#focus2').focus();
                 this.$message.warning('请输入组织机构代码');
                 return false;
             }else if(!this.localName){
+                $('#focus3').focus();
                 this.$message.warning('请选择单位注册地区');
                 return false;
             }else if(!this.roleTypeB){
+                $('#focus4').focus();
                 this.$message.warning('请选择单位类型');
                 return false;
             }else if(this.contactsPhone != "" && !isPoneAvailable(this.contactsPhone) && !checkPhone(this.contactsPhone)){
+                $('#focus6').focus();
                 this.$message.warning('请输入正确的联系方式');
                 return false;
             }else if(this.applicationLock != "" && this.applicationLock != null && !checkNumber(this.applicationLock)){
+                $('#focus5').focus();
                 this.$message.warning('副锁请输入数字类型');
                 return false;
             }else{

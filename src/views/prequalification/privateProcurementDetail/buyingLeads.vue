@@ -53,7 +53,7 @@
                                     <div class="editCenter">
                                         <div class="editName">采购数量：</div>
                                         <div class="editContent">
-                                            <el-input v-model="purchaseAmount" @blur="purposeNum()" clearable></el-input>
+                                            <el-input id="focus8" v-model="purchaseAmount" @blur="purposeNum()" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -189,6 +189,7 @@
                                         <div class="editName"><p class="star">*</p>报名开始时间：</div>
                                         <div class="editContent">
                                             <el-date-picker 
+                                                id="focus1"
                                                 v-model="enrollStartTime" 
                                                 type="datetime" 
                                                 placeholder="选择日期时间" 
@@ -202,6 +203,7 @@
                                         <div class="editName"><p class="star">*</p>报名结束时间：</div>
                                         <div class="editContent">
                                             <el-date-picker 
+                                                 id="focus2"
                                                 v-model="enrollEndTime" 
                                                 type="datetime" 
                                                 placeholder="选择日期时间" 
@@ -216,7 +218,7 @@
                                     <div class="editCenter">
                                         <div class="editTit"><p class="star">*</p>采购文件发售时间：</div>
                                         <div class="editContent">
-                                            <el-date-picker :picker-options="pickerOptions0" clearable  v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @blur="blurDate()">
+                                            <el-date-picker id="focus3" :picker-options="pickerOptions0" clearable  v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @blur="blurDate()">
                                             </el-date-picker>
                                         </div>
                                     </div>
@@ -282,7 +284,7 @@
                                         <div class="editName"><p class="star">*</p>采购文件工本费：</div>
                                         <div class="editContent">
                                             <p>人民币</p>
-                                            <el-input v-model="tenderDocumentsCost" clearable ></el-input>
+                                            <el-input  id="focus4" v-model="tenderDocumentsCost" clearable ></el-input>
                                             <p>元</p>
                                         </div>
                                     </div>
@@ -354,7 +356,7 @@
                                     <div class="editCenter">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="projectLeaderPhone" clearable></el-input>
+                                            <el-input id="focus7" v-model="projectLeaderPhone" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -376,7 +378,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>公告标题：</div>
                                         <div class="editContent">
-                                            <el-input v-model="noticeName" clearable ></el-input>
+                                            <el-input id="focus5"  v-model="noticeName" clearable ></el-input>
                                             <p>采购内容</p>
                                         </div>
                                     </div>
@@ -1553,30 +1555,38 @@
                 this.uploadList();
                 // 保存
                 if(!this.enrollStartTime){
+                    $('#focus1').focus();
                     this.$message.warning("请输入报名开始时间！");
                     return false;
                 }else if(!this.enrollEndTime){
+                    $('#focus2').focus();
                     this.$message.warning("请输入报名结束时间！");
                     return false;
                 }else if(this.collectTime.length == 0){
+                    $('#focus3').focus();
                     this.$message.warning("请输入招采购文件发售时间！");
                     return false;
                 }else if(!this.morningbegin && !this.morningend && !this.afterbegin && !this.afterend){
                     this.$message.warning("请输入招采购文件发售时间！");
                     return false;
                 }else if(this.tenderDocumentsCost =='' || this.tenderDocumentsCost == null || !checkNumber(this.tenderDocumentsCost)){
+                    $('#focus4').focus();
                     this.$message.warning("请输入招采购文件工本费！");
                     return false;
                 }else if(this.tendereePhone != '' && this.tendereePhone != null && !isPoneAvailable(this.tendereePhone) && !checkPhone(this.tendereePhone)){
+                    $('#focus6').focus();
                     this.$message.warning('请输入正确的联系方式！');
                     return false; 
                 }else if(this.projectLeaderPhone != '' && this.projectLeaderPhone != null && !isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){ 
+                    $('#focus7').focus();
                     this.$message.warning('请输入正确的联系方式！');
                     return false;
                 }else if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkWord(this.purchaseAmount)){
+                    $('#focus8').focus();
                     this.$message.warning('采购数量请输入文字或数字类型！');
                     return false;
                 }else if(!this.noticeName){
+                    $('#focus5').focus();
                     this.$message.warning("请输入公告标题！");
                     return false;
                 }else{

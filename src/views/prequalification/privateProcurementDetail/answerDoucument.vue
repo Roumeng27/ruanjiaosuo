@@ -188,7 +188,7 @@
                                             <div class="editTextarea">
                                                 <div class="editName"><p class="star">*</p>答疑类型：</div>
                                                 <div class="editContent">
-                                                    <el-radio-group v-model="answerQuestionsType" size="small">
+                                                    <el-radio-group id="focus1" v-model="answerQuestionsType" size="small">
                                                         <el-radio label="答疑文件">答疑文件</el-radio>
                                                         <el-radio label="补遗文件">补遗文件</el-radio>
                                                         <el-radio label="澄清文件">澄清文件</el-radio>
@@ -202,6 +202,7 @@
                                                 <div class="editName"><p class="star">*</p>答疑内容：</div>
                                                 <div class="editContent">
                                                     <el-input
+                                                         id="focus2" 
                                                         type="textarea"
                                                         :rows="5"
                                                         v-model="answerQuestionsContent">
@@ -851,9 +852,11 @@
             },
             newly(num){
                 if(!this.answerQuestionsType){
+                    $('#focus1').focus();
                     this.$message.warning('请选择答疑类型!');
                     return false;
                 }else if(!this.answerQuestionsContent){
+                    $('#focus2').focus();
                     this.$message.warning('请输入答疑内容!');
                     return false;
                 }else{

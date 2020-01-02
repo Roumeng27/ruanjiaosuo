@@ -65,13 +65,13 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>采购文件发售时间：</div>
                                         <div class="editContent">
-                                            <el-date-picker :picker-options="pickerOptions0" value-format="timestamp" v-model="saleDate" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+                                            <el-date-picker id="focus1" :picker-options="pickerOptions0" value-format="timestamp" v-model="saleDate" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
                                             </el-date-picker>
                                         </div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>投标有效期(天)：</div>
-                                        <div class="editContent"><el-input v-model="bidPeriod" clearable></el-input></div>
+                                        <div class="editContent"><el-input id="focus2"  v-model="bidPeriod" clearable></el-input></div>
                                     </div>
                                 </div>
                                 <div class="editItem">
@@ -88,7 +88,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>投标文件递交方式：</div>
                                         <div class="editContent">
-                                            <el-input type="textarea" v-model="biddingDocumentsMethod" :rows="3"></el-input>
+                                            <el-input type="textarea" id="focus3"  v-model="biddingDocumentsMethod" :rows="3"></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>开标方式：</div>
                                         <div class="editContent">
-                                            <el-select v-model="bidOpeningMethod" clearable>
+                                            <el-select id="focus4"  v-model="bidOpeningMethod" clearable>
                                                 <el-option v-for="item in openMethodData" :key="item.value" :label="item.label" :value="item.value">
                                                 </el-option>
                                             </el-select>
@@ -123,7 +123,7 @@
                                         <div class="editContent">
                                             <div class="editName"></div>
                                             <el-input v-model="depositAmount" clearable></el-input>
-                                            <p style="padding:0 10px;">元</p>
+                                            <p style="padding:0 10px;" id="focus5" >元</p>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>保证金接收账户：</div>
                                         <div class="editContent">
-                                            <el-input v-model="depositReceive" type="textarea" clearable></el-input>
+                                            <el-input v-model="depositReceive" id="focus6"  type="textarea" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -159,13 +159,13 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>变更事项：</div>
                                         <div class="editContent">
-                                            <el-input v-model="changeMatters" clearable></el-input>
+                                            <el-input v-model="changeMatters" id="focus7"  clearable></el-input>
                                          </div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>变更日期：</div>
                                         <div class="editContent">
-                                            <el-date-picker :picker-options="pickerOptions1" value-format="timestamp"  v-model="changeDate" type="datetime" placeholder="选择日期时间">
+                                            <el-date-picker  id="focus8" :picker-options="pickerOptions1" value-format="timestamp"  v-model="changeDate" type="datetime" placeholder="选择日期时间">
                                             </el-date-picker>
                                          </div>
                                     </div>
@@ -174,7 +174,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>变更理由：</div>
                                         <div class="editContent">
-                                            <el-input v-model="changeReasons" type="textarea" :rows="3" ></el-input>
+                                            <el-input id="focus9"  v-model="changeReasons" type="textarea" :rows="3" ></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -856,15 +856,19 @@
             },
             newly(num){
                 if(this.saleDate.length == 0){
+                    $('#focus1').focus();
                     this.$message.warning('请选择采购文件发售时间');
                     return false;
                 }else if(this.bidPeriod !='' && this.bidPeriod !=null && !checkNumber(this.bidPeriod)){
+                    $('#focus2').focus();
                     this.$message.warning('请输入正确的投标有效期');
                     return false;
                 }else if(!this.biddingDocumentsMethod){
+                    $('#focus3').focus();
                     this.$message.warning('请填入投标文件递交方式');
                     return false;
                 }else if(!this.bidOpeningMethod){
+                    $('#focus4').focus();
                     this.$message.warning('请选择开标方式');
                     return false;
                 }else if(!this.depositType){
@@ -872,20 +876,25 @@
                     return false;
                 }else if(!this.depositAmount ){
                     if(!checkNumber(this.depositAmount)){
+                        $('#focus5').focus();
                         this.$message.warning('请填写正确的保证金金额');
                         return false;
                     }
                 }else if(!this.depositReceive){
+                    $('#focus6').focus();
                     this.$message.warning('请填写保证金接收账户');
                     return false;
                 }else if(!this.changeMatters){
+                    $('#focus7').focus();
                     this.$message.warning('请填写变更事项');
                     return false;
-                }else if(!this.changeReasons){
-                    this.$message.warning('请填写变更理由');
-                    return false;
                 }else if(!this.changeDate){
+                    $('#focus8').focus();
                     this.$message.warning('请填写变更日期');
+                    return false;
+                }else if(!this.changeReasons){
+                    $('#focus9').focus();
+                    this.$message.warning('请填写变更理由');
                     return false;
                 }else{	
                     if(num == 1){

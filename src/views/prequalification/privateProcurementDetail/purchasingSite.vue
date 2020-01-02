@@ -80,14 +80,14 @@
                                     <div class="editCenter">
                                         <div class="editName"><span style="color:#f00;">*</span>开标时间：</div>
                                         <div class="editContent">
-                                            <el-date-picker @blur="judgeTime()" value-format="timestamp" v-model="assessmentTime" type="datetime" :picker-options="pickerOptions0"  placeholder="选择日期时间"  @change="blurDate()">
+                                            <el-date-picker id="focus1" @blur="judgeTime()" value-format="timestamp" v-model="assessmentTime" type="datetime" :picker-options="pickerOptions0"  placeholder="选择日期时间"  @change="blurDate()">
                                             </el-date-picker>
                                         </div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName">开标时长：</div>
                                         <div class="editContent">
-                                            <el-select v-model="estimatedReviewDuration" placeholder="请选择">
+                                            <el-select id="focus3" v-model="estimatedReviewDuration" placeholder="请选择">
                                                 <el-option :value="0.5" :label="0.5">0.5</el-option>
                                                 <el-option :value="1" :label="1">1</el-option>
                                                 <el-option :value="1.5" :label="1.5">1.5</el-option>
@@ -109,7 +109,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><span style="color:#f00;">*</span>开标室(请选择)：</div>
                                         <div class="editContent">
-                                            <el-select v-model="openingRoom" placeholder="请选择">
+                                            <el-select id="focus2"  v-model="openingRoom" placeholder="请选择">
                                                 <el-option v-for="item in optionRoom" :key="item.value" :label="item.label" :value="item.value">
                                                 </el-option>
                                             </el-select>
@@ -1174,12 +1174,15 @@
             //下一步
             nextTo(){
                 if(!this.assessmentTime){
+                    $('#focus1').focus();
                     this.$message.warning('请选择开标时间');
                     return false;
                 }else if(!this.estimatedReviewDuration){
+                    $('#focus3').focus();
                     this.$message.warning('请选择开标时长');
                     return false;
                 }else if(!this.openingRoom){
+                    $('#focus2').focus();
                     this.$message.warning('请选择开标室');
                     return false;
                 }
@@ -1265,12 +1268,15 @@
             //保存
             saveFile(){
                 if(!this.assessmentTime){
+                    $('#focus1').focus();
                     this.$message.warning('请选择开标时间');
                     return false;
                 }else if(!this.estimatedReviewDuration){
+                    $('#focus3').focus();
                     this.$message.warning('请选择开标时长');
                     return false;
                 }else if(!this.openingRoom){
+                    $('#focus2').focus();
                     this.$message.warning('请选择开标室');
                     return false;
                 }

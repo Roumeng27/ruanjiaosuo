@@ -146,7 +146,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>投标联系人：</div>
                                         <div class="editContent">
-                                            <el-input v-model="bidContacts" clearable></el-input>
+                                            <el-input v-model="bidContacts" id="focus1" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -154,13 +154,13 @@
                                     <div class="editCenter">
                                         <div class="editName">公司电话：</div>
                                         <div class="editContent">
-                                            <el-input v-model="companyPhone" clearable></el-input>
+                                            <el-input v-model="companyPhone" id="focus4" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>联系手机：</div>
                                         <div class="editContent">
-                                            <el-input v-model="telephone" clearable ></el-input>
+                                            <el-input v-model="telephone" id="focus2"  clearable ></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +174,7 @@
                                     <div class="editCenter">
                                         <div class="editName">Email：</div>
                                         <div class="editContent">
-                                            <el-input v-model="email" clearable></el-input>
+                                            <el-input v-model="email" id="focus3" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -572,18 +572,23 @@ export default {
         //参加
         joinCom(){
             if(!this.bidContacts){
+                $('#focus1').focus();
                 this.$message.warning('请输入投标联系人');
                 return false
             }else if(!this.telephone){
+                $('#focus2').focus();
                 this.$message.warning('请输入联系方式！');
                 return false;
             }else if(!isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
+                $('#focus2').focus();
                 this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.email != "" && this.email != null && !checkEmail(this.email)){
+                $('#focus3').focus();
                 this.$message.warning('请输入正确的邮箱！');
                 return false;
             }else if(this.companyPhone != "" && this.companyPhone != null && !checkPhone(this.companyPhone)){
+                $('#focus4').focus();
                 this.$message.warning('请输入正确的座机号码！例如：0000-0000000');
                 return false;
             }else{
@@ -644,18 +649,23 @@ export default {
         //不参加
         noParticipation(){
             if(!this.bidContacts){
+                $('#focus1').focus();
                 this.$message.warning('请输入投标联系人');
                 return false
             }else if(!this.telephone){
+                $('#focus2').focus();
                 this.$message.warning('请输入联系方式！');
                 return false;
             }else if(!isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
+                $('#focus2').focus();
                 this.$message.warning('请输入正确的联系方式！');
                 return false;
             }else if(this.email != "" && this.email != null && !checkEmail(this.email)){
+                $('#focus3').focus();
                 this.$message.warning('请输入正确的邮箱！');
                 return false;
             }else if(this.companyPhone != "" && this.companyPhone != null && !checkPhone(this.companyPhone)){
+                $('#focus4').focus();
                 this.$message.warning('请输入正确的座机号码！例如：0000-0000000');
                 return false;
             }else{

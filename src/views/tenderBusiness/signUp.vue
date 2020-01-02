@@ -373,7 +373,7 @@
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>投标联系人：</div>
 										<div class="editContent">
-											<el-input v-model="bidContacts" clearable></el-input>
+											<el-input v-model="bidContacts" id="focus1" clearable></el-input>
 										</div>
 									</div>
 								</div>
@@ -381,13 +381,13 @@
 									<div class="editCenter">
 										<div class="editName">公司电话：</div>
 										<div class="editContent">
-											<el-input v-model="companyPhone" clearable></el-input>
+											<el-input v-model="companyPhone" id="focus3" clearable></el-input>
 										</div>
 									</div>
 									<div class="editCenter">
 										<div class="editName"><p class="star">*</p>联系手机：</div>
 										<div class="editContent">
-											<el-input v-model="telephone" @blur="checkPhone()" clearable ></el-input>
+											<el-input v-model="telephone" id="focus2"  @blur="checkPhone()" clearable ></el-input>
 										</div>
 									</div>
 								</div>
@@ -401,7 +401,7 @@
 									<div class="editCenter">
 										<div class="editName">Email：</div>
 										<div class="editContent">
-											<el-input v-model="email" @blur="checkEmail()" clearable></el-input>
+											<el-input id="focus4" v-model="email" @blur="checkEmail()" clearable></el-input>
 										</div>
 									</div>
 								</div>
@@ -984,15 +984,23 @@ export default {
                 this.$message.warning("请输入企业名称！");
 				return false;
             }else if(!this.bidContacts){
+				$('#focus1').focus();
                 this.$message.warning("请输入投标联系人！");
 				return false;
-            }else if(this.companyPhone !='' && this.companyPhone !=null && !checkPhone(this.companyPhone)){
-                this.$message.warning("请输入正确的公司电话！例如:0000-0000000");
-				return false;
-            }else if (this.telephone!='' && this.telephone !=null && !isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
+            }else if (!this.telephone){
+				$('#focus2').focus();
                 this.$message.warning("请输入正确的联系人手机！");
 				return false;
+            }else if (this.telephone!='' && this.telephone !=null && !isPoneAvailable(this.telephone) && !checkPhone(this.telephone)){
+				$('#focus2').focus();
+                this.$message.warning("请输入正确的联系人手机！");
+				return false;
+            }else if(this.companyPhone !='' && this.companyPhone !=null && !checkPhone(this.companyPhone)){
+				$('#focus3').focus();
+                this.$message.warning("请输入正确的公司电话！例如:0000-0000000");
+				return false;
             }else if(this.email !='' && this.email !=null && !checkEmail(this.email)){
+				$('#focus4').focus();
                 this.$message.warning('请输入正确的Email！');
                 return false;
             }else{

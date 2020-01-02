@@ -81,7 +81,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>开标时间：</div>
                                         <div class="editContent">
-                                            <el-date-picker :picker-options="pickerOptions0" value-format="timestamp" v-model="assessmentTime" type="datetime"  placeholder="选择日期时间">
+                                            <el-date-picker id="focus1" :picker-options="pickerOptions0" value-format="timestamp" v-model="assessmentTime" type="datetime"  placeholder="选择日期时间">
                                             </el-date-picker>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>开标室(请选择)：</div>
                                         <div class="editContent">
-                                            <el-select v-model="openingRoom" placeholder="请选择">
+                                            <el-select id="focus2"  v-model="openingRoom" placeholder="请选择">
                                                 <el-option v-for="item in optionRoom" :key="item.value" :label="item.label" :value="item.value">
                                                 </el-option>
                                             </el-select>

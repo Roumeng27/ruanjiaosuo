@@ -446,7 +446,7 @@
                                 <div class="editCenter">
                                     <div class="editName"><p class="star">*</p>回避单位名称：</div>
                                     <div class="editContent">
-                                        <el-input v-model="avoidCompanyName" clearable></el-input>
+                                        <el-input id="focus1" v-model="avoidCompanyName" clearable></el-input>
                                     </div>
                                     <el-button plain @click="choisePage()">选择</el-button>
                                 </div>

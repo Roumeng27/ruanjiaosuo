@@ -208,7 +208,7 @@
                                         <div class="editCenter">
                                             <div class="editName"><span style="color:#f00;">*</span>回复：</div>
                                             <div class="editContent" v-show="look_edit_show">
-                                                <el-input type="textarea"  v-model="replyContent" :rows="3"></el-input>
+                                                <el-input type="textarea" id="focus1"  v-model="replyContent" :rows="3"></el-input>
                                             </div>
                                             <div class="editContent" v-show="!look_edit_show">
                                                 <span>{{replyContent}}</span>
@@ -531,6 +531,7 @@ export default {
         //点击确认回复
         sure_question(){
             if(!this.replyContent){
+                $('#focus1').focus();
                 this.$message.warning('请输入回复字段!');
                 return false;
             }

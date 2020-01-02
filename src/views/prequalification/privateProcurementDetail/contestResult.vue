@@ -44,7 +44,7 @@
                                     <div class="editCenter">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="tendereeContactInformation" clearable ></el-input>
+                                            <el-input v-model="tendereeContactInformation" id="focus5" clearable ></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@
                                     <div class="editCenter">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="leaderContactInformation" clearable  ></el-input>
+                                            <el-input v-model="leaderContactInformation" id="focus6" clearable  ></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -177,13 +177,13 @@
                                     <div class="editCenter">
                                         <div class="editName">单价：</div>
                                         <div class="editContent">
-                                            <el-input v-model="unitPrice" clearable></el-input>
+                                            <el-input v-model="unitPrice" id="focus3" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
                                         <div class="editName">数量：</div>
                                         <div class="editContent">
-                                            <el-input v-model="number" clearable></el-input>
+                                            <el-input v-model="number" id="focus4" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -221,7 +221,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>成交供应商名称：</div>
                                         <div class="editContent">
-                                            <el-input v-model="nameOfSuccessfulSupplier" readonly></el-input>
+                                            <el-input id="focus1" v-model="nameOfSuccessfulSupplier" readonly></el-input>
                                         </div>
                                         <el-button plain @click="pickInfo">检索</el-button>
                                     </div>
@@ -239,7 +239,7 @@
                                         <div class="editName"><p class="star">*</p>成交金额(小写)：</div>
                                         <div class="editContent">
                                             <p style="color:#6e622e;">人民币</p>
-                                            <el-input v-model="winningAmountLowercase" clearable @blur ='inputblur'></el-input>
+                                            <el-input id="focus2"  v-model="winningAmountLowercase" clearable @blur ='inputblur'></el-input>
                                             <p style="color:#6e622e;">元</p>
                                         </div>
                                     </div>
@@ -1609,24 +1609,31 @@ export default {
             if(!this.diffFlag){
                 // 总包
                 if(this.unitPrice != "" && this.unitPrice != null && !checkNumber(this.unitPrice)){
+                    $('#focus3').focus();
                     this.$message.warning('单价请输入数字类型');
                     return false;
                 }else if(this.number != "" && this.number != null && !checkNumber(this.number)){
+                    $('#focus4').focus();
                     this.$message.warning('数量请输入数字类型');
                     return false;
                 }else if(this.tendereeContactInformation != "" && this.tendereeContactInformation != null && !isPoneAvailable(this.tendereeContactInformation) && !checkPhone(this.tendereeContactInformation)){
+                    $('#focus5').focus();
                     this.$message.warning('联系方式请输入正确!');
                     return false;
                 }else if(this.leaderContactInformation != "" && this.leaderContactInformation != null && !isPoneAvailable(this.leaderContactInformation) && !checkPhone(this.leaderContactInformation)){
+                    $('#focus6').focus();
                     this.$message.warning('联系方式请输入正确!');
                     return false;
                 }else if(!this.nameOfSuccessfulSupplier){
+                    $('#focus1').focus();
                     this.$message.warning('请输入成交供应商名称!');
                     return false;
                 }else if(!this.winningAmountLowercase){
+                    $('#focus2').focus();
                     this.$message.warning('请输入正确的成交金额!');
                     return false;
                 }else if(this.winningAmountLowercase != "" && this.winningAmountLowercase != null && !checkNumber(this.winningAmountLowercase)){
+                    $('#focus2').focus();
                     this.$message.warning('请输入正确的成交金额!');
                     return false;
                 }else {

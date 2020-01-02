@@ -70,7 +70,7 @@
                                         <div class="editTextarea">
                                             <div class="editName">联系方式：</div>
                                             <div class="editContent">
-                                                <el-input v-model="agentPhone" clearable></el-input>
+                                                <el-input v-model="agentPhone" id="focus8" clearable></el-input>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                     <div class="editCenter">
                                         <div class="editName">采购数量：</div>
                                         <div class="editContent">
-                                            <el-input v-model="purchaseAmount" @blur="purposeNum()" clearable></el-input>
+                                            <el-input v-model="purchaseAmount" id="focus9" @blur="purposeNum()" clearable></el-input>
                                         </div>
                                     </div>
                                     <div class="editCenter">
@@ -182,7 +182,7 @@
                                     <div class="editTextarea">
                                         <div class="editName"><p class="star">*</p>公示名称：</div>
                                         <div class="editContent">
-                                            <el-input v-model="noticeName" clearable></el-input>
+                                            <el-input v-model="noticeName" id="focus4" clearable></el-input>
                                         </div>
                                         <p>采购公示</p>
                                     </div>
@@ -191,7 +191,7 @@
                                     <div class="editCenter">
                                         <div class="editName"><p class="star">*</p>公示期限：</div>
                                         <div class="editContent">
-                                            <el-date-picker :picker-options="pickerOptions0" clearable  v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+                                            <el-date-picker id="focus5"  :picker-options="pickerOptions0" clearable  v-model="collectTime" value-format="timestamp" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
                                             </el-date-picker>
                                         </div>
                                     </div>
@@ -230,7 +230,7 @@
                                     <div class="editCenter">
                                         <div class="editName">主管部门联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="competentDepartmePhone" clearable></el-input>
+                                            <el-input v-model="competentDepartmePhone" id="focus6" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +244,7 @@
                                     <div class="editCenter">
                                         <div class="editName">联系方式：</div>
                                         <div class="editContent">
-                                            <el-input v-model="projectLeaderPhone" clearable></el-input>
+                                            <el-input v-model="projectLeaderPhone" id="focus7" clearable></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -1339,17 +1339,17 @@
                                     <div class="editItem">
                                         <div class="editCenter">
                                             <div class="editName"><span style="color:#f00;">*</span>姓名：</div>
-                                            <el-input v-model="personName"></el-input>
+                                            <el-input id="focus1" v-model="personName"></el-input>
                                         </div>
                                     </div>
                                     <div class="editItem">
                                         <div class="editCenter">
                                             <div class="editName"><span style="color:#f00;">*</span>工作单位：</div>
-                                            <el-input v-model="workUnit"></el-input>
+                                            <el-input id="focus2"  v-model="workUnit"></el-input>
                                         </div>
                                         <div class="editCenter">
                                             <div class="editName"><span style="color:#f00;">*</span>职称：</div>
-                                            <el-input v-model="position"></el-input>
+                                            <el-input id="focus3"  v-model="position"></el-input>
                                         </div>
                                     </div>
                                 </div>
@@ -1656,12 +1656,15 @@
             //专业人员保存
             addSavePerson(){
                 if(!this.personName){
+                    $('#focus1').focus();
                     this.$message.warning('请输入姓名');
                     return false;
                 }else if(!this.workUnit){
+                    $('#focus2').focus();
                     this.$message.warning('请输入工作单位');
                     return false;
                 }else if(!this.position){
+                    $('#focus3').focus();
                     this.$message.warning('请输入职称');
                     return false;
                 }
@@ -1731,21 +1734,27 @@
                 this.uploadList();
                 // 保存
                 if(!this.noticeName) {
+                    $('#focus4').focus();
                     this.$message.warning("请输入公示名称！");
                     return false;
                 }else if(this.collectTime.length == 0){
+                    $('#focus5').focus();
                     this.$message.warning("请选择公示日期");
                     return false;
                 }else if(this.competentDepartmePhone != '' && this.competentDepartmePhone != null && !isPoneAvailable(this.competentDepartmePhone) && !checkPhone(this.competentDepartmePhone)){
+                    $('#focus6').focus();
                     this.$message.warning('请输入正确的联系方式！');
                     return false; 
                 }else if(this.projectLeaderPhone != '' && this.projectLeaderPhone != null && !isPoneAvailable(this.projectLeaderPhone) && !checkPhone(this.projectLeaderPhone)){ 
+                    $('#focus7').focus();
                     this.$message.warning('请输入正确的联系方式！');
                     return false;
                 }else if(this.agentPhone != '' && this.agentPhone != null && !isPoneAvailable(this.agentPhone) && !checkPhone(this.agentPhone)){ 
+                    $('#focus8').focus();
                     this.$message.warning('请输入正确的联系方式！');
                     return false;
                 }else if(this.purchaseAmount != '' && this.purchaseAmount != null && !checkWord(this.purchaseAmount)){
+                    $('#focus9').focus();
                     this.$message.warning('采购数量请输入文字或数字类型！');
                     return false;
                 }else{
